@@ -45,8 +45,8 @@ architecture Behavioral of lab1_2 is
 begin
 
     C(0) <= A(0) AND B(0);
-    C(1) <= S(0) AND S(1);
-    C(2) <= S(2) AND S(3);
+    C(1) <= S(0) XOR S(1);
+    C(2) <= S(2) XOR S(3);
     C(3) <= S(2) AND S(3);
     
     S(0) <= A(0) AND B(1);
