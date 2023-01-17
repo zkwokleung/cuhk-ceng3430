@@ -1,3 +1,6 @@
+library ieee;
+use ieee.std_logic_1164.all;
+
 entity lab1_1 is
   Port (
     A, B: in std_logic_vector(1 downto 0);

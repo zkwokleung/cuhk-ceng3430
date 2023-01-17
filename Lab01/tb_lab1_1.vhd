@@ -30,13 +30,13 @@ begin
         B <= "00";
         
         for i in 0 to 1 loop
-            if (i = 0) then B(1) <= '0'; else B(1) <= '1'; end if;
+            if (i = 0) then A(1) <= '0'; else A(1) <= '1'; end if;
             for j in 0 to 1 loop
-                if (j = 0) then B(0) <= '0'; else B(0) <= '1'; end if;
+                if (j = 0) then A(0) <= '0'; else A(0) <= '1'; end if;
                 for k in 0 to 1 loop
-                    if (k = 0) then A(1) <= '0'; else A(1) <= '1'; end if;
+                    if (k = 0) then B(1) <= '0'; else B(1) <= '1'; end if;
                     for l in 0 to 1 loop
-                        if (l = 0) then A(0) <= '0'; else A(0) <= '1'; end if;
+                        if (l = 0) then B(0) <= '0'; else B(0) <= '1'; end if;
                         wait for 10ns;
                     end loop;
                 end loop;
