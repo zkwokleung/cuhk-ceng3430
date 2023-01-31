@@ -25,6 +25,8 @@ set_property PACKAGE_PIN T21 [get_ports {Sum[1]}]; # LED1
     set_property IOSTANDARD LVCMOS33 [get_ports {Sum[1]}]; # LED1
 set_property PACKAGE_PIN U22 [get_ports {Sum[2]}]; # LED2
     set_property IOSTANDARD LVCMOS33 [get_ports {Sum[2]}]; # LED2
+set_property PACKAGE_PIN U21 [get_ports {Sum[3]}]; # LED3
+        set_property IOSTANDARD LVCMOS33 [get_ports {Sum[3]}]; # LED3
 
 
 

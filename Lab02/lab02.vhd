@@ -19,7 +19,7 @@ architecture Behavioral of lab02 is
         );
     end component;
 
-    signal Cout: std_logic_vector(1 downto 0) := "000";
+    signal Cout: std_logic_vector(1 downto 0) := "00";
     
 begin
     fa0: full_adder port map(
