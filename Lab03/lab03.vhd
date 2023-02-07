@@ -23,7 +23,7 @@ begin
     process (clk, reset) begin
         if (reset = '1') then
             mux <= (others => '0');
-        elsif (clk'event and clk = '1') then
+        else 
             case sel is
                 when '0' => mux <= Din;
                 when '1' => mux(0) <= '0';
