@@ -12,7 +12,7 @@ end PIPO;
 architecture Behavioral of PIPO is
     component D_FF
         Port (
-            Din, clk, reset : in std_logic;
+            D, clk, reset : in std_logic;
             Q : buffer std_logic
         );
     end component;
