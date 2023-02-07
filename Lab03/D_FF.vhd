@@ -13,7 +13,7 @@ begin
     process (clk, reset)
     begin
         if reset = '1' then
-            Q <= '0’;
+            Q <= '0';
         elsif rising_edge(clk) then
             Q <= D;
         end if;
