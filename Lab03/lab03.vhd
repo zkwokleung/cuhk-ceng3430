@@ -34,8 +34,8 @@ begin
         end if;
     end process;
 
-    DFF1 : DFF Port map (mux(0), clk, reset, Q(0));
-    DFF2 : DFF Port map (mux(1), clk, reset, Q(1));
-    DFF3 : DFF Port map (mux(2), clk, reset, Q(2));
-    DFF4 : DFF Port map (mux(3), clk, reset, Q(3));
+    DFF1 : D_FF Port map (mux(0), clk, reset, Q(0));
+    DFF2 : D_FF Port map (mux(1), clk, reset, Q(1));
+    DFF3 : D_FF Port map (mux(2), clk, reset, Q(2));
+    DFF4 : D_FF Port map (mux(3), clk, reset, Q(3));
 end Behavioral;
