@@ -26,16 +26,16 @@ begin
         elsif (clk'event and clk = '1') then
             case sel is
                 when '0' => mux <= Din;
-                when '1' => mux(0) <= '0',
-                        mux(1) <= Q(0),
-                        mux(2) <= Q(1),
+                when '1' => mux(0) <= '0';
+                        mux(1) <= Q(0);
+                        mux(2) <= Q(1);
                         mux(3) <= Q(2);
             end case;
         end if;
     end process;
 
-    DFF1 : DFF Port map (mux(0), clk, rest, Q(0));
-    DFF2 : DFF Port map (mux(1), clk, rest, Q(1));
-    DFF3 : DFF Port map (mux(2), clk, rest, Q(2));
-    DFF4 : DFF Port map (mux(3), clk, rest, Q(3));
+    DFF1 : DFF Port map (mux(0), clk, reset, Q(0));
+    DFF2 : DFF Port map (mux(1), clk, reset, Q(1));
+    DFF3 : DFF Port map (mux(2), clk, reset, Q(2));
+    DFF4 : DFF Port map (mux(3), clk, reset, Q(3));
 end Behavioral;
