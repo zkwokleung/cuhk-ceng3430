@@ -31,6 +31,7 @@ architecture Behavioral of lab04 is
     signal clk_4hz : STD_LOGIC;
     signal sig_state : STD_LOGIC := '0';
     signal counter : STD_LOGIC_VECTOR(3 downto 0);
+    
 begin
     CD_1Hz: clock_divider_1hz
         port map(CLK, clk_1hz);
