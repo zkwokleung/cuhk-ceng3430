@@ -13,8 +13,6 @@ entity lab04 is
 end lab04;
 
 architecture Behavioral of lab04 is
-    type state_type is (CountDown, Stopped, CountUp);
-
     component clock_divider_1hz is
         Port (
             CLK_IN : IN STD_LOGIC;
@@ -39,7 +37,7 @@ architecture Behavioral of lab04 is
     signal clk_1hz : STD_LOGIC;
     signal clk_2hz : STD_LOGIC;
     signal clk_4hz : STD_LOGIC;
-    signal sig_state : state_type := Stopped;
+    signal sig_state : STD_LOGIC_VECTOR := "010";
     signal counter : STD_LOGIC_VECTOR(3 downto 0) := "0000";
 
 begin
@@ -50,23 +48,28 @@ begin
     CD_4Hz: clock_divider_4hz port map(CLK, clk_4hz);
 
     -- The behaviour in different state
-    process(sig_state, clk_1hz, clk_2hz, clk_4hz, DIN)
+    process(sig_state, clk_1hz, clk_2hz, DIN)
     begin
         case sig_state is
-            when CountDown =>
+            when "001" =>
                 -- Stop the counter at "0000"
                 if rising_edge(clk_2hz) and counter /= "0000" then
                     counter <= std_logic_vector(unsigned(counter)-1);
+                else
+                    counter <= counter;
                 end if;
-            when CountUp =>
+            when "100" =>
                 -- Stop the counter at "1111"
                 if rising_edge(clk_1hz) and counter /= "1111" then
                     counter <= std_logic_vector(unsigned(counter)+1);
+                else
+                    counter <= counter;
                 end if;
-            when Stopped =>
-                if rising_edge(clk_4hz) then
-                    counter <= DIN;
-                end if;
+            when "010" =>
+                counter <= DIN;
+
+            when others =>
+                counter <= counter;
         end case;
     end process;
 
@@ -76,42 +79,35 @@ begin
     begin
         if rising_edge(clk_4hz) then
             case sig_state is
-                when CountDown =>
+                when "001" =>
                     if BTNC = '1' then
-                        sig_state <= Stopped;
+                        sig_state <= "010";
+                    else
+                        sig_state <= sig_state;
                     end if;
 
-                when Stopped =>
+                when "010" =>
                     if BTNU = '1' then
-                        sig_state <= CountUp;
+                        sig_state <= "100";
+                    elsif BTND = '1' then
+                        sig_state <= "001";
+                    else
+                        sig_state <= sig_state;
                     end if;
 
-                    if BTND = '1' then
-                        sig_state <= CountDown;
-                    end if;
-
-                when CountUp =>
+                when "100" =>
                     if BTNC = '1' then
-                        sig_state <= Stopped;
+                        sig_state <= "010";
+                    else
+                        sig_state <= sig_state;
                     end if;
+
+                when others =>
+                    sig_state <= sig_state;
             end case;
         end if;
     end process; 
 
-    -- Change the state LED based on the state
-    process(clk_4hz, sig_state)
-    begin
-        if rising_edge(clk_4hz) then
-            case sig_state is
-                when CountDown =>
-                    State <= "001";
-                when Stopped =>
-                    State <= "010";
-                when CountUp =>
-                    State <= "100";
-            end case;
-        end if;
-    end process;
-
     OUTPUT <= counter;
+    STATE <= sig_state;
 end Behavioral;
