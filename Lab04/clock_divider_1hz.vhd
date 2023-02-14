@@ -2,10 +2,10 @@ library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 use IEEE.Numeric_Std.ALL;
 
-entity clock_divider_1hz
-    is Port (
-    CLK_IN : IN STD_LOGIC;
-    CLK_OUT : OUT STD_LOGIC
+entity clock_divider_1hz is 
+    Port (
+        CLK_IN : IN STD_LOGIC;
+        CLK_OUT : OUT STD_LOGIC
     );
 end clock_divider_1hz;
 
