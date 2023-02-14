@@ -40,22 +40,40 @@ architecture Behavioral of lab04 is
     signal clk_2hz : STD_LOGIC;
     signal clk_4hz : STD_LOGIC;
     signal sig_state : state_type := Stopped;
-    signal counter : STD_LOGIC_VECTOR(3 downto 0);
+    signal counter : STD_LOGIC_VECTOR(3 downto 0) := "0000";
 
 begin
-    CD_1Hz: clock_divider_1hz
-        port map(CLK, clk_1hz);
+    CD_1Hz: clock_divider_1hz port map(CLK, clk_1hz);
 
-    CD_2Hz: clock_divider_2hz
-        port map(CLK, clk_2hz);
+    CD_2Hz: clock_divider_2hz port map(CLK, clk_2hz);
 
-    CD_4Hz: clock_divider_4hz
-        port map(CLK, clk_4hz);
+    CD_4Hz: clock_divider_4hz port map(CLK, clk_4hz);
 
-    -- TODO: Control the state with buttons
-    process(clk_4hz)
+    -- The behaviour in different state
+    process(sig_state, clk_1hz, clk_2hz, clk_4hz, DIN)
     begin
+        case sig_state is
+            when CountDown =>
+                -- Stop the counter at "0000"
+                if rising_edge(clk_2hz) and counter /= "0000" then
+                    counter <= std_logic_vector(unsigned(counter)-1);
+                end if;
+            when CountUp =>
+                -- Stop the counter at "1111"
+                if rising_edge(clk_1hz) and counter /= "1111" then
+                    counter <= std_logic_vector(unsigned(counter)+1);
+                end if;
+            when Stopped =>
+                if rising_edge(clk_4hz) then
+                    counter <= DIN;
+                end if;
+        end case;
+    end process;
 
+
+    -- Control the state with buttons
+    process(sig_state, BTNC, BTNU, BTND)
+    begin
         if rising_edge(clk_4hz) then
             case sig_state is
                 when CountDown =>
@@ -80,31 +98,20 @@ begin
         end if;
     end process; 
 
-    process(sig_state, clk_1hz)
+    -- Change the state LED based on the state
+    process(clk_4hz, sig_state)
     begin
-        if sig_state = '0' then
-            counter <= DIN;
-        else
-            if rising_edge(clk_1hz) and counter /= "1111" then
-                counter <= std_logic_vector(unsigned(counter)+1);
-            end if;
+        if rising_edge(clk_4hz) then
+            case sig_state is
+                when CountDown =>
+                    State <= "001";
+                when Stopped =>
+                    State <= "010";
+                when CountUp =>
+                    State <= "100";
+            end case;
         end if;
     end process;
 
-    -- TODO: Change the output based on the state
-    process(sig_state)
-    begin
-        case sig_state is
-            when CountDown =>
-                State <= "001";
-            when Stopped =>
-                State <= "010";
-            when CountUp =>
-                State <= "100";
-        end case;
-    end process;
-
     OUTPUT <= counter;
-    STATE <= sig_state;
-    
 end Behavioral;
