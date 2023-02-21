@@ -37,8 +37,8 @@ ARCHITECTURE Behavioral OF lab05 IS
     COMPONENT clock_divider IS
         GENERIC (N : INTEGER);
         PORT (
-            clk : IN STD_LOGIC;
-            clk_out : OUT STD_LOGIC
+            CLK_IN : IN STD_LOGIC;
+            CLK_OUT : OUT STD_LOGIC
         );
     END COMPONENT;
 
@@ -121,7 +121,7 @@ BEGIN
     END PROCESS line_count_proc;
 
     -- generate vsync in [0, V_SYNC)
-    vsync_gen_proc : PROCESS (hcount)
+    vsync_gen_proc : PROCESS (vcount)
     BEGIN
         IF (vcount <= V_SYNC) THEN
             vsync <= '1';
@@ -156,7 +156,7 @@ BEGIN
     -- Make the bird bounce around the screen
     PROCESS (clk10Hz)
     BEGIN
-        IF (rising_edge(clk1Hz)) THEN
+        IF (rising_edge(clk10Hz)) THEN
             IF (x + X_SIZE >= H_END) THEN
                 dx <= - dx;
             ELSIF (x <= H_START) THEN
