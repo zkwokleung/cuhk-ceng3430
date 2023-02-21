@@ -37,8 +37,8 @@ ARCHITECTURE Behavioral OF demo IS
     COMPONENT clock_divider IS
         GENERIC (N : INTEGER);
         PORT (
-            clk : IN STD_LOGIC;
-            clk_out : OUT STD_LOGIC
+            CLK_IN : IN STD_LOGIC;
+            CLK_OUT : OUT STD_LOGIC
         );
     END COMPONENT;
 

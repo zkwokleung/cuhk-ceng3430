@@ -144,7 +144,7 @@ BEGIN
             IF (x <= hcount AND hcount < x + X_SIZE AND
                 y < vcount AND vcount < y + Y_SIZE)
                 THEN
-                color <= bird((hcount - x) / 8, (vcount - y) / 8);
+                color <= bird((vcount - y) / 8, (hcount - x) / 8);
             ELSE
                 color <= C_BLACK;
             END IF;
@@ -157,15 +157,18 @@ BEGIN
     PROCESS (clk10Hz)
     BEGIN
         IF (rising_edge(clk10Hz)) THEN
+            x <= x + dx;
+            y <= y + dy;
+
             IF (x + X_SIZE >= H_END) THEN
-                dx <= - dx;
+                dx <= - X_STEP;
             ELSIF (x <= H_START) THEN
-                dx <= - dx;
+                dx <= X_STEP;
             END IF;
             IF (y + Y_SIZE >= V_END) THEN
-                dy <= - dy;
+                dy <= - Y_STEP;
             ELSIF (y <= V_START) THEN
-                dy <= - dy;
+                dy <= Y_STEP;
             END IF;
         END IF;
     END PROCESS;
