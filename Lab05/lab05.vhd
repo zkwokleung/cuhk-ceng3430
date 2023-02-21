@@ -59,6 +59,23 @@ ARCHITECTURE Behavioral OF demo IS
     CONSTANT fig : T_1D := (C_Green, C_Blue, C_Red,
     C_White, C_Yellow);
     SIGNAL color : colors;
+
+    -- Bird
+    TYPE T_2D IS ARRAY(0 TO 11, 0 TO 12) OF colors;
+    CONSTANT bird : T_2D := ((C_Black, C_Black, C_Black, C_Black, C_Black, C_Black, C_Black, C_DarkGreen, C_DarkGreen, C_DarkGreen, C_Black, C_Black, C_Black),
+    (C_Black, C_DarkGreen, C_Black, C_Black, C_Black, C_Black, C_DarkGreen, C_LightGreen, C_LightGreen, C_LightGreen, C_DarkGreen, C_Black, C_Black),
+    (C_Black, C_DarkGreen, C_DarkGreen, C_Black, C_Black, C_DarkGreen, C_LightGreen, C_White, C_White, C_White, C_White, C_DarkGreen, C_Black),
+    (C_Black, C_DarkGreen, C_LightGreen, C_DarkGreen, C_Black, C_DarkGreen, C_LightGreen, C_White, C_White, C_Black, C_White, C_DarkGreen, C_Black),
+    (C_Black, C_DarkGreen, C_LightGreen, C_LightGreen, C_DarkGreen, C_DarkGreen, C_LightGreen, C_White, C_Pink, C_White, C_White, C_Red, C_Red),
+    (C_Black, C_DarkGreen, C_LightGreen, C_LightGreen, C_LightGreen, C_DarkGreen, C_LightGreen, C_White, C_White, C_White, C_DarkGreen, C_Black, C_Black),
+    (C_Black, C_DarkGreen, C_LightGreen, C_LightGreen, C_LightGreen, C_LightGreen, C_LightGreen, C_LightGreen, C_DarkGreen, C_DarkGreen, C_Black, C_Black, C_Black),
+    (C_Black, C_Black, C_DarkGreen, C_DarkGreen, C_LightGreen, C_LightGreen, C_Red, C_Red, C_Red, C_Red, C_Black, C_Black, C_Black),
+    (C_Black, C_Black, C_Black, C_DarkGreen, C_LightGreen, C_Red, C_Red, C_Red, C_Red, C_Red, C_Black, C_Black, C_Black),
+    (C_DarkGreen, C_DarkGreen, C_DarkGreen, C_DarkGreen, C_LightGreen, C_Red, C_Red, C_Red, C_Red, C_Black, C_Black, C_Black, C_Black),
+    (C_DarkGreen, C_LightGreen, C_LightGreen, C_LightGreen, C_DarkGreen, C_Red, C_Red, C_Red, C_Black, C_Black, C_Black, C_Black, C_Black),
+    (C_DarkGreen, C_DarkGreen, C_DarkGreen, C_DarkGreen, C_Black, C_Black, C_Black, C_Black, C_Black, C_Black, C_Black, C_Black, C_Black))
+    SIGNAL bird_x, bird_y : INTEGER := 0;
+
 BEGIN
     --------- VGA UTILITY START ---------
     -- generate 50MHz clock
@@ -141,21 +158,38 @@ BEGIN
         END IF;
     END PROCESS;
 
-    -- select the correct color of the pixel (hcount, vcount).
-    PROCESS (hcount, vcount, x, y)
+    -- Select the correct color of the bird and enlarge it by 8 
+    PROCESS (hcount, vcount, bird_x, bird_y)
     BEGIN
         IF ((hcount >= H_START AND hcount < H_END) AND
             (vcount >= V_START AND vcount < V_TOTAL))
             THEN
-            IF (x <= hcount AND hcount < x + SIZE AND
-                y < vcount AND vcount < y + SIZE)
+            IF (bird_x <= hcount AND hcount < bird_x + SIZE AND
+                bird_y < vcount AND vcount < bird_y + SIZE)
                 THEN
-                color <= fig((y - V_START)/Y_STEP);
+                color <= bird((bird_y - V_START)/Y_STEP, (bird_x - H_START)/X_STEP);
             ELSE
                 color <= C_BLACK;
             END IF;
         ELSE
             color <= C_BLACK;
+        END IF;
+    END PROCESS;
+
+    -- Make the bird bounce around the screen
+    PROCESS (clk1Hz)
+    BEGIN
+        IF (rising_edge(clk1Hz)) THEN
+            IF (bird_x + 1 >= H_END) THEN
+                bird_x <= H_START;
+                IF (bird_y + 1 >= V_END) THEN
+                    bird_y <= V_START;
+                ELSE
+                    bird_y <= bird_y + 1;
+                END IF;
+            ELSE
+                bird_x <= bird_x + 1;
+            END IF;
         END IF;
     END PROCESS;
 
