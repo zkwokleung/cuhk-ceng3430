@@ -71,13 +71,12 @@ ARCHITECTURE Behavioral OF lab05 IS
     (C_Black, C_Black, C_Black, C_DarkGreen, C_LightGreen, C_Red, C_Red, C_Red, C_Red, C_Red, C_Black, C_Black, C_Black),
     (C_DarkGreen, C_DarkGreen, C_DarkGreen, C_DarkGreen, C_LightGreen, C_Red, C_Red, C_Red, C_Red, C_Black, C_Black, C_Black, C_Black),
     (C_DarkGreen, C_LightGreen, C_LightGreen, C_LightGreen, C_DarkGreen, C_Red, C_Red, C_Red, C_Black, C_Black, C_Black, C_Black, C_Black),
-    (C_DarkGreen, C_DarkGreen, C_DarkGreen, C_DarkGreen, C_Black, C_Black, C_Black, C_Black, C_Black, C_Black, C_Black, C_Black, C_Black))
+    (C_DarkGreen, C_DarkGreen, C_DarkGreen, C_DarkGreen, C_Black, C_Black, C_Black, C_Black, C_Black, C_Black, C_Black, C_Black, C_Black));
 
 BEGIN
     --------- VGA UTILITY START ---------
     -- generate 50MHz clock
-    u_clk50mhz : clock_divider GENERIC MAP(N => 1)
-    PORT MAP(clk, clk50MHz);
+    u_clk50mhz : clock_divider GENERIC MAP(N => 1) PORT MAP(clk, clk50MHz);
 
     -- horizontal counter in [0, H_TOTAL]
     pixel_count_proc : PROCESS (clk50MHz)
@@ -132,11 +131,9 @@ BEGIN
     END PROCESS vsync_gen_proc;
 
     -- generate 1Hz, 10Hz clock
-    u_clk1hz : clock_divider GENERIC MAP(N => 50000000)
-    PORT MAP(clk, clk1Hz);
+    u_clk1hz : clock_divider GENERIC MAP(N => 50000000) PORT MAP(clk, clk1Hz);
 
-    u_clk10hz : clock_divider GENERIC MAP(N => 5000000)
-    PORT MAP(clk, clk10Hz);
+    u_clk10hz : clock_divider GENERIC MAP(N => 5000000) PORT MAP(clk, clk10Hz);
 
     -- Select the correct color of the bird and render each pixel 8 times
     PROCESS (hcount, vcount, x, y)
