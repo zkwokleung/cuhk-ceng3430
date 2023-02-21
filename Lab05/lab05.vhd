@@ -2,16 +2,16 @@ LIBRARY IEEE;
 USE IEEE.STD_LOGIC_1164.ALL;
 USE IEEE.Numeric_Std.ALL;
 
-ENTITY demo IS
+ENTITY lab05 IS
     PORT (
         clk : IN STD_LOGIC;
         hsync, vsync : OUT STD_LOGIC;
         red, green, blue : OUT
         STD_LOGIC_VECTOR(3 DOWNTO 0)
     );
-END demo;
+END lab05;
 
-ARCHITECTURE Behavioral OF demo IS
+ARCHITECTURE Behavioral OF lab05 IS
     --------- VGA CONSTANT START ---------
     -- row constants
     CONSTANT H_TOTAL : INTEGER := 1344 - 1;
