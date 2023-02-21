@@ -44,10 +44,11 @@ ARCHITECTURE Behavioral OF demo IS
 
     SIGNAL clk1Hz, clk10Hz, clk50MHz : STD_LOGIC;
 
-    -- for the position of block
-    CONSTANT X_STEP : INTEGER := 40;
-    CONSTANT Y_STEP : INTEGER := 120;
-    CONSTANT SIZE : INTEGER := 120;
+    -- for the position of bird
+    CONSTANT X_STEP : INTEGER := 20;
+    CONSTANT Y_STEP : INTEGER := 20;
+    CONSTANT X_SIZE : INTEGER := 104;
+    CONSTANT Y_SIZE : INTEGER := 96;
     SIGNAL x : INTEGER := H_START;
     SIGNAL y : INTEGER := V_START;
     SIGNAL dx : INTEGER := X_STEP;
@@ -55,9 +56,6 @@ ARCHITECTURE Behavioral OF demo IS
 
     -- for the color of the block
     TYPE colors IS (C_Black, C_Green, C_Blue, C_Red, C_White, C_Yellow, C_DarkGreen, C_LightGreen, C_Pink);
-    TYPE T_1D IS ARRAY(0 TO 4) OF colors;
-    CONSTANT fig : T_1D := (C_Green, C_Blue, C_Red,
-    C_White, C_Yellow);
     SIGNAL color : colors;
 
     -- Bird
@@ -74,7 +72,6 @@ ARCHITECTURE Behavioral OF demo IS
     (C_DarkGreen, C_DarkGreen, C_DarkGreen, C_DarkGreen, C_LightGreen, C_Red, C_Red, C_Red, C_Red, C_Black, C_Black, C_Black, C_Black),
     (C_DarkGreen, C_LightGreen, C_LightGreen, C_LightGreen, C_DarkGreen, C_Red, C_Red, C_Red, C_Black, C_Black, C_Black, C_Black, C_Black),
     (C_DarkGreen, C_DarkGreen, C_DarkGreen, C_DarkGreen, C_Black, C_Black, C_Black, C_Black, C_Black, C_Black, C_Black, C_Black, C_Black))
-    SIGNAL bird_x, bird_y : INTEGER := 0;
 
 BEGIN
     --------- VGA UTILITY START ---------
@@ -141,33 +138,16 @@ BEGIN
     u_clk10hz : clock_divider GENERIC MAP(N => 5000000)
     PORT MAP(clk, clk10Hz);
 
-    -- maintain the top left point (x, y) of the running BLOCK.
-    PROCESS (clk10Hz)
-    BEGIN
-        IF (rising_edge(clk10Hz)) THEN
-            IF (x + SIZE >= H_END) THEN
-                x <= H_START;
-                IF (y + SIZE >= V_END) THEN
-                    y <= V_START;
-                ELSE
-                    y <= y + dy;
-                END IF;
-            ELSE
-                x <= x + dx;
-            END IF;
-        END IF;
-    END PROCESS;
-
-    -- Select the correct color of the bird and enlarge it by 8 
-    PROCESS (hcount, vcount, bird_x, bird_y)
+    -- Select the correct color of the bird and render each pixel 8 times
+    PROCESS (hcount, vcount, x, y)
     BEGIN
         IF ((hcount >= H_START AND hcount < H_END) AND
             (vcount >= V_START AND vcount < V_TOTAL))
             THEN
-            IF (bird_x <= hcount AND hcount < bird_x + SIZE AND
-                bird_y < vcount AND vcount < bird_y + SIZE)
+            IF (x <= hcount AND hcount < x + X_SIZE AND
+                y < vcount AND vcount < y + Y_SIZE)
                 THEN
-                color <= bird((bird_y - V_START)/Y_STEP, (bird_x - H_START)/X_STEP);
+                color <= bird((hcount - x) / 8, (vcount - y) / 8);
             ELSE
                 color <= C_BLACK;
             END IF;
@@ -177,18 +157,18 @@ BEGIN
     END PROCESS;
 
     -- Make the bird bounce around the screen
-    PROCESS (clk1Hz)
+    PROCESS (clk10Hz)
     BEGIN
         IF (rising_edge(clk1Hz)) THEN
-            IF (bird_x + 1 >= H_END) THEN
-                bird_x <= H_START;
-                IF (bird_y + 1 >= V_END) THEN
-                    bird_y <= V_START;
-                ELSE
-                    bird_y <= bird_y + 1;
-                END IF;
-            ELSE
-                bird_x <= bird_x + 1;
+            IF (x + X_SIZE >= H_END) THEN
+                dx <= - dx;
+            ELSIF (x <= H_START) THEN
+                dx <= - dx;
+            END IF;
+            IF (y + Y_SIZE >= V_END) THEN
+                dy <= - dy;
+            ELSIF (y <= V_START) THEN
+                dy <= - dy;
             END IF;
         END IF;
     END PROCESS;
