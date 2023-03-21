@@ -16,6 +16,10 @@ ssd_13=61;
 ssd_14=79;
 ssd_15=71;
 
+## state definition 0: stop, 1: count down (2hz), 2: count up (1hz)
+start_value=0
+state=0
+
 display() # function display
 {
     value=$1 # the first argument is the number to be shown on SSD
@@ -74,63 +78,35 @@ check_btnu()
     fi
 }
 
-## count down at a centain rate
-countdown_check()
-{
-    ## parameter
-    start_value=$1
-    cur_value=$start_value
-    rate=1
-
-    ## countdown
-    while [[ 1 ]]
-    do
-        echo $cur_value >&2
-        display $cur_value
-        ## checkingbutton and change the state
-        if [[ $(check_btnc $state) -eq 1 ]] 
-        then 
-            state=0
-            return
-        fi
-        let "cur_value--"
-        if [[ $cur_value -lt 0 ]]
-        then
-            cur_value=$start_value
-        fi
-        sleep $rate
-    done
-}
-
 ## stop state behaviour
 stop_state()
 {
     ## parameter
-    start_value=$1
     cur_value=$start_value
-    rate=1
+    rate=0.01
+    displaying=0
 
     ## stop state
     while [[ $state -eq 0 ]]
     do
         ## read_sw and display it for a little while
         start_value=$(read_sw | awk '{print $2}')
-        for i in $(seq 1 10)
-        do
-            display $start_value
-        done
+        let "displaying= 1 - displaying"
+        if [[ $displaying -eq 1 ]]
+        then
+            display $(($start_value/16)) $displaying
+        else
+            display $start_value $displaying
+        fi
 
         ## checkingbutton and change the state
         if [[ $(check_btnd) -eq 1 ]] 
         then 
             state=1
-            return
         elif [[ $(check_btnu) -eq 1 ]] 
         then 
             state=2
-            return
         fi
-        sleep $rate
     done
 }
 
@@ -140,24 +116,38 @@ countdown_state()
     ## parameter
     start_value=$1
     cur_value=$start_value
-    rate=0.5
+    elapsed=0
+    rate=0.01
 
     ## countdown
     while [[ $state -eq 1 ]]
     do
         echo $cur_value >&2
-        display $cur_value
+        let "displaying= 1 - displaying"
+        if [[ $displaying -eq 1 ]]
+        then
+            display $(($cur_value/16)) $displaying
+        else
+            display $cur_value $displaying
+        fi
+
+        let "elapsed++"
+        if [[ $elapsed -eq 25 ]]
+        then
+            elapsed=0        
+            let "cur_value--"
+            if [[ $cur_value -lt 0 ]]
+            then
+                cur_value=$start_value
+            fi
+        fi
+
         ## checkingbutton and change the state
         if [[ $(check_btnc) -eq 1 ]] 
         then 
             state=0
-            return
         fi
-        let "cur_value--"
-        if [[ $cur_value -lt 0 ]]
-        then
-            cur_value=$start_value
-        fi
+
         sleep $rate
     done
 }
@@ -168,46 +158,57 @@ countup_state()
     ## parameter
     start_value=$1
     cur_value=$start_value
-    rate=1
+    elapsed=0
+    rate=0.01
 
     ## countdown
     while [[ $state -eq 2 ]]
     do
         echo $cur_value >&2
-        display $cur_value
+        let "displaying= 1 - displaying"
+        if [[ $displaying -eq 1 ]]
+        then
+            display $(($cur_value/16)) $displaying
+        else
+            display $cur_value $displaying
+        fi
+
+        let "elapsed++"
+        if [[ $elapsed -eq 50 ]]
+        then
+            elapsed=0        
+            let "cur_value++"
+            if [[ $cur_value -gt 255 ]]
+            then
+                cur_value=$start_value
+            fi
+        fi
+
         ## checkingbutton and change the state
         if [[ $(check_btnc) -eq 1 ]] 
         then 
             state=0
-            return
         fi
-        let "cur_value++"
-        if [[ $cur_value -gt 15 ]]
-        then
-            cur_value=$start_value
-        fi
+
         sleep $rate
     done
 }
 
 # Main logic
-
-## state definition 0: stop, 1: count down (2hz), 2: count up (1hz)
-start_value=0
-state=0
 while [[ 1 ]] 
 do
-    case "$state" in
-        0)
-            stop_state
-            ;;
-        1)
-            ## count down state
-            countdown_state
-            ;;
-        2)
-            ## count up state
-            countup_state
-            ;;
-    esac
+    if [[ $state -eq 0 ]]
+    then
+        stop_state
+    elif [[ $state -eq 1 ]]
+    then
+        countdown_state $start_value
+    elif [[ $state -eq 2 ]]
+    then
+        countup_state $start_value
+    else
+        stop_state
+    fi
+
+    sleep 0
 done
