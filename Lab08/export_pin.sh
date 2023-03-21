@@ -13,9 +13,12 @@ do
     echo out > /sys/class/gpio/gpio$jb/direction;
 done;
 
+# buttons
 echo 81 > /sys/class/gpio/export;
-echo 80 > /sys/class/gpio/export; # write to the export script to export the new GPIO
+echo 80 > /sys/class/gpio/export;
+echo 79 > /sys/class/gpio/export; # write to the export script to export the new GPIO
 echo in > /sys/class/gpio/gpio81/direction; # set the GPIO as output pin 
 echo in > /sys/class/gpio/gpio80/direction;
+echo in > /sys/class/gpio/gpio79/direction;
 
 

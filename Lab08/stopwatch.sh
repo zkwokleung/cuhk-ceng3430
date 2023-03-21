@@ -65,7 +65,7 @@ check_btnd()
 check_btnu()
 {
     ## check btnu
-    btnu=$(cat /sys/class/gpio/gpio81/value)
+    btnu=$(cat /sys/class/gpio/gpio79/value)
     if [[ $btnu -eq 1 ]]
     then
         echo 1
@@ -88,7 +88,7 @@ countdown_check()
         echo $cur_value >&2
         display $cur_value
         ## checkingbutton and change the state
-        if [[ $(check_button $state) -eq 1 ]] 
+        if [[ $(check_btnc $state) -eq 1 ]] 
         then 
             state=0
             return
@@ -111,10 +111,15 @@ stop_state()
     rate=1
 
     ## stop state
-    while [[ 1 ]]
+    while [[ $state -eq 0 ]]
     do
-        echo $cur_value >&2
-        display $cur_value
+        ## read_sw and display it for a little while
+        start_value=$(read_sw | awk '{print $2}')
+        for i in $(seq 1 10)
+        do
+            display $start_value
+        done
+
         ## checkingbutton and change the state
         if [[ $(check_btnd) -eq 1 ]] 
         then 
@@ -138,7 +143,7 @@ countdown_state()
     rate=0.5
 
     ## countdown
-    while [[ 1 ]]
+    while [[ $state -eq 1 ]]
     do
         echo $cur_value >&2
         display $cur_value
@@ -166,7 +171,7 @@ countup_state()
     rate=1
 
     ## countdown
-    while [[ 1 ]]
+    while [[ $state -eq 2 ]]
     do
         echo $cur_value >&2
         display $cur_value
