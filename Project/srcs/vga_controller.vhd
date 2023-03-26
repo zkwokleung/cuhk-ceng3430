@@ -4,33 +4,34 @@ USE IEEE.Numeric_Std.ALL;
 
 ENTITY vga_displayer IS
     PORT (
-        clk : IN STD_LOGIC;
-        vga_hsync : OUT STD_LOGIC;
-        vga_vsync : OUT STD_LOGIC;
-        vga_red, vga_green, vga_blue : OUT STD_LOGIC_VECTOR(3 DOWNTO 0);
+        CLK : IN STD_LOGIC;
+        VGA_HSYNC : OUT STD_LOGIC;
+        VGA_VSYNC : OUT STD_LOGIC;
+        VGA_RED, VGA_GREEN, VGA_BLUE : OUT STD_LOGIC_VECTOR(3 DOWNTO 0);
     );
 END vga_displayer;
 
 ARCHITECTURE vga_displayer_arch OF vga_displayer IS
     --------- VGA CONSTANT START ---------
     -- row constants
-    CONSTANT H_TOTAL : INTEGER := 1344 - 1;
-    CONSTANT H_SYNC : INTEGER := 48 - 1;
-    CONSTANT H_BACK : INTEGER := 240 - 1;
-    CONSTANT H_START : INTEGER := 48 + 240 - 1;
-    CONSTANT H_ACTIVE : INTEGER := 1024 - 1;
-    CONSTANT H_END : INTEGER := 1344 - 32 - 1;
-    CONSTANT H_FRONT : INTEGER := 32 - 1;
+    CONSTANT h_total : INTEGER := 1344 - 1;
+    CONSTANT h_sync : INTEGER := 48 - 1;
+    CONSTANT h_back : INTEGER := 240 - 1;
+    CONSTANT h_start : INTEGER := 48 + 240 - 1;
+    CONSTANT h_active : INTEGER := 1024 - 1;
+    CONSTANT h_end : INTEGER := 1344 - 32 - 1;
+    CONSTANT h_front : INTEGER := 32 - 1;
 
     -- column constants
-    CONSTANT V_TOTAL : INTEGER := 625 - 1;
-    CONSTANT V_SYNC : INTEGER := 3 - 1;
-    CONSTANT V_BACK : INTEGER := 12 - 1;
-    CONSTANT V_START : INTEGER := 3 + 12 - 1;
-    CONSTANT V_ACTIVE : INTEGER := 600 - 1;
-    CONSTANT V_END : INTEGER := 625 - 10 - 1;
-    CONSTANT V_FRONT : INTEGER := 10 - 1;
-    SIGNAL hcount, vcount : INTEGER;
+    CONSTANT v_total : INTEGER := 625 - 1;
+    CONSTANT v_sync : INTEGER := 3 - 1;
+    CONSTANT v_back : INTEGER := 12 - 1;
+    CONSTANT v_start : INTEGER := 3 + 12 - 1;
+    CONSTANT v_active : INTEGER := 600 - 1;
+    CONSTANT v_end : INTEGER := 625 - 10 - 1;
+    CONSTANT v_front : INTEGER := 10 - 1;
+
+    SIGNAL h_count, v_count : INTEGER;
     --------- VGA CONSTANT END ---------
 
     -- Clock
@@ -51,55 +52,55 @@ BEGIN
     u_clk50mhz : clock_divider GENERIC MAP(N => 1) PORT MAP(clk, clk50MHz);
 
     --------- VGA UTILITY START ---------
-    -- horizontal counter in [0, H_TOTAL]
+    -- horizontal counter in [0, h_total]
     pixel_count_proc : PROCESS (clk50MHz)
     BEGIN
         IF (rising_edge(clk50MHz))
             THEN
-            IF (hcount = H_TOTAL)
+            IF (h_count = h_total)
                 THEN
-                hcount <= 0;
+                h_count <= 0;
             ELSE
-                hcount <= hcount + 1;
+                h_count <= h_count + 1;
             END IF;
         END IF;
     END PROCESS pixel_count_proc;
 
-    -- generate hsync in [0, H_SYNC)
-    hsync_gen_proc : PROCESS (hcount)
+    -- generate hsync in [0, h_sync)
+    hsync_gen_proc : PROCESS (h_count)
     BEGIN
-        IF (hcount <= H_SYNC)
+        IF (h_count <= h_sync)
             THEN
-            hsync <= '1';
+            h_sync <= '1';
         ELSE
-            hsync <= '0';
+            h_sync <= '0';
         END IF;
     END PROCESS hsync_gen_proc;
 
-    -- vertical counter in [0, V_TOTAL]
+    -- vertical counter in [0, v_total]
     line_count_proc : PROCESS (clk50MHz)
     BEGIN
         IF (rising_edge(clk50MHz))
             THEN
-            IF (hcount = H_TOTAL)
+            IF (h_count = h_total)
                 THEN
-                IF (vcount = V_TOTAL)
+                IF (v_count = v_total)
                     THEN
-                    vcount <= 0;
+                    v_count <= 0;
                 ELSE
-                    vcount <= vcount + 1;
+                    v_count <= v_count + 1;
                 END IF;
             END IF;
         END IF;
     END PROCESS line_count_proc;
 
-    -- generate vsync in [0, V_SYNC)
-    vsync_gen_proc : PROCESS (vcount)
+    -- generate vsync in [0, v_sync)
+    vsync_gen_proc : PROCESS (v_count)
     BEGIN
-        IF (vcount <= V_SYNC) THEN
-            vsync <= '1';
+        IF (v_count <= v_sync) THEN
+            v_sync <= '1';
         ELSE
-            vsync <= '0';
+            v_sync <= '0';
         END IF;
     END PROCESS vsync_gen_proc;
     --------- VGA UTILITY END ---------
