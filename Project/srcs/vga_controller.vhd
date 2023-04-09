@@ -2,16 +2,16 @@ LIBRARY IEEE;
 USE IEEE.STD_LOGIC_1164.ALL;
 USE IEEE.Numeric_Std.ALL;
 
-ENTITY vga_displayer IS
+ENTITY vga_controller IS
     PORT (
         CLK : IN STD_LOGIC;
         VGA_HSYNC : OUT STD_LOGIC;
         VGA_VSYNC : OUT STD_LOGIC;
         VGA_RED, VGA_GREEN, VGA_BLUE : OUT STD_LOGIC_VECTOR(3 DOWNTO 0);
     );
-END vga_displayer;
+END vga_controller;
 
-ARCHITECTURE vga_displayer_arch OF vga_displayer IS
+ARCHITECTURE vga_controller_arch OF vga_controller IS
     --------- VGA CONSTANT START ---------
     -- row constants
     CONSTANT h_total : INTEGER := 1344 - 1;
@@ -105,4 +105,4 @@ BEGIN
     END PROCESS vsync_gen_proc;
     --------- VGA UTILITY END ---------
 
-END vga_displayer_arch;
+END vga_controller_arch;
