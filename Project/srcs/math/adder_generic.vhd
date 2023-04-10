@@ -21,7 +21,6 @@ ARCHITECTURE adder_generic_arch OF adder_generic IS
 BEGIN
     PROCESS (a, b)
     BEGIN
-        s <= a + b;
         carry <= '0';
         FOR i IN 0 TO N - 1 LOOP
             IF (a(i) = '1' AND b(i) = '1') THEN
