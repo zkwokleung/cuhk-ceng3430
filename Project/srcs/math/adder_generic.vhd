@@ -17,35 +17,23 @@ ENTITY adder_generic IS
 END adder_generic;
 
 ARCHITECTURE adder_generic_arch OF adder_generic IS
-    SIGNAL carry : STD_LOGIC;
+    COMPONENT adder IS
+        PORT (
+            a, b : IN STD_LOGIC;
+            ci : IN STD_LOGIC;
+            s : OUT STD_LOGIC;
+            co : OUT STD_LOGIC);
+    END COMPONENT;
+    SIGNAL couts : STD_LOGIC_VECTOR (n DOWNTO 0);
 BEGIN
-    PROCESS (a, b)
-    BEGIN
-        carry <= '0';
-        FOR i IN 0 TO N - 1 LOOP
-            IF (a(i) = '1' AND b(i) = '1') THEN
-                IF (carry = '1') THEN
-                    s(i) <= '1';
-                ELSE
-                    s(i) <= '0';
-                    carry <= '1';
-                END IF;
-            ELSIF (a(i) = '1' OR b(i) = '1') THEN
-                IF (carry = '1') THEN
-                    s(i) <= '0';
-                ELSE
-                    s(i) <= '1';
-                END IF;
-            ELSE
-                IF (carry = '1') THEN
-                    s(i) <= '1';
-                    carry <= '0';
-                ELSE
-                    s(i) <= '0';
-                END IF;
-            END IF;
-        END LOOP;
-    END PROCESS;
-    cout <= carry;
+
+    couts(0) <= '0';
+    cout <= couts(N);
+    adder_insts : FOR i IN 0 TO N - 1 GENERATE
+        adder_inst_i : adder
+        PORT MAP(
+            a => a(i), b => b(i), ci => couts(i), s => s(i), co => couts(i + 1)
+        );
+    END GENERATE;
 
 END adder_generic_arch;
