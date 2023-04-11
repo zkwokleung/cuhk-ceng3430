@@ -6,14 +6,14 @@ USE IEEE.Numeric_Std.ALL;
 -- 
 -- Each element is 32 bits wide
 
-ENTITY vector4_dotproduct IS
+ENTITY vector4_dotproduct_tb IS
     PORT (
         a, b : IN STD_LOGIC_VECTOR(127 DOWNTO 0);
         dp : OUT STD_LOGIC_VECTOR(31 DOWNTO 0)
     );
-END vector4_dotproduct;
+END vector4_dotproduct_tb;
 
-ARCHITECTURE vector4_dotproduct_arch OF vector4_dotproduct IS
+ARCHITECTURE vector4_dotproduct_tb_arch OF vector4_dotproduct_tb IS
     -- Component declarations
     COMPONENT adder_generic
         GENERIC (
@@ -65,4 +65,4 @@ BEGIN
         adder_outs(31 DOWNTO 0), adder_outs(63 DOWNTO 32), dp, cout_2
     );
 
-END vector4_dotproduct_arch;
+END vector4_dotproduct_tb_arch;
