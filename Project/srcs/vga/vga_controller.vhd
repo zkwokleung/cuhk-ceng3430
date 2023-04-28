@@ -18,6 +18,7 @@ ENTITY vga_controller IS
 
         -- Output
         COOR_H, COOR_V : OUT INTEGER
+        NEXT_COOR_H, NEXT_COOR_V : OUT INTEGER
     );
 END vga_controller;
 
@@ -115,8 +116,45 @@ BEGIN
     END PROCESS vsync_gen_proc;
     --------- VGA UTILITY END ---------
 
-    VGA_RED <= RED_IN;
-    VGA_GREEN <= GREEN_IN;
-    VGA_BLUE <= BLUE_IN;
+    -- Rendering process
+    PROCESS (h_count, v_count)
+    BEGIN
+        -- Check if we are in the active area
+        IF ((h_count >= h_start AND h_count <= h_end) AND
+            (v_count >= v_start AND v_count <= v_end))
+            THEN
+            -- Calculate the coordinates
+            COOR_H <= h_count - h_start;
+            COOR_V <= v_count - v_start;
 
+            -- Calculate the next coordinates
+            IF (h_count = h_end) THEN
+                NEXT_COOR_H <= 0;
+            ELSE
+                NEXT_COOR_H <= h_count - h_start + 1;
+            END IF;
+
+            IF (v_count = v_end) THEN
+                NEXT_COOR_V <= 0;
+            ELSE
+                NEXT_COOR_V <= v_count - v_start + 1;
+            END IF;
+
+            -- Render the color
+            VGA_RED <= RED_IN;
+            VGA_GREEN <= GREEN_IN;
+            VGA_BLUE <= BLUE_IN;
+
+        ELSE
+            -- Set the coordinates to 0
+            COOR_H <= 0;
+            COOR_V <= 0;
+
+            -- Set the color to black
+            VGA_RED <= "0000";
+            VGA_GREEN <= "0000";
+            VGA_BLUE <= "0000";
+        END IF;
+
+    END PROCESS
 END vga_controller_arch;
