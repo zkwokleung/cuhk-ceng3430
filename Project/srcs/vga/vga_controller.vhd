@@ -14,7 +14,10 @@ ENTITY vga_controller IS
         VGA_RED, VGA_GREEN, VGA_BLUE : OUT STD_LOGIC_VECTOR(3 DOWNTO 0);
 
         -- Input
-        RED_IN, GREEN_IN, BLUE_IN : IN STD_LOGIC_VECTOR(3 DOWNTO 0)
+        RED_IN, GREEN_IN, BLUE_IN : IN STD_LOGIC_VECTOR(3 DOWNTO 0);
+
+        -- Output
+        COOR_H, COOR_V : OUT INTEGER
     );
 END vga_controller;
 
@@ -111,5 +114,9 @@ BEGIN
         END IF;
     END PROCESS vsync_gen_proc;
     --------- VGA UTILITY END ---------
+
+    VGA_RED <= RED_IN;
+    VGA_GREEN <= GREEN_IN;
+    VGA_BLUE <= BLUE_IN;
 
 END vga_controller_arch;

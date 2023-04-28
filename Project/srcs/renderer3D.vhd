@@ -15,6 +15,11 @@ ENTITY renderer3D IS
 END renderer3D;
 
 ARCHITECTURE renderer3D_arch OF renderer3D IS
+    -- Constants
+    CONSTANT SCREEN_WIDTH : INTEGER := 512;
+    CONSTANT SCREEN_HEIGHT : INTEGER := 300;
+    CONSTANT BIT_DEPTH : INTEGER := 4;
+
     COMPONENT vga_controller IS
         PORT (
             CLK : IN STD_LOGIC;
@@ -25,19 +30,24 @@ ARCHITECTURE renderer3D_arch OF renderer3D IS
     END COMPONENT;
 
     COMPONENT screen_buffer IS
+        GENERIC (
+            SCREEN_WIDTH : INTEGER := 1;
+            SCREEN_HEIGHT : INTEGER := 1;
+            BIT_DEPTH : INTEGER := 4
+        );
         PORT (
             clk : IN STD_LOGIC;
             reset : IN STD_LOGIC;
 
-            red_buffer_in, green_buffer_in, blue_buffer_in : IN STD_LOGIC_VECTOR(2457600 DOWNTO 0);
-            red_out, green_out, blue_out : OUT STD_LOGIC_VECTOR(3 DOWNTO 0)
+            red_buffer_in, green_buffer_in, blue_buffer_in : IN STD_LOGIC_VECTOR(SCREEN_WIDTH * SCREEN_HEIGHT * BIT_DEPTH - 1 DOWNTO 0);
+            red_out, green_out, blue_out : OUT STD_LOGIC_VECTOR(BIT_DEPTH - 1 DOWNTO 0)
         );
     END COMPONENT;
 
-    SIGNAL red_buffer, green_buffer, blue_buffer : STD_LOGIC_VECTOR(2457600 DOWNTO 0);
+    SIGNAL red_buffer, green_buffer, blue_buffer : STD_LOGIC_VECTOR(SCREEN_WIDTH * SCREEN_HEIGHT * BIT_DEPTH - 1 DOWNTO 0);
     SIGNAL buffer_red_out, buffer_green_out, buffer_blue_out : STD_LOGIC_VECTOR(3 DOWNTO 0);
 BEGIN
-    red_buffer <= (OTHERS => '0');
+    red_buffer <= (OTHERS => '1');
     green_buffer <= (OTHERS => '0');
     blue_buffer <= (OTHERS => '1');
 
@@ -53,7 +63,13 @@ BEGIN
         VGA_BLUE => VGA_BLUE
     );
 
-    screen_buffer_inst : screen_buffer PORT MAP(
+    screen_buffer_inst : screen_buffer
+    GENERIC MAP(
+        SCREEN_WIDTH => SCREEN_WIDTH,
+        SCREEN_HEIGHT => SCREEN_HEIGHT,
+        BIT_DEPTH => BIT_DEPTH
+    )
+    PORT MAP(
         clk => CLK,
         reset => BTNC,
         red_buffer_in => red_buffer,
