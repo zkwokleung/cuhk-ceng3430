@@ -2,12 +2,19 @@ LIBRARY IEEE;
 USE IEEE.STD_LOGIC_1164.ALL;
 USE IEEE.Numeric_Std.ALL;
 
+-- Handles the VGA output and the vga synchronization
+
 ENTITY vga_controller IS
     PORT (
+        -- Clock
         CLK : IN STD_LOGIC;
-        VGA_HSYNC : OUT STD_LOGIC;
-        VGA_VSYNC : OUT STD_LOGIC;
+
+        -- VGA
+        VGA_HSYNC, VGA_VSYNC : OUT STD_LOGIC;
         VGA_RED, VGA_GREEN, VGA_BLUE : OUT STD_LOGIC_VECTOR(3 DOWNTO 0);
+
+        -- Input
+        RED_IN, GREEN_IN, BLUE_IN : IN STD_LOGIC_VECTOR(3 DOWNTO 0);
     );
 END vga_controller;
 
