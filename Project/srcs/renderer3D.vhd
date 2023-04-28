@@ -25,7 +25,9 @@ ARCHITECTURE renderer3D_arch OF renderer3D IS
             CLK : IN STD_LOGIC;
             VGA_HSYNC, VGA_VSYNC : OUT STD_LOGIC;
             RED_IN, GREEN_IN, BLUE_IN : IN STD_LOGIC_VECTOR(3 DOWNTO 0);
-            VGA_RED, VGA_GREEN, VGA_BLUE : OUT STD_LOGIC_VECTOR(3 DOWNTO 0)
+            VGA_RED, VGA_GREEN, VGA_BLUE : OUT STD_LOGIC_VECTOR(3 DOWNTO 0);
+            COOR_H, COOR_V : OUT INTEGER;
+            NEXT_COOR_H, NEXT_COOR_V : OUT INTEGER
         );
     END COMPONENT;
 
@@ -46,6 +48,7 @@ ARCHITECTURE renderer3D_arch OF renderer3D IS
 
     SIGNAL red_buffer, green_buffer, blue_buffer : STD_LOGIC_VECTOR(SCREEN_WIDTH * SCREEN_HEIGHT * BIT_DEPTH - 1 DOWNTO 0);
     SIGNAL buffer_red_out, buffer_green_out, buffer_blue_out : STD_LOGIC_VECTOR(3 DOWNTO 0);
+    signal coor_h, coor_v, next_coor_h, next_coor_v : integer;
 BEGIN
     red_buffer <= (OTHERS => '1');
     green_buffer <= (OTHERS => '0');
@@ -60,7 +63,11 @@ BEGIN
         BLUE_IN => buffer_blue_out,
         VGA_RED => VGA_RED,
         VGA_GREEN => VGA_GREEN,
-        VGA_BLUE => VGA_BLUE
+        VGA_BLUE => VGA_BLUE,
+        COOR_H => coor_h,
+        COOR_V => coor_v,
+        NEXT_COOR_H => next_coor_h,
+        NEXT_COOR_V => next_coor_v
     );
 
     screen_buffer_inst : screen_buffer

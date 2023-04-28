@@ -17,7 +17,7 @@ ENTITY vga_controller IS
         RED_IN, GREEN_IN, BLUE_IN : IN STD_LOGIC_VECTOR(3 DOWNTO 0);
 
         -- Output
-        COOR_H, COOR_V : OUT INTEGER
+        COOR_H, COOR_V : OUT INTEGER;
         NEXT_COOR_H, NEXT_COOR_V : OUT INTEGER
     );
 END vga_controller;
@@ -156,5 +156,5 @@ BEGIN
             VGA_BLUE <= "0000";
         END IF;
 
-    END PROCESS
+    END PROCESS;
 END vga_controller_arch;
