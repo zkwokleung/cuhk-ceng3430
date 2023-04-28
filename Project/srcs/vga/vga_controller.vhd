@@ -14,7 +14,7 @@ ENTITY vga_controller IS
         VGA_RED, VGA_GREEN, VGA_BLUE : OUT STD_LOGIC_VECTOR(3 DOWNTO 0);
 
         -- Input
-        RED_IN, GREEN_IN, BLUE_IN : IN STD_LOGIC_VECTOR(3 DOWNTO 0);
+        RED_IN, GREEN_IN, BLUE_IN : IN STD_LOGIC_VECTOR(3 DOWNTO 0)
     );
 END vga_controller;
 
@@ -78,9 +78,9 @@ BEGIN
     BEGIN
         IF (h_count <= h_sync)
             THEN
-            h_sync <= '1';
+            VGA_HSYNC <= '1';
         ELSE
-            h_sync <= '0';
+            VGA_HSYNC <= '0';
         END IF;
     END PROCESS hsync_gen_proc;
 
@@ -105,9 +105,9 @@ BEGIN
     vsync_gen_proc : PROCESS (v_count)
     BEGIN
         IF (v_count <= v_sync) THEN
-            v_sync <= '1';
+            VGA_VSYNC <= '1';
         ELSE
-            v_sync <= '0';
+            VGA_VSYNC <= '0';
         END IF;
     END PROCESS vsync_gen_proc;
     --------- VGA UTILITY END ---------

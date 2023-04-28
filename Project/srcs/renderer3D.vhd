@@ -20,7 +20,7 @@ ARCHITECTURE renderer3D_arch OF renderer3D IS
             CLK : IN STD_LOGIC;
             VGA_HSYNC, VGA_VSYNC : OUT STD_LOGIC;
             RED_IN, GREEN_IN, BLUE_IN : IN STD_LOGIC_VECTOR(3 DOWNTO 0);
-            VGA_RED, VGA_GREEN, VGA_BLUE : OUT STD_LOGIC_VECTOR(3 DOWNTO 0);
+            VGA_RED, VGA_GREEN, VGA_BLUE : OUT STD_LOGIC_VECTOR(3 DOWNTO 0)
         );
     END COMPONENT;
 
@@ -29,18 +29,13 @@ ARCHITECTURE renderer3D_arch OF renderer3D IS
             clk : IN STD_LOGIC;
             reset : IN STD_LOGIC;
 
-            red_buffer_in : IN STD_LOGIC_VECTOR(2457600 DOWNTO 0);
-            green_buffer_in : IN STD_LOGIC_VECTOR(2457600 DOWNTO 0);
-            blue_buffer_in : IN STD_LOGIC_VECTOR(2457600 DOWNTO 0);
-
-            red_out : OUT STD_LOGIC_VECTOR(4 DOWNTO 0);
-            green_out : OUT STD_LOGIC_VECTOR(4 DOWNTO 0);
-            blue_out : OUT STD_LOGIC_VECTOR(4 DOWNTO 0);
+            red_buffer_in, green_buffer_in, blue_buffer_in : IN STD_LOGIC_VECTOR(2457600 DOWNTO 0);
+            red_out, green_out, blue_out : OUT STD_LOGIC_VECTOR(3 DOWNTO 0)
         );
     END COMPONENT;
 
     SIGNAL red_buffer, green_buffer, blue_buffer : STD_LOGIC_VECTOR(2457600 DOWNTO 0);
-    SIGNAL buffer_red_out, buffer_green_out, buffer_blue_out : STD_LOGIC_VECTOR(4 DOWNTO 0);
+    SIGNAL buffer_red_out, buffer_green_out, buffer_blue_out : STD_LOGIC_VECTOR(3 DOWNTO 0);
 BEGIN
     red_buffer <= (OTHERS => '0');
     green_buffer <= (OTHERS => '0');

@@ -7,12 +7,8 @@ ENTITY screen_buffer IS
         clk : IN STD_LOGIC;
         reset : IN STD_LOGIC;
 
-        red_buffer_in : IN STD_LOGIC_VECTOR(2457600 DOWNTO 0);
-        green_buffer_in : IN STD_LOGIC_VECTOR(2457600 DOWNTO 0);
-        blue_buffer_in : IN STD_LOGIC_VECTOR(2457600 DOWNTO 0);
-        red_out : OUT STD_LOGIC_VECTOR(4 DOWNTO 0);
-        green_out : OUT STD_LOGIC_VECTOR(4 DOWNTO 0);
-        blue_out : OUT STD_LOGIC_VECTOR(4 DOWNTO 0);
+        red_buffer_in, green_buffer_in, blue_buffer_in : IN STD_LOGIC_VECTOR(2457600 DOWNTO 0);
+        red_out, green_out, blue_out : OUT STD_LOGIC_VECTOR(3 DOWNTO 0)
     );
 END screen_buffer;
 
@@ -34,7 +30,7 @@ BEGIN
         END IF;
     END PROCESS;
 
-    red_buffer_out <= red_buffer;
-    green_buffer_out <= green_buffer;
-    blue_buffer_out <= blue_buffer;
+    red_out <= red_buffer(3 DOWNTO 0);
+    green_out <= green_buffer(3 DOWNTO 0);
+    blue_out <= blue_buffer(3 DOWNTO 0);
 END screen_buffer_arch;

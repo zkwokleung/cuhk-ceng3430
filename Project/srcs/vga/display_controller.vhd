@@ -5,7 +5,7 @@ USE IEEE.Numeric_Std.ALL;
 ENTITY display_controller IS
     PORT (
         clk : IN STD_LOGIC;
-        reset : IN STD_LOGIC;
+        reset : IN STD_LOGIC
     );
 END display_controller;
 

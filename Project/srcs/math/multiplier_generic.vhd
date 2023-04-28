@@ -16,6 +16,7 @@ ENTITY multiplier_generic IS
 END multiplier_generic;
 
 ARCHITECTURE multiplier_generic_arch OF multiplier_generic IS
+    SIGNAL product : STD_LOGIC_VECTOR(N * 2 - 1 downto 0);
 BEGIN
     product <= STD_LOGIC_VECTOR(unsigned(a) * unsigned(b));
     p <= product(N - 1 DOWNTO 0);
