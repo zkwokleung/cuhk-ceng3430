@@ -26,10 +26,11 @@ END screen_buffer;
 ARCHITECTURE screen_buffer_arch OF screen_buffer IS
 BEGIN
     PROCESS (CLK, RESET)
+    BEGIN
         IF (RESET = '1') THEN
-            RED_buffer <= (OTHERS => '0');
-            GREEN_buffer <= (OTHERS => '0');
-            BLUE_buffer <= (OTHERS => '0');
+            RED_OUT <= (OTHERS => '0');
+            GREEN_OUT <= (OTHERS => '0');
+            BLUE_OUT <= (OTHERS => '0');
         ELSIF (rising_edge(CLK)) THEN
             IF (COOR_X >= 0 AND COOR_X < SCREEN_WIDTH AND COOR_Y >= 0 AND COOR_Y < SCREEN_HEIGHT) THEN
                 -- The coordinates are within the display area

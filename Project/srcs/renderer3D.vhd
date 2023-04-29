@@ -91,6 +91,10 @@ BEGIN
         RED_BUFFER_IN => red_buffer,
         GREEN_BUFFER_IN => green_buffer,
         BLUE_BUFFER_IN => blue_buffer,
+        
+        COOR_X => next_coor_h,
+        COOR_Y => next_coor_v,
+        
         RED_OUT => buffer_red_out,
         GREEN_OUT => buffer_green_out,
         BLUE_OUT => buffer_blue_out
