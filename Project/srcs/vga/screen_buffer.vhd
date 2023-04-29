@@ -9,32 +9,39 @@ ENTITY screen_buffer IS
         BIT_DEPTH : INTEGER := 4
     );
     PORT (
-        clk : IN STD_LOGIC;
-        reset : IN STD_LOGIC;
+        CLK : IN STD_LOGIC;
+        RESET : IN STD_LOGIC;
 
-        red_buffer_in, green_buffer_in, blue_buffer_in : IN STD_LOGIC_VECTOR(SCREEN_WIDTH * SCREEN_HEIGHT * BIT_DEPTH - 1 DOWNTO 0);
-        red_out, green_out, blue_out : OUT STD_LOGIC_VECTOR(BIT_DEPTH - 1 DOWNTO 0)
+        -- x and y coordinates
+        COOR_X, COOR_Y : IN INTEGER;
+
+        -- The buffers for the screen
+        RED_BUFFER_IN, GREEN_BUFFER_IN, BLUE_BUFFER_IN : IN STD_LOGIC_VECTOR(SCREEN_WIDTH * SCREEN_HEIGHT * BIT_DEPTH - 1 DOWNTO 0);
+
+        -- The selected pixel to be displayed base on the x and y coordinates
+        RED_OUT, GREEN_OUT, BLUE_OUT : OUT STD_LOGIC_VECTOR(BIT_DEPTH - 1 DOWNTO 0)
     );
 END screen_buffer;
 
 ARCHITECTURE screen_buffer_arch OF screen_buffer IS
-    SIGNAL red_buffer, green_buffer, blue_buffer : STD_LOGIC_VECTOR(SCREEN_WIDTH * SCREEN_HEIGHT * BIT_DEPTH - 1 DOWNTO 0);
 BEGIN
-    -- TODO: FIX This SHit
-    -- PROCESS (clk, reset)
-    -- BEGIN
-    --     IF (reset = '1') THEN
-    --         red_buffer <= (OTHERS => '0');
-    --         green_buffer <= (OTHERS => '0');
-    --         blue_buffer <= (OTHERS => '0');
-    --     ELSIF (clk'EVENT AND clk = '1') THEN
-    --         red_buffer <= red_buffer_in;
-    --         green_buffer <= green_buffer_in;
-    --         blue_buffer <= blue_buffer_in;
-    --     END IF;
-    -- END PROCESS;
-
-    red_out <= red_buffer_in(BIT_DEPTH - 1 DOWNTO 0);
-    green_out <= green_buffer_in(BIT_DEPTH - 1 DOWNTO 0);
-    blue_out <= blue_buffer_in(BIT_DEPTH - 1 DOWNTO 0);
+    PROCESS (CLK, RESET)
+        IF (RESET = '1') THEN
+            RED_buffer <= (OTHERS => '0');
+            GREEN_buffer <= (OTHERS => '0');
+            BLUE_buffer <= (OTHERS => '0');
+        ELSIF (rising_edge(CLK)) THEN
+            IF (COOR_X >= 0 AND COOR_X < SCREEN_WIDTH AND COOR_Y >= 0 AND COOR_Y < SCREEN_HEIGHT) THEN
+                -- The coordinates are within the display area
+                RED_OUT <= RED_BUFFER_IN(SCREEN_WIDTH * BIT_DEPTH * COOR_Y + BIT_DEPTH * COOR_X + BIT_DEPTH - 1 DOWNTO SCREEN_WIDTH * BIT_DEPTH * COOR_Y + BIT_DEPTH * COOR_X);
+                GREEN_OUT <= GREEN_BUFFER_IN(SCREEN_WIDTH * BIT_DEPTH * COOR_Y + BIT_DEPTH * COOR_X + BIT_DEPTH - 1 DOWNTO SCREEN_WIDTH * BIT_DEPTH * COOR_Y + BIT_DEPTH * COOR_X);
+                BLUE_OUT <= BLUE_BUFFER_IN(SCREEN_WIDTH * BIT_DEPTH * COOR_Y + BIT_DEPTH * COOR_X + BIT_DEPTH - 1 DOWNTO SCREEN_WIDTH * BIT_DEPTH * COOR_Y + BIT_DEPTH * COOR_X);
+            ELSE
+                -- The coordinates are outside the display area
+                RED_OUT <= (OTHERS => '0');
+                GREEN_OUT <= (OTHERS => '0');
+                BLUE_OUT <= (OTHERS => '0');
+            END IF;
+        END IF;
+    END PROCESS;
 END screen_buffer_arch;

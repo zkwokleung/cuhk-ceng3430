@@ -33,26 +33,35 @@ ARCHITECTURE renderer3D_arch OF renderer3D IS
 
     COMPONENT screen_buffer IS
         GENERIC (
-            SCREEN_WIDTH : INTEGER := 1;
-            SCREEN_HEIGHT : INTEGER := 1;
+            SCREEN_WIDTH : INTEGER := 1024;
+            SCREEN_HEIGHT : INTEGER := 600;
             BIT_DEPTH : INTEGER := 4
         );
         PORT (
-            clk : IN STD_LOGIC;
-            reset : IN STD_LOGIC;
+            CLK : IN STD_LOGIC;
+            RESET : IN STD_LOGIC;
 
-            red_buffer_in, green_buffer_in, blue_buffer_in : IN STD_LOGIC_VECTOR(SCREEN_WIDTH * SCREEN_HEIGHT * BIT_DEPTH - 1 DOWNTO 0);
-            red_out, green_out, blue_out : OUT STD_LOGIC_VECTOR(BIT_DEPTH - 1 DOWNTO 0)
+            COOR_X, COOR_Y : IN INTEGER;
+
+            RED_BUFFER_IN, GREEN_BUFFER_IN, BLUE_BUFFER_IN : IN STD_LOGIC_VECTOR(SCREEN_WIDTH * SCREEN_HEIGHT * BIT_DEPTH - 1 DOWNTO 0);
+            RED_OUT, GREEN_OUT, BLUE_OUT : OUT STD_LOGIC_VECTOR(BIT_DEPTH - 1 DOWNTO 0)
         );
     END COMPONENT;
 
+    -- The pixels of the entire screen
     SIGNAL red_buffer, green_buffer, blue_buffer : STD_LOGIC_VECTOR(SCREEN_WIDTH * SCREEN_HEIGHT * BIT_DEPTH - 1 DOWNTO 0);
+
+    -- The output of the screen buffer
     SIGNAL buffer_red_out, buffer_green_out, buffer_blue_out : STD_LOGIC_VECTOR(3 DOWNTO 0);
-    signal coor_h, coor_v, next_coor_h, next_coor_v : integer;
+
+    -- The coordinates of the pixel the screen is currently displaying
+    SIGNAL coor_h, coor_v, next_coor_h, next_coor_v : INTEGER;
 BEGIN
-    red_buffer <= (OTHERS => '1');
-    green_buffer <= (OTHERS => '0');
-    blue_buffer <= (OTHERS => '1');
+    rainbow_color_buffering : FOR i IN 0 TO SCREEN_WIDTH * SCREEN_HEIGHT - 1 GENERATE
+        red_buffer(i * BIT_DEPTH + 3 DOWNTO i * BIT_DEPTH) <= STD_LOGIC_VECTOR(to_unsigned(i, BIT_DEPTH));
+        green_buffer(i * BIT_DEPTH + 3 DOWNTO i * BIT_DEPTH) <= STD_LOGIC_VECTOR(to_unsigned(i, BIT_DEPTH));
+        blue_buffer(i * BIT_DEPTH + 3 DOWNTO i * BIT_DEPTH) <= STD_LOGIC_VECTOR(to_unsigned(i, BIT_DEPTH));
+    END GENERATE rainbow_color_buffering;
 
     vga_controller_inst : vga_controller PORT MAP(
         CLK => CLK,
@@ -77,14 +86,14 @@ BEGIN
         BIT_DEPTH => BIT_DEPTH
     )
     PORT MAP(
-        clk => CLK,
-        reset => BTNC,
-        red_buffer_in => red_buffer,
-        green_buffer_in => green_buffer,
-        blue_buffer_in => blue_buffer,
-        red_out => buffer_red_out,
-        green_out => buffer_green_out,
-        blue_out => buffer_blue_out
+        CLK => CLK,
+        RESET => BTNC,
+        RED_BUFFER_IN => red_buffer,
+        GREEN_BUFFER_IN => green_buffer,
+        BLUE_BUFFER_IN => blue_buffer,
+        RED_OUT => buffer_red_out,
+        GREEN_OUT => buffer_green_out,
+        BLUE_OUT => buffer_blue_out
     );
 
 END renderer3D_arch;
