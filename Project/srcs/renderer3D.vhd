@@ -57,11 +57,14 @@ ARCHITECTURE renderer3D_arch OF renderer3D IS
     -- The coordinates of the pixel the screen is currently displaying
     SIGNAL coor_h, coor_v, next_coor_h, next_coor_v : INTEGER;
 BEGIN
-    rainbow_color_buffering : FOR i IN 0 TO SCREEN_WIDTH * SCREEN_HEIGHT - 1 GENERATE
-        red_buffer(i * BIT_DEPTH + 3 DOWNTO i * BIT_DEPTH) <= STD_LOGIC_VECTOR(to_unsigned(i, BIT_DEPTH));
-        green_buffer(i * BIT_DEPTH + 3 DOWNTO i * BIT_DEPTH) <= STD_LOGIC_VECTOR(to_unsigned(i, BIT_DEPTH));
-        blue_buffer(i * BIT_DEPTH + 3 DOWNTO i * BIT_DEPTH) <= STD_LOGIC_VECTOR(to_unsigned(i, BIT_DEPTH));
-    END GENERATE rainbow_color_buffering;
+    rainbow_color_buffering_process : PROCESS
+    BEGIN
+        FOR i IN 0 TO SCREEN_WIDTH * SCREEN_HEIGHT - 1 LOOP
+            red_buffer(i * BIT_DEPTH + 3 DOWNTO i * BIT_DEPTH) <= STD_LOGIC_VECTOR(to_unsigned(i, BIT_DEPTH));
+            green_buffer(i * BIT_DEPTH + 3 DOWNTO i * BIT_DEPTH) <= STD_LOGIC_VECTOR(to_unsigned(i, BIT_DEPTH));
+            blue_buffer(i * BIT_DEPTH + 3 DOWNTO i * BIT_DEPTH) <= STD_LOGIC_VECTOR(to_unsigned(i, BIT_DEPTH));
+        END LOOP;
+    END PROCESS;
 
     vga_controller_inst : vga_controller PORT MAP(
         CLK => CLK,
@@ -91,10 +94,10 @@ BEGIN
         RED_BUFFER_IN => red_buffer,
         GREEN_BUFFER_IN => green_buffer,
         BLUE_BUFFER_IN => blue_buffer,
-        
+
         COOR_X => next_coor_h,
         COOR_Y => next_coor_v,
-        
+
         RED_OUT => buffer_red_out,
         GREEN_OUT => buffer_green_out,
         BLUE_OUT => buffer_blue_out
