@@ -48,14 +48,41 @@ ARCHITECTURE renderer3D_arch OF renderer3D IS
         );
     END COMPONENT;
 
-    -- The pixels of the entire screen
-    SIGNAL red_buffer, green_buffer, blue_buffer : STD_LOGIC_VECTOR(SCREEN_WIDTH * SCREEN_HEIGHT * BIT_DEPTH - 1 DOWNTO 0);
+    COMPONENT cube_generator IS
+        GENERIC (
+            SCREEN_WIDTH : INTEGER := 1024;
+            SCREEN_HEIGHT : INTEGER := 600;
+            BIT_DEPTH : INTEGER := 4
+        );
+        PORT (
+            clk : IN STD_LOGIC;
+            reset : IN STD_LOGIC;
+            pos_x, pos_y, pos_z,
+            rot_x, rot_y, rot_z,
+            size : IN INTEGER;
+
+            red_out, green_out, blue_out : OUT STD_LOGIC_VECTOR(BIT_DEPTH - 1 DOWNTO 0);
+        );
+    END COMPONENT;
 
     -- The output of the screen buffer
     SIGNAL buffer_red_out, buffer_green_out, buffer_blue_out : STD_LOGIC_VECTOR(3 DOWNTO 0);
 
     -- The coordinates of the pixel the screen is currently displaying
     SIGNAL coor_h, coor_v, next_coor_h, next_coor_v : INTEGER;
+
+    -- The pixel scale of the cube
+    SIGNAL cube_size : INTEGER := 100;
+
+    -- The position of the cube
+    SIGNAL cube_pos_x : INTEGER := 0;
+    SIGNAL cube_pos_y : INTEGER := 0;
+    SIGNAL cube_pos_z : INTEGER := 0;
+
+    -- The rotation of the cube in euler angles
+    SIGNAL cube_rot_x : INTEGER := 0;
+    SIGNAL cube_rot_y : INTEGER := 0;
+    SIGNAL cube_rot_z : INTEGER := 0;
 BEGIN
 
     vga_controller_inst : vga_controller PORT MAP(
@@ -74,8 +101,19 @@ BEGIN
         NEXT_COOR_V => next_coor_v
     );
 
-    buffer_red_out <= STD_LOGIC_VECTOR(to_unsigned(coor_h + coor_v, BIT_DEPTH));
-    buffer_green_out <= STD_LOGIC_VECTOR(to_unsigned(coor_h, BIT_DEPTH));
-    buffer_blue_out <= STD_LOGIC_VECTOR(to_unsigned(coor_v, BIT_DEPTH));
+    cube_generator_inst : vga controller PORT MAP(
+        CLK => CLK,
+        RESET => BTNC,
+        POS_X => cube_pos_x,
+        POS_Y => cube_pos_y,
+        POS_Z => cube_pos_z,
+        ROT_X => cube_rot_x,
+        ROT_Y => cube_rot_y,
+        ROT_Z => cube_rot_z,
+        SIZE => cube_size,
+        RED_OUT => buffer_red_out,
+        GREEN_OUT => buffer_green_out,
+        BLUE_OUT => buffer_blue_out
+    );
 
 END renderer3D_arch;
