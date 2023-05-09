@@ -859,8 +859,10 @@ PACKAGE math3D_pkg IS
 
     -- To float type
     FUNCTION to_vec2_float (a : vec2_int) RETURN vec2_float;
+    FUNCTION to_vec2_float (a : vec3_float) RETURN vec2_float;
     FUNCTION to_vec3_float (a : vec3_int) RETURN vec3_float;
     FUNCTION to_vec3_float (a : vec2_float; w : float32) RETURN vec3_float;
+    FUNCTION to_vec3_float (a : vec4_float) RETURN vec3_float;
     FUNCTION to_vec4_float (a : vec4_int) RETURN vec4_float;
     FUNCTION to_vec4_float (a : vec3_float; w : float32) RETURN vec4_float;
     FUNCTION to_mat3_float (a : mat3_int) RETURN mat3_float;
@@ -1474,6 +1476,14 @@ PACKAGE BODY math3D_pkg IS
         RETURN result;
     END FUNCTION;
 
+    FUNCTION to_vec2_float (a : vec3_int) RETURN vec2_float IS
+        VARIABLE result : vec2_float;
+    BEGIN
+        result(0) := to_float(a(0), 8, 23);
+        result(1) := to_float(a(1), 8, 23);
+        RETURN result;
+    END FUNCTION;
+
     FUNCTION to_vec3_float (a : vec3_int) RETURN vec3_float IS
         VARIABLE result : vec3_float;
     BEGIN
@@ -1489,6 +1499,15 @@ PACKAGE BODY math3D_pkg IS
         result(0) := a(0);
         result(1) := a(1);
         result(2) := w;
+        RETURN result;
+    END FUNCTION;
+
+    FUNCTION to_vec3_float (a : vec4_int) RETURN vec3_float IS
+        VARIABLE result : vec3_float;
+    BEGIN
+        result(0) := to_float(a(0), 8, 23);
+        result(1) := to_float(a(1), 8, 23);
+        result(2) := to_float(a(2), 8, 23);
         RETURN result;
     END FUNCTION;
 
