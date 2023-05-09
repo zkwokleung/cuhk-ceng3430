@@ -61,7 +61,7 @@ ARCHITECTURE renderer3D_arch OF renderer3D IS
             rot_x, rot_y, rot_z,
             size : IN INTEGER;
 
-            red_out, green_out, blue_out : OUT STD_LOGIC_VECTOR(BIT_DEPTH - 1 DOWNTO 0);
+            red_out, green_out, blue_out : OUT STD_LOGIC_VECTOR(BIT_DEPTH - 1 DOWNTO 0)
         );
     END COMPONENT;
 
@@ -101,7 +101,7 @@ BEGIN
         NEXT_COOR_V => next_coor_v
     );
 
-    cube_generator_inst : vga controller PORT MAP(
+    cube_generator_inst : cube_generator PORT MAP(
         CLK => CLK,
         RESET => BTNC,
         POS_X => cube_pos_x,

@@ -26,7 +26,7 @@ ENTITY cube_generator IS
         -- The size of the cube
         size : IN INTEGER;
 
-        red_out, green_out, blue_out : OUT STD_LOGIC_VECTOR(BIT_DEPTH - 1 DOWNTO 0);
+        red_out, green_out, blue_out : OUT STD_LOGIC_VECTOR(BIT_DEPTH - 1 DOWNTO 0)
     );
 END cube_generator;
 
