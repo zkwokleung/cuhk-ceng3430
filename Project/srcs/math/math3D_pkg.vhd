@@ -771,6 +771,8 @@ PACKAGE math3D_pkg IS
     FUNCTION "-" (a, b : vec2_int) RETURN vec2_int;
     -- Vector2 Dot Product
     FUNCTION "*" (a, b : vec2_int) RETURN INTEGER;
+    -- Vector2 Division
+    FUNCTION "/" (a : vec2_int; b : INTEGER) RETURN vec2_int;
 
     -- Vector3 Addition
     FUNCTION "+" (a, b : vec3_int) RETURN vec3_int;
@@ -778,6 +780,8 @@ PACKAGE math3D_pkg IS
     FUNCTION "-" (a, b : vec3_int) RETURN vec3_int;
     -- Vector3 Dot Product
     FUNCTION "*" (a, b : vec3_int) RETURN INTEGER;
+    -- Vector3 Division
+    FUNCTION "/" (a : vec3_int; b : INTEGER) RETURN vec3_int;
 
     -- Vector4 Addition
     FUNCTION "+" (a, b : vec4_int) RETURN vec4_int;
@@ -785,6 +789,8 @@ PACKAGE math3D_pkg IS
     FUNCTION "-" (a, b : vec4_int) RETURN vec4_int;
     -- Vector4 Dot Product
     FUNCTION "*" (a, b : vec4_int) RETURN INTEGER;
+    -- Vector4 Division
+    FUNCTION "/" (a : vec4_int; b : INTEGER) RETURN vec4_int;
 
     -- Matrix3 Addition
     FUNCTION "+" (a, b : mat3_int) RETURN mat3_int;
@@ -804,12 +810,18 @@ PACKAGE math3D_pkg IS
     -- Matrix4 Vector4 Multiplication
     FUNCTION "*" (a : mat4_int; b : vec4_int) RETURN vec4_int;
 
+    -- --------------------------------------------------------------------
+    -- FLOAT type data structures
+    -- --------------------------------------------------------------------
+
     -- Vector2 Addition
     FUNCTION "+" (a, b : vec2_float) RETURN vec2_float;
     -- Vector2 Subtraction
     FUNCTION "-" (a, b : vec2_float) RETURN vec2_float;
     -- Vector2 Dot Product
     FUNCTION "*" (a, b : vec2_float) RETURN float32;
+    -- Vector2 Division
+    FUNCTION "/" (a : vec2_float; b : float32) RETURN vec2_float;
 
     -- Vector3 Addition
     FUNCTION "+" (a, b : vec3_float) RETURN vec3_float;
@@ -817,6 +829,8 @@ PACKAGE math3D_pkg IS
     FUNCTION "-" (a, b : vec3_float) RETURN vec3_float;
     -- Vector3 Dot Product
     FUNCTION "*" (a, b : vec3_float) RETURN float32;
+    -- Vector3 Division
+    FUNCTION "/" (a : vec3_float; b : float32) RETURN vec3_float;
 
     -- Vector4 Addition
     FUNCTION "+" (a, b : vec4_float) RETURN vec4_float;
@@ -824,6 +838,8 @@ PACKAGE math3D_pkg IS
     FUNCTION "-" (a, b : vec4_float) RETURN vec4_float;
     -- Vector4 Dot Product
     FUNCTION "*" (a, b : vec4_float) RETURN float32;
+    -- Vector4 Division
+    FUNCTION "/" (a : vec4_float; b : float32) RETURN vec4_float;
 
     -- Matrix3 Addition
     FUNCTION "+" (a, b : mat3_float) RETURN mat3_float;
@@ -843,7 +859,9 @@ PACKAGE math3D_pkg IS
     -- Matrix4 Vector4 Multiplication
     FUNCTION "*" (a : mat4_float; b : vec4_float) RETURN vec4_float;
 
+    -- --------------------------------------------------------------------
     -- Type Conversion
+    -- --------------------------------------------------------------------
 
     -- To int type
     FUNCTION to_vec2_int (a : vec2_float) RETURN vec2_int;
@@ -955,6 +973,15 @@ PACKAGE BODY math3D_pkg IS
         RETURN result;
     END FUNCTION;
 
+    -- Vector2 Division
+    FUNCTION "/" (a : vec2_int; b : INTEGER) RETURN vec2_int IS
+        VARIABLE result : vec2_int;
+    BEGIN
+        result(0) := a(0) / b;
+        result(1) := a(1) / b;
+        RETURN result;
+    END FUNCTION;
+
     -- Vector3 Addition
     FUNCTION "+" (a, b : vec3_int) RETURN vec3_int IS
         VARIABLE result : vec3_int;
@@ -980,6 +1007,16 @@ PACKAGE BODY math3D_pkg IS
         VARIABLE result : INTEGER;
     BEGIN
         result := a(0) * b(0) + a(1) * b(1) + a(2) * b(2);
+        RETURN result;
+    END FUNCTION;
+
+    -- Vector3 Division
+    FUNCTION "/" (a : vec3_int; b : INTEGER) RETURN vec3_int IS
+        VARIABLE result : vec3_int;
+    BEGIN
+        result(0) := a(0) / b;
+        result(1) := a(1) / b;
+        result(2) := a(2) / b;
         RETURN result;
     END FUNCTION;
 
@@ -1010,6 +1047,17 @@ PACKAGE BODY math3D_pkg IS
         VARIABLE result : INTEGER;
     BEGIN
         result := a(0) * b(0) + a(1) * b(1) + a(2) * b(2) + a(3) * b(3);
+        RETURN result;
+    END FUNCTION;
+
+    -- Vector4 Division
+    FUNCTION "/" (a : vec4_int; b : INTEGER) RETURN vec4_int IS
+        VARIABLE result : vec4_int;
+    BEGIN
+        result(0) := a(0) / b;
+        result(1) := a(1) / b;
+        result(2) := a(2) / b;
+        result(3) := a(3) / b;
         RETURN result;
     END FUNCTION;
 
@@ -1152,6 +1200,15 @@ PACKAGE BODY math3D_pkg IS
         RETURN result;
     END FUNCTION;
 
+    -- Vector2 Division
+    FUNCTION "/" (a : vec2_float; b : float32) RETURN vec2_float IS
+        VARIABLE result : vec2_float;
+    BEGIN
+        result(0) := a(0) / b;
+        result(1) := a(1) / b;
+        RETURN result;
+    END FUNCTION;
+
     -- Vector3 Addition
     FUNCTION "+" (a, b : vec3_float) RETURN vec3_float IS
         VARIABLE result : vec3_float;
@@ -1177,6 +1234,16 @@ PACKAGE BODY math3D_pkg IS
         VARIABLE result : float;
     BEGIN
         result := a(0) * b(0) + a(1) * b(1) + a(2) * b(2);
+        RETURN result;
+    END FUNCTION;
+
+    -- Vector3 Division
+    FUNCTION "/" (a : vec3_float; b : float32) RETURN vec3_float IS
+        VARIABLE result : vec3_float;
+    BEGIN
+        result(0) := a(0) / b;
+        result(1) := a(1) / b;
+        result(2) := a(2) / b;
         RETURN result;
     END FUNCTION;
 
@@ -1207,6 +1274,17 @@ PACKAGE BODY math3D_pkg IS
         VARIABLE result : float;
     BEGIN
         result := a(0) * b(0) + a(1) * b(1) + a(2) * b(2) + a(3) * b(3);
+        RETURN result;
+    END FUNCTION;
+
+    -- Vector4 Division
+    FUNCTION "/" (a : vec4_float; b : float32) RETURN vec4_float IS
+        VARIABLE result : vec4_float;
+    BEGIN
+        result(0) := a(0) / b;
+        result(1) := a(1) / b;
+        result(2) := a(2) / b;
+        result(3) := a(3) / b;
         RETURN result;
     END FUNCTION;
 
@@ -1337,7 +1415,9 @@ PACKAGE BODY math3D_pkg IS
         RETURN result;
     END FUNCTION;
 
+    -- --------------------------------------------------------------------
     -- Type Conversion
+    -- --------------------------------------------------------------------
 
     -- To int type
     FUNCTION to_vec2_int (a : vec2_float) RETURN vec2_int IS
