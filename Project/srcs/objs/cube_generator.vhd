@@ -1,10 +1,9 @@
 LIBRARY IEEE;
 USE IEEE.STD_LOGIC_1164.ALL;
 USE IEEE.Numeric_Std.ALL;
-LIBRARY IEEE_PROPOSED;
-USE ieee_proposed.fixed_float_types.ALL;
-USE ieee_proposed.fixed_pkg.ALL;
-USE ieee_proposed.float_pkg.ALL;
+USE work.fixed_float_types.ALL;
+USE work.fixed_pkg.ALL;
+USE work.float_pkg.ALL;
 USE work.math3D_pkg.ALL;
 
 -- Determine the color of the current rendering pixel
@@ -26,6 +25,9 @@ ENTITY cube_generator IS
         -- Displayer data
         DISPLAY_COOR_H, DISPLAY_COOR_V : IN INTEGER;
 
+        -- Rendering data
+        PROJECTION_MATRIX, VIEW_MATRIX : IN mat4_float;
+
         -- Cube properties
         POS, ROT, SCALE : IN vec3_int;
 
@@ -34,21 +36,38 @@ ENTITY cube_generator IS
 END cube_generator;
 
 ARCHITECTURE Behavioral OF cube_generator IS
-    -- The base coordinates(before rotation) of the cube
-    SIGNAL base_v0, base_v1, base_v2, base_v3, base_v4, base_v5, base_v6, base_v7 : vec3_float;
+    TYPE cube_vertex IS ARRAY(0 TO 7) OF vec3_float;
 
-    -- The vertices of the cube
-    SIGNAL v0, v1, v2, v3, v4, v5, v6, v7 : vec3_float;
+    COMPONENT world_to_screen_convertor IS
+        GENERIC (
+            SCREEN_WIDTH : INTEGER := 1024;
+            SCREEN_HEIGHT : INTEGER := 600
+        );
+        PORT (
+            PROJECTION_MATRIX,
+            VIEW_MATRIX : IN mat4_float;
+            POINT_3D : IN vec3_float;
+            SCREEN_POS_OUT : OUT vec2_float
+        );
+    END COMPONENT;
+
+    -- The base coordinates(before rotation) and the actual coordinate(after translation) of the cube
+    SIGNAL base_vertices, vertices : cube_vertex;
+
+    -- The vertices of the cube after rotation
 BEGIN
-    base_v0 <= (to_float(POS(0) - (SCALE(0)/2), 8, 23), to_float(POS(1) - (SCALE(1)/2), 8, 23), to_float(POS(2) - (SCALE(2)/2), 8, 23));
-    base_v1 <= (to_float(POS(0) + (SCALE(0)/2), 8, 23), to_float(POS(1) - (SCALE(1)/2), 8, 23), to_float(POS(2) - (SCALE(2)/2), 8, 23));
-    base_v2 <= (to_float(POS(0) + (SCALE(0)/2), 8, 23), to_float(POS(1) + (SCALE(1)/2), 8, 23), to_float(POS(2) - (SCALE(2)/2), 8, 23));
-    base_v3 <= (to_float(POS(0) - (SCALE(0)/2), 8, 23), to_float(POS(1) + (SCALE(1)/2), 8, 23), to_float(POS(2) - (SCALE(2)/2), 8, 23));
-    base_v4 <= (to_float(POS(0) - (SCALE(0)/2), 8, 23), to_float(POS(1) - (SCALE(1)/2), 8, 23), to_float(POS(2) + (SCALE(2)/2), 8, 23));
-    base_v5 <= (to_float(POS(0) + (SCALE(0)/2), 8, 23), to_float(POS(1) - (SCALE(1)/2), 8, 23), to_float(POS(2) + (SCALE(2)/2), 8, 23));
-    base_v6 <= (to_float(POS(0) + (SCALE(0)/2), 8, 23), to_float(POS(1) + (SCALE(1)/2), 8, 23), to_float(POS(2) + (SCALE(2)/2), 8, 23));
-    base_v7 <= (to_float(POS(0) - (SCALE(0)/2), 8, 23), to_float(POS(1) + (SCALE(1)/2), 8, 23), to_float(POS(2) + (SCALE(2)/2), 8, 23));
+--    base_vertices <= (
+--        (to_float((POS(0) - (SCALE(0)/2)), 8, 23), to_float((POS(1) - (SCALE(1)/2)), 8, 23), to_float((POS(2) - (SCALE(2)/2)), 8, 23)),
+--        (to_float((POS(0) + (SCALE(0)/2)), 8, 23), to_float((POS(1) - (SCALE(1)/2)), 8, 23), to_float((POS(2) - (SCALE(2)/2)), 8, 23)),
+--        (to_float((POS(0) + (SCALE(0)/2)), 8, 23), to_float((POS(1) + (SCALE(1)/2)), 8, 23), to_float((POS(2) - (SCALE(2)/2)), 8, 23)),
+--        (to_float((POS(0) - (SCALE(0)/2)), 8, 23), to_float((POS(1) + (SCALE(1)/2)), 8, 23), to_float((POS(2) - (SCALE(2)/2)), 8, 23)),
+--        (to_float((POS(0) - (SCALE(0)/2)), 8, 23), to_float((POS(1) - (SCALE(1)/2)), 8, 23), to_float((POS(2) + (SCALE(2)/2)), 8, 23)),
+--        (to_float((POS(0) + (SCALE(0)/2)), 8, 23), to_float((POS(1) - (SCALE(1)/2)), 8, 23), to_float((POS(2) + (SCALE(2)/2)), 8, 23)),
+--        (to_float((POS(0) + (SCALE(0)/2)), 8, 23), to_float((POS(1) + (SCALE(1)/2)), 8, 23), to_float((POS(2) + (SCALE(2)/2)), 8, 23)),
+--        (to_float((POS(0) - (SCALE(0)/2)), 8, 23), to_float((POS(1) + (SCALE(1)/2)), 8, 23), to_float((POS(2) + (SCALE(2)/2)), 8, 23))
+--        );
 
+    -- Color output process
     PROCESS (CLK, RESET)
     BEGIN
         IF RESET = '1' THEN
