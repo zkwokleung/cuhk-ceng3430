@@ -55,13 +55,13 @@ ARCHITECTURE renderer3D_arch OF renderer3D IS
             BIT_DEPTH : INTEGER := 4
         );
         PORT (
-            clk : IN STD_LOGIC;
-            reset : IN STD_LOGIC;
-            pos_x, pos_y, pos_z,
-            rot_x, rot_y, rot_z,
-            size : IN INTEGER;
-
-            red_out, green_out, blue_out : OUT STD_LOGIC_VECTOR(BIT_DEPTH - 1 DOWNTO 0)
+            CLK : IN STD_LOGIC;
+            RESET : IN STD_LOGIC;
+            DISPLAY_COOR_H, DISPLAY_COOR_V : IN INTEGER;
+            POS_X, POS_Y, POS_Z,
+            ROT_X, ROT_Y, ROT_Z,
+            SIZE : IN INTEGER;
+            RED_OUT, GREEN_OUT, BLUE_OUT : OUT STD_LOGIC_VECTOR(BIT_DEPTH - 1 DOWNTO 0);
         );
     END COMPONENT;
 
@@ -75,8 +75,8 @@ ARCHITECTURE renderer3D_arch OF renderer3D IS
     SIGNAL cube_size : INTEGER := 100;
 
     -- The position of the cube
-    SIGNAL cube_pos_x : INTEGER := 0;
-    SIGNAL cube_pos_y : INTEGER := 0;
+    SIGNAL cube_pos_x : INTEGER := 600;
+    SIGNAL cube_pos_y : INTEGER := 300;
     SIGNAL cube_pos_z : INTEGER := 0;
 
     -- The rotation of the cube in euler angles

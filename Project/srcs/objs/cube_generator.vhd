@@ -14,19 +14,18 @@ ENTITY cube_generator IS
         BIT_DEPTH : INTEGER := 4
     );
     PORT (
-        clk : IN STD_LOGIC;
-        reset : IN STD_LOGIC;
+        CLK : IN STD_LOGIC;
+        RESET : IN STD_LOGIC;
 
-        -- The position of the cube
-        pos_x, pos_y, pos_z,
+        -- Displayer data
+        DISPLAY_COOR_H, DISPLAY_COOR_V : IN INTEGER;
 
-        -- The rotation of the cube
-        rot_x, rot_y, rot_z,
+        -- Cube properties
+        POS_X, POS_Y, POS_Z,
+        ROT_X, ROT_Y, ROT_Z,
+        SIZE : IN INTEGER;
 
-        -- The size of the cube
-        size : IN INTEGER;
-
-        red_out, green_out, blue_out : OUT STD_LOGIC_VECTOR(BIT_DEPTH - 1 DOWNTO 0)
+        RED_OUT, GREEN_OUT, BLUE_OUT : OUT STD_LOGIC_VECTOR(BIT_DEPTH - 1 DOWNTO 0);
     );
 END cube_generator;
 
@@ -39,12 +38,25 @@ ARCHITECTURE Behavioral OF cube_generator IS
     x4, y4, z4,
     x5, y5, z5 : INTEGER;
 BEGIN
-    PROCESS (clk, reset)
+    PROCESS (CLK, RESET)
     BEGIN
-        IF reset = '1' THEN
-
-        ELSIF rising_edge(clk) THEN
-
+        IF RESET = '1' THEN
+            RED_OUT <= (OTHERS => '0');
+            GREEN_OUT <= (OTHERS => '0');
+            BLUE_OUT <= (OTHERS => '0');
+        ELSIF rising_edge(CLK) THEN
+            -- Calculate if the current pixel is in the cube
+            IF (DISPLAY_COOR_H >= POS_X - SIZE AND DISPLAY_COOR_H <= POS_X + SIZE) AND
+                (DISPLAY_COOR_V >= POS_Y - SIZE AND DISPLAY_COOR_V <= POS_Y + SIZE)
+                THEN
+                RED_OUT <= "1111";
+                GREEN_OUT <= "1111";
+                BLUE_OUT <= "1111";
+            ELSE
+                RED_OUT <= (OTHERS => '0');
+                GREEN_OUT <= (OTHERS => '0');
+                BLUE_OUT <= (OTHERS => '0');
+            END IF;
         END IF;
     END PROCESS;
 END Behavioral;
