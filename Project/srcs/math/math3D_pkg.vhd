@@ -842,6 +842,14 @@ PACKAGE math3D_pkg IS
     FUNCTION "*" (a, b : mat4_float) RETURN mat4_float;
     -- Matrix4 Vector4 Multiplication
     FUNCTION "*" (a : mat4_float; b : vec4_float) RETURN vec4_float;
+
+    -----------------------------------------------
+    --               Projection                  --
+    -----------------------------------------------
+    -- Perspective Projection
+    FUNCTION perspective (left, right, bottom, top, near, far : INTEGER) RETURN mat4_float;
+    -- Orthographic Projection
+    FUNCTION orthographic (left, right, bottom, top, near, far : INTEGER) RETURN mat4_float;
 END PACKAGE;
 
 PACKAGE BODY math3D_pkg IS
@@ -1267,6 +1275,62 @@ PACKAGE BODY math3D_pkg IS
         result(1) := a(1)(0) * b(0) + a(1)(1) * b(1) + a(1)(2) * b(2) + a(1)(3) * b(3);
         result(2) := a(2)(0) * b(0) + a(2)(1) * b(1) + a(2)(2) * b(2) + a(2)(3) * b(3);
         result(3) := a(3)(0) * b(0) + a(3)(1) * b(1) + a(3)(2) * b(2) + a(3)(3) * b(3);
+        RETURN result;
+    END FUNCTION;
+    -----------------------------------------------
+    --               Projection                  --
+    -----------------------------------------------
+    -- Perspective Projection
+    FUNCTION perspective(left, right, bottom, top, near, far : INTEGER) RETURN mat4_float IS
+        VARIABLE result : mat4_float;
+    BEGIN
+        result(0)(0) := to_float((2.0 * near) / (aspect * fov));
+        result(0)(1) := to_float(0.0);
+        result(0)(2) := to_float((right + left) / (right - left));
+        result(0)(3) := to_float(0.0);
+
+        result(1)(0) := to_float(0.0);
+        result(1)(1) := to_float((2.0 * near) / (top - bottom));
+        result(1)(2) := to_float((top + bottom) / (top - bottom));
+        result(1)(3) := to_float(0.0);
+
+        result(2)(0) := to_float(0.0);
+        result(2)(1) := to_float(0.0);
+        result(2)(2) := to_float(-1.0 * (far + near) / (far - near));
+        result(2)(3) := to_float(-1.0 * (2.0 * far * near) / (far - near));
+
+        result(3)(0) := to_float(0.0);
+        result(3)(1) := to_float(0.0);
+        result(3)(2) := to_float(-1.0);
+        result(3)(3) := to_float(0.0);
+
+        RETURN result;
+    END FUNCTION;
+
+    -- Orthographic Projection
+    FUNCTION orthographic(left, right, bottom, top, near, far : INTEGER) RETURN mat4_float IS
+        VARIABLE result : mat4_float;
+    BEGIN
+        result(0)(0) := to_float(2.0 / (right - left));
+        result(0)(1) := to_float(0.0);
+        result(0)(2) := to_float(0.0);
+        result(0)(3) := to_float(-1.0 * (right + left) / (right - left));
+
+        result(1)(0) := to_float(0.0);
+        result(1)(1) := to_float(2.0 / (top - bottom));
+        result(1)(2) := to_float(0.0);
+        result(1)(3) := to_float(-1.0 * (top + bottom) / (top - bottom));
+
+        result(2)(0) := to_float(0.0);
+        result(2)(1) := to_float(0.0);
+        result(2)(2) := to_float(-2.0 / (far - near));
+        result(2)(3) := to_float(-1.0 * (far + near) / (far - near));
+
+        result(3)(0) := to_float(0.0);
+        result(3)(1) := to_float(0.0);
+        result(3)(2) := to_float(0.0);
+        result(3)(3) := to_float(1.0);
+
         RETURN result;
     END FUNCTION;
 END PACKAGE BODY;
