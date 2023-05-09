@@ -1,6 +1,11 @@
 LIBRARY IEEE;
 USE IEEE.STD_LOGIC_1164.ALL;
 USE IEEE.Numeric_Std.ALL;
+LIBRARY IEEE_PROPOSED;
+USE ieee_proposed.fixed_float_types.ALL;
+USE ieee_proposed.fixed_pkg.ALL;
+USE ieee_proposed.float_pkg.ALL;
+USE work.math3D_pkg.ALL;
 
 ENTITY renderer3D IS
     PORT (
@@ -58,9 +63,7 @@ ARCHITECTURE renderer3D_arch OF renderer3D IS
             CLK : IN STD_LOGIC;
             RESET : IN STD_LOGIC;
             DISPLAY_COOR_H, DISPLAY_COOR_V : IN INTEGER;
-            POS_X, POS_Y, POS_Z,
-            ROT_X, ROT_Y, ROT_Z,
-            SIZE : IN INTEGER;
+            POS, ROT, SCALE : IN vec3_float;
             RED_OUT, GREEN_OUT, BLUE_OUT : OUT STD_LOGIC_VECTOR(BIT_DEPTH - 1 DOWNTO 0)
         );
     END COMPONENT;
@@ -72,17 +75,13 @@ ARCHITECTURE renderer3D_arch OF renderer3D IS
     SIGNAL coor_h, coor_v, next_coor_h, next_coor_v : INTEGER;
 
     -- The pixel scale of the cube
-    SIGNAL cube_size : INTEGER := 100;
+    SIGNAL cube_scale : vec3_float := (to_float(100, 8, 23), to_float(100, 8, 23), to_float(100, 8, 23));
 
     -- The position of the cube
-    SIGNAL cube_pos_x : INTEGER := 600;
-    SIGNAL cube_pos_y : INTEGER := 300;
-    SIGNAL cube_pos_z : INTEGER := 0;
+    SIGNAL cube_pos : vec3_float := (to_float(512, 8, 23), to_float(300, 8, 23), to_float(100, 8, 23));
 
     -- The rotation of the cube in euler angles
-    SIGNAL cube_rot_x : INTEGER := 0;
-    SIGNAL cube_rot_y : INTEGER := 0;
-    SIGNAL cube_rot_z : INTEGER := 0;
+    SIGNAL cube_rot : vec3_float := (to_float(0, 8, 23), to_float(0, 8, 23), to_float(0, 8, 23));
 BEGIN
 
     vga_controller_inst : vga_controller PORT MAP(
@@ -106,13 +105,9 @@ BEGIN
         RESET => BTNC,
         DISPLAY_COOR_H => coor_h,
         DISPLAY_COOR_V => coor_v,
-        POS_X => cube_pos_x,
-        POS_Y => cube_pos_y,
-        POS_Z => cube_pos_z,
-        ROT_X => cube_rot_x,
-        ROT_Y => cube_rot_y,
-        ROT_Z => cube_rot_z,
-        SIZE => cube_size,
+        POS => cube_pos,
+        ROT => cube_rot,
+        SCALE => cube_scale,
         RED_OUT => buffer_red_out,
         GREEN_OUT => buffer_green_out,
         BLUE_OUT => buffer_blue_out
