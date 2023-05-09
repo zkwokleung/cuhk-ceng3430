@@ -7,9 +7,9 @@ USE ieee_proposed.fixed_pkg.ALL;
 USE ieee_proposed.float_pkg.ALL;
 
 PACKAGE math3D_pkg IS
-    -----------------------------------------------
-    --               Trigonometry                --
-    ----------------------------------------------- 
+    -- --------------------------------------------------------------------
+    --               Trigonometry
+    -- -------------------------------------------------------------------- 
     TYPE t_sincos_table IS ARRAY (0 TO 359) OF float32;
 
     -- The lookup table for sine
@@ -748,9 +748,9 @@ PACKAGE math3D_pkg IS
     -- It will also normalize the input to [0, 359]
     FUNCTION cos_float32 (x : INTEGER) RETURN float32;
 
-    -----------------------------------------------
-    --            Vector and Matrix              --
-    -----------------------------------------------
+    -- --------------------------------------------------------------------
+    --            Vector and Matrix
+    -- --------------------------------------------------------------------
     TYPE vec2_int IS ARRAY (0 TO 1) OF INTEGER;
     TYPE vec3_int IS ARRAY (0 TO 2) OF INTEGER;
     TYPE vec4_int IS ARRAY (0 TO 3) OF INTEGER;
@@ -869,36 +869,39 @@ PACKAGE math3D_pkg IS
     FUNCTION to_mat4_float (a : mat4_int) RETURN mat4_float;
     FUNCTION to_mat4_float (a : mat3_float) RETURN mat4_float;
 
-    -----------------------------------------------
-    --               Projection                  --
-    -----------------------------------------------
+    -- --------------------------------------------------------------------
+    --               Projection
+    -- --------------------------------------------------------------------
     -- Perspective Projection
     FUNCTION perspective (left, right, bottom, top, near, far : INTEGER) RETURN mat4_float;
     -- Orthographic Projection
     FUNCTION orthographic (left, right, bottom, top, near, far : INTEGER) RETURN mat4_float;
 
-    -----------------------------------------------
-    --                Constants                  --
-    -----------------------------------------------
+    -- --------------------------------------------------------------------
+    --                Constants
+    -- --------------------------------------------------------------------
+    CONSTANT float32_zero : float32 := "00000000000000000000000000000000";
+    CONSTANT float32_one : float32 := "00111111100000000000000000000000";
+
     CONSTANT identity_mat3_int : mat3_int := ((1, 0, 0), (0, 1, 0), (0, 0, 1));
     CONSTANT identity_mat4_int : mat4_int := ((1, 0, 0, 0), (0, 1, 0, 0), (0, 0, 1, 0), (0, 0, 0, 1));
     CONSTANT identity_mat3_float : mat3_float
      := (
-    ("00111111100000000000000000000000", "00000000000000000000000000000000", "00000000000000000000000000000000"),
-        ("00000000000000000000000000000000", "00111111100000000000000000000000", "00000000000000000000000000000000"),
-        ("00000000000000000000000000000000", "00000000000000000000000000000000", "00111111100000000000000000000000")
+    (float32_one, float32_zero, float32_zero),
+        (float32_zero, float32_one, float32_zero),
+        (float32_zero, float32_zero, float32_one)
     );
     CONSTANT identity_mat4_float : mat4_float
      := (
-    ("00111111100000000000000000000000", "00000000000000000000000000000000", "00000000000000000000000000000000", "00000000000000000000000000000000"),
-        ("00000000000000000000000000000000", "00111111100000000000000000000000", "00000000000000000000000000000000", "00000000000000000000000000000000"),
-        ("00000000000000000000000000000000", "00000000000000000000000000000000", "00111111100000000000000000000000", "00000000000000000000000000000000"),
-        ("00000000000000000000000000000000", "00000000000000000000000000000000", "00000000000000000000000000000000", "00111111100000000000000000000000")
+    (float32_one, float32_zero, float32_zero, float32_zero),
+        (float32_zero, float32_one, float32_zero, float32_zero),
+        (float32_zero, float32_zero, float32_one, float32_zero),
+        (float32_zero, float32_zero, float32_zero, float32_one)
     );
 
-    -----------------------------------------------
-    --               Transformation              --
-    -----------------------------------------------
+    -- --------------------------------------------------------------------
+    --               Transformation
+    -- --------------------------------------------------------------------
     -- Translation
     FUNCTION translation_mat4_float (displacement : vec3_int) RETURN mat4_float;
     -- Rotation
@@ -909,9 +912,9 @@ PACKAGE math3D_pkg IS
 END PACKAGE;
 
 PACKAGE BODY math3D_pkg IS
-    -----------------------------------------------
-    --            Trigonometric Func             --
-    -----------------------------------------------
+    -- --------------------------------------------------------------------
+    --            Trigonometric Func
+    -- --------------------------------------------------------------------
     FUNCTION sin_float32 (x : INTEGER) RETURN float32 IS
     BEGIN
         RETURN sin_table(x MOD 360);
@@ -922,9 +925,9 @@ PACKAGE BODY math3D_pkg IS
         RETURN cos_table(x MOD 360);
     END cos_float32;
 
-    -----------------------------------------------
-    --            Vector and Matrix              --
-    -----------------------------------------------
+    -- --------------------------------------------------------------------
+    --            Vector and Matrix
+    -- --------------------------------------------------------------------
 
     -- Vector2 Addition
     FUNCTION "+" (a, b : vec2_int) RETURN vec2_int IS
@@ -1119,9 +1122,9 @@ PACKAGE BODY math3D_pkg IS
         RETURN result;
     END FUNCTION;
 
-    -------------------------------------------------------------------------------------
+    -- --------------------------------------------------------------------
     -- FLOAT type data structures
-    -------------------------------------------------------------------------------------
+    -- --------------------------------------------------------------------
 
     -- Vector2 Addition
     FUNCTION "+" (a, b : vec2_float) RETURN vec2_float IS
@@ -1579,30 +1582,29 @@ PACKAGE BODY math3D_pkg IS
         result(0)(0) := a(0)(0);
         result(0)(1) := a(0)(1);
         result(0)(2) := a(0)(2);
-        result(0)(3) := "00000000000000000000000000000000";
+        result(0)(3) := float32_zero;
 
         result(1)(0) := a(1)(0);
         result(1)(1) := a(1)(1);
         result(1)(2) := a(1)(2);
-        result(1)(3) := "00000000000000000000000000000000";
+        result(1)(3) := float32_zero;
 
         result(2)(0) := a(2)(0);
         result(2)(1) := a(2)(1);
         result(2)(2) := a(2)(2);
-        result(2)(3) := "00000000000000000000000000000000";
+        result(2)(3) := float32_zero;
 
-        result(3)(0) := "00000000000000000000000000000000";
-        result(3)(1) := "00000000000000000000000000000000";
-        result(3)(2) := "00000000000000000000000000000000";
-        result(3)(3) := "00111111100000000000000000000000";
+        result(3)(0) := float32_zero;
+        result(3)(1) := float32_zero;
+        result(3)(2) := float32_zero;
+        result(3)(3) := float32_one;
         RETURN result;
     END FUNCTION;
 
-    -----------------------------------------------
-    --                Transform                  --
-    -----------------------------------------------
+    -- --------------------------------------------------------------------
+    --                Transform
+    -- --------------------------------------------------------------------
     -- Translate
-    -- Translation
     FUNCTION translation_mat4_float (displacement : vec3_int) RETURN mat4_float IS
         VARIABLE result : mat4_float;
     BEGIN
@@ -1662,9 +1664,9 @@ PACKAGE BODY math3D_pkg IS
         RETURN result;
     END FUNCTION;
 
-    -----------------------------------------------
-    --               Projection                  --
-    -----------------------------------------------
+    -- --------------------------------------------------------------------
+    --               Projection
+    -- --------------------------------------------------------------------
     -- Perspective Projection
     FUNCTION perspective(left, right, bottom, top, near, far : INTEGER) RETURN mat4_float IS
         VARIABLE result : mat4_float;
