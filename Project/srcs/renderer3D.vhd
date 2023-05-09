@@ -63,7 +63,7 @@ ARCHITECTURE renderer3D_arch OF renderer3D IS
             CLK : IN STD_LOGIC;
             RESET : IN STD_LOGIC;
             DISPLAY_COOR_H, DISPLAY_COOR_V : IN INTEGER;
-            POS, ROT, SCALE : IN vec3_float;
+            POS, ROT, SCALE : IN vec3_int;
             RED_OUT, GREEN_OUT, BLUE_OUT : OUT STD_LOGIC_VECTOR(BIT_DEPTH - 1 DOWNTO 0)
         );
     END COMPONENT;
@@ -75,13 +75,13 @@ ARCHITECTURE renderer3D_arch OF renderer3D IS
     SIGNAL coor_h, coor_v, next_coor_h, next_coor_v : INTEGER;
 
     -- The pixel scale of the cube
-    SIGNAL cube_scale : vec3_float := (to_float(100, 8, 23), to_float(100, 8, 23), to_float(100, 8, 23));
+    SIGNAL cube_scale : vec3_int := (100, 100, 100);
 
     -- The position of the cube
-    SIGNAL cube_pos : vec3_float := (to_float(512, 8, 23), to_float(300, 8, 23), to_float(100, 8, 23));
+    SIGNAL cube_pos : vec3_int := (512, 300, 100);
 
     -- The rotation of the cube in euler angles
-    SIGNAL cube_rot : vec3_float := (to_float(0, 8, 23), to_float(0, 8, 23), to_float(0, 8, 23));
+    SIGNAL cube_rot : vec3_int := (0, 0, 0);
 BEGIN
 
     vga_controller_inst : vga_controller PORT MAP(

@@ -27,16 +27,28 @@ ENTITY cube_generator IS
         DISPLAY_COOR_H, DISPLAY_COOR_V : IN INTEGER;
 
         -- Cube properties
-        POS, ROT, SCALE : IN vec3_float;
+        POS, ROT, SCALE : IN vec3_int;
 
         RED_OUT, GREEN_OUT, BLUE_OUT : OUT STD_LOGIC_VECTOR(BIT_DEPTH - 1 DOWNTO 0)
     );
 END cube_generator;
 
 ARCHITECTURE Behavioral OF cube_generator IS
+    -- The base coordinates(before rotation) of the cube
+    SIGNAL base_v0, base_v1, base_v2, base_v3, base_v4, base_v5, base_v6, base_v7 : vec3_float;
+
     -- The vertices of the cube
     SIGNAL v0, v1, v2, v3, v4, v5, v6, v7 : vec3_float;
 BEGIN
+    base_v0 <= (to_float(POS(0) - (SCALE(0)/2), 8, 23), to_float(POS(1) - (SCALE(1)/2), 8, 23), to_float(POS(2) - (SCALE(2)/2), 8, 23));
+    base_v1 <= (to_float(POS(0) + (SCALE(0)/2), 8, 23), to_float(POS(1) - (SCALE(1)/2), 8, 23), to_float(POS(2) - (SCALE(2)/2), 8, 23));
+    base_v2 <= (to_float(POS(0) + (SCALE(0)/2), 8, 23), to_float(POS(1) + (SCALE(1)/2), 8, 23), to_float(POS(2) - (SCALE(2)/2), 8, 23));
+    base_v3 <= (to_float(POS(0) - (SCALE(0)/2), 8, 23), to_float(POS(1) + (SCALE(1)/2), 8, 23), to_float(POS(2) - (SCALE(2)/2), 8, 23));
+    base_v4 <= (to_float(POS(0) - (SCALE(0)/2), 8, 23), to_float(POS(1) - (SCALE(1)/2), 8, 23), to_float(POS(2) + (SCALE(2)/2), 8, 23));
+    base_v5 <= (to_float(POS(0) + (SCALE(0)/2), 8, 23), to_float(POS(1) - (SCALE(1)/2), 8, 23), to_float(POS(2) + (SCALE(2)/2), 8, 23));
+    base_v6 <= (to_float(POS(0) + (SCALE(0)/2), 8, 23), to_float(POS(1) + (SCALE(1)/2), 8, 23), to_float(POS(2) + (SCALE(2)/2), 8, 23));
+    base_v7 <= (to_float(POS(0) - (SCALE(0)/2), 8, 23), to_float(POS(1) + (SCALE(1)/2), 8, 23), to_float(POS(2) + (SCALE(2)/2), 8, 23));
+
     PROCESS (CLK, RESET)
     BEGIN
         IF RESET = '1' THEN
@@ -45,8 +57,8 @@ BEGIN
             BLUE_OUT <= (OTHERS => '0');
         ELSIF rising_edge(CLK) THEN
             -- Calculate if the current pixel is in the cube
-            IF (DISPLAY_COOR_H >= POS(0) - (SCALE(0)/2) AND DISPLAY_COOR_H <= POS(0) + (SCALE(0)/2)) AND
-                (DISPLAY_COOR_V >= POS(1) - (SCALE(1)/2) AND DISPLAY_COOR_V <= POS(1) + (SCALE(1)/2))
+            IF (DISPLAY_COOR_H = POS(0) - (SCALE(0)/2) OR DISPLAY_COOR_H = POS(0) + (SCALE(0)/2)) OR
+                (DISPLAY_COOR_V = POS(1) - (SCALE(1)/2) OR DISPLAY_COOR_V = POS(1) + (SCALE(1)/2))
                 THEN
                 RED_OUT <= "1111";
                 GREEN_OUT <= "1111";
