@@ -25,7 +25,7 @@ ENTITY cube_generator IS
         ROT_X, ROT_Y, ROT_Z,
         SIZE : IN INTEGER;
 
-        RED_OUT, GREEN_OUT, BLUE_OUT : OUT STD_LOGIC_VECTOR(BIT_DEPTH - 1 DOWNTO 0);
+        RED_OUT, GREEN_OUT, BLUE_OUT : OUT STD_LOGIC_VECTOR(BIT_DEPTH - 1 DOWNTO 0)
     );
 END cube_generator;
 
