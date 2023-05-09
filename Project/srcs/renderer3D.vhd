@@ -1,10 +1,9 @@
 LIBRARY IEEE;
 USE IEEE.STD_LOGIC_1164.ALL;
 USE IEEE.Numeric_Std.ALL;
-LIBRARY IEEE_PROPOSED;
-USE ieee_proposed.fixed_float_types.ALL;
-USE ieee_proposed.fixed_pkg.ALL;
-USE ieee_proposed.float_pkg.ALL;
+USE work.fixed_float_types.ALL;
+USE work.fixed_pkg.ALL;
+USE work.float_pkg.ALL;
 USE work.math3D_pkg.ALL;
 
 ENTITY renderer3D IS
@@ -21,9 +20,12 @@ END renderer3D;
 
 ARCHITECTURE renderer3D_arch OF renderer3D IS
     -- Constants
-    CONSTANT SCREEN_WIDTH : INTEGER := 512;
-    CONSTANT SCREEN_HEIGHT : INTEGER := 300;
+    CONSTANT SCREEN_WIDTH : INTEGER := 1024;
+    CONSTANT SCREEN_HEIGHT : INTEGER := 600;
     CONSTANT BIT_DEPTH : INTEGER := 4;
+
+    CONSTANT PROJECTION_MATRIX : mat4_float := perspective(-512, 512, 300, -300, 0, 1000);
+    CONSTANT VIEW_MATRIX : mat4_float := look_at((0, 0, 0), (0, 0, 1), (0, -1, 0));
 
     COMPONENT vga_controller IS
         PORT (
@@ -33,23 +35,6 @@ ARCHITECTURE renderer3D_arch OF renderer3D IS
             VGA_RED, VGA_GREEN, VGA_BLUE : OUT STD_LOGIC_VECTOR(3 DOWNTO 0);
             COOR_H, COOR_V : OUT INTEGER;
             NEXT_COOR_H, NEXT_COOR_V : OUT INTEGER
-        );
-    END COMPONENT;
-
-    COMPONENT screen_buffer IS
-        GENERIC (
-            SCREEN_WIDTH : INTEGER := 1024;
-            SCREEN_HEIGHT : INTEGER := 600;
-            BIT_DEPTH : INTEGER := 4
-        );
-        PORT (
-            CLK : IN STD_LOGIC;
-            RESET : IN STD_LOGIC;
-
-            COOR_X, COOR_Y : IN INTEGER;
-
-            RED_BUFFER_IN, GREEN_BUFFER_IN, BLUE_BUFFER_IN : IN STD_LOGIC_VECTOR(SCREEN_WIDTH * SCREEN_HEIGHT * BIT_DEPTH - 1 DOWNTO 0);
-            RED_OUT, GREEN_OUT, BLUE_OUT : OUT STD_LOGIC_VECTOR(BIT_DEPTH - 1 DOWNTO 0)
         );
     END COMPONENT;
 
@@ -63,6 +48,7 @@ ARCHITECTURE renderer3D_arch OF renderer3D IS
             CLK : IN STD_LOGIC;
             RESET : IN STD_LOGIC;
             DISPLAY_COOR_H, DISPLAY_COOR_V : IN INTEGER;
+            PROJECTION_MATRIX, VIEW_MATRIX : IN mat4_float;
             POS, ROT, SCALE : IN vec3_int;
             RED_OUT, GREEN_OUT, BLUE_OUT : OUT STD_LOGIC_VECTOR(BIT_DEPTH - 1 DOWNTO 0)
         );
@@ -105,6 +91,8 @@ BEGIN
         RESET => BTNC,
         DISPLAY_COOR_H => coor_h,
         DISPLAY_COOR_V => coor_v,
+        PROJECTION_MATRIX => PROJECTION_MATRIX,
+        VIEW_MATRIX => VIEW_MATRIX,
         POS => cube_pos,
         ROT => cube_rot,
         SCALE => cube_scale,

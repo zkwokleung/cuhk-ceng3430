@@ -1,10 +1,9 @@
 LIBRARY ieee;
 USE ieee.std_logic_1164.ALL;
 USE ieee.numeric_std.ALL;
-LIBRARY ieee_proposed;
-USE ieee_proposed.fixed_float_types.ALL;
-USE ieee_proposed.fixed_pkg.ALL;
-USE ieee_proposed.float_pkg.ALL;
+USE work.fixed_float_types.ALL;
+USE work.fixed_pkg.ALL;
+USE work.float_pkg.ALL;
 
 PACKAGE math3D_pkg IS
     -- --------------------------------------------------------------------
@@ -853,6 +852,24 @@ PACKAGE math3D_pkg IS
     -- Vector4 Scalar Division
     FUNCTION "/" (a : vec4_float; b : float32) RETURN vec4_float;
 
+    -- Vector Cross Product
+    FUNCTION cross (a : vec3_float; b : vec3_float) RETURN vec3_float;
+
+    -- Normalize the vector
+    FUNCTION normalize (a : vec2_float) RETURN vec2_float;
+    FUNCTION normalize (a : vec3_float) RETURN vec3_float;
+    FUNCTION normalize (a : vec4_float) RETURN vec4_float;
+
+    -- Length of the vector
+    FUNCTION length (a : vec2_float) RETURN float32;
+    FUNCTION length (a : vec3_float) RETURN float32;
+    FUNCTION length (a : vec4_float) RETURN float32;
+
+    -- Distance between two vectors
+    FUNCTION distance (a, b : vec2_float) RETURN float32;
+    FUNCTION distance (a, b : vec3_float) RETURN float32;
+    FUNCTION distance (a, b : vec4_float) RETURN float32;
+
     -- Matrix3 Addition
     FUNCTION "+" (a, b : mat3_float) RETURN mat3_float;
     -- Matrix3 Subtraction
@@ -906,6 +923,8 @@ PACKAGE math3D_pkg IS
     FUNCTION perspective (left, right, bottom, top, near, far : INTEGER) RETURN mat4_float;
     -- Orthographic Projection
     FUNCTION orthographic (left, right, bottom, top, near, far : INTEGER) RETURN mat4_float;
+    -- Look at function for the view matrix
+    FUNCTION look_at (eye, at, up : vec3_int) RETURN mat4_float;
 
     -- --------------------------------------------------------------------
     --                Constants
@@ -1357,6 +1376,94 @@ PACKAGE BODY math3D_pkg IS
         result(1) := a(1) / b;
         result(2) := a(2) / b;
         result(3) := a(3) / b;
+        RETURN result;
+    END FUNCTION;
+
+    -- Vector Cross Product
+    FUNCTION cross (a : vec3_float; b : vec3_float) RETURN vec3_float IS
+        VARIABLE result : vec3_float;
+    BEGIN
+        result(0) := (a(1) * b(2)) - (a(2) * b(1));
+        result(1) := (a(2) * b(0)) - (a(0) * b(2));
+        result(2) := (a(0) * b(1)) - (a(1) * b(0));
+        RETURN result;
+    END FUNCTION;
+
+    -- Vector Length
+    FUNCTION length (a : vec2_float) RETURN float32 IS
+        VARIABLE result : float32;
+    BEGIN
+        result := sqrt(a(0));
+        RETURN result;
+    END FUNCTION;
+
+    FUNCTION length (a : vec3_float) RETURN float32 IS
+        VARIABLE result : float32;
+    BEGIN
+        result := sqrt(a(0) * a(0) + a(1) * a(1) + a(2) * a(2));
+        RETURN result;
+    END FUNCTION;
+
+    FUNCTION length (a : vec4_float) RETURN float32 IS
+        VARIABLE result : float32;
+    BEGIN
+        result := sqrt(a(0) * a(0) + a(1) * a(1) + a(2) * a(2) + a(3) * a(3));
+        RETURN result;
+    END FUNCTION;
+
+    -- Vector Distance
+    FUNCTION distance (a, b : vec2_float) RETURN float32 IS
+        VARIABLE result : float32;
+    BEGIN
+        result := sqrt((a(0) - b(0)) * (a(0) - b(0)) + (a(1) - b(1)) * (a(1) - b(1)));
+        RETURN result;
+    END FUNCTION;
+
+    FUNCTION distance (a, b : vec3_float) RETURN float32 IS
+        VARIABLE result : float32;
+    BEGIN
+        result := sqrt((a(0) - b(0)) * (a(0) - b(0)) + (a(1) - b(1)) * (a(1) - b(1)) + (a(2) - b(2)) * (a(2) - b(2)));
+        RETURN result;
+    END FUNCTION;
+
+    FUNCTION distance (a, b : vec4_float) RETURN float32 IS
+        VARIABLE result : float32;
+    BEGIN
+        result := sqrt((a(0) - b(0)) * (a(0) - b(0)) + (a(1) - b(1)) * (a(1) - b(1)) + (a(2) - b(2)) * (a(2) - b(2)) + (a(3) - b(3)) * (a(3) - b(3)));
+        RETURN result;
+    END FUNCTION;
+
+    -- Vector Nomalization
+    FUNCTION normalize (a : vec2_float) RETURN vec2_float IS
+        VARIABLE result : vec2_float;
+        VARIABLE length : float32;
+    BEGIN
+        length := sqrt(a(0) * a(0) + a(1) * a(1));
+        result(0) := a(0) / length;
+        result(1) := a(1) / length;
+        RETURN result;
+    END FUNCTION;
+
+    FUNCTION normalize (a : vec3_float) RETURN vec3_float IS
+        VARIABLE result : vec3_float;
+        VARIABLE length : float32;
+    BEGIN
+        length := sqrt(a(0) * a(0) + a(1) * a(1) + a(2) * a(2));
+        result(0) := a(0) / length;
+        result(1) := a(1) / length;
+        result(2) := a(2) / length;
+        RETURN result;
+    END FUNCTION;
+
+    FUNCTION normalize (a : vec4_float) RETURN vec4_float IS
+        VARIABLE result : vec4_float;
+        VARIABLE length : float32;
+    BEGIN
+        length := sqrt(a(0) * a(0) + a(1) * a(1) + a(2) * a(2) + a(3) * a(3));
+        result(0) := a(0) / length;
+        result(1) := a(1) / length;
+        result(2) := a(2) / length;
+        result(3) := a(3) / length;
         RETURN result;
     END FUNCTION;
 
@@ -1824,32 +1931,32 @@ PACKAGE BODY math3D_pkg IS
         VARIABLE result : mat4_float;
         VARIABLE l, r, b, t, n, f : float32;
     BEGIN
-        l := to_float(left, 8, -32);
-        r := to_float(right, 8, -32);
-        b := to_float(bottom, 8, -32);
-        t := to_float(top, 8, -32);
-        n := to_float(near, 8, -32);
-        f := to_float(far, 8, -32);
+        l := to_float(left, 8, 23);
+        r := to_float(right, 8, 23);
+        b := to_float(bottom, 8, 23);
+        t := to_float(top, 8, 23);
+        n := to_float(near, 8, 23);
+        f := to_float(far, 8, 23);
 
         result(0)(0) := (n * 2) / (r - l);
-        result(0)(1) := to_float(0.0, 8, -32);
+        result(0)(1) := to_float(0.0, 8, 23);
         result(0)(2) := (r + l) / (r - l);
-        result(0)(3) := to_float(0.0, 8, -32);
+        result(0)(3) := to_float(0.0, 8, 23);
 
-        result(1)(0) := to_float(0.0, 8, -32);
+        result(1)(0) := to_float(0.0, 8, 23);
         result(1)(1) := (2 * n) / (t - b);
         result(1)(2) := (t + b) / (t - b);
-        result(1)(3) := to_float(0.0, 8, -32);
+        result(1)(3) := to_float(0.0, 8, 23);
 
-        result(2)(0) := to_float(0.0, 8, -32);
-        result(2)(1) := to_float(0.0, 8, -32);
+        result(2)(0) := to_float(0.0, 8, 23);
+        result(2)(1) := to_float(0.0, 8, 23);
         result(2)(2) := - 1.0 * (f + n) / (f - n);
         result(2)(3) := - 1.0 * (2 * f * n) / (f - n);
 
-        result(3)(0) := to_float(0.0, 8, -32);
-        result(3)(1) := to_float(0.0, 8, -32);
-        result(3)(2) := to_float(-1.0, 8, -32);
-        result(3)(3) := to_float(0.0, 8, -32);
+        result(3)(0) := to_float(0.0, 8, 23);
+        result(3)(1) := to_float(0.0, 8, 23);
+        result(3)(2) := to_float(-1.0, 8, 23);
+        result(3)(3) := to_float(0.0, 8, 23);
 
         RETURN result;
     END FUNCTION;
@@ -1859,32 +1966,64 @@ PACKAGE BODY math3D_pkg IS
         VARIABLE result : mat4_float;
         VARIABLE l, r, b, t, n, f : float32;
     BEGIN
-        l := to_float(left, 8, -32);
-        r := to_float(right, 8, -32);
-        b := to_float(bottom, 8, -32);
-        t := to_float(top, 8, -32);
-        n := to_float(near, 8, -32);
-        f := to_float(far, 8, -32);
+        l := to_float(left, 8, 23);
+        r := to_float(right, 8, 23);
+        b := to_float(bottom, 8, 23);
+        t := to_float(top, 8, 23);
+        n := to_float(near, 8, 23);
+        f := to_float(far, 8, 23);
 
-        result(0)(0) := to_float(2.0, 8, -32) / (r - l);
-        result(0)(1) := to_float(0.0, 8, -32);
-        result(0)(2) := to_float(0.0, 8, -32);
-        result(0)(3) := to_float(-1.0, 8, -32) * (r + l) / (r - l);
+        result(0)(0) := to_float(2.0, 8, 23) / (r - l);
+        result(0)(1) := to_float(0.0, 8, 23);
+        result(0)(2) := to_float(0.0, 8, 23);
+        result(0)(3) := to_float(-1.0, 8, 23) * (r + l) / (r - l);
 
-        result(1)(0) := to_float(0.0, 8, -32);
-        result(1)(1) := to_float(2.0, 8, -32) / (t - b);
-        result(1)(2) := to_float(0.0, 8, -32);
-        result(1)(3) := to_float(-1.0, 8, -32) * (t + b) / (t - b);
+        result(1)(0) := to_float(0.0, 8, 23);
+        result(1)(1) := to_float(2.0, 8, 23) / (t - b);
+        result(1)(2) := to_float(0.0, 8, 23);
+        result(1)(3) := to_float(-1.0, 8, 23) * (t + b) / (t - b);
 
-        result(2)(0) := to_float(0.0, 8, -32);
-        result(2)(1) := to_float(0.0, 8, -32);
-        result(2)(2) := to_float(-2.0, 8, -32) / (f - n);
-        result(2)(3) := to_float(-1.0, 8, -32) * (f + n) / (f - n);
+        result(2)(0) := to_float(0.0, 8, 23);
+        result(2)(1) := to_float(0.0, 8, 23);
+        result(2)(2) := to_float(-2.0, 8, 23) / (f - n);
+        result(2)(3) := to_float(-1.0, 8, 23) * (f + n) / (f - n);
 
-        result(3)(0) := to_float(0.0, 8, -32);
-        result(3)(1) := to_float(0.0, 8, -32);
-        result(3)(2) := to_float(0.0, 8, -32);
-        result(3)(3) := to_float(1.0, 8, -32);
+        result(3)(0) := to_float(0.0, 8, 23);
+        result(3)(1) := to_float(0.0, 8, 23);
+        result(3)(2) := to_float(0.0, 8, 23);
+        result(3)(3) := to_float(1.0, 8, 23);
+
+        RETURN result;
+    END FUNCTION;
+
+    -- LookAt
+    FUNCTION look_at(eye, at, up : vec3_int) RETURN mat4_float IS
+        VARIABLE result : mat4_float;
+        VARIABLE f, s, u : vec3_float;
+    BEGIN
+        f := normalize(to_vec3_float(at - eye));
+        s := normalize(cross(f, to_vec3_float(up)));
+        u := cross(s, f);
+
+        result(0)(0) := s(0);
+        result(0)(1) := u(0);
+        result(0)(2) := - f(0);
+        result(0)(3) := float32_zero;
+
+        result(1)(0) := s(1);
+        result(1)(1) := u(1);
+        result(1)(2) := - f(1);
+        result(1)(3) := float32_zero;
+
+        result(2)(0) := s(2);
+        result(2)(1) := u(2);
+        result(2)(2) := - f(2);
+        result(2)(3) := float32_zero;
+
+        result(3)(0) := float32_zero;
+        result(3)(1) := float32_zero;
+        result(3)(2) := float32_zero;
+        result(3)(3) := float32_one;
 
         RETURN result;
     END FUNCTION;
