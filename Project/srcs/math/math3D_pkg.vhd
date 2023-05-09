@@ -843,6 +843,30 @@ PACKAGE math3D_pkg IS
     -- Matrix4 Vector4 Multiplication
     FUNCTION "*" (a : mat4_float; b : vec4_float) RETURN vec4_float;
 
+    -- Type Conversion
+
+    -- To int type
+    FUNCTION to_vec2_int (a : vec2_float) RETURN vec2_int;
+    FUNCTION to_vec2_int (a : vec3_int) RETURN vec2_int;
+    FUNCTION to_vec3_int (a : vec3_float) RETURN vec3_int;
+    FUNCTION to_vec3_int (a : vec2_int; w : INTEGER) RETURN vec3_int;
+    FUNCTION to_vec3_int (a : vec4_int) RETURN vec3_int;
+    FUNCTION to_vec4_int (a : vec4_float) RETURN vec4_int;
+    FUNCTION to_vec4_int (a : vec3_int; w : INTEGER) RETURN vec4_int;
+    FUNCTION to_mat3_int (a : mat3_float) RETURN mat3_int;
+    FUNCTION to_mat4_int (a : mat4_float) RETURN mat4_int;
+    FUNCTION to_mat4_int (a : mat3_int) RETURN mat4_int;
+
+    -- To float type
+    FUNCTION to_vec2_float (a : vec2_int) RETURN vec2_float;
+    FUNCTION to_vec3_float (a : vec3_int) RETURN vec3_float;
+    FUNCTION to_vec3_float (a : vec2_float; w : float32) RETURN vec3_float;
+    FUNCTION to_vec4_float (a : vec4_int) RETURN vec4_float;
+    FUNCTION to_vec4_float (a : vec3_float; w : float32) RETURN vec4_float;
+    FUNCTION to_mat3_float (a : mat3_int) RETURN mat3_float;
+    FUNCTION to_mat4_float (a : mat4_int) RETURN mat4_float;
+    FUNCTION to_mat4_float (a : mat3_float) RETURN mat4_float;
+
     -----------------------------------------------
     --               Projection                  --
     -----------------------------------------------
@@ -850,6 +874,36 @@ PACKAGE math3D_pkg IS
     FUNCTION perspective (left, right, bottom, top, near, far : INTEGER) RETURN mat4_float;
     -- Orthographic Projection
     FUNCTION orthographic (left, right, bottom, top, near, far : INTEGER) RETURN mat4_float;
+
+    -----------------------------------------------
+    --                Constants                  --
+    -----------------------------------------------
+    CONSTANT identity_mat3_int : mat3_int := ((1, 0, 0), (0, 1, 0), (0, 0, 1));
+    CONSTANT identity_mat4_int : mat4_int := ((1, 0, 0, 0), (0, 1, 0, 0), (0, 0, 1, 0), (0, 0, 0, 1));
+    CONSTANT identity_mat3_float : mat3_float
+     := (
+    ("00111111100000000000000000000000", "00000000000000000000000000000000", "00000000000000000000000000000000"),
+        ("00000000000000000000000000000000", "00111111100000000000000000000000", "00000000000000000000000000000000"),
+        ("00000000000000000000000000000000", "00000000000000000000000000000000", "00111111100000000000000000000000")
+    );
+    CONSTANT identity_mat4_float : mat4_float
+     := (
+    ("00111111100000000000000000000000", "00000000000000000000000000000000", "00000000000000000000000000000000", "00000000000000000000000000000000"),
+        ("00000000000000000000000000000000", "00111111100000000000000000000000", "00000000000000000000000000000000", "00000000000000000000000000000000"),
+        ("00000000000000000000000000000000", "00000000000000000000000000000000", "00111111100000000000000000000000", "00000000000000000000000000000000"),
+        ("00000000000000000000000000000000", "00000000000000000000000000000000", "00000000000000000000000000000000", "00111111100000000000000000000000")
+    );
+
+    -----------------------------------------------
+    --               Transformation              --
+    -----------------------------------------------
+    -- Translation
+    FUNCTION translation_mat4_float (displacement : vec3_int) RETURN mat4_float;
+    -- Rotation
+    FUNCTION rotation_mat4_float (euler : vec3_int) RETURN mat4_float;
+    -- Scaling
+    FUNCTION scaling_mat4_float (scale : vec3_int) RETURN mat4_float;
+
 END PACKAGE;
 
 PACKAGE BODY math3D_pkg IS
@@ -1277,6 +1331,318 @@ PACKAGE BODY math3D_pkg IS
         result(3) := a(3)(0) * b(0) + a(3)(1) * b(1) + a(3)(2) * b(2) + a(3)(3) * b(3);
         RETURN result;
     END FUNCTION;
+
+    -- Type Conversion
+
+    -- To int type
+    FUNCTION to_vec2_int (a : vec2_float) RETURN vec2_int IS
+        VARIABLE result : vec2_int;
+    BEGIN
+        result(0) := to_integer(a(0));
+        result(1) := to_integer(a(1));
+        RETURN result;
+    END FUNCTION;
+
+    FUNCTION to_vec2_int (a : vec3_int) RETURN vec2_int IS
+        VARIABLE result : vec2_int;
+    BEGIN
+        result(0) := a(0);
+        result(1) := a(1);
+        RETURN result;
+    END FUNCTION;
+
+    FUNCTION to_vec3_int (a : vec3_float) RETURN vec3_int IS
+        VARIABLE result : vec3_int;
+    BEGIN
+        result(0) := to_integer(a(0));
+        result(1) := to_integer(a(1));
+        result(2) := to_integer(a(2));
+        RETURN result;
+    END FUNCTION;
+
+    FUNCTION to_vec3_int (a : vec2_int; w : INTEGER) RETURN vec3_int IS
+        VARIABLE result : vec3_int;
+    BEGIN
+        result(0) := a(0);
+        result(1) := a(1);
+        result(2) := w;
+        RETURN result;
+    END FUNCTION;
+
+    FUNCTION to_vec3_int(a : vec4_int) RETURN vec3_int IS
+        VARIABLE result : vec3_int;
+    BEGIN
+        result(0) := a(0);
+        result(1) := a(1);
+        result(2) := a(2);
+        RETURN result;
+    END FUNCTION;
+
+    FUNCTION to_vec4_int (a : vec4_float) RETURN vec4_int IS
+        VARIABLE result : vec4_int;
+    BEGIN
+        result(0) := to_integer(a(0));
+        result(1) := to_integer(a(1));
+        result(2) := to_integer(a(2));
+        result(3) := to_integer(a(3));
+        RETURN result;
+    END FUNCTION;
+
+    FUNCTION to_vec4_int (a : vec3_int; w : INTEGER) RETURN vec4_int IS
+        VARIABLE result : vec4_int;
+    BEGIN
+        result(0) := a(0);
+        result(1) := a(1);
+        result(2) := a(2);
+        result(3) := w;
+        RETURN result;
+    END FUNCTION;
+
+    FUNCTION to_mat3_int (a : mat3_float) RETURN mat3_int IS
+        VARIABLE result : mat3_int;
+    BEGIN
+        result(0)(0) := to_integer(a(0)(0));
+        result(0)(1) := to_integer(a(0)(1));
+        result(0)(2) := to_integer(a(0)(2));
+
+        result(1)(0) := to_integer(a(1)(0));
+        result(1)(1) := to_integer(a(1)(1));
+        result(1)(2) := to_integer(a(1)(2));
+
+        result(2)(0) := to_integer(a(2)(0));
+        result(2)(1) := to_integer(a(2)(1));
+        result(2)(2) := to_integer(a(2)(2));
+        RETURN result;
+    END FUNCTION;
+
+    FUNCTION to_mat4_int (a : mat4_float) RETURN mat4_int IS
+        VARIABLE result : mat4_int;
+    BEGIN
+        result(0)(0) := to_integer(a(0)(0));
+        result(0)(1) := to_integer(a(0)(1));
+        result(0)(2) := to_integer(a(0)(2));
+        result(0)(3) := to_integer(a(0)(3));
+
+        result(1)(0) := to_integer(a(1)(0));
+        result(1)(1) := to_integer(a(1)(1));
+        result(1)(2) := to_integer(a(1)(2));
+        result(1)(3) := to_integer(a(1)(3));
+
+        result(2)(0) := to_integer(a(2)(0));
+        result(2)(1) := to_integer(a(2)(1));
+        result(2)(2) := to_integer(a(2)(2));
+        result(2)(3) := to_integer(a(2)(3));
+
+        result(3)(0) := to_integer(a(3)(0));
+        result(3)(1) := to_integer(a(3)(1));
+        result(3)(2) := to_integer(a(3)(2));
+        result(3)(3) := to_integer(a(3)(3));
+        RETURN result;
+    END FUNCTION;
+
+    FUNCTION to_mat4_int (a : mat3_int) RETURN mat4_int IS
+        VARIABLE result : mat4_int;
+    BEGIN
+        result(0)(0) := a(0)(0);
+        result(0)(1) := a(0)(1);
+        result(0)(2) := a(0)(2);
+        result(0)(3) := 0;
+
+        result(1)(0) := a(1)(0);
+        result(1)(1) := a(1)(1);
+        result(1)(2) := a(1)(2);
+        result(1)(3) := 0;
+
+        result(2)(0) := a(2)(0);
+        result(2)(1) := a(2)(1);
+        result(2)(2) := a(2)(2);
+        result(2)(3) := 0;
+
+        result(3)(0) := 0;
+        result(3)(1) := 0;
+        result(3)(2) := 0;
+        result(3)(3) := 1;
+        RETURN result;
+    END FUNCTION;
+
+    -- To float type
+    FUNCTION to_vec2_float (a : vec2_int) RETURN vec2_float IS
+        VARIABLE result : vec2_float;
+    BEGIN
+        result(0) := to_float(a(0), 8, 23);
+        result(1) := to_float(a(1), 8, 23);
+        RETURN result;
+    END FUNCTION;
+
+    FUNCTION to_vec3_float (a : vec3_int) RETURN vec3_float IS
+        VARIABLE result : vec3_float;
+    BEGIN
+        result(0) := to_float(a(0), 8, 23);
+        result(1) := to_float(a(1), 8, 23);
+        result(2) := to_float(a(2), 8, 23);
+        RETURN result;
+    END FUNCTION;
+
+    FUNCTION to_vec3_float (a : vec2_float; w : float32) RETURN vec3_float IS
+        VARIABLE result : vec3_float;
+    BEGIN
+        result(0) := a(0);
+        result(1) := a(1);
+        result(2) := w;
+        RETURN result;
+    END FUNCTION;
+
+    FUNCTION to_vec4_float (a : vec4_int) RETURN vec4_float IS
+        VARIABLE result : vec4_float;
+    BEGIN
+        result(0) := to_float(a(0), 8, 23);
+        result(1) := to_float(a(1), 8, 23);
+        result(2) := to_float(a(2), 8, 23);
+        result(3) := to_float(a(3), 8, 23);
+        RETURN result;
+    END FUNCTION;
+
+    FUNCTION to_vec4_float (a : vec3_float; w : float32) RETURN vec4_float IS
+        VARIABLE result : vec4_float;
+    BEGIN
+        result(0) := a(0);
+        result(1) := a(1);
+        result(2) := a(2);
+        result(3) := w;
+        RETURN result;
+    END FUNCTION;
+
+    FUNCTION to_mat3_float (a : mat3_int) RETURN mat3_float IS
+        VARIABLE result : mat3_float;
+    BEGIN
+        result(0)(0) := to_float(a(0)(0), 8, 23);
+        result(0)(1) := to_float(a(0)(1), 8, 23);
+        result(0)(2) := to_float(a(0)(2), 8, 23);
+
+        result(1)(0) := to_float(a(1)(0), 8, 23);
+        result(1)(1) := to_float(a(1)(1), 8, 23);
+        result(1)(2) := to_float(a(1)(2), 8, 23);
+
+        result(2)(0) := to_float(a(2)(0), 8, 23);
+        result(2)(1) := to_float(a(2)(1), 8, 23);
+        result(2)(2) := to_float(a(2)(2), 8, 23);
+        RETURN result;
+    END FUNCTION;
+
+    FUNCTION to_mat4_float (a : mat4_int) RETURN mat4_float IS
+        VARIABLE result : mat4_float;
+    BEGIN
+        result(0)(0) := to_float(a(0)(0), 8, 23);
+        result(0)(1) := to_float(a(0)(1), 8, 23);
+        result(0)(2) := to_float(a(0)(2), 8, 23);
+        result(0)(3) := to_float(a(0)(3), 8, 23);
+
+        result(1)(0) := to_float(a(1)(0), 8, 23);
+        result(1)(1) := to_float(a(1)(1), 8, 23);
+        result(1)(2) := to_float(a(1)(2), 8, 23);
+        result(1)(3) := to_float(a(1)(3), 8, 23);
+
+        result(2)(0) := to_float(a(2)(0), 8, 23);
+        result(2)(1) := to_float(a(2)(1), 8, 23);
+        result(2)(2) := to_float(a(2)(2), 8, 23);
+        result(2)(3) := to_float(a(2)(3), 8, 23);
+
+        result(3)(0) := to_float(a(3)(0), 8, 23);
+        result(3)(1) := to_float(a(3)(1), 8, 23);
+        result(3)(2) := to_float(a(3)(2), 8, 23);
+        result(3)(3) := to_float(a(3)(3), 8, 23);
+        RETURN result;
+    END FUNCTION;
+
+    FUNCTION to_mat4_float (a : mat3_float) RETURN mat4_float IS
+        VARIABLE result : mat4_float;
+    BEGIN
+        result(0)(0) := a(0)(0);
+        result(0)(1) := a(0)(1);
+        result(0)(2) := a(0)(2);
+        result(0)(3) := "00000000000000000000000000000000";
+
+        result(1)(0) := a(1)(0);
+        result(1)(1) := a(1)(1);
+        result(1)(2) := a(1)(2);
+        result(1)(3) := "00000000000000000000000000000000";
+
+        result(2)(0) := a(2)(0);
+        result(2)(1) := a(2)(1);
+        result(2)(2) := a(2)(2);
+        result(2)(3) := "00000000000000000000000000000000";
+
+        result(3)(0) := "00000000000000000000000000000000";
+        result(3)(1) := "00000000000000000000000000000000";
+        result(3)(2) := "00000000000000000000000000000000";
+        result(3)(3) := "00111111100000000000000000000000";
+        RETURN result;
+    END FUNCTION;
+
+    -----------------------------------------------
+    --                Transform                  --
+    -----------------------------------------------
+    -- Translate
+    -- Translation
+    FUNCTION translation_mat4_float (displacement : vec3_int) RETURN mat4_float IS
+        VARIABLE result : mat4_float;
+    BEGIN
+        result := identity_mat4_float;
+        result(0)(3) := to_float(displacement(0), 8, 23);
+        result(1)(3) := to_float(displacement(1), 8, 23);
+        result(2)(3) := to_float(displacement(2), 8, 23);
+        RETURN result;
+    END FUNCTION;
+
+    -- Rotation
+    FUNCTION rotation_mat4_float (euler : vec3_int) RETURN mat4_float IS
+        VARIABLE result : mat4_float;
+        VARIABLE a, b, c, d, e, f, g, h, i : float32;
+        VARIABLE cos_x, cos_y, cos_z, sin_x, sin_y, sin_z : float32;
+    BEGIN
+        result := identity_mat4_float;
+
+        cos_x := cos_float32(euler(0));
+        cos_y := cos_float32(euler(1));
+        cos_z := cos_float32(euler(2));
+        sin_x := sin_float32(euler(0));
+        sin_y := sin_float32(euler(1));
+        sin_z := sin_float32(euler(2));
+
+        a := cos_y * cos_z;
+        b := cos_y * sin_z;
+        c := - sin_y;
+        d := sin_x * sin_y * cos_z - cos_x * sin_z;
+        e := sin_x * sin_y * sin_z + cos_x * cos_z;
+        f := sin_x * cos_y;
+        g := cos_x * sin_y * cos_z + sin_x * sin_z;
+        h := cos_x * sin_y * sin_z - sin_x * cos_z;
+        i := cos_x * cos_y;
+
+        result(0)(0) := a;
+        result(0)(1) := b;
+        result(0)(2) := c;
+        result(1)(0) := d;
+        result(1)(1) := e;
+        result(1)(2) := f;
+        result(2)(0) := g;
+        result(2)(1) := h;
+        result(2)(2) := i;
+
+        RETURN result;
+    END FUNCTION;
+
+    -- Scaling
+    FUNCTION scaling_mat4_float (scale : vec3_int) RETURN mat4_float IS
+        VARIABLE result : mat4_float;
+    BEGIN
+        result := identity_mat4_float;
+        result(0)(0) := to_float(scale(0), 8, 23);
+        result(1)(1) := to_float(scale(1), 8, 23);
+        result(2)(2) := to_float(scale(2), 8, 23);
+        RETURN result;
+    END FUNCTION;
+
     -----------------------------------------------
     --               Projection                  --
     -----------------------------------------------
