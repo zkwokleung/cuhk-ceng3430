@@ -1476,11 +1476,11 @@ PACKAGE BODY math3D_pkg IS
         RETURN result;
     END FUNCTION;
 
-    FUNCTION to_vec2_float (a : vec3_int) RETURN vec2_float IS
+    FUNCTION to_vec2_float (a : vec3_float) RETURN vec2_float IS
         VARIABLE result : vec2_float;
     BEGIN
-        result(0) := to_float(a(0), 8, 23);
-        result(1) := to_float(a(1), 8, 23);
+        result(0) := a(0);
+        result(1) := a(1);
         RETURN result;
     END FUNCTION;
 
@@ -1502,12 +1502,12 @@ PACKAGE BODY math3D_pkg IS
         RETURN result;
     END FUNCTION;
 
-    FUNCTION to_vec3_float (a : vec4_int) RETURN vec3_float IS
+    FUNCTION to_vec3_float (a : vec4_float) RETURN vec3_float IS
         VARIABLE result : vec3_float;
     BEGIN
-        result(0) := to_float(a(0), 8, 23);
-        result(1) := to_float(a(1), 8, 23);
-        result(2) := to_float(a(2), 8, 23);
+        result(0) := a(0);
+        result(1) := a(1);
+        result(2) := a(2);
         RETURN result;
     END FUNCTION;
 
