@@ -104,6 +104,8 @@ BEGIN
     cube_generator_inst : cube_generator PORT MAP(
         CLK => CLK,
         RESET => BTNC,
+        DISPLAY_COOR_H => coor_h,
+        DISPLAY_COOR_V => coor_v,
         POS_X => cube_pos_x,
         POS_Y => cube_pos_y,
         POS_Z => cube_pos_z,
