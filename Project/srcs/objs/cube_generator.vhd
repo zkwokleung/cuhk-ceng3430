@@ -29,7 +29,7 @@ ENTITY cube_generator IS
         PROJECTION_MATRIX, VIEW_MATRIX : IN mat4_float;
 
         -- Cube properties
-        POS, ROT, SCALE : IN vec3_int;
+        POS, ROT, SCALE : IN vec3_float;
 
         RED_OUT, GREEN_OUT, BLUE_OUT : OUT STD_LOGIC_VECTOR(BIT_DEPTH - 1 DOWNTO 0)
     );
@@ -56,16 +56,16 @@ ARCHITECTURE Behavioral OF cube_generator IS
 
     -- The vertices of the cube after rotation
 BEGIN
---    base_vertices <= (
---        (to_float((POS(0) - (SCALE(0)/2)), 8, 23), to_float((POS(1) - (SCALE(1)/2)), 8, 23), to_float((POS(2) - (SCALE(2)/2)), 8, 23)),
---        (to_float((POS(0) + (SCALE(0)/2)), 8, 23), to_float((POS(1) - (SCALE(1)/2)), 8, 23), to_float((POS(2) - (SCALE(2)/2)), 8, 23)),
---        (to_float((POS(0) + (SCALE(0)/2)), 8, 23), to_float((POS(1) + (SCALE(1)/2)), 8, 23), to_float((POS(2) - (SCALE(2)/2)), 8, 23)),
---        (to_float((POS(0) - (SCALE(0)/2)), 8, 23), to_float((POS(1) + (SCALE(1)/2)), 8, 23), to_float((POS(2) - (SCALE(2)/2)), 8, 23)),
---        (to_float((POS(0) - (SCALE(0)/2)), 8, 23), to_float((POS(1) - (SCALE(1)/2)), 8, 23), to_float((POS(2) + (SCALE(2)/2)), 8, 23)),
---        (to_float((POS(0) + (SCALE(0)/2)), 8, 23), to_float((POS(1) - (SCALE(1)/2)), 8, 23), to_float((POS(2) + (SCALE(2)/2)), 8, 23)),
---        (to_float((POS(0) + (SCALE(0)/2)), 8, 23), to_float((POS(1) + (SCALE(1)/2)), 8, 23), to_float((POS(2) + (SCALE(2)/2)), 8, 23)),
---        (to_float((POS(0) - (SCALE(0)/2)), 8, 23), to_float((POS(1) + (SCALE(1)/2)), 8, 23), to_float((POS(2) + (SCALE(2)/2)), 8, 23))
---        );
+    -- base_vertices <= (
+    -- (POS(0) - (SCALE(0)/2), POS(1) - (SCALE(1)/2), POS(2) - (SCALE(2)/2)),
+    -- (POS(0) + (SCALE(0)/2), POS(1) - (SCALE(1)/2), POS(2) - (SCALE(2)/2)),
+    -- (POS(0) + (SCALE(0)/2), POS(1) + (SCALE(1)/2), POS(2) - (SCALE(2)/2)),
+    -- (POS(0) - (SCALE(0)/2), POS(1) + (SCALE(1)/2), POS(2) - (SCALE(2)/2)),
+    -- (POS(0) - (SCALE(0)/2), POS(1) - (SCALE(1)/2), POS(2) + (SCALE(2)/2)),
+    -- (POS(0) + (SCALE(0)/2), POS(1) - (SCALE(1)/2), POS(2) + (SCALE(2)/2)),
+    -- (POS(0) + (SCALE(0)/2), POS(1) + (SCALE(1)/2), POS(2) + (SCALE(2)/2)),
+    -- (POS(0) - (SCALE(0)/2), POS(1) + (SCALE(1)/2), POS(2) + (SCALE(2)/2))
+    -- );
 
     -- Color output process
     PROCESS (CLK, RESET)
@@ -74,7 +74,7 @@ BEGIN
             RED_OUT <= (OTHERS => '0');
             GREEN_OUT <= (OTHERS => '0');
             BLUE_OUT <= (OTHERS => '0');
-        ELSIF rising_edge(CLK) THEN
+            ELSIF rising_edge(CLK) THEN
             -- Calculate if the current pixel is in the cube
             IF (DISPLAY_COOR_H = POS(0) - (SCALE(0)/2) OR DISPLAY_COOR_H = POS(0) + (SCALE(0)/2)) OR
                 (DISPLAY_COOR_V = POS(1) - (SCALE(1)/2) OR DISPLAY_COOR_V = POS(1) + (SCALE(1)/2))
@@ -82,7 +82,7 @@ BEGIN
                 RED_OUT <= "1111";
                 GREEN_OUT <= "1111";
                 BLUE_OUT <= "1111";
-            ELSE
+                ELSE
                 RED_OUT <= (OTHERS => '0');
                 GREEN_OUT <= (OTHERS => '0');
                 BLUE_OUT <= (OTHERS => '0');
