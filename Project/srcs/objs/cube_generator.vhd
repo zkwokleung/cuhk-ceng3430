@@ -1,9 +1,10 @@
 LIBRARY IEEE;
 USE IEEE.STD_LOGIC_1164.ALL;
 USE IEEE.Numeric_Std.ALL;
-USE work.fixed_float_types.ALL;
-USE work.fixed_pkg.ALL;
-USE work.float_pkg.ALL;
+LIBRARY ieee_proposed;
+USE ieee_proposed.fixed_float_types.ALL;
+USE ieee_proposed.fixed_pkg.ALL;
+USE ieee_proposed.float_pkg.ALL;
 USE work.math3D_pkg.ALL;
 
 -- Determine the color of the current rendering pixel
@@ -74,7 +75,7 @@ BEGIN
             RED_OUT <= (OTHERS => '0');
             GREEN_OUT <= (OTHERS => '0');
             BLUE_OUT <= (OTHERS => '0');
-            ELSIF rising_edge(CLK) THEN
+        ELSIF rising_edge(CLK) THEN
             -- Calculate if the current pixel is in the cube
             IF (DISPLAY_COOR_H = POS(0) - (SCALE(0)/2) OR DISPLAY_COOR_H = POS(0) + (SCALE(0)/2)) OR
                 (DISPLAY_COOR_V = POS(1) - (SCALE(1)/2) OR DISPLAY_COOR_V = POS(1) + (SCALE(1)/2))
@@ -82,7 +83,7 @@ BEGIN
                 RED_OUT <= "1111";
                 GREEN_OUT <= "1111";
                 BLUE_OUT <= "1111";
-                ELSE
+            ELSE
                 RED_OUT <= (OTHERS => '0');
                 GREEN_OUT <= (OTHERS => '0');
                 BLUE_OUT <= (OTHERS => '0');

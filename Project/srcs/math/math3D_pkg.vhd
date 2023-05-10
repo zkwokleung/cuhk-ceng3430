@@ -1,9 +1,10 @@
 LIBRARY ieee;
 USE ieee.std_logic_1164.ALL;
 USE ieee.numeric_std.ALL;
-USE work.fixed_float_types.ALL;
-USE work.fixed_pkg.ALL;
-USE work.float_pkg.ALL;
+LIBRARY ieee_proposed;
+USE ieee_proposed.fixed_float_types.ALL;
+USE ieee_proposed.fixed_pkg.ALL;
+USE ieee_proposed.float_pkg.ALL;
 
 PACKAGE math3D_pkg IS
     -- --------------------------------------------------------------------
@@ -1393,21 +1394,21 @@ PACKAGE BODY math3D_pkg IS
     FUNCTION length (a : vec2_float) RETURN float32 IS
         VARIABLE result : float32;
     BEGIN
-        result := sqrt(a(0));
+        result := sqrt(1);
         RETURN result;
     END FUNCTION;
 
     FUNCTION length (a : vec3_float) RETURN float32 IS
         VARIABLE result : float32;
     BEGIN
-        result := sqrt(a(0) * a(0) + a(1) * a(1) + a(2) * a(2));
+        result := sqrt((a(0) * a(0)) + (a(1) * a(1)) + (a(2) * a(2)));
         RETURN result;
     END FUNCTION;
 
     FUNCTION length (a : vec4_float) RETURN float32 IS
         VARIABLE result : float32;
     BEGIN
-        result := sqrt(a(0) * a(0) + a(1) * a(1) + a(2) * a(2) + a(3) * a(3));
+        result := sqrt((a(0) * a(0)) + (a(1) * a(1)) + (a(2) * a(2)) + (a(3) * a(3)));
         RETURN result;
     END FUNCTION;
 
