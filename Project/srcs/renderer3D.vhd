@@ -1,6 +1,7 @@
 LIBRARY IEEE;
 USE IEEE.STD_LOGIC_1164.ALL;
 USE IEEE.Numeric_Std.ALL;
+LIBRARY ieee_proposed;
 USE ieee_proposed.fixed_float_types.ALL;
 USE ieee_proposed.fixed_pkg.ALL;
 USE ieee_proposed.float_pkg.ALL;
@@ -10,7 +11,7 @@ ENTITY renderer3D IS
     PORT (
         -- Board Ports
         CLK : IN STD_LOGIC;
-        BTNC : IN STD_LOGIC;
+        BTNC, BTNL, BTNR, BTNU, BTND : IN STD_LOGIC;
 
         -- VGA Ports
         VGA_HSYNC, VGA_VSYNC : OUT STD_LOGIC;
@@ -24,8 +25,8 @@ ARCHITECTURE renderer3D_arch OF renderer3D IS
     CONSTANT SCREEN_HEIGHT : INTEGER := 600;
     CONSTANT BIT_DEPTH : INTEGER := 4;
 
-    CONSTANT PROJECTION_MATRIX : mat4_float := perspective(-512, 512, 300, -300, 0, 1000);
-    CONSTANT VIEW_MATRIX : mat4_float := look_at((0, 0, 0), (0, 0, 1), (0, -1, 0));
+    CONSTANT PROJECTION_MATRIX : mat4_float := perspective_128_75_mat4_float;
+    CONSTANT VIEW_MATRIX : mat4_float := look_forward_mat4_float;
 
     COMPONENT vga_controller IS
         PORT (

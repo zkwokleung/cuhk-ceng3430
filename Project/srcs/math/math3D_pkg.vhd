@@ -856,20 +856,20 @@ PACKAGE math3D_pkg IS
     -- Vector Cross Product
     FUNCTION cross (a : vec3_float; b : vec3_float) RETURN vec3_float;
 
-    -- Normalize the vector
-    FUNCTION normalize (a : vec2_float) RETURN vec2_float;
-    FUNCTION normalize (a : vec3_float) RETURN vec3_float;
-    FUNCTION normalize (a : vec4_float) RETURN vec4_float;
+    -- -- Normalize the vector
+    -- FUNCTION normalize (a : vec2_float) RETURN vec2_float;
+    -- FUNCTION normalize (a : vec3_float) RETURN vec3_float;
+    -- FUNCTION normalize (a : vec4_float) RETURN vec4_float;
 
-    -- Length of the vector
-    FUNCTION length (a : vec2_float) RETURN float32;
-    FUNCTION length (a : vec3_float) RETURN float32;
-    FUNCTION length (a : vec4_float) RETURN float32;
+    -- -- Length of the vector
+    -- FUNCTION length (a : vec2_float) RETURN float32;
+    -- FUNCTION length (a : vec3_float) RETURN float32;
+    -- FUNCTION length (a : vec4_float) RETURN float32;
 
-    -- Distance between two vectors
-    FUNCTION distance (a, b : vec2_float) RETURN float32;
-    FUNCTION distance (a, b : vec3_float) RETURN float32;
-    FUNCTION distance (a, b : vec4_float) RETURN float32;
+    -- -- Distance between two vectors
+    -- FUNCTION distance (a, b : vec2_float) RETURN float32;
+    -- FUNCTION distance (a, b : vec3_float) RETURN float32;
+    -- FUNCTION distance (a, b : vec4_float) RETURN float32;
 
     -- Matrix3 Addition
     FUNCTION "+" (a, b : mat3_float) RETURN mat3_float;
@@ -925,7 +925,7 @@ PACKAGE math3D_pkg IS
     -- Orthographic Projection
     FUNCTION orthographic (left, right, bottom, top, near, far : INTEGER) RETURN mat4_float;
     -- Look at function for the view matrix
-    FUNCTION look_at (eye, at, up : vec3_int) RETURN mat4_float;
+    -- FUNCTION look_at (eye, at, up : vec3_int) RETURN mat4_float;
 
     -- --------------------------------------------------------------------
     --                Constants
@@ -948,6 +948,19 @@ PACKAGE math3D_pkg IS
         (float32_zero, float32_zero, float32_one, float32_zero),
         (float32_zero, float32_zero, float32_zero, float32_one)
     );
+    CONSTANT perspective_128_75_mat4_float : mat4_float := (
+    ("00111011000000000000000000000000", float32_zero, float32_one, float32_zero),
+        (float32_zero, "10111011010110100111010000001110", "10111111100000000000000000000000", float32_zero),
+        (float32_zero, float32_zero, "10111111100000000100000110011010", "11000000000000000010000011001101"),
+        (float32_zero, float32_zero, "10111111100000000000000000000000", float32_zero)
+    );
+    CONSTANT look_forward_mat4_float : mat4_float := (
+    (float32_one, float32_zero, float32_zero, float32_zero),
+        (float32_zero, float32_one, float32_zero, float32_zero),
+        (float32_zero, float32_zero, float32_one, float32_zero),
+        (float32_zero, float32_zero, float32_zero, float32_one)
+    );
+    CONSTANT view_size_1024_600 : float32 := "00111111110110100111010000001110";
 
     -- --------------------------------------------------------------------
     --               Transformation
@@ -1390,83 +1403,83 @@ PACKAGE BODY math3D_pkg IS
         RETURN result;
     END FUNCTION;
 
-    -- Vector Length
-    FUNCTION length (a : vec2_float) RETURN float32 IS
-        VARIABLE result : float32;
-    BEGIN
-        result := sqrt(1);
-        RETURN result;
-    END FUNCTION;
+    -- -- Vector Length
+    -- FUNCTION length (a : vec2_float) RETURN float32 IS
+    --     VARIABLE result : float32;
+    -- BEGIN
+    --     result := sqrt(1);
+    --     RETURN result;
+    -- END FUNCTION;
 
-    FUNCTION length (a : vec3_float) RETURN float32 IS
-        VARIABLE result : float32;
-    BEGIN
-        result := sqrt((a(0) * a(0)) + (a(1) * a(1)) + (a(2) * a(2)));
-        RETURN result;
-    END FUNCTION;
+    -- FUNCTION length (a : vec3_float) RETURN float32 IS
+    --     VARIABLE result : float32;
+    -- BEGIN
+    --     result := sqrt((a(0) * a(0)) + (a(1) * a(1)) + (a(2) * a(2)));
+    --     RETURN result;
+    -- END FUNCTION;
 
-    FUNCTION length (a : vec4_float) RETURN float32 IS
-        VARIABLE result : float32;
-    BEGIN
-        result := sqrt((a(0) * a(0)) + (a(1) * a(1)) + (a(2) * a(2)) + (a(3) * a(3)));
-        RETURN result;
-    END FUNCTION;
+    -- FUNCTION length (a : vec4_float) RETURN float32 IS
+    --     VARIABLE result : float32;
+    -- BEGIN
+    --     result := sqrt((a(0) * a(0)) + (a(1) * a(1)) + (a(2) * a(2)) + (a(3) * a(3)));
+    --     RETURN result;
+    -- END FUNCTION;
 
-    -- Vector Distance
-    FUNCTION distance (a, b : vec2_float) RETURN float32 IS
-        VARIABLE result : float32;
-    BEGIN
-        result := sqrt((a(0) - b(0)) * (a(0) - b(0)) + (a(1) - b(1)) * (a(1) - b(1)));
-        RETURN result;
-    END FUNCTION;
+    -- -- Vector Distance
+    -- FUNCTION distance (a, b : vec2_float) RETURN float32 IS
+    --     VARIABLE result : float32;
+    -- BEGIN
+    --     result := sqrt((a(0) - b(0)) * (a(0) - b(0)) + (a(1) - b(1)) * (a(1) - b(1)));
+    --     RETURN result;
+    -- END FUNCTION;
 
-    FUNCTION distance (a, b : vec3_float) RETURN float32 IS
-        VARIABLE result : float32;
-    BEGIN
-        result := sqrt((a(0) - b(0)) * (a(0) - b(0)) + (a(1) - b(1)) * (a(1) - b(1)) + (a(2) - b(2)) * (a(2) - b(2)));
-        RETURN result;
-    END FUNCTION;
+    -- FUNCTION distance (a, b : vec3_float) RETURN float32 IS
+    --     VARIABLE result : float32;
+    -- BEGIN
+    --     result := sqrt((a(0) - b(0)) * (a(0) - b(0)) + (a(1) - b(1)) * (a(1) - b(1)) + (a(2) - b(2)) * (a(2) - b(2)));
+    --     RETURN result;
+    -- END FUNCTION;
 
-    FUNCTION distance (a, b : vec4_float) RETURN float32 IS
-        VARIABLE result : float32;
-    BEGIN
-        result := sqrt((a(0) - b(0)) * (a(0) - b(0)) + (a(1) - b(1)) * (a(1) - b(1)) + (a(2) - b(2)) * (a(2) - b(2)) + (a(3) - b(3)) * (a(3) - b(3)));
-        RETURN result;
-    END FUNCTION;
+    -- FUNCTION distance (a, b : vec4_float) RETURN float32 IS
+    --     VARIABLE result : float32;
+    -- BEGIN
+    --     result := sqrt((a(0) - b(0)) * (a(0) - b(0)) + (a(1) - b(1)) * (a(1) - b(1)) + (a(2) - b(2)) * (a(2) - b(2)) + (a(3) - b(3)) * (a(3) - b(3)));
+    --     RETURN result;
+    -- END FUNCTION;
 
-    -- Vector Nomalization
-    FUNCTION normalize (a : vec2_float) RETURN vec2_float IS
-        VARIABLE result : vec2_float;
-        VARIABLE length : float32;
-    BEGIN
-        length := sqrt(a(0) * a(0) + a(1) * a(1));
-        result(0) := a(0) / length;
-        result(1) := a(1) / length;
-        RETURN result;
-    END FUNCTION;
+    -- -- Vector Nomalization
+    -- FUNCTION normalize (a : vec2_float) RETURN vec2_float IS
+    --     VARIABLE result : vec2_float;
+    --     VARIABLE length : float32;
+    -- BEGIN
+    --     length := sqrt(a(0) * a(0) + a(1) * a(1));
+    --     result(0) := a(0) / length;
+    --     result(1) := a(1) / length;
+    --     RETURN result;
+    -- END FUNCTION;
 
-    FUNCTION normalize (a : vec3_float) RETURN vec3_float IS
-        VARIABLE result : vec3_float;
-        VARIABLE length : float32;
-    BEGIN
-        length := sqrt(a(0) * a(0) + a(1) * a(1) + a(2) * a(2));
-        result(0) := a(0) / length;
-        result(1) := a(1) / length;
-        result(2) := a(2) / length;
-        RETURN result;
-    END FUNCTION;
+    -- FUNCTION normalize (a : vec3_float) RETURN vec3_float IS
+    --     VARIABLE result : vec3_float;
+    --     VARIABLE length : float32;
+    -- BEGIN
+    --     length := sqrt(a(0) * a(0) + a(1) * a(1) + a(2) * a(2));
+    --     result(0) := a(0) / length;
+    --     result(1) := a(1) / length;
+    --     result(2) := a(2) / length;
+    --     RETURN result;
+    -- END FUNCTION;
 
-    FUNCTION normalize (a : vec4_float) RETURN vec4_float IS
-        VARIABLE result : vec4_float;
-        VARIABLE length : float32;
-    BEGIN
-        length := sqrt(a(0) * a(0) + a(1) * a(1) + a(2) * a(2) + a(3) * a(3));
-        result(0) := a(0) / length;
-        result(1) := a(1) / length;
-        result(2) := a(2) / length;
-        result(3) := a(3) / length;
-        RETURN result;
-    END FUNCTION;
+    -- FUNCTION normalize (a : vec4_float) RETURN vec4_float IS
+    --     VARIABLE result : vec4_float;
+    --     VARIABLE length : float32;
+    -- BEGIN
+    --     length := sqrt(a(0) * a(0) + a(1) * a(1) + a(2) * a(2) + a(3) * a(3));
+    --     result(0) := a(0) / length;
+    --     result(1) := a(1) / length;
+    --     result(2) := a(2) / length;
+    --     result(3) := a(3) / length;
+    --     RETURN result;
+    -- END FUNCTION;
 
     -- Matrix3 Addition
     FUNCTION "+" (a, b : mat3_float) RETURN mat3_float IS
@@ -1997,35 +2010,35 @@ PACKAGE BODY math3D_pkg IS
         RETURN result;
     END FUNCTION;
 
-    -- LookAt
-    FUNCTION look_at(eye, at, up : vec3_int) RETURN mat4_float IS
-        VARIABLE result : mat4_float;
-        VARIABLE f, s, u : vec3_float;
-    BEGIN
-        f := normalize(to_vec3_float(at - eye));
-        s := normalize(cross(f, to_vec3_float(up)));
-        u := cross(s, f);
+    -- -- LookAt
+    -- FUNCTION look_at(eye, at, up : vec3_int) RETURN mat4_float IS
+    --     VARIABLE result : mat4_float;
+    --     VARIABLE f, s, u : vec3_float;
+    -- BEGIN
+    --     f := normalize(to_vec3_float(at - eye));
+    --     s := normalize(cross(f, to_vec3_float(up)));
+    --     u := cross(s, f);
 
-        result(0)(0) := s(0);
-        result(0)(1) := u(0);
-        result(0)(2) := - f(0);
-        result(0)(3) := float32_zero;
+    --     result(0)(0) := s(0);
+    --     result(0)(1) := u(0);
+    --     result(0)(2) := - f(0);
+    --     result(0)(3) := float32_zero;
 
-        result(1)(0) := s(1);
-        result(1)(1) := u(1);
-        result(1)(2) := - f(1);
-        result(1)(3) := float32_zero;
+    --     result(1)(0) := s(1);
+    --     result(1)(1) := u(1);
+    --     result(1)(2) := - f(1);
+    --     result(1)(3) := float32_zero;
 
-        result(2)(0) := s(2);
-        result(2)(1) := u(2);
-        result(2)(2) := - f(2);
-        result(2)(3) := float32_zero;
+    --     result(2)(0) := s(2);
+    --     result(2)(1) := u(2);
+    --     result(2)(2) := - f(2);
+    --     result(2)(3) := float32_zero;
 
-        result(3)(0) := float32_zero;
-        result(3)(1) := float32_zero;
-        result(3)(2) := float32_zero;
-        result(3)(3) := float32_one;
+    --     result(3)(0) := float32_zero;
+    --     result(3)(1) := float32_zero;
+    --     result(3)(2) := float32_zero;
+    --     result(3)(3) := float32_one;
 
-        RETURN result;
-    END FUNCTION;
+    --     RETURN result;
+    -- END FUNCTION;
 END PACKAGE BODY;
