@@ -12,6 +12,7 @@ ENTITY renderer3D IS
         -- Board Ports
         CLK : IN STD_LOGIC;
         BTNC, BTNL, BTNR, BTNU, BTND : IN STD_LOGIC;
+        LED : OUT STD_LOGIC_VECTOR(7 DOWNTO 0);
 
         -- VGA Ports
         VGA_HSYNC, VGA_VSYNC : OUT STD_LOGIC;
@@ -55,6 +56,15 @@ ARCHITECTURE renderer3D_arch OF renderer3D IS
         );
     END COMPONENT;
 
+    COMPONENT rotation_input_controller IS
+        PORT (
+            CLK : IN STD_LOGIC;
+            RESET : IN STD_LOGIC;
+            POSITIVE_X_IN, POSITIVE_Y_IN, NEGATIVE_X_IN, NEGATIVE_Y_IN : IN STD_LOGIC;
+            ROTATION_VEC3 : OUT vec3_float
+        );
+    END COMPONENT;
+
     -- The output of the screen buffer
     SIGNAL buffer_red_out, buffer_green_out, buffer_blue_out : STD_LOGIC_VECTOR(3 DOWNTO 0);
 
@@ -70,6 +80,12 @@ ARCHITECTURE renderer3D_arch OF renderer3D IS
     -- The rotation of the cube in euler angles
     SIGNAL cube_rot : vec3_float := (float32_zero, float32_zero, float32_zero);
 BEGIN
+    -- DEBUG USE
+    LED(0) <= BTNC;
+    LED(1) <= BTNL;
+    LED(2) <= BTNR;
+    LED(3) <= BTNU;
+    LED(4) <= BTND;
 
     vga_controller_inst : vga_controller PORT MAP(
         CLK => CLK,
@@ -100,6 +116,16 @@ BEGIN
         RED_OUT => buffer_red_out,
         GREEN_OUT => buffer_green_out,
         BLUE_OUT => buffer_blue_out
+    );
+
+    rot_ctrl_inst : rotation_input_controller PORT MAP(
+        CLK => CLK,
+        RESET => BTNC,
+        POSITIVE_X_IN => BTNR,
+        POSITIVE_Y_IN => BTNU,
+        NEGATIVE_X_IN => BTNL,
+        NEGATIVE_Y_IN => BTND,
+        ROTATION_VEC3 => cube_rot
     );
 
 END renderer3D_arch;

@@ -54,6 +54,14 @@ ARCHITECTURE Behavioral OF cube_generator IS
         );
     END COMPONENT;
 
+    COMPONENT vertex_controller IS
+        PORT (
+            VERTEX_IN : IN vec3_float;
+            ROTATION_VEC3_IN : IN vec3_float;
+            VERTEX_OUT : OUT vec3_float
+        );
+    END COMPONENT;
+
     -- The base coordinates(before rotation) and the actual coordinate(after translation) of the cube
     SIGNAL base_vertices, vertices : cube_vertex;
     SIGNAL screen_vertices_float : screen_vertex_float;
@@ -71,109 +79,28 @@ BEGIN
         (POS(0) - (SCALE(0)/2), POS(1) + (SCALE(1)/2), POS(2) + (SCALE(2)/2))
         );
 
-    world_to_screen_convertor_inst_0 : world_to_screen_convertor
-    GENERIC MAP(
-        SCREEN_WIDTH => SCREEN_WIDTH,
-        SCREEN_HEIGHT => SCREEN_HEIGHT
-    )
-    PORT MAP(
-        PROJECTION_MATRIX => PROJECTION_MATRIX,
-        VIEW_MATRIX => VIEW_MATRIX,
-        POINT_3D => base_vertices(0),
-        SCREEN_POS_OUT => screen_vertices_float(0)
-    );
-    screen_vertices_int(0) <= to_vec2_int(screen_vertices_float(0));
+    vertices_map_gen : FOR i IN 0 TO 7 GENERATE
+        vertex_controller_inst_i : vertex_controller
+        PORT MAP(
+            VERTEX_IN => base_vertices(i),
+            ROTATION_VEC3_IN => ROT,
+            VERTEX_OUT => vertices(i)
+        );
 
-    world_to_screen_convertor_inst_1 : world_to_screen_convertor
-    GENERIC MAP(
-        SCREEN_WIDTH => SCREEN_WIDTH,
-        SCREEN_HEIGHT => SCREEN_HEIGHT
-    )
-    PORT MAP(
-        PROJECTION_MATRIX => PROJECTION_MATRIX,
-        VIEW_MATRIX => VIEW_MATRIX,
-        POINT_3D => base_vertices(1),
-        SCREEN_POS_OUT => screen_vertices_float(1)
-    );
-    screen_vertices_int(1) <= to_vec2_int(screen_vertices_float(1));
+        world_to_screen_convertor_inst_i : world_to_screen_convertor
+        GENERIC MAP(
+            SCREEN_WIDTH => SCREEN_WIDTH,
+            SCREEN_HEIGHT => SCREEN_HEIGHT
+        )
+        PORT MAP(
+            PROJECTION_MATRIX => PROJECTION_MATRIX,
+            VIEW_MATRIX => VIEW_MATRIX,
+            POINT_3D => vertices(i),
+            SCREEN_POS_OUT => screen_vertices_float(i)
+        );
 
-    world_to_screen_convertor_inst_2 : world_to_screen_convertor
-    GENERIC MAP(
-        SCREEN_WIDTH => SCREEN_WIDTH,
-        SCREEN_HEIGHT => SCREEN_HEIGHT
-    )
-    PORT MAP(
-        PROJECTION_MATRIX => PROJECTION_MATRIX,
-        VIEW_MATRIX => VIEW_MATRIX,
-        POINT_3D => base_vertices(2),
-        SCREEN_POS_OUT => screen_vertices_float(2)
-    );
-    screen_vertices_int(2) <= to_vec2_int(screen_vertices_float(2));
-
-    world_to_screen_convertor_inst_3 : world_to_screen_convertor
-    GENERIC MAP(
-        SCREEN_WIDTH => SCREEN_WIDTH,
-        SCREEN_HEIGHT => SCREEN_HEIGHT
-    )
-    PORT MAP(
-        PROJECTION_MATRIX => PROJECTION_MATRIX,
-        VIEW_MATRIX => VIEW_MATRIX,
-        POINT_3D => base_vertices(3),
-        SCREEN_POS_OUT => screen_vertices_float(3)
-    );
-    screen_vertices_int(3) <= to_vec2_int(screen_vertices_float(3));
-
-    world_to_screen_convertor_inst_4 : world_to_screen_convertor
-    GENERIC MAP(
-        SCREEN_WIDTH => SCREEN_WIDTH,
-        SCREEN_HEIGHT => SCREEN_HEIGHT
-    )
-    PORT MAP(
-        PROJECTION_MATRIX => PROJECTION_MATRIX,
-        VIEW_MATRIX => VIEW_MATRIX,
-        POINT_3D => base_vertices(4),
-        SCREEN_POS_OUT => screen_vertices_float(4)
-    );
-    screen_vertices_int(4) <= to_vec2_int(screen_vertices_float(4));
-
-    world_to_screen_convertor_inst_5 : world_to_screen_convertor
-    GENERIC MAP(
-        SCREEN_WIDTH => SCREEN_WIDTH,
-        SCREEN_HEIGHT => SCREEN_HEIGHT
-    )
-    PORT MAP(
-        PROJECTION_MATRIX => PROJECTION_MATRIX,
-        VIEW_MATRIX => VIEW_MATRIX,
-        POINT_3D => base_vertices(5),
-        SCREEN_POS_OUT => screen_vertices_float(5)
-    );
-    screen_vertices_int(5) <= to_vec2_int(screen_vertices_float(5));
-
-    world_to_screen_convertor_inst_6 : world_to_screen_convertor
-    GENERIC MAP(
-        SCREEN_WIDTH => SCREEN_WIDTH,
-        SCREEN_HEIGHT => SCREEN_HEIGHT
-    )
-    PORT MAP(
-        PROJECTION_MATRIX => PROJECTION_MATRIX,
-        VIEW_MATRIX => VIEW_MATRIX,
-        POINT_3D => base_vertices(6),
-        SCREEN_POS_OUT => screen_vertices_float(6)
-    );
-    screen_vertices_int(6) <= to_vec2_int(screen_vertices_float(6));
-
-    world_to_screen_convertor_inst_7 : world_to_screen_convertor
-    GENERIC MAP(
-        SCREEN_WIDTH => SCREEN_WIDTH,
-        SCREEN_HEIGHT => SCREEN_HEIGHT
-    )
-    PORT MAP(
-        PROJECTION_MATRIX => PROJECTION_MATRIX,
-        VIEW_MATRIX => VIEW_MATRIX,
-        POINT_3D => base_vertices(7),
-        SCREEN_POS_OUT => screen_vertices_float(7)
-    );
-    screen_vertices_int(7) <= to_vec2_int(screen_vertices_float(7));
+        screen_vertices_int(i) <= to_vec2_int(screen_vertices_float(i));
+    END GENERATE;
 
     -- Color output process
     PROCESS (CLK, RESET)
