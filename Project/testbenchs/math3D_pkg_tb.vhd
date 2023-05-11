@@ -11,26 +11,27 @@ ENTITY math3D_pkg_tb IS
 END math3D_pkg_tb;
 
 ARCHITECTURE math3D_pkg_tb_arch OF math3D_pkg_tb IS
-    SIGNAL a : vec3_int := (600, 300, -10);
+    SIGNAL a : vec3_int := (600, 300, 10);
     SIGNAL b : vec3_int := (0, 0, 0);
     SIGNAL c : vec3_int := (-1, -1, -1);
 
-    SIGNAL pp : mat4_float;
-
+    SIGNAL persp_mat : mat4_float := default_ortho_mat4_float;
     SIGNAL v4f : vec4_float;
     SIGNAL v3f : vec3_float;
     SIGNAL v2f : vec2_float;
     SIGNAL sx : float32;
     SIGNAL sy : float32;
+    SIGNAL view_mat : mat4_float := look_forward_mat4_float;
 BEGIN
 
     PROCESS
     BEGIN
-        pp <= default_perspective_mat4_float;
 
-        v4f <= to_vec4_float(to_vec3_float(c), float32_one);
+        v4f <= to_vec4_float(to_vec3_float(a), float32_one);
         WAIT FOR 10 ns;
-        v4f <= pp * v4f;
+        v4f <= view_mat * v4f;
+        WAIT FOR 10 ns;
+        v4f <= persp_mat * v4f;
         WAIT FOR 10 ns;
         v3f <= (v4f(0), v4f(1), v4f(2)) / v4f(3);
         WAIT FOR 10 ns;
