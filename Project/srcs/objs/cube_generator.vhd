@@ -37,7 +37,8 @@ ENTITY cube_generator IS
 END cube_generator;
 
 ARCHITECTURE Behavioral OF cube_generator IS
-    TYPE cube_vertex IS ARRAY(0 TO 7) OF vec3_float;
+    TYPE cube_vertex_float IS ARRAY(0 TO 7) OF vec3_float;
+    TYPE cube_vertex_int IS ARRAY(0 TO 7) OF vec3_int;
     TYPE screen_vertex_float IS ARRAY(0 TO 7) OF vec2_float;
     TYPE screen_vertex_int IS ARRAY(0 TO 7) OF vec2_int;
 
@@ -63,10 +64,10 @@ ARCHITECTURE Behavioral OF cube_generator IS
     END COMPONENT;
 
     -- The base coordinates(before rotation) and the actual coordinate(after translation) of the cube
-    SIGNAL base_vertices, vertices : cube_vertex;
+    SIGNAL base_vertices, vertices : cube_vertex_float;
+    SIGNAL base_vertices_int : cube_vertex_int;
     SIGNAL screen_vertices_float : screen_vertex_float;
     SIGNAL screen_vertices_int : screen_vertex_int;
-
 BEGIN
     base_vertices <= (
         (POS(0) - (SCALE(0)/2), POS(1) - (SCALE(1)/2), POS(2) - (SCALE(2)/2)),
@@ -77,6 +78,17 @@ BEGIN
         (POS(0) + (SCALE(0)/2), POS(1) - (SCALE(1)/2), POS(2) + (SCALE(2)/2)),
         (POS(0) + (SCALE(0)/2), POS(1) + (SCALE(1)/2), POS(2) + (SCALE(2)/2)),
         (POS(0) - (SCALE(0)/2), POS(1) + (SCALE(1)/2), POS(2) + (SCALE(2)/2))
+        );
+
+    base_vertices_int <= (
+        ((0, 0, 100)),
+        ((1024, 0, 100)),
+        ((0, 600, 100)),
+        ((1024, 600, 100)),
+        ((512, 300, 100)),
+        ((512, 0, 100)),
+        ((512, 600, 100)),
+        ((0, 300, 100))
         );
 
     vertices_map_gen : FOR i IN 0 TO 7 GENERATE
@@ -111,14 +123,22 @@ BEGIN
             BLUE_OUT <= (OTHERS => '0');
         ELSIF rising_edge(CLK) THEN
             -- Calculate if the current pixel is in the cube
-            IF (DISPLAY_COOR_H = screen_vertices_int(0)(0) AND DISPLAY_COOR_V = screen_vertices_int(0)(1)) OR
-                (DISPLAY_COOR_H = screen_vertices_int(1)(0) AND DISPLAY_COOR_V = screen_vertices_int(1)(1)) OR
-                (DISPLAY_COOR_H = screen_vertices_int(2)(0) AND DISPLAY_COOR_V = screen_vertices_int(2)(1)) OR
-                (DISPLAY_COOR_H = screen_vertices_int(3)(0) AND DISPLAY_COOR_V = screen_vertices_int(3)(1)) OR
-                (DISPLAY_COOR_H = screen_vertices_int(4)(0) AND DISPLAY_COOR_V = screen_vertices_int(4)(1)) OR
-                (DISPLAY_COOR_H = screen_vertices_int(5)(0) AND DISPLAY_COOR_V = screen_vertices_int(5)(1)) OR
-                (DISPLAY_COOR_H = screen_vertices_int(6)(0) AND DISPLAY_COOR_V = screen_vertices_int(6)(1)) OR
-                (DISPLAY_COOR_H = screen_vertices_int(7)(0) AND DISPLAY_COOR_V = screen_vertices_int(7)(1))
+            IF ((DISPLAY_COOR_H >= base_vertices_int(0)(0)) AND (DISPLAY_COOR_H <= (base_vertices_int(0)(0) + FRAME_WIDTH)) AND
+                (DISPLAY_COOR_V >= base_vertices_int(0)(1)) AND (DISPLAY_COOR_V <= (base_vertices_int(0)(1) + FRAME_WIDTH))) OR
+                ((DISPLAY_COOR_H >= base_vertices_int(1)(0)) AND (DISPLAY_COOR_H <= (base_vertices_int(1)(0) + FRAME_WIDTH)) AND
+                (DISPLAY_COOR_V >= base_vertices_int(1)(1)) AND (DISPLAY_COOR_V <= (base_vertices_int(1)(1) + FRAME_WIDTH))) OR
+                ((DISPLAY_COOR_H >= base_vertices_int(2)(0)) AND (DISPLAY_COOR_H <= (base_vertices_int(2)(0) + FRAME_WIDTH)) AND
+                (DISPLAY_COOR_V >= base_vertices_int(2)(1)) AND (DISPLAY_COOR_V <= (base_vertices_int(2)(1) + FRAME_WIDTH))) OR
+                ((DISPLAY_COOR_H >= base_vertices_int(3)(0)) AND (DISPLAY_COOR_H <= (base_vertices_int(3)(0) + FRAME_WIDTH)) AND
+                (DISPLAY_COOR_V >= base_vertices_int(3)(1)) AND (DISPLAY_COOR_V <= (base_vertices_int(3)(1) + FRAME_WIDTH))) OR
+                ((DISPLAY_COOR_H >= base_vertices_int(4)(0)) AND (DISPLAY_COOR_H <= (base_vertices_int(4)(0) + FRAME_WIDTH)) AND
+                (DISPLAY_COOR_V >= base_vertices_int(4)(1)) AND (DISPLAY_COOR_V <= (base_vertices_int(4)(1) + FRAME_WIDTH))) OR
+                ((DISPLAY_COOR_H >= base_vertices_int(5)(0)) AND (DISPLAY_COOR_H <= (base_vertices_int(5)(0) + FRAME_WIDTH)) AND
+                (DISPLAY_COOR_V >= base_vertices_int(5)(1)) AND (DISPLAY_COOR_V <= (base_vertices_int(5)(1) + FRAME_WIDTH))) OR
+                ((DISPLAY_COOR_H >= base_vertices_int(6)(0)) AND (DISPLAY_COOR_H <= (base_vertices_int(6)(0) + FRAME_WIDTH)) AND
+                (DISPLAY_COOR_V >= base_vertices_int(6)(1)) AND (DISPLAY_COOR_V <= (base_vertices_int(6)(1) + FRAME_WIDTH))) OR
+                ((DISPLAY_COOR_H >= base_vertices_int(7)(0)) AND (DISPLAY_COOR_H <= (base_vertices_int(7)(0) + FRAME_WIDTH)) AND
+                (DISPLAY_COOR_V >= base_vertices_int(7)(1)) AND (DISPLAY_COOR_V <= (base_vertices_int(7)(1) + FRAME_WIDTH)))
                 THEN
                 RED_OUT <= "1111";
                 GREEN_OUT <= "1111";
