@@ -1316,6 +1316,12 @@ PACKAGE math3D_pkg IS
         (float32_zero, float32_zero, "00111111100000000000000001010100", "10111111100000000000000000000000"),
         (float32_zero, float32_zero, "10111101110011001101001000001011", float32_zero)
     );
+    CONSTANT default_ortho_mat4_float : mat4_float := (
+    ("00111011000000000000000000000000", float32_zero, float32_zero, "10111111100000000000000000000000"),
+        (float32_zero, "00111011010110100111010000001110", float32_zero, "10111111100000000000000000000000"),
+        (float32_zero, float32_zero, "10111001010100011011110001110110", "10111111100000000000011010001110"),
+        (float32_zero, float32_zero, float32_zero, float32_one)
+    );
     CONSTANT look_forward_mat4_float : mat4_float := (
     (float32_one, float32_zero, float32_zero, float32_zero),
         (float32_zero, float32_one, float32_zero, float32_zero),
