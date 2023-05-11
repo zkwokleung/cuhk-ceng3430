@@ -960,7 +960,6 @@ PACKAGE math3D_pkg IS
         (float32_zero, float32_zero, float32_one, float32_zero),
         (float32_zero, float32_zero, float32_zero, float32_one)
     );
-    CONSTANT view_size_1024_600 : float32 := "00111111110110100111010000001110";
 
     -- --------------------------------------------------------------------
     --               Transformation

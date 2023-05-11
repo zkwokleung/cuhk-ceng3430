@@ -169,7 +169,7 @@ BEGIN
     PROCESS (CLK, RESET)
     BEGIN
         IF RESET = '1' THEN
-            base_vertices <= (OTHERS => (0, 0, 0));
+            base_vertices <= (OTHERS => (float32_zero, float32_zero, float32_zero));
         ELSIF rising_edge(clk_10Mhz) THEN
             -- Calculate the base coordinates of the cube
             base_vertices <= (
