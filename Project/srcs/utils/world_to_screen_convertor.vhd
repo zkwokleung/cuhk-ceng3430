@@ -27,7 +27,6 @@ ENTITY world_to_screen_convertor IS
 END world_to_screen_convertor;
 
 ARCHITECTURE world_to_screen_convertor_arch OF world_to_screen_convertor IS
-    CONSTANT vec2_half : vec2_float := ("00111111000000000000000000000000", "00111111000000000000000000000000");
     CONSTANT viewSize : vec2_int := (SCREEN_WIDTH, SCREEN_HEIGHT);
     SIGNAL clipSpacePos : vec4_float;
     SIGNAL ndcPos : vec3_float;
