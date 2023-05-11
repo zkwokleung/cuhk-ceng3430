@@ -17,6 +17,8 @@ ENTITY world_to_screen_convertor IS
         SCREEN_HEIGHT : INTEGER := 600
     );
     PORT (
+        RESET : IN STD_LOGIC;
+        CLK : IN STD_LOGIC;
         PROJECTION_MATRIX,
         VIEW_MATRIX : IN mat4_float;
         POINT_3D : IN vec3_float;
@@ -26,16 +28,50 @@ END world_to_screen_convertor;
 
 ARCHITECTURE world_to_screen_convertor_arch OF world_to_screen_convertor IS
     CONSTANT vec2_half : vec2_float := ("00111111000000000000000000000000", "00111111000000000000000000000000");
+    CONSTANT viewSize : vec2_int := (SCREEN_WIDTH, SCREEN_HEIGHT);
     SIGNAL clipSpacePos : vec4_float;
     SIGNAL ndcPos : vec3_float;
     SIGNAL viewSize : float32;
     SIGNAL screenPos : vec2_float;
 BEGIN
+    -- Pipeline the calculations
+    PROCESS (RESET, CLK)
+        VARIABLE aug_point_3d, view_times_point : vec4_float;
+        VARIABLE clipSpacePos_xyz : vec3_float;
+        VARIABLE ndcSpacePos_xy, ndcSpacePos_xy_plus_one, ndcSpacePos_xy_plus_one_halfed : vec2_float;
+        VARIABLE screenPos_x, screenPos_y : float32;
+    BEGIN
+        IF RESET = '1' THEN
+            clipSpacePos <= (float32_zero, float32_zero, float32_zero, float32_zero);
+            ndcPos <= (float32_zero, float32_zero, float32_zero);
+            viewSize <= float32_zero;
+            screenPos <= (float32_zero, float32_zero);
+        ELSIF rising_edge(CLK) THEN
+            -- Augment the vec3 to a vec4
+            aug_point_3d := to_vec4_float(POINT_3D, float32_one);
 
-    clipSpacePos <= PROJECTION_MATRIX * VIEW_MATRIX * to_vec4_float(POINT_3D, float32_one);
-    ndcPos <= to_vec3_float(clipSpacePos) / clipSpacePos(3);
-    viewSize <= view_size_1024_600;
-    screenPos <= (to_vec2_float(ndcPos) + vec2_half) * viewSize;
-    SCREEN_POS_OUT <= screenPos;
+            -- viewMatrix * point
+            view_times_point <= VIEW_MATRIX * aug_point_3d;
+
+            -- clipSpacePos = projectionMatrix * viewMatrix * point
+            clipSpacePos <= PROJECTION_MATRIX * view_times_point;
+
+            -- clipSpacePos.xyz
+            clipSpacePos_xyz <= clipSpacePos(0 TO 2);
+
+            -- ndcSpacePos = clipSpacePos.xyz / clipSpacePos.w
+            ndcPos <= clipSpacePos_xyz / clipSpacePos(3);
+
+            -- screenPos = (ndcSpacePos.xy + 1) / 2 * viewSize
+            ndcSpacePos_xy <= ndcPos(0 TO 1);
+            ndcSpacePos_xy_plus_one <= ndcSpacePos_xy + (float32_one, float32_one);
+            ndcSpacePos_xy_plus_one_halfed <= ndcSpacePos_xy_plus_one / to_float(2, 8, 23);
+            screenPos_x := ndcSpacePos_xy_plus_one_halfed(0) * viewSize;
+            screenPos_y := ndcSpacePos_xy_plus_one_halfed(1) * viewSize;
+            screenPos <= (screenPos_x, screenPos_y);
+
+            SCREEN_POS_OUT <= screenPos;
+        END IF;
+    END PROCESS;
 
 END world_to_screen_convertor_arch; -- world_to_screen_convertor_arch
