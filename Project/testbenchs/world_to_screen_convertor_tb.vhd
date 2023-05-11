@@ -52,37 +52,35 @@ BEGIN
         PROJECTION_MATRIX <= perspective_128_75_mat4_float;
         VIEW_MATRIX <= look_forward_mat4_float;
 
-        POINT_3D_INT <= (0, 0, 0);
-        POINT_3D <= to_vec3_float(POINT_3D_INT);
-
-        CLK <= '1';
-        WAIT FOR 10 ns;
-        CLK <= '0';
-        WAIT FOR 10 ns;
-
         POINT_3D_INT <= (1000, 600, 0);
+        WAIT FOR 10 ns;
         POINT_3D <= to_vec3_float(POINT_3D_INT);
+        WAIT FOR 10 ns;
 
         CLK <= '1';
-        WAIT FOR 10 ns;
+        WAIT FOR 1000 ns;
         CLK <= '0';
-        WAIT FOR 10 ns;
+        WAIT FOR 1000 ns;
 
         POINT_3D_INT <= (20, 50, 100);
+        WAIT FOR 10 ns;
         POINT_3D <= to_vec3_float(POINT_3D_INT);
+        WAIT FOR 10 ns;
 
         CLK <= '1';
-        WAIT FOR 10 ns;
+        WAIT FOR 1000 ns;
         CLK <= '0';
-        WAIT FOR 10 ns;
+        WAIT FOR 1000 ns;
 
         POINT_3D_INT <= (500, 300, 100);
+        WAIT FOR 10 ns;
         POINT_3D <= to_vec3_float(POINT_3D_INT);
+        WAIT FOR 10 ns;
 
         CLK <= '1';
-        WAIT FOR 10 ns;
+        WAIT FOR 1000 ns;
         CLK <= '0';
-        WAIT FOR 10 ns;
+        WAIT FOR 1000 ns;
         WAIT;
 
     END PROCESS;
