@@ -43,7 +43,7 @@ BEGIN
             clipSpacePos <= (float32_zero, float32_zero, float32_zero, float32_zero);
             ndcPos <= (float32_zero, float32_zero, float32_zero);
             screenPos <= (float32_zero, float32_zero);
-            SCREEN_POS_OUT <= (float32_zero, float32_zero, float32_zero);
+            SCREEN_POS_OUT <= (float32_zero, float32_zero);
         ELSIF rising_edge(CLK) THEN
             -- Augment the vec3 to a vec4
             aug_point_3d := to_vec4_float(POINT_3D, float32_one);
