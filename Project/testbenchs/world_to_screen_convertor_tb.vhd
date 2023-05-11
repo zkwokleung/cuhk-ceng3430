@@ -49,7 +49,7 @@ BEGIN
     );
 
     PROCESS BEGIN
-        PROJECTION_MATRIX <= perspective_128_75_mat4_float;
+        PROJECTION_MATRIX <= default_perspective_mat4_float;
         VIEW_MATRIX <= look_forward_mat4_float;
 
         POINT_3D_INT <= (1000, 600, 0);

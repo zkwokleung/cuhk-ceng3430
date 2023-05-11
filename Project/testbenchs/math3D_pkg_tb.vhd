@@ -40,7 +40,7 @@ BEGIN
 
     PROCESS
     BEGIN
-        -- pp <= perspective_128_75_mat4_float;
+        -- pp <= default_perspective_mat4_float;
         -- WAIT FOR 10 ns;
         -- ipt_float <= to_mat4_float(x);
         -- WAIT FOR 10 ns;

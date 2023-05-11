@@ -19,3 +19,10 @@ for i in range(0, 360):
     if i != 359:
         print(",")
 print(")")
+
+print("(")
+for i in range(0, 360):
+    print("\"", binary(math.tan(math.radians(i))), "\"", sep="", end="")
+    if i != 359:
+        print(",")
+print(")")
