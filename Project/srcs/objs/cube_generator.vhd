@@ -31,7 +31,7 @@ ENTITY cube_generator IS
         PROJECTION_MATRIX, VIEW_MATRIX : IN mat4_float;
 
         -- Cube properties
-        POS, ROT, SCALE : IN vec3_int;
+        POS_IN, ROT_IN, SCALE_IN : IN vec3_int;
 
         RED_OUT, GREEN_OUT, BLUE_OUT : OUT STD_LOGIC_VECTOR(BIT_DEPTH - 1 DOWNTO 0)
     );
@@ -170,9 +170,9 @@ BEGIN
             RESET => RESET,
             CLK => clk_10Mhz,
             VERTEX_IN => CUBE_DEFAULT_VERTEX(i),
-            TRANSLATION_IN => POS_IN;
-            ROTATION_IN => ROT_IN;
-            SCALE_IN => SCALE_IN;
+            TRANSLATION_IN => POS_IN,
+            ROTATION_IN => ROT_IN,
+            SCALE_IN => SCALE_IN,
             VERTEX_OUT => vertices(i)
         );
 

@@ -22,30 +22,35 @@ ARCHITECTURE math3D_pkg_tb_arch OF math3D_pkg_tb IS
     SIGNAL sx : float32;
     SIGNAL sy : float32;
     SIGNAL view_mat : mat4_float := look_forward_mat4_float;
+
+    SIGNAL trans, rot, scale : mat4_float := identity_mat4_float;
 BEGIN
 
     PROCESS
     BEGIN
+        trans <= translation_mat4_float((500, 300, 100));
+        rot <= rotation_mat4_float((10, 10, 10));
+        scale <= scaling_mat4_float((100, 100, 100));
 
-        v4f <= to_vec4_float(to_vec3_float(a), float32_one);
-        WAIT FOR 10 ns;
-        v4f <= view_mat * v4f;
-        WAIT FOR 10 ns;
-        v4f <= persp_mat * v4f;
-        WAIT FOR 10 ns;
-        v3f <= (v4f(0), v4f(1), v4f(2)) / v4f(3);
-        WAIT FOR 10 ns;
+        -- v4f <= to_vec4_float(to_vec3_float(a), float32_one);
+        -- WAIT FOR 10 ns;
+        -- v4f <= view_mat * v4f;
+        -- WAIT FOR 10 ns;
+        -- v4f <= persp_mat * v4f;
+        -- WAIT FOR 10 ns;
+        -- v3f <= (v4f(0), v4f(1), v4f(2)) / v4f(3);
+        -- WAIT FOR 10 ns;
 
-        v2f <= (v3f(0), v3f(1));
-        WAIT FOR 10 ns;
-        v2f <= v2f + (float32_one, float32_one);
-        WAIT FOR 10 ns;
-        v2f <= v2f / to_float(2, 8, 23);
-        WAIT FOR 10 ns;
+        -- v2f <= (v3f(0), v3f(1));
+        -- WAIT FOR 10 ns;
+        -- v2f <= v2f + (float32_one, float32_one);
+        -- WAIT FOR 10 ns;
+        -- v2f <= v2f / to_float(2, 8, 23);
+        -- WAIT FOR 10 ns;
 
-        sx <= v2f(0) * 1024;
-        sy <= v2f(1) * 600;
-        WAIT FOR 10 ns;
+        -- sx <= v2f(0) * 1024;
+        -- sy <= v2f(1) * 600;
+        -- WAIT FOR 10 ns;
 
         WAIT;
     END PROCESS;

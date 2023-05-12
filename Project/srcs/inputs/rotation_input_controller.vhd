@@ -16,7 +16,7 @@ ENTITY rotation_input_controller IS
         POSITIVE_X_IN, POSITIVE_Y_IN, NEGATIVE_X_IN, NEGATIVE_Y_IN : IN STD_LOGIC;
 
         -- Output controls
-        ROTATION_VEC3 : OUT vec3_float
+        ROTATION_VEC3 : OUT vec3_int
     );
 END rotation_input_controller;
 
@@ -30,31 +30,31 @@ ARCHITECTURE rotation_input_controller_arch OF rotation_input_controller IS
     END COMPONENT;
 
     SIGNAL clk_50Hz : STD_LOGIC;
-    SIGNAL rot_tmp : vec3_float := (float32_zero, float32_zero, float32_zero);
+    SIGNAL rot_tmp : vec3_int := (0, 0, 0);
 BEGIN
     clk_div_50Hz : clock_divider
-    GENERIC MAP(N => 100000000 / 50)
+    GENERIC MAP(N => 1000000)
     PORT MAP(CLK_IN => CLK, CLK_OUT => clk_50Hz);
 
     PROCESS (clk_50Hz, RESET)
     BEGIN
         IF RESET = '1' THEN
-            ROTATION_VEC3 <= (float32_zero, float32_zero, float32_zero);
+            ROTATION_VEC3 <= (0, 0, 0);
         ELSIF rising_edge(clk_50Hz) THEN
             IF POSITIVE_X_IN = '1' THEN
-                ROTATION_VEC3 <= rot_tmp + (float32_zero, float32_zero, float32_one);
+                ROTATION_VEC3 <= rot_tmp + (0, 0, 1);
             END IF;
 
             IF POSITIVE_Y_IN = '1' THEN
-                ROTATION_VEC3 <= rot_tmp + (float32_zero, float32_one, float32_zero);
+                ROTATION_VEC3 <= rot_tmp + (0, 1, 0);
             END IF;
 
             IF NEGATIVE_X_IN = '1' THEN
-                ROTATION_VEC3 <= rot_tmp + (float32_zero, float32_zero, -1 * float32_one);
+                ROTATION_VEC3 <= rot_tmp + (0, 0, -1);
             END IF;
 
             IF NEGATIVE_Y_IN = '1' THEN
-                ROTATION_VEC3 <= rot_tmp + (float32_zero, -1 * float32_one, float32_zero);
+                ROTATION_VEC3 <= rot_tmp + (0, -1, 0);
             END IF;
         END IF;
     END PROCESS;

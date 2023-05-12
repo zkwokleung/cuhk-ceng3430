@@ -51,7 +51,7 @@ ARCHITECTURE renderer3D_arch OF renderer3D IS
             RESET : IN STD_LOGIC;
             DISPLAY_COOR_H, DISPLAY_COOR_V : IN INTEGER;
             PROJECTION_MATRIX, VIEW_MATRIX : IN mat4_float;
-            POS, ROT, SCALE : IN vec3_float;
+            POS_IN, ROT_IN, SCALE_IN : IN vec3_int;
             RED_OUT, GREEN_OUT, BLUE_OUT : OUT STD_LOGIC_VECTOR(BIT_DEPTH - 1 DOWNTO 0)
         );
     END COMPONENT;
@@ -61,7 +61,7 @@ ARCHITECTURE renderer3D_arch OF renderer3D IS
             CLK : IN STD_LOGIC;
             RESET : IN STD_LOGIC;
             POSITIVE_X_IN, POSITIVE_Y_IN, NEGATIVE_X_IN, NEGATIVE_Y_IN : IN STD_LOGIC;
-            ROTATION_VEC3 : OUT vec3_float
+            ROTATION_VEC3 : OUT vec3_int
         );
     END COMPONENT;
 
@@ -112,9 +112,9 @@ BEGIN
         DISPLAY_COOR_V => coor_v,
         PROJECTION_MATRIX => PROJECTION_MATRIX,
         VIEW_MATRIX => VIEW_MATRIX,
-        POS => cube_pos,
-        ROT => cube_rot,
-        SCALE => cube_scale,
+        POS_IN => cube_pos,
+        ROT_IN => cube_rot,
+        SCALE_IN => cube_scale,
         RED_OUT => buffer_red_out,
         GREEN_OUT => buffer_green_out,
         BLUE_OUT => buffer_blue_out
