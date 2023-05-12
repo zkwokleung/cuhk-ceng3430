@@ -38,7 +38,7 @@ ARCHITECTURE world_to_screen_convertor_arch OF world_to_screen_convertor IS
     SIGNAL screenPos_x, screenPos_y : float32 := float32_zero;
 BEGIN
     -- Pipeline the calculations
-    -- This process takes 12 clock cycles to complete
+    -- This process takes 11 clock cycles to complete
     PROCESS (RESET, CLK)
     BEGIN
         IF RESET = '1' THEN
