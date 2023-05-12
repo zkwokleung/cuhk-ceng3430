@@ -28,57 +28,34 @@ END world_to_screen_convertor;
 
 ARCHITECTURE world_to_screen_convertor_arch OF world_to_screen_convertor IS
     CONSTANT viewSize : vec2_int := (SCREEN_WIDTH, SCREEN_HEIGHT);
-    SIGNAL clipSpacePos : vec4_float := (float32_zero, float32_zero, float32_zero, float32_zero);
-    SIGNAL ndcPos : vec3_float := (float32_zero, float32_zero, float32_zero);
-    SIGNAL screenPos : vec2_float := (float32_zero, float32_zero);
-
-    SIGNAL aug_point_3d, view_times_point : vec4_float := (float32_zero, float32_zero, float32_zero, float32_zero);
-    SIGNAL clipSpacePos_xyz : vec3_float := (float32_zero, float32_zero, float32_zero);
-    SIGNAL ndcSpacePos_xy, ndcSpacePos_xy_plus_one, ndcSpacePos_xy_plus_one_halfed : vec2_float := (float32_zero, float32_zero);
-    SIGNAL screenPos_x, screenPos_y : float32 := float32_zero;
 BEGIN
     -- Pipeline the calculations
-    -- This process takes 11 clock cycles to complete
     PROCESS (RESET, CLK)
+        VARIABLE clipSpacePos, view_times_point : vec4_float := (float32_zero, float32_zero, float32_zero, float32_zero);
+        VARIABLE ndcPos : vec3_float := (float32_zero, float32_zero, float32_zero);
+        VARIABLE ndcSpacePos_xy_plus_one_halfed : vec2_float := (float32_zero, float32_zero);
     BEGIN
         IF RESET = '1' THEN
-            clipSpacePos <= (float32_zero, float32_zero, float32_zero, float32_zero);
-            ndcPos <= (float32_zero, float32_zero, float32_zero);
-            screenPos <= (float32_zero, float32_zero);
             SCREEN_POS_OUT <= (float32_zero, float32_zero);
-            aug_point_3d <= (float32_zero, float32_zero, float32_zero, float32_zero);
-            view_times_point <= (float32_zero, float32_zero, float32_zero, float32_zero);
-            clipSpacePos_xyz <= (float32_zero, float32_zero, float32_zero);
-            ndcSpacePos_xy <= (float32_zero, float32_zero);
-            ndcSpacePos_xy_plus_one <= (float32_zero, float32_zero);
-            ndcSpacePos_xy_plus_one_halfed <= (float32_zero, float32_zero);
-            screenPos_x <= float32_zero;
-            screenPos_y <= float32_zero;
-        ELSIF rising_edge(CLK) THEN
-            -- Augment the vec3 to a vec4
-            aug_point_3d <= to_vec4_float(POINT_3D, float32_one);
 
+            clipSpacePos := (float32_zero, float32_zero, float32_zero, float32_zero);
+            ndcPos := (float32_zero, float32_zero, float32_zero);
+            view_times_point := (float32_zero, float32_zero, float32_zero, float32_zero);
+            ndcSpacePos_xy_plus_one_halfed := (float32_zero, float32_zero);
+        ELSIF rising_edge(CLK) THEN
             -- viewMatrix * point
-            view_times_point <= VIEW_MATRIX * aug_point_3d;
+            view_times_point := VIEW_MATRIX * to_vec4_float(POINT_3D, float32_one);
 
             -- clipSpacePos = projectionMatrix * viewMatrix * point
-            clipSpacePos <= PROJECTION_MATRIX * view_times_point;
-
-            -- clipSpacePos.xyz
-            clipSpacePos_xyz <= to_vec3_float(clipSpacePos);
+            clipSpacePos := PROJECTION_MATRIX * view_times_point;
 
             -- ndcSpacePos = clipSpacePos.xyz / clipSpacePos.w
-            ndcPos <= clipSpacePos_xyz / clipSpacePos(3);
+            ndcPos := to_vec3_float(clipSpacePos) / clipSpacePos(3);
 
             -- screenPos = (ndcSpacePos.xy + 1) / 2 * viewSize
-            ndcSpacePos_xy <= to_vec2_float(ndcPos);
-            ndcSpacePos_xy_plus_one <= ndcSpacePos_xy + (float32_one, float32_one);
-            ndcSpacePos_xy_plus_one_halfed <= ndcSpacePos_xy_plus_one / to_float(2, 8, 23);
-            screenPos_x <= ndcSpacePos_xy_plus_one_halfed(0) * viewSize(0);
-            screenPos_y <= ndcSpacePos_xy_plus_one_halfed(1) * viewSize(1);
-            screenPos <= (screenPos_x, screenPos_y);
+            ndcSpacePos_xy_plus_one_halfed := (to_vec2_float(ndcPos) + (float32_one, float32_one)) / to_float(2, 8, 23);
 
-            SCREEN_POS_OUT <= screenPos;
+            SCREEN_POS_OUT <= (ndcSpacePos_xy_plus_one_halfed(0) * viewSize(0), ndcSpacePos_xy_plus_one_halfed(1) * viewSize(1));
         END IF;
     END PROCESS;
 END world_to_screen_convertor_arch; -- world_to_screen_convertor_arch
