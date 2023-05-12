@@ -71,14 +71,16 @@ ARCHITECTURE renderer3D_arch OF renderer3D IS
     -- The coordinates of the pixel the screen is currently displaying
     SIGNAL coor_h, coor_v, next_coor_h, next_coor_v : INTEGER;
 
+    -- Cube Properties
+
     -- The pixel scale of the cube
-    SIGNAL cube_scale : vec3_float := (to_float(100.0, 8, 23), to_float(100.0, 8, 23), to_float(100.0, 8, 23));
+    SIGNAL cube_scale : vec3_int := (100, 100, 100);
 
     -- The position of the cube
-    SIGNAL cube_pos : vec3_float := (to_float(512.0, 8, 23), to_float(300.0, 8, 23), to_float(100.0, 8, 23));
+    SIGNAL cube_pos : vec3_int := (512, 300, 100);
 
     -- The rotation of the cube in euler angles
-    SIGNAL cube_rot : vec3_float := (float32_zero, float32_zero, float32_zero);
+    SIGNAL cube_rot : vec3_int := (0, 0, 0);
 BEGIN
     -- DEBUG USE
     LED(0) <= BTNC;

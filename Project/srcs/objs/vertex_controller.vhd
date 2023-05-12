@@ -18,60 +18,35 @@ ENTITY vertex_controller IS
         CLK : IN STD_LOGIC;
 
         VERTEX_IN : IN vec3_float;
-        ROTATION_VEC3_IN : IN vec3_float;
+        TRANSLATION_IN : IN vec3_int;
+        ROTATION_IN : IN vec3_int;
+        SCALE_IN : IN vec3_int;
 
         VERTEX_OUT : OUT vec3_float
     );
 END vertex_controller;
 
 ARCHITECTURE vertex_controller_arch OF vertex_controller IS
-    COMPONENT clock_divider IS
-        GENERIC (N : INTEGER);
-        PORT (
-            CLK_IN : IN STD_LOGIC;
-            CLK_OUT : OUT STD_LOGIC
-        );
-    END COMPONENT;
-
-    -- Signals for the clock divider
-    SIGNAL clk_10Mhz, clk_50Mhz : STD_LOGIC;
-
     -- Signals for the calculation of the vertex position
-    SIGNAL rot_vec3_int : vec3_int;
-    SIGNAL rot_mat4_float : mat4_float;
-    SIGNAL vert_in_vec4_float : vec4_float;
-    SIGNAL vert_out_vec3_float : vec3_float;
+    SIGNAL translation_mat4 : mat4_float;
+    SIGNAL rotation_mat4 : mat4_float;
+    SIGNAL scale_mat4 : mat4_float;
 BEGIN
-    -- Clock dividers
-    clk_div_50Mhz : clock_divider
-    GENERIC MAP(N => 1)
-    PORT MAP(
-        CLK_IN => CLK,
-        CLK_OUT => clk_50Mhz
-    );
-
-    clk_div_10Mhz : clock_divider
-    GENERIC MAP(N => 5)
-    PORT MAP(
-        CLK_IN => clk_50Mhz,
-        CLK_OUT => clk_10Mhz
-    );
-
     -- Pipeline the calculation of the vertex position
-    PROCESS (clk_10Mhz)
+    PROCESS (RESET, CLK)
     BEGIN
         IF RESET = '1' THEN
-            rot_vec3_int <= (0, 0, 0);
-            rot_mat4_float <= identity_mat4_float;
-            vert_in_vec4_float <= (float32_zero, float32_zero, float32_zero, float32_zero);
-            vert_out_vec3_float <= (float32_zero, float32_zero, float32_zero);
-            vertex_out <= (float32_zero, float32_zero, float32_zero);
-        ELSIF rising_edge(clk_10Mhz) THEN
-            rot_vec3_int <= to_vec3_int(ROTATION_VEC3_IN);
-            rot_mat4_float <= rotation_mat4_float(rot_vec3_int);
-            vert_in_vec4_float <= to_vec4_float(VERTEX_IN, float32_one);
-            vert_out_vec3_float <= to_vec3_float(vert_in_vec4_float);
-            VERTEX_OUT <= vert_out_vec3_float;
+            translation_mat4 <= identity_mat4_float;
+            rotation_mat4 <= identity_mat4_float;
+            scale_mat4 <= identity_mat4_float;
+
+            VERTEX_OUT <= VERTEX_IN;
+        ELSIF rising_edge(CLK) THEN
+            translation_mat4 <= translation_mat4_float(TRANSLATION_IN);
+            rotation_mat4 <= rotation_mat4_float(ROTATION_IN);
+            scale_mat4 <= scale_mat4_float(SCALE_IN);
+
+            VERTEX_OUT <= (translation_mat4 * (rotation_mat4 * (scale_mat4 * VERTEX_IN)));
         END IF;
     END PROCESS;
 END vertex_controller_arch; -- vertex_controller_arch

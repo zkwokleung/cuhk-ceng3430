@@ -10,6 +10,7 @@ USE work.math3D_pkg.ALL;
 -- Determine the color of the current rendering pixel
 -- based on the current cube position and the size of the cube.
 
+-- TODO: Transform the Vertices
 -- TODO: Transform the xyz coordinates into the screen space
 -- TODO: Interpolate the lines between two vertexs
 ENTITY cube_generator IS
@@ -30,18 +31,41 @@ ENTITY cube_generator IS
         PROJECTION_MATRIX, VIEW_MATRIX : IN mat4_float;
 
         -- Cube properties
-        POS, ROT, SCALE : IN vec3_float;
+        POS, ROT, SCALE : IN vec3_int;
 
         RED_OUT, GREEN_OUT, BLUE_OUT : OUT STD_LOGIC_VECTOR(BIT_DEPTH - 1 DOWNTO 0)
     );
 END cube_generator;
 
 ARCHITECTURE Behavioral OF cube_generator IS
+    -- --------------------------------------------------------------------
+    --                       Type Definitions
+    -- --------------------------------------------------------------------
     TYPE cube_vertex_float IS ARRAY(0 TO 7) OF vec3_float;
     TYPE cube_vertex_int IS ARRAY(0 TO 7) OF vec3_int;
     TYPE screen_vertex_float IS ARRAY(0 TO 7) OF vec2_float;
     TYPE screen_vertex_int IS ARRAY(0 TO 7) OF vec2_int;
 
+    -- --------------------------------------------------------------------
+    --                       Constants
+    -- --------------------------------------------------------------------
+    CONSTANT CUBE_DEFAULT_VERTEX : cube_vertex_float := (
+        -- Top vertices
+        (float32_neg_one, float32_one, float32_one),
+        (float32_one, float32_one, float32_one),
+        (float32_one, float32_one, float32_neg_one),
+        (float32_neg_one, float32_one, float32_neg_one),
+
+        -- Bottom vertices
+        (float32_neg_one, float32_neg_one, float32_one),
+        (float32_one, float32_neg_one, float32_one),
+        (float32_one, float32_neg_one, float32_neg_one),
+        (float32_neg_one, float32_neg_one, float32_neg_one)
+    );
+
+    -- --------------------------------------------------------------------
+    --                       Components
+    -- --------------------------------------------------------------------
     COMPONENT clock_divider IS
         GENERIC (N : INTEGER);
         PORT (
@@ -69,21 +93,34 @@ ARCHITECTURE Behavioral OF cube_generator IS
         PORT (
             RESET : IN STD_LOGIC;
             CLK : IN STD_LOGIC;
+
             VERTEX_IN : IN vec3_float;
-            ROTATION_VEC3_IN : IN vec3_float;
+            TRANSLATION_IN : IN vec3_int;
+            ROTATION_IN : IN vec3_int;
+            SCALE_IN : IN vec3_int;
+
             VERTEX_OUT : OUT vec3_float
         );
     END COMPONENT;
 
-    -- The base coordinates(before rotation) and the actual coordinate(after translation) of the cube
-    SIGNAL base_vertices, vertices : cube_vertex_float;
+    -- --------------------------------------------------------------------
+    --                       Signals
+    -- --------------------------------------------------------------------
+
+    -- The coordinate(after transformation) of the cube
+    SIGNAL vertices : cube_vertex_float;
+
+    -- The coordinate of the vertex in the screen space
     SIGNAL screen_vertices_float : screen_vertex_float;
     SIGNAL screen_vertices_int : screen_vertex_int;
 
     -- Clock signals
     SIGNAL clk_50hz, clk_500hz, clk_500Khz, clk_1Mhz, clk_10Mhz, clk_50Mhz : STD_LOGIC;
 BEGIN
-    -- Clock dividers
+
+    -- --------------------------------------------------------------------
+    --                    Clock Dividers
+    -- --------------------------------------------------------------------
     clk_divider_50Mhz : clock_divider
     GENERIC MAP(N => 1)
     PORT MAP(
@@ -131,9 +168,11 @@ BEGIN
         vertex_controller_inst_i : vertex_controller
         PORT MAP(
             RESET => RESET,
-            CLK => clk_1Mhz,
-            VERTEX_IN => base_vertices(i),
-            ROTATION_VEC3_IN => ROT,
+            CLK => clk_10Mhz,
+            VERTEX_IN => CUBE_DEFAULT_VERTEX(i),
+            TRANSLATION_IN => POS_IN;
+            ROTATION_IN => ROT_IN;
+            SCALE_IN => SCALE_IN;
             VERTEX_OUT => vertices(i)
         );
 
@@ -145,33 +184,13 @@ BEGIN
         )
         PORT MAP(
             RESET => RESET,
-            CLK => clk_500Khz,
+            CLK => clk_10Mhz,
             PROJECTION_MATRIX => PROJECTION_MATRIX,
             VIEW_MATRIX => VIEW_MATRIX,
-            POINT_3D => base_vertices(i),
+            POINT_3D => vertices(i),
             SCREEN_POS_OUT => screen_vertices_float(i)
         );
     END GENERATE;
-
-    -- Data calculation process
-    PROCESS (CLK, RESET)
-    BEGIN
-        IF RESET = '1' THEN
-            base_vertices <= (OTHERS => (float32_zero, float32_zero, float32_zero));
-        ELSIF rising_edge(clk_50Mhz) THEN
-            -- Calculate the base coordinates of the cube
-            base_vertices <= (
-                (POS(0) - (SCALE(0)/2), POS(1) - (SCALE(1)/2), POS(2) - (SCALE(2)/2)),
-                (POS(0) + (SCALE(0)/2), POS(1) - (SCALE(1)/2), POS(2) - (SCALE(2)/2)),
-                (POS(0) + (SCALE(0)/2), POS(1) + (SCALE(1)/2), POS(2) - (SCALE(2)/2)),
-                (POS(0) - (SCALE(0)/2), POS(1) + (SCALE(1)/2), POS(2) - (SCALE(2)/2)),
-                (POS(0) - (SCALE(0)/2), POS(1) - (SCALE(1)/2), POS(2) + (SCALE(2)/2)),
-                (POS(0) + (SCALE(0)/2), POS(1) - (SCALE(1)/2), POS(2) + (SCALE(2)/2)),
-                (POS(0) + (SCALE(0)/2), POS(1) + (SCALE(1)/2), POS(2) + (SCALE(2)/2)),
-                (POS(0) - (SCALE(0)/2), POS(1) + (SCALE(1)/2), POS(2) + (SCALE(2)/2))
-                );
-        END IF;
-    END PROCESS;
 
     -- Convert the screen coordinates from float to integer
     PROCESS (CLK, RESET)
