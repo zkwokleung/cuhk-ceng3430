@@ -77,7 +77,6 @@ ARCHITECTURE Behavioral OF cube_generator IS
 
     -- The base coordinates(before rotation) and the actual coordinate(after translation) of the cube
     SIGNAL base_vertices, vertices : cube_vertex_float;
-    SIGNAL base_vertices_int : cube_vertex_int;
     SIGNAL screen_vertices_float : screen_vertex_float;
     SIGNAL screen_vertices_int : screen_vertex_int;
 
@@ -127,17 +126,6 @@ BEGIN
         CLK_OUT => clk_50hz
     );
 
-    base_vertices_int <= (
-        ((0, 0, 100)),
-        ((1024, 0, 100)),
-        ((0, 600, 100)),
-        ((1024, 600, 100)),
-        ((512, 300, 100)),
-        ((512, 0, 100)),
-        ((512, 600, 100)),
-        ((0, 300, 100))
-        );
-
     vertices_map_gen : FOR i IN 0 TO 7 GENERATE
         -- Vertex controller
         vertex_controller_inst_i : vertex_controller
@@ -160,7 +148,7 @@ BEGIN
             CLK => clk_500Khz,
             PROJECTION_MATRIX => PROJECTION_MATRIX,
             VIEW_MATRIX => VIEW_MATRIX,
-            POINT_3D => vertices(i),
+            POINT_3D => base_vertices(i),
             SCREEN_POS_OUT => screen_vertices_float(i)
         );
     END GENERATE;
@@ -170,7 +158,7 @@ BEGIN
     BEGIN
         IF RESET = '1' THEN
             base_vertices <= (OTHERS => (float32_zero, float32_zero, float32_zero));
-        ELSIF rising_edge(clk_10Mhz) THEN
+        ELSIF rising_edge(clk_50Mhz) THEN
             -- Calculate the base coordinates of the cube
             base_vertices <= (
                 (POS(0) - (SCALE(0)/2), POS(1) - (SCALE(1)/2), POS(2) - (SCALE(2)/2)),
@@ -190,7 +178,7 @@ BEGIN
     BEGIN
         IF RESET = '1' THEN
             screen_vertices_int <= (OTHERS => (0, 0));
-        ELSIF rising_edge(clk_500Khz) THEN
+        ELSIF rising_edge(clk_50Mhz) THEN
             screen_vertices_int <= (
                 to_vec2_int(screen_vertices_float(0)),
                 to_vec2_int(screen_vertices_float(1)),

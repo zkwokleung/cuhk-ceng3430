@@ -26,7 +26,7 @@ ARCHITECTURE renderer3D_arch OF renderer3D IS
     CONSTANT SCREEN_HEIGHT : INTEGER := 600;
     CONSTANT BIT_DEPTH : INTEGER := 4;
 
-    CONSTANT PROJECTION_MATRIX : mat4_float := default_perspective_mat4_float;
+    CONSTANT PROJECTION_MATRIX : mat4_float := default_ortho_mat4_float;
     CONSTANT VIEW_MATRIX : mat4_float := look_forward_mat4_float;
 
     COMPONENT vga_controller IS
