@@ -13,7 +13,7 @@ END math3D_pkg_tb;
 ARCHITECTURE math3D_pkg_tb_arch OF math3D_pkg_tb IS
     SIGNAL a : vec3_int := (600, 300, 10);
     SIGNAL b : vec3_int := (0, 0, 0);
-    SIGNAL c : vec3_int := (-1, -1, -1);
+    SIGNAL c : vec3_int := (1000, 600, 0);
 
     SIGNAL persp_mat : mat4_float := default_ortho_mat4_float;
     SIGNAL v4f : vec4_float;
