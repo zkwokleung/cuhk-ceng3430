@@ -222,19 +222,15 @@ BEGIN
     END GENERATE;
 
     -- Convert the screen coordinates from float to integer
-    PROCESS (clk_50Mhz, RESET)
+    PROCESS (screen_vertices_float)
     BEGIN
-        IF RESET = '1' THEN
-            screen_vertices_int <= (OTHERS => (0, 0));
-        ELSIF rising_edge(clk_50Mhz) THEN
-            FOR i IN 0 TO 7 LOOP
-                screen_vertices_int(i) <= to_vec2_int(screen_vertices_float(i));
-            END LOOP;
-        END IF;
+        FOR i IN 0 TO 7 LOOP
+            screen_vertices_int(i) <= to_vec2_int(screen_vertices_float(i));
+        END LOOP;
     END PROCESS;
 
     -- Determine if the current pixel should be drawn
-    PROCESS
+    PROCESS (DISPLAY_COOR_H, DISPLAY_COOR_V, screen_vertices_int)
     BEGIN
         FOR i IN 0 TO 7 LOOP
             IF (DISPLAY_COOR_H >= screen_vertices_int(i)(0)) AND (DISPLAY_COOR_H <= (screen_vertices_int(i)(0) + FRAME_WIDTH)) AND
@@ -247,23 +243,17 @@ BEGIN
     END PROCESS;
 
     -- Color output process
-    PROCESS (clk_50Mhz, RESET)
+    PROCESS (draw_signal)
     BEGIN
-        IF RESET = '1' THEN
+        -- Calculate if the current pixel is in the cube
+        IF (draw_signal /= "00000000000000000000") THEN
+            RED_OUT <= "1111";
+            GREEN_OUT <= "1111";
+            BLUE_OUT <= "1111";
+        ELSE
             RED_OUT <= (OTHERS => '0');
             GREEN_OUT <= (OTHERS => '0');
             BLUE_OUT <= (OTHERS => '0');
-        ELSIF rising_edge(clk_50Mhz) THEN
-            -- Calculate if the current pixel is in the cube
-            IF (draw_signal /= "00000000000000000000") THEN
-                RED_OUT <= "1111";
-                GREEN_OUT <= "1111";
-                BLUE_OUT <= "1111";
-            ELSE
-                RED_OUT <= (OTHERS => '0');
-                GREEN_OUT <= (OTHERS => '0');
-                BLUE_OUT <= (OTHERS => '0');
-            END IF;
         END IF;
     END PROCESS;
 END Behavioral;

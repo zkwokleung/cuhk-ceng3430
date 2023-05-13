@@ -51,36 +51,24 @@ BEGIN
     );
 
     -- Pipeline the calculation of the vertex position
-    PROCESS (RESET, clk_50Mhz)
+    PROCESS (TRANSLATION_IN, ROTATION_IN, SCALE_IN, VERTEX_IN)
         VARIABLE scaled_vertex, rotated_vertex, translated_vertex : vec4_float;
     BEGIN
-        IF RESET = '1' THEN
-            translation_mat4 <= identity_mat4_float;
-            rotation_mat4 <= identity_mat4_float;
-            scale_mat4 <= identity_mat4_float;
+        -- Obtain the matrices from the input signals
+        translation_mat4 <= translation_mat4_float(TRANSLATION_IN);
+        rotation_mat4 <= rotation_mat4_float(ROTATION_IN);
+        scale_mat4 <= scaling_mat4_float(SCALE_IN);
 
-            VERTEX_OUT <= VERTEX_IN;
+        -- 1. Scale the vertex
+        scaled_vertex := scale_mat4 * to_vec4_float(VERTEX_IN, float32_one);
 
-            scaled_vertex := (float32_one, float32_one, float32_one, float32_one);
-            rotated_vertex := (float32_zero, float32_zero, float32_zero, float32_zero);
-            translated_vertex := (float32_zero, float32_zero, float32_zero, float32_zero);
-        ELSIF rising_edge(CLK) THEN
-            -- Obtain the matrices from the input signals
-            translation_mat4 <= translation_mat4_float(TRANSLATION_IN);
-            rotation_mat4 <= rotation_mat4_float(ROTATION_IN);
-            scale_mat4 <= scaling_mat4_float(SCALE_IN);
+        -- 2. Rotate the vertex
+        rotated_vertex := rotation_mat4 * scaled_vertex;
 
-            -- 1. Scale the vertex
-            scaled_vertex := scale_mat4 * to_vec4_float(VERTEX_IN, float32_one);
+        -- 3. Translate the vertex
+        translated_vertex := translation_mat4 * rotated_vertex;
 
-            -- 2. Rotate the vertex
-            rotated_vertex := rotation_mat4 * scaled_vertex;
-
-            -- 3. Translate the vertex
-            translated_vertex := translation_mat4 * rotated_vertex;
-
-            -- 4. Convert the vertex to vec3_float
-            VERTEX_OUT <= to_vec3_float(translated_vertex);
-        END IF;
+        -- 4. Convert the vertex to vec3_float
+        VERTEX_OUT <= to_vec3_float(translated_vertex);
     END PROCESS;
 END vertex_controller_arch; -- vertex_controller_arch
