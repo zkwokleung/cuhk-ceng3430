@@ -210,16 +210,9 @@ BEGIN
         IF RESET = '1' THEN
             screen_vertices_int <= (OTHERS => (0, 0));
         ELSIF rising_edge(CLK) THEN
-            screen_vertices_int <= (
-                to_vec2_int(screen_vertices_float(0)),
-                to_vec2_int(screen_vertices_float(1)),
-                to_vec2_int(screen_vertices_float(2)),
-                to_vec2_int(screen_vertices_float(3)),
-                to_vec2_int(screen_vertices_float(4)),
-                to_vec2_int(screen_vertices_float(5)),
-                to_vec2_int(screen_vertices_float(6)),
-                to_vec2_int(screen_vertices_float(7))
-                );
+            FOR i IN 0 TO 7 LOOP
+                screen_vertices_int(i) <= to_vec2_int(screen_vertices_float(i));
+            END LOOP;
         END IF;
     END PROCESS;
 

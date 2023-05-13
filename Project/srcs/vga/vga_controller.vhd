@@ -44,29 +44,13 @@ ARCHITECTURE vga_controller_arch OF vga_controller IS
 
     SIGNAL h_count, v_count : INTEGER;
     --------- VGA CONSTANT END ---------
-
-    -- Clock
-    COMPONENT clock_divider IS
-        GENERIC (N : INTEGER);
-        PORT (
-            CLK_IN : IN STD_LOGIC;
-            CLK_OUT : OUT STD_LOGIC
-        );
-    END COMPONENT;
-
-    SIGNAL clk1Hz, clk10Hz, clk50MHz : STD_LOGIC;
-
 BEGIN
-    -- generate clocks
-    u_clk1hz : clock_divider GENERIC MAP(N => 50000000) PORT MAP(clk, clk1Hz);
-    u_clk10hz : clock_divider GENERIC MAP(N => 5000000) PORT MAP(clk, clk10Hz);
-    u_clk50mhz : clock_divider GENERIC MAP(N => 1) PORT MAP(clk, clk50MHz);
 
     --------- VGA UTILITY START ---------
     -- horizontal counter in [0, h_total]
-    pixel_count_proc : PROCESS (clk50MHz)
+    pixel_count_proc : PROCESS (CLK)
     BEGIN
-        IF (rising_edge(clk50MHz))
+        IF (rising_edge(CLK))
             THEN
             IF (h_count = h_total)
                 THEN
@@ -89,9 +73,9 @@ BEGIN
     END PROCESS hsync_gen_proc;
 
     -- vertical counter in [0, v_total]
-    line_count_proc : PROCESS (clk50MHz)
+    line_count_proc : PROCESS (CLK)
     BEGIN
-        IF (rising_edge(clk50MHz))
+        IF (rising_edge(CLK))
             THEN
             IF (h_count = h_total)
                 THEN
@@ -126,19 +110,8 @@ BEGIN
             -- Calculate the coordinates
             COOR_H <= h_count - h_start;
             COOR_V <= v_count - v_start;
-
-            -- Calculate the next coordinates
-            IF (h_count = h_end) THEN
-                NEXT_COOR_H <= 0;
-            ELSE
-                NEXT_COOR_H <= h_count - h_start + 1;
-            END IF;
-
-            IF (v_count = v_end) THEN
-                NEXT_COOR_V <= 0;
-            ELSE
-                NEXT_COOR_V <= v_count - v_start + 1;
-            END IF;
+            NEXT_COOR_H <= h_count - h_start + 1;
+            NEXT_COOR_V <= v_count - v_start + 1;
 
             -- Render the color
             VGA_RED <= RED_IN;
