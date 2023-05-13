@@ -32,7 +32,7 @@ ENTITY line_connector IS
 END line_connector;
 
 ARCHITECTURE line_connector_arch OF line_connector IS
-    CONSTANT value_error : float32 := float32_one;
+    CONSTANT value_error : float32 := to_float(10, 8, 23);
 BEGIN
     PROCESS (RESET, CLK)
         VARIABLE m, c : float32;
