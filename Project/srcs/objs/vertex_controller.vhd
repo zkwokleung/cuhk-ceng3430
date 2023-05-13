@@ -27,13 +27,31 @@ ENTITY vertex_controller IS
 END vertex_controller;
 
 ARCHITECTURE vertex_controller_arch OF vertex_controller IS
+    COMPONENT clock_divider IS
+        GENERIC (N : INTEGER);
+        PORT (
+            CLK_IN : IN STD_LOGIC;
+            CLK_OUT : OUT STD_LOGIC
+        );
+    END COMPONENT;
+
     -- Signals for the calculation of the vertex position
     SIGNAL translation_mat4 : mat4_float;
     SIGNAL rotation_mat4 : mat4_float;
     SIGNAL scale_mat4 : mat4_float;
+
+    SIGNAL clk_50Mhz : STD_LOGIC;
 BEGIN
+    -- Clock divider
+    clk_divider_50Mhz : clock_divider
+    GENERIC MAP(N => 1)
+    PORT MAP(
+        CLK_IN => CLK,
+        CLK_OUT => clk_50Mhz
+    );
+
     -- Pipeline the calculation of the vertex position
-    PROCESS (RESET, CLK)
+    PROCESS (RESET, clk_50Mhz)
         VARIABLE scaled_vertex, rotated_vertex, translated_vertex : vec4_float;
     BEGIN
         IF RESET = '1' THEN
