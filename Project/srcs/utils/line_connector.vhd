@@ -4,7 +4,9 @@
 -- |               The Bresenham Line-Drawing Algorithm is adapted
 -- |               for the implementation.
 --------------------------------------------------------------------
-
+LIBRARY IEEE;
+USE IEEE.STD_LOGIC_1164.ALL;
+USE IEEE.Numeric_Std.ALL;
 LIBRARY ieee_proposed;
 USE ieee_proposed.fixed_float_types.ALL;
 USE ieee_proposed.fixed_pkg.ALL;
