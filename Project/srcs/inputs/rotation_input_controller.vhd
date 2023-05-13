@@ -21,42 +21,31 @@ ENTITY rotation_input_controller IS
 END rotation_input_controller;
 
 ARCHITECTURE rotation_input_controller_arch OF rotation_input_controller IS
-    COMPONENT clock_divider IS
-        GENERIC (N : INTEGER);
-        PORT (
-            CLK_IN : IN STD_LOGIC;
-            CLK_OUT : OUT STD_LOGIC
-        );
-    END COMPONENT;
-
-    SIGNAL clk_50Hz : STD_LOGIC;
     SIGNAL rot_tmp : vec3_int := (0, 0, 0);
 BEGIN
-    clk_div_50Hz : clock_divider
-    GENERIC MAP(N => 1000000)
-    PORT MAP(CLK_IN => CLK, CLK_OUT => clk_50Hz);
-
-    PROCESS (clk_50Hz, RESET)
+    PROCESS (CLK, RESET)
     BEGIN
         IF RESET = '1' THEN
-            ROTATION_VEC3 <= (0, 0, 0);
-        ELSIF rising_edge(clk_50Hz) THEN
+            rot_tmp <= (0, 0, 0);
+        ELSIF rising_edge(CLK) THEN
             IF POSITIVE_X_IN = '1' THEN
-                ROTATION_VEC3 <= rot_tmp + (0, 0, 1);
+                rot_tmp <= rot_tmp + (0, 0, 1);
             END IF;
 
             IF POSITIVE_Y_IN = '1' THEN
-                ROTATION_VEC3 <= rot_tmp + (0, 1, 0);
+                rot_tmp <= rot_tmp + (0, 1, 0);
             END IF;
 
             IF NEGATIVE_X_IN = '1' THEN
-                ROTATION_VEC3 <= rot_tmp + (0, 0, -1);
+                rot_tmp <= rot_tmp + (0, 0, -1);
             END IF;
 
             IF NEGATIVE_Y_IN = '1' THEN
-                ROTATION_VEC3 <= rot_tmp + (0, -1, 0);
+                rot_tmp <= rot_tmp + (0, -1, 0);
             END IF;
         END IF;
     END PROCESS;
+
+    ROTATION_VEC3 <= rot_tmp;
 
 END rotation_input_controller_arch;
