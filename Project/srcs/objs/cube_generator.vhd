@@ -227,8 +227,12 @@ BEGIN
     PROCESS
     BEGIN
         FOR i IN 0 TO 7 LOOP
-            draw_signal(i + 12) <= (DISPLAY_COOR_H >= screen_vertices_int(i)(0)) AND (DISPLAY_COOR_H <= (screen_vertices_int(i)(0) + FRAME_WIDTH)) AND
-            (DISPLAY_COOR_V >= screen_vertices_int(i)(1)) AND (DISPLAY_COOR_V <= (screen_vertices_int(i)(1) + FRAME_WIDTH));
+            IF (DISPLAY_COOR_H >= screen_vertices_int(i)(0)) AND (DISPLAY_COOR_H <= (screen_vertices_int(i)(0) + FRAME_WIDTH)) AND
+                (DISPLAY_COOR_V >= screen_vertices_int(i)(1)) AND (DISPLAY_COOR_V <= (screen_vertices_int(i)(1) + FRAME_WIDTH)) THEN
+                draw_signal(i + 12) <= '1';
+            ELSE
+                draw_signal(i + 12) <= '0';
+            END IF;
         END LOOP;
     END PROCESS;
 
@@ -241,7 +245,7 @@ BEGIN
             BLUE_OUT <= (OTHERS => '0');
         ELSIF rising_edge(CLK) THEN
             -- Calculate if the current pixel is in the cube
-            IF (draw_signal /= (OTHERS => '0')) THEN
+            IF (draw_signal /= "00000000000000000000") THEN
                 RED_OUT <= "1111";
                 GREEN_OUT <= "1111";
                 BLUE_OUT <= "1111";
