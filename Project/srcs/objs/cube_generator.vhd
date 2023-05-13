@@ -103,6 +103,19 @@ ARCHITECTURE Behavioral OF cube_generator IS
         );
     END COMPONENT;
 
+    COMPONENT line_connector IS
+        GENERIC (
+            LINE_WIDTH : INTEGER := 1
+        );
+        PORT (
+            RESET : IN STD_LOGIC;
+            CLK : IN STD_LOGIC;
+            DISPLAY_COOR_H, DISPLAY_COOR_V : IN INTEGER;
+            V1, V2 : IN vec2_int;
+            DRAW_SIGNAL_OUT : OUT STD_LOGIC
+        );
+    END COMPONENT;
+
     -- --------------------------------------------------------------------
     --                       Signals
     -- --------------------------------------------------------------------
@@ -114,10 +127,12 @@ ARCHITECTURE Behavioral OF cube_generator IS
     SIGNAL screen_vertices_float : screen_vertex_float;
     SIGNAL screen_vertices_int : screen_vertex_int;
 
+    -- The signals determining whether the current pixel should be drawn
+    SIGNAL draw_signal : STD_LOGIC_VECTOR(11 DOWNTO 0) := (OTHERS => '0');
+
     -- Clock signals
     SIGNAL clk_50hz, clk_500hz, clk_500Khz, clk_1Mhz, clk_10Mhz, clk_50Mhz : STD_LOGIC;
 BEGIN
-
     -- --------------------------------------------------------------------
     --                    Clock Dividers
     -- --------------------------------------------------------------------
@@ -162,7 +177,9 @@ BEGIN
         CLK_IN => clk_500hz,
         CLK_OUT => clk_50hz
     );
-
+    -- --------------------------------------------------------------------
+    --                    Port maps
+    -- --------------------------------------------------------------------
     vertices_map_gen : FOR i IN 0 TO 7 GENERATE
         -- Vertex controller
         vertex_controller_inst_i : vertex_controller
@@ -189,6 +206,54 @@ BEGIN
             VIEW_MATRIX => VIEW_MATRIX,
             POINT_3D => vertices(i),
             SCREEN_POS_OUT => screen_vertices_float(i)
+        );
+    END GENERATE;
+
+    -- Line connector
+    lines_map_gen : FOR i IN 0 TO 3 GENERATE
+        -- connect the top vertices
+        line_connector_inst_i : line_connector
+        GENERIC MAP(
+            LINE_WIDTH => 1
+        )
+        PORT MAP(
+            RESET => RESET,
+            CLK => clk_50Mhz,
+            DISPLAY_COOR_H => DISPLAY_COOR_H,
+            DISPLAY_COOR_V => DISPLAY_COOR_V,
+            V1 => screen_vertices_int(i),
+            V2 => screen_vertices_int((i + 1) MOD 4),
+            DRAW_SIGNAL_OUT => DRAW_SIGNAL(i)
+        );
+
+        -- connect the bottom vertices
+        line_connector_inst_j : line_connector
+        GENERIC MAP(
+            LINE_WIDTH => 1
+        )
+        PORT MAP(
+            RESET => RESET,
+            CLK => clk_50Mhz,
+            DISPLAY_COOR_H => DISPLAY_COOR_H,
+            DISPLAY_COOR_V => DISPLAY_COOR_V,
+            V1 => screen_vertices_int(i + 4),
+            V2 => screen_vertices_int((i + 5) MOD 4),
+            DRAW_SIGNAL_OUT => DRAW_SIGNAL(i + 4)
+        );
+
+        -- connect the top and bottom vertices
+        line_connector_inst_k : line_connector
+        GENERIC MAP(
+            LINE_WIDTH => 1
+        )
+        PORT MAP(
+            RESET => RESET,
+            CLK => clk_50Mhz,
+            DISPLAY_COOR_H => DISPLAY_COOR_H,
+            DISPLAY_COOR_V => DISPLAY_COOR_V,
+            V1 => screen_vertices_int(i),
+            V2 => screen_vertices_int(i + 4),
+            DRAW_SIGNAL_OUT => DRAW_SIGNAL(i + 8)
         );
     END GENERATE;
 
@@ -235,7 +300,10 @@ BEGIN
                 ((DISPLAY_COOR_H >= screen_vertices_int(6)(0)) AND (DISPLAY_COOR_H <= (screen_vertices_int(6)(0) + FRAME_WIDTH)) AND
                 (DISPLAY_COOR_V >= screen_vertices_int(6)(1)) AND (DISPLAY_COOR_V <= (screen_vertices_int(6)(1) + FRAME_WIDTH))) OR
                 ((DISPLAY_COOR_H >= screen_vertices_int(7)(0)) AND (DISPLAY_COOR_H <= (screen_vertices_int(7)(0) + FRAME_WIDTH)) AND
-                (DISPLAY_COOR_V >= screen_vertices_int(7)(1)) AND (DISPLAY_COOR_V <= (screen_vertices_int(7)(1) + FRAME_WIDTH)))
+                (DISPLAY_COOR_V >= screen_vertices_int(7)(1)) AND (DISPLAY_COOR_V <= (screen_vertices_int(7)(1) + FRAME_WIDTH))) OR
+                (DRAW_SIGNAL(0) = '1') OR (DRAW_SIGNAL(1) = '1') OR (DRAW_SIGNAL(2) = '1') OR (DRAW_SIGNAL(3) = '1') OR
+                (DRAW_SIGNAL(4) = '1') OR (DRAW_SIGNAL(5) = '1') OR (DRAW_SIGNAL(6) = '1') OR (DRAW_SIGNAL(7) = '1') OR
+                (DRAW_SIGNAL(8) = '1') OR (DRAW_SIGNAL(9) = '1') OR (DRAW_SIGNAL(10) = '1') OR (DRAW_SIGNAL(11) = '1')
                 THEN
                 RED_OUT <= "1111";
                 GREEN_OUT <= "1111";
