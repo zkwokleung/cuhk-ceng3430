@@ -32,6 +32,7 @@ ENTITY line_connector IS
 END line_connector;
 
 ARCHITECTURE line_connector_arch OF line_connector IS
+    CONSTANT value_error : float32 := float32_one;
 BEGIN
     PROCESS (RESET, CLK)
         VARIABLE m, c : float32;
@@ -47,8 +48,12 @@ BEGIN
                 (DISPLAY_COOR_H >= V2(0) AND DISPLAY_COOR_H <= V1(0))) AND
                 ((DISPLAY_COOR_V >= V1(1) AND DISPLAY_COOR_V <= V2(1)) OR
                 (DISPLAY_COOR_V >= V2(1) AND DISPLAY_COOR_V <= V1(1))) THEN
-                -- Calculate if the display coordinate is a part of the line with the Bresenham Line-Drawing Algorithm
-
+                -- Calculate if the display coordinate is a part of the line 
+                IF ABS(to_float(DISPLAY_COOR_V, 8, 23) - (m * to_float(DISPLAY_COOR_H, 8, 23) + c)) <= value_error THEN
+                    DRAW_SIGNAL_OUT <= '1';
+                ELSE
+                    DRAW_SIGNAL_OUT <= '0';
+                END IF;
             ELSE
                 DRAW_SIGNAL_OUT <= '0';
             END IF;
