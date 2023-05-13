@@ -42,6 +42,10 @@ BEGIN
             scale_mat4 <= identity_mat4_float;
 
             VERTEX_OUT <= VERTEX_IN;
+
+            scaled_vertex := (float32_one, float32_one, float32_one, float32_one);
+            rotated_vertex := (float32_zero, float32_zero, float32_zero, float32_zero);
+            translated_vertex := (float32_zero, float32_zero, float32_zero, float32_zero);
         ELSIF rising_edge(CLK) THEN
             -- Obtain the matrices from the input signals
             translation_mat4 <= translation_mat4_float(TRANSLATION_IN);

@@ -1,3 +1,6 @@
+--------------------------------------------------------------------
+-- | Description : The top module for the 3D renderer.
+--------------------------------------------------------------------
 LIBRARY IEEE;
 USE IEEE.STD_LOGIC_1164.ALL;
 USE IEEE.Numeric_Std.ALL;
@@ -108,8 +111,8 @@ BEGIN
     cube_generator_inst : cube_generator PORT MAP(
         CLK => CLK,
         RESET => BTNC,
-        DISPLAY_COOR_H => coor_h,
-        DISPLAY_COOR_V => coor_v,
+        DISPLAY_COOR_H => next_coor_h,
+        DISPLAY_COOR_V => next_coor_v,
         PROJECTION_MATRIX => PROJECTION_MATRIX,
         VIEW_MATRIX => VIEW_MATRIX,
         POS_IN => cube_pos,
