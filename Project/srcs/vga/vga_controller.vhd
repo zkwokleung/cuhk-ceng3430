@@ -43,14 +43,28 @@ ARCHITECTURE vga_controller_arch OF vga_controller IS
     CONSTANT v_front : INTEGER := 10 - 1;
 
     SIGNAL h_count, v_count : INTEGER;
-    --------- VGA CONSTANT END ---------
+    --------- VGA CONSTANT END ---------    
+    -- Clock
+    COMPONENT clock_divider IS
+        GENERIC (N : INTEGER);
+        PORT (
+            CLK_IN : IN STD_LOGIC;
+            CLK_OUT : OUT STD_LOGIC
+        );
+    END COMPONENT;
+
+    SIGNAL clk1Hz, clk10Hz, clk50MHz : STD_LOGIC;
 BEGIN
+    -- generate clocks
+    u_clk1hz : clock_divider GENERIC MAP(N => 50000000) PORT MAP(clk, clk1Hz);
+    u_clk10hz : clock_divider GENERIC MAP(N => 5000000) PORT MAP(clk, clk10Hz);
+    u_clk50mhz : clock_divider GENERIC MAP(N => 1) PORT MAP(clk, clk50MHz);
 
     --------- VGA UTILITY START ---------
     -- horizontal counter in [0, h_total]
-    pixel_count_proc : PROCESS (CLK)
+    pixel_count_proc : PROCESS (clk50MHz)
     BEGIN
-        IF (rising_edge(CLK))
+        IF (rising_edge(clk50MHz))
             THEN
             IF (h_count = h_total)
                 THEN
@@ -73,9 +87,9 @@ BEGIN
     END PROCESS hsync_gen_proc;
 
     -- vertical counter in [0, v_total]
-    line_count_proc : PROCESS (CLK)
+    line_count_proc : PROCESS (clk50MHz)
     BEGIN
-        IF (rising_edge(CLK))
+        IF (rising_edge(clk50MHz))
             THEN
             IF (h_count = h_total)
                 THEN
