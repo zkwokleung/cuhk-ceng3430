@@ -185,7 +185,7 @@ BEGIN
         vertex_controller_inst_i : vertex_controller
         PORT MAP(
             RESET => RESET,
-            CLK => clk_10Mhz,
+            CLK => clk_50Mhz,
             VERTEX_IN => CUBE_DEFAULT_VERTEX(i),
             TRANSLATION_IN => POS_IN,
             ROTATION_IN => ROT_IN,
@@ -201,7 +201,7 @@ BEGIN
         )
         PORT MAP(
             RESET => RESET,
-            CLK => clk_10Mhz,
+            CLK => clk_50Mhz,
             PROJECTION_MATRIX => PROJECTION_MATRIX,
             VIEW_MATRIX => VIEW_MATRIX,
             POINT_3D => vertices(i),
