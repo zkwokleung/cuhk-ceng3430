@@ -218,7 +218,7 @@ BEGIN
             RED_OUT <= (OTHERS => '0');
             GREEN_OUT <= (OTHERS => '0');
             BLUE_OUT <= (OTHERS => '0');
-        ELSIF rising_edge(clk_10Mhz) THEN
+        ELSIF rising_edge(CLK) THEN
             -- Calculate if the current pixel is in the cube
             IF ((DISPLAY_COOR_H >= screen_vertices_int(0)(0)) AND (DISPLAY_COOR_H <= (screen_vertices_int(0)(0) + FRAME_WIDTH)) AND
                 (DISPLAY_COOR_V >= screen_vertices_int(0)(1)) AND (DISPLAY_COOR_V <= (screen_vertices_int(0)(1) + FRAME_WIDTH))) OR
