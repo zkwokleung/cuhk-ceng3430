@@ -109,6 +109,8 @@ ARCHITECTURE Behavioral OF cube_generator_tb IS
 
     -- Cube properties
     SIGNAL POS_IN, ROT_IN, SCALE_IN : vec3_int;
+
+    SIGNAL draw : BOOLEAN := false;
 BEGIN
     -- --------------------------------------------------------------------
     --                    Port maps
@@ -197,9 +199,9 @@ BEGIN
             screen_vertices_int(i) <= (0, 0);
         END LOOP;
 
-        POS_IN <= (512, 300, 0);
-        ROT_IN <= (0, 0, 0);
-        SCALE_IN <= (1, 1, 1);
+        POS_IN <= (512, 300, 100);
+        ROT_IN <= (30, 60, 100);
+        SCALE_IN <= (10, 10, 10);
 
         RESET <= '1';
         WAIT FOR 10 ns;
@@ -219,20 +221,22 @@ BEGIN
 
         WAIT FOR 10 ns;
 
-        ROT_IN <= (90, 90, 90);
+        DISPLAY_COOR_H <= 527;
+        DISPLAY_COOR_V <= 311;
 
-        WAIT FOR 10 NS;
-
-        FOR i IN 0 TO 5 LOOP
-            CLK <= '1';
-            WAIT FOR 10 ns;
-            CLK <= '0';
-            WAIT FOR 10 ns;
-        END LOOP;
+        WAIT FOR 10 ns;
 
         FOR i IN 0 TO 7 LOOP
-            screen_vertices_int(i) <= to_vec2_int(screen_vertices_float(i));
+            IF (DISPLAY_COOR_H >= screen_vertices_int(i)(0)) AND (DISPLAY_COOR_H <= (screen_vertices_int(i)(0) + 2)) AND
+                (DISPLAY_COOR_V >= screen_vertices_int(i)(1)) AND (DISPLAY_COOR_V <= (screen_vertices_int(i)(1) + 2)) THEN
+                draw_signal(i + 12) <= '1';
+            ELSE
+                draw_signal(i + 12) <= '0';
+            END IF;
         END LOOP;
+        WAIT FOR 10 ns;
+
+        draw <= (draw_signal /= "00000000000000000000");
         WAIT;
     END PROCESS;
 END Behavioral;

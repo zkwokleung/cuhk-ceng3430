@@ -77,10 +77,10 @@ ARCHITECTURE renderer3D_arch OF renderer3D IS
     -- Cube Properties
 
     -- The pixel scale of the cube
-    SIGNAL cube_scale : vec3_int := (100, 100, 100);
+    SIGNAL cube_scale : vec3_int := (1, 1, 1);
 
     -- The position of the cube
-    SIGNAL cube_pos : vec3_int := (512, 300, 100);
+    SIGNAL cube_pos : vec3_int := (512, 300, 0);
 
     -- The rotation of the cube in euler angles
     SIGNAL cube_rot : vec3_int := (0, 0, 0);
