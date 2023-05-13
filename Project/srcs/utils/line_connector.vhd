@@ -54,7 +54,7 @@ BEGIN
                 (DISPLAY_COOR_H >= V2(0) AND DISPLAY_COOR_H <= V1(0))) AND
                 ((DISPLAY_COOR_V >= V1(1) AND DISPLAY_COOR_V <= V2(1)) OR
                 (DISPLAY_COOR_V >= V2(1) AND DISPLAY_COOR_V <= V1(1))) THEN
-                -- Calculate the display coordinate is a part of the line with the Bresenham Line-Drawing Algorithm
+                -- Calculate if the display coordinate is a part of the line with the Bresenham Line-Drawing Algorithm
 
                 -- IF pk < 0 THEN
                 --     if(slope_flag) then

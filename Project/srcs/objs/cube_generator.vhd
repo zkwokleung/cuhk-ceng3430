@@ -66,14 +66,6 @@ ARCHITECTURE Behavioral OF cube_generator IS
     -- --------------------------------------------------------------------
     --                       Components
     -- --------------------------------------------------------------------
-    COMPONENT clock_divider IS
-        GENERIC (N : INTEGER);
-        PORT (
-            CLK_IN : IN STD_LOGIC;
-            CLK_OUT : OUT STD_LOGIC
-        );
-    END COMPONENT;
-
     COMPONENT world_to_screen_convertor IS
         GENERIC (
             SCREEN_WIDTH : INTEGER := 1024;
@@ -127,56 +119,11 @@ ARCHITECTURE Behavioral OF cube_generator IS
     SIGNAL screen_vertices_float : screen_vertex_float;
     SIGNAL screen_vertices_int : screen_vertex_int;
 
-    -- The signals determining whether the current pixel should be drawn
-    SIGNAL draw_signal : STD_LOGIC_VECTOR(11 DOWNTO 0) := (OTHERS => '0');
-
-    -- Clock signals
-    SIGNAL clk_50hz, clk_500hz, clk_500Khz, clk_1Mhz, clk_10Mhz, clk_50Mhz : STD_LOGIC;
+    -- The signals determining whether the current pixel should be drawn.
+    -- Bits 11..0 are the signals for lines drawning
+    -- Bits 19..12 are the signals for vertices drawning
+    SIGNAL draw_signal : STD_LOGIC_VECTOR(19 DOWNTO 0) := (OTHERS => '0');
 BEGIN
-    -- --------------------------------------------------------------------
-    --                    Clock Dividers
-    -- --------------------------------------------------------------------
-    clk_divider_50Mhz : clock_divider
-    GENERIC MAP(N => 1)
-    PORT MAP(
-        CLK_IN => CLK,
-        CLK_OUT => clk_50Mhz
-    );
-
-    clk_divider_10Mhz : clock_divider
-    GENERIC MAP(N => 5)
-    PORT MAP(
-        CLK_IN => clk_50Mhz,
-        CLK_OUT => clk_10Mhz
-    );
-
-    clk_divider_1Mhz : clock_divider
-    GENERIC MAP(N => 10)
-    PORT MAP(
-        CLK_IN => clk_10Mhz,
-        CLK_OUT => clk_1Mhz
-    );
-
-    clk_divider_500Khz : clock_divider
-    GENERIC MAP(N => 2)
-    PORT MAP(
-        CLK_IN => clk_1Mhz,
-        CLK_OUT => clk_500Khz
-    );
-
-    clk_divider_500hz : clock_divider
-    GENERIC MAP(N => 1000)
-    PORT MAP(
-        CLK_IN => clk_500Khz,
-        CLK_OUT => clk_500hz
-    );
-
-    clk_divider_50hz : clock_divider
-    GENERIC MAP(N => 10)
-    PORT MAP(
-        CLK_IN => clk_500hz,
-        CLK_OUT => clk_50hz
-    );
     -- --------------------------------------------------------------------
     --                    Port maps
     -- --------------------------------------------------------------------
@@ -185,7 +132,7 @@ BEGIN
         vertex_controller_inst_i : vertex_controller
         PORT MAP(
             RESET => RESET,
-            CLK => clk_50Mhz,
+            CLK => CLK,
             VERTEX_IN => CUBE_DEFAULT_VERTEX(i),
             TRANSLATION_IN => POS_IN,
             ROTATION_IN => ROT_IN,
@@ -201,7 +148,7 @@ BEGIN
         )
         PORT MAP(
             RESET => RESET,
-            CLK => clk_50Mhz,
+            CLK => CLK,
             PROJECTION_MATRIX => PROJECTION_MATRIX,
             VIEW_MATRIX => VIEW_MATRIX,
             POINT_3D => vertices(i),
@@ -218,12 +165,12 @@ BEGIN
         )
         PORT MAP(
             RESET => RESET,
-            CLK => clk_50Mhz,
+            CLK => CLK,
             DISPLAY_COOR_H => DISPLAY_COOR_H,
             DISPLAY_COOR_V => DISPLAY_COOR_V,
             V1 => screen_vertices_int(i),
             V2 => screen_vertices_int((i + 1) MOD 4),
-            DRAW_SIGNAL_OUT => DRAW_SIGNAL(i)
+            DRAW_SIGNAL_OUT => draw_signal(i)
         );
 
         -- connect the bottom vertices
@@ -233,12 +180,12 @@ BEGIN
         )
         PORT MAP(
             RESET => RESET,
-            CLK => clk_50Mhz,
+            CLK => CLK,
             DISPLAY_COOR_H => DISPLAY_COOR_H,
             DISPLAY_COOR_V => DISPLAY_COOR_V,
             V1 => screen_vertices_int(i + 4),
             V2 => screen_vertices_int((i + 5) MOD 4),
-            DRAW_SIGNAL_OUT => DRAW_SIGNAL(i + 4)
+            DRAW_SIGNAL_OUT => draw_signal(i + 4)
         );
 
         -- connect the top and bottom vertices
@@ -248,7 +195,7 @@ BEGIN
         )
         PORT MAP(
             RESET => RESET,
-            CLK => clk_50Mhz,
+            CLK => CLK,
             DISPLAY_COOR_H => DISPLAY_COOR_H,
             DISPLAY_COOR_V => DISPLAY_COOR_V,
             V1 => screen_vertices_int(i),
@@ -262,7 +209,7 @@ BEGIN
     BEGIN
         IF RESET = '1' THEN
             screen_vertices_int <= (OTHERS => (0, 0));
-        ELSIF rising_edge(clk_50Mhz) THEN
+        ELSIF rising_edge(CLK) THEN
             screen_vertices_int <= (
                 to_vec2_int(screen_vertices_float(0)),
                 to_vec2_int(screen_vertices_float(1)),
@@ -276,6 +223,15 @@ BEGIN
         END IF;
     END PROCESS;
 
+    -- Determine if the current pixel should be drawn
+    PROCESS
+    BEGIN
+        FOR i IN 0 TO 7 LOOP
+            draw_signal(i + 12) <= (DISPLAY_COOR_H >= screen_vertices_int(i)(0)) AND (DISPLAY_COOR_H <= (screen_vertices_int(i)(0) + FRAME_WIDTH)) AND
+            (DISPLAY_COOR_V >= screen_vertices_int(i)(1)) AND (DISPLAY_COOR_V <= (screen_vertices_int(i)(1) + FRAME_WIDTH));
+        END LOOP;
+    END PROCESS;
+
     -- Color output process
     PROCESS (CLK, RESET)
     BEGIN
@@ -285,26 +241,7 @@ BEGIN
             BLUE_OUT <= (OTHERS => '0');
         ELSIF rising_edge(CLK) THEN
             -- Calculate if the current pixel is in the cube
-            IF ((DISPLAY_COOR_H >= screen_vertices_int(0)(0)) AND (DISPLAY_COOR_H <= (screen_vertices_int(0)(0) + FRAME_WIDTH)) AND
-                (DISPLAY_COOR_V >= screen_vertices_int(0)(1)) AND (DISPLAY_COOR_V <= (screen_vertices_int(0)(1) + FRAME_WIDTH))) OR
-                ((DISPLAY_COOR_H >= screen_vertices_int(1)(0)) AND (DISPLAY_COOR_H <= (screen_vertices_int(1)(0) + FRAME_WIDTH)) AND
-                (DISPLAY_COOR_V >= screen_vertices_int(1)(1)) AND (DISPLAY_COOR_V <= (screen_vertices_int(1)(1) + FRAME_WIDTH))) OR
-                ((DISPLAY_COOR_H >= screen_vertices_int(2)(0)) AND (DISPLAY_COOR_H <= (screen_vertices_int(2)(0) + FRAME_WIDTH)) AND
-                (DISPLAY_COOR_V >= screen_vertices_int(2)(1)) AND (DISPLAY_COOR_V <= (screen_vertices_int(2)(1) + FRAME_WIDTH))) OR
-                ((DISPLAY_COOR_H >= screen_vertices_int(3)(0)) AND (DISPLAY_COOR_H <= (screen_vertices_int(3)(0) + FRAME_WIDTH)) AND
-                (DISPLAY_COOR_V >= screen_vertices_int(3)(1)) AND (DISPLAY_COOR_V <= (screen_vertices_int(3)(1) + FRAME_WIDTH))) OR
-                ((DISPLAY_COOR_H >= screen_vertices_int(4)(0)) AND (DISPLAY_COOR_H <= (screen_vertices_int(4)(0) + FRAME_WIDTH)) AND
-                (DISPLAY_COOR_V >= screen_vertices_int(4)(1)) AND (DISPLAY_COOR_V <= (screen_vertices_int(4)(1) + FRAME_WIDTH))) OR
-                ((DISPLAY_COOR_H >= screen_vertices_int(5)(0)) AND (DISPLAY_COOR_H <= (screen_vertices_int(5)(0) + FRAME_WIDTH)) AND
-                (DISPLAY_COOR_V >= screen_vertices_int(5)(1)) AND (DISPLAY_COOR_V <= (screen_vertices_int(5)(1) + FRAME_WIDTH))) OR
-                ((DISPLAY_COOR_H >= screen_vertices_int(6)(0)) AND (DISPLAY_COOR_H <= (screen_vertices_int(6)(0) + FRAME_WIDTH)) AND
-                (DISPLAY_COOR_V >= screen_vertices_int(6)(1)) AND (DISPLAY_COOR_V <= (screen_vertices_int(6)(1) + FRAME_WIDTH))) OR
-                ((DISPLAY_COOR_H >= screen_vertices_int(7)(0)) AND (DISPLAY_COOR_H <= (screen_vertices_int(7)(0) + FRAME_WIDTH)) AND
-                (DISPLAY_COOR_V >= screen_vertices_int(7)(1)) AND (DISPLAY_COOR_V <= (screen_vertices_int(7)(1) + FRAME_WIDTH))) OR
-                (DRAW_SIGNAL(0) = '1') OR (DRAW_SIGNAL(1) = '1') OR (DRAW_SIGNAL(2) = '1') OR (DRAW_SIGNAL(3) = '1') OR
-                (DRAW_SIGNAL(4) = '1') OR (DRAW_SIGNAL(5) = '1') OR (DRAW_SIGNAL(6) = '1') OR (DRAW_SIGNAL(7) = '1') OR
-                (DRAW_SIGNAL(8) = '1') OR (DRAW_SIGNAL(9) = '1') OR (DRAW_SIGNAL(10) = '1') OR (DRAW_SIGNAL(11) = '1')
-                THEN
+            IF (draw_signal /= (OTHERS => '0')) THEN
                 RED_OUT <= "1111";
                 GREEN_OUT <= "1111";
                 BLUE_OUT <= "1111";
