@@ -36,9 +36,7 @@ ARCHITECTURE vertex_controller_arch OF vertex_controller IS
     END COMPONENT;
 
     -- Signals for the calculation of the vertex position
-    SIGNAL translation_mat4 : mat4_float;
-    SIGNAL rotation_mat4 : mat4_float;
-    SIGNAL scale_mat4 : mat4_float;
+    SIGNAL translation_mat4, rotation_mat4, scale_mat4 : mat4_float := identity_mat4_float;
 
     SIGNAL clk_50Mhz : STD_LOGIC;
 BEGIN
@@ -51,7 +49,7 @@ BEGIN
     );
 
     -- Pipeline the calculation of the vertex position
-    PROCESS (CLK)
+    PROCESS (clk_50Mhz, TRANSLATION_IN, ROTATION_IN, SCALE_IN, VERTEX_IN, translation_mat4, rotation_mat4, scale_mat4)
         VARIABLE scaled_vertex, rotated_vertex, translated_vertex : vec4_float;
     BEGIN
         -- Obtain the matrices from the input signals

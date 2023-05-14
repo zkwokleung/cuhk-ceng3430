@@ -34,7 +34,7 @@ END line_connector;
 ARCHITECTURE line_connector_arch OF line_connector IS
     CONSTANT value_error : float32 := to_float(10, 8, 23);
 BEGIN
-    PROCESS (CLK)
+    PROCESS (CLK, V1, V2, DISPLAY_COOR_H, DISPLAY_COOR_V)
         VARIABLE m, c : float32;
     BEGIN
         m := to_float(V2(1) - V1(1), 8, 23) / to_float(V2(0) - V1(0), 8, 23);

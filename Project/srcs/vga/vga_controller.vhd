@@ -115,7 +115,7 @@ BEGIN
     --------- VGA UTILITY END ---------
 
     -- Rendering process
-    PROCESS (h_count, v_count)
+    PROCESS (h_count, v_count, RED_IN, GREEN_IN, BLUE_IN)
     BEGIN
         -- Check if we are in the active area
         IF ((h_count >= h_start AND h_count <= h_end) AND
@@ -136,6 +136,9 @@ BEGIN
             -- Set the coordinates to 0
             COOR_H <= 0;
             COOR_V <= 0;
+            
+            NEXT_COOR_H <= 0;
+            NEXT_COOR_V <= 0;
 
             -- Set the color to black
             VGA_RED <= "0000";

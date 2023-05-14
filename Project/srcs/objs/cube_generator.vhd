@@ -222,7 +222,7 @@ BEGIN
     END GENERATE;
 
     -- Convert the screen coordinates from float to integer
-    PROCESS (CLK, RESET)
+    PROCESS (CLK, RESET, screen_vertices_float)
     BEGIN
         IF RESET = '1' THEN
             screen_vertices_int <= (OTHERS => (0, 0));
@@ -234,7 +234,7 @@ BEGIN
     END PROCESS;
 
     -- Determine if the current pixel should be drawn
-    PROCESS (CLK, RESET)
+    PROCESS (CLK, RESET, screen_vertices_int, DISPLAY_COOR_H, DISPLAY_COOR_V)
     BEGIN
         FOR i IN 0 TO 7 LOOP
             IF (DISPLAY_COOR_H >= screen_vertices_int(i)(0)) AND (DISPLAY_COOR_H <= (screen_vertices_int(i)(0) + FRAME_WIDTH)) AND
@@ -247,7 +247,7 @@ BEGIN
     END PROCESS;
 
     -- Color output process
-    PROCESS (CLK, RESET)
+    PROCESS (CLK, RESET, draw_signal)
     BEGIN
         IF RESET = '1' THEN
             RED_OUT <= (OTHERS => '0');

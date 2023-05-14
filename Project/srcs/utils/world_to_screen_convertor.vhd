@@ -48,7 +48,7 @@ BEGIN
     );
 
     -- Pipeline the calculations
-    PROCESS (CLK)
+    PROCESS (CLK, VIEW_MATRIX, POINT_3D, PROJECTION_MATRIX)
         VARIABLE clipSpacePos, view_times_point : vec4_float := (float32_zero, float32_zero, float32_zero, float32_zero);
         VARIABLE ndcPos : vec3_float := (float32_zero, float32_zero, float32_zero);
         VARIABLE ndcSpacePos_xy_plus_one_halfed : vec2_float := (float32_zero, float32_zero);
