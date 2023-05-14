@@ -76,13 +76,15 @@ BEGIN
     END PROCESS pixel_count_proc;
 
     -- generate hsync in [0, h_sync)
-    hsync_gen_proc : PROCESS (h_count)
+    hsync_gen_proc : PROCESS (clk50MHz, h_count)
     BEGIN
-        IF (h_count <= h_sync)
-            THEN
-            VGA_HSYNC <= '1';
-        ELSE
-            VGA_HSYNC <= '0';
+        IF (rising_edge(clk50MHz)) THEN
+            IF (h_count <= h_sync)
+                THEN
+                VGA_HSYNC <= '1';
+            ELSE
+                VGA_HSYNC <= '0';
+            END IF;
         END IF;
     END PROCESS hsync_gen_proc;
 
@@ -104,47 +106,50 @@ BEGIN
     END PROCESS line_count_proc;
 
     -- generate vsync in [0, v_sync)
-    vsync_gen_proc : PROCESS (v_count)
+    vsync_gen_proc : PROCESS (clk50MHz, v_count)
     BEGIN
-        IF (v_count <= v_sync) THEN
-            VGA_VSYNC <= '1';
-        ELSE
-            VGA_VSYNC <= '0';
+        IF (rising_edge(clk50MHz)) THEN
+            IF (v_count <= v_sync) THEN
+                VGA_VSYNC <= '1';
+            ELSE
+                VGA_VSYNC <= '0';
+            END IF;
         END IF;
     END PROCESS vsync_gen_proc;
     --------- VGA UTILITY END ---------
 
     -- Rendering process
-    PROCESS (h_count, v_count, RED_IN, GREEN_IN, BLUE_IN)
+    PROCESS (clk50MHz, h_count, v_count, RED_IN, GREEN_IN, BLUE_IN)
     BEGIN
-        -- Check if we are in the active area
-        IF ((h_count >= h_start AND h_count <= h_end) AND
-            (v_count >= v_start AND v_count <= v_end))
-            THEN
-            -- Calculate the coordinates
-            COOR_H <= h_count - h_start;
-            COOR_V <= v_count - v_start;
-            NEXT_COOR_H <= h_count - h_start + 1;
-            NEXT_COOR_V <= v_count - v_start + 1;
+        IF (rising_edge(clk50MHz)) THEN
+            -- Check if we are in the active area
+            IF ((h_count >= h_start AND h_count <= h_end) AND
+                (v_count >= v_start AND v_count <= v_end))
+                THEN
+                -- Calculate the coordinates
+                COOR_H <= h_count - h_start;
+                COOR_V <= v_count - v_start;
+                NEXT_COOR_H <= h_count - h_start + 1;
+                NEXT_COOR_V <= v_count - v_start + 1;
 
-            -- Render the color
-            VGA_RED <= RED_IN;
-            VGA_GREEN <= GREEN_IN;
-            VGA_BLUE <= BLUE_IN;
+                -- Render the color
+                VGA_RED <= RED_IN;
+                VGA_GREEN <= GREEN_IN;
+                VGA_BLUE <= BLUE_IN;
 
-        ELSE
-            -- Set the coordinates to 0
-            COOR_H <= 0;
-            COOR_V <= 0;
-            
-            NEXT_COOR_H <= 0;
-            NEXT_COOR_V <= 0;
+            ELSE
+                -- Set the coordinates to 0
+                COOR_H <= 0;
+                COOR_V <= 0;
 
-            -- Set the color to black
-            VGA_RED <= "0000";
-            VGA_GREEN <= "0000";
-            VGA_BLUE <= "0000";
+                NEXT_COOR_H <= 0;
+                NEXT_COOR_V <= 0;
+
+                -- Set the color to black
+                VGA_RED <= "0000";
+                VGA_GREEN <= "0000";
+                VGA_BLUE <= "0000";
+            END IF;
         END IF;
-
     END PROCESS;
 END vga_controller_arch;
