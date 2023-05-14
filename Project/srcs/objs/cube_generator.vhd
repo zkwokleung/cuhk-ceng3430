@@ -121,18 +121,18 @@ ARCHITECTURE Behavioral OF cube_generator IS
     -- --------------------------------------------------------------------
 
     -- The coordinate(after transformation) of the cube
-    SIGNAL vertices : cube_vertex_float;
+    SIGNAL vertices : cube_vertex_float := (OTHERS => vec3_float_zero);
 
     -- The coordinate of the vertex in the screen space
-    SIGNAL screen_vertices_float : screen_vertex_float;
-    SIGNAL screen_vertices_int : screen_vertex_int;
+    SIGNAL screen_vertices_float : screen_vertex_float := (OTHERS => vec2_float_zero);
+    SIGNAL screen_vertices_int : screen_vertex_int := (OTHERS => vec2_int_zero);
 
     -- The signals determining whether the current pixel should be drawn.
     -- Bits 11..0 are the signals for lines drawning
     -- Bits 19..12 are the signals for vertices drawning
     SIGNAL draw_signal : STD_LOGIC_VECTOR(19 DOWNTO 0) := (OTHERS => '0');
 
-    SIGNAL clk_50Mhz : STD_LOGIC;
+    SIGNAL clk_50Mhz : STD_LOGIC := '0';
 BEGIN
     -- --------------------------------------------------------------------
     --                    Port maps
@@ -222,15 +222,19 @@ BEGIN
     END GENERATE;
 
     -- Convert the screen coordinates from float to integer
-    PROCESS (screen_vertices_float)
+    PROCESS (CLK, RESET)
     BEGIN
-        FOR i IN 0 TO 7 LOOP
-            screen_vertices_int(i) <= to_vec2_int(screen_vertices_float(i));
-        END LOOP;
+        IF RESET = '1' THEN
+            screen_vertices_int <= (OTHERS => (0, 0));
+        ELSIF rising_edge(CLK) THEN
+            FOR i IN 0 TO 7 LOOP
+                screen_vertices_int(i) <= to_vec2_int(screen_vertices_float(i));
+            END LOOP;
+        END IF;
     END PROCESS;
 
     -- Determine if the current pixel should be drawn
-    PROCESS (DISPLAY_COOR_H, DISPLAY_COOR_V, screen_vertices_int)
+    PROCESS (CLK, RESET)
     BEGIN
         FOR i IN 0 TO 7 LOOP
             IF (DISPLAY_COOR_H >= screen_vertices_int(i)(0)) AND (DISPLAY_COOR_H <= (screen_vertices_int(i)(0) + FRAME_WIDTH)) AND
@@ -243,17 +247,23 @@ BEGIN
     END PROCESS;
 
     -- Color output process
-    PROCESS (draw_signal)
+    PROCESS (CLK, RESET)
     BEGIN
-        -- Calculate if the current pixel is in the cube
-        IF (draw_signal /= "00000000000000000000") THEN
-            RED_OUT <= "1111";
-            GREEN_OUT <= "1111";
-            BLUE_OUT <= "1111";
-        ELSE
+        IF RESET = '1' THEN
             RED_OUT <= (OTHERS => '0');
             GREEN_OUT <= (OTHERS => '0');
             BLUE_OUT <= (OTHERS => '0');
+        ELSIF rising_edge(CLK) THEN
+            -- Calculate if the current pixel is in the cube
+            IF (draw_signal /= "00000000000000000000") THEN
+                RED_OUT <= "1111";
+                GREEN_OUT <= "1111";
+                BLUE_OUT <= "1111";
+            ELSE
+                RED_OUT <= (OTHERS => '0');
+                GREEN_OUT <= (OTHERS => '0');
+                BLUE_OUT <= (OTHERS => '0');
+            END IF;
         END IF;
     END PROCESS;
 END Behavioral;

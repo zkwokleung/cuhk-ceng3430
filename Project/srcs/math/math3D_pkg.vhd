@@ -1302,6 +1302,30 @@ PACKAGE math3D_pkg IS
     CONSTANT float32_one : float32 := "00111111100000000000000000000000";
     CONSTANT float32_neg_one : float32 := "10111111100000000000000000000000";
 
+    CONSTANT vec2_int_zero : vec2_int := (0, 0);
+    CONSTANT vec2_int_one : vec2_int := (1, 1);
+    CONSTANT vec2_int_neg_one : vec2_int := (-1, -1);
+
+    CONSTANT vec2_float_zero : vec2_float := (float32_zero, float32_zero);
+    CONSTANT vec2_float_one : vec2_float := (float32_one, float32_one);
+    CONSTANT vec2_float_neg_one : vec2_float := (float32_neg_one, float32_neg_one);
+
+    CONSTANT vec3_int_zero : vec3_int := (0, 0, 0);
+    CONSTANT vec3_int_one : vec3_int := (1, 1, 1);
+    CONSTANT vec3_int_neg_one : vec3_int := (-1, -1, -1);
+
+    CONSTANT vec3_float_zero : vec3_float := (float32_zero, float32_zero, float32_zero);
+    CONSTANT vec3_float_one : vec3_float := (float32_one, float32_one, float32_one);
+    CONSTANT vec3_float_neg_one : vec3_float := (float32_neg_one, float32_neg_one, float32_neg_one);
+
+    CONSTANT vec4_int_zero : vec4_int := (0, 0, 0, 0);
+    CONSTANT vec4_int_one : vec4_int := (1, 1, 1, 1);
+    CONSTANT vec4_int_neg_one : vec4_int := (-1, -1, -1, -1);
+
+    CONSTANT vec4_float_zero : vec4_float := (float32_zero, float32_zero, float32_zero, float32_zero);
+    CONSTANT vec4_float_one : vec4_float := (float32_one, float32_one, float32_one, float32_one);
+    CONSTANT vec4_float_neg_one : vec4_float := (float32_neg_one, float32_neg_one, float32_neg_one, float32_neg_one);
+
     CONSTANT identity_mat3_int : mat3_int := ((1, 0, 0), (0, 1, 0), (0, 0, 1));
     CONSTANT identity_mat4_int : mat4_int := ((1, 0, 0, 0), (0, 1, 0, 0), (0, 0, 1, 0), (0, 0, 0, 1));
     CONSTANT identity_mat3_float : mat3_float := (

@@ -51,7 +51,7 @@ BEGIN
     );
 
     -- Pipeline the calculation of the vertex position
-    PROCESS (TRANSLATION_IN, ROTATION_IN, SCALE_IN, VERTEX_IN)
+    PROCESS (CLK)
         VARIABLE scaled_vertex, rotated_vertex, translated_vertex : vec4_float;
     BEGIN
         -- Obtain the matrices from the input signals
