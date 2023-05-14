@@ -15,6 +15,7 @@ ENTITY renderer3D IS
         -- Board Ports
         CLK : IN STD_LOGIC;
         BTNC, BTNL, BTNR, BTNU, BTND : IN STD_LOGIC;
+        SW : IN STD_LOGIC_VECTOR(7 DOWNTO 0);
         LED : OUT STD_LOGIC_VECTOR(7 DOWNTO 0);
 
         -- VGA Ports
@@ -31,6 +32,15 @@ ARCHITECTURE renderer3D_arch OF renderer3D IS
 
     CONSTANT PROJECTION_MATRIX : mat4_float := default_ortho_mat4_float;
     CONSTANT VIEW_MATRIX : mat4_float := look_forward_mat4_float;
+
+    -- The default scale of the cube
+    CONSTANT INIT_CUBE_SCALE : vec3_int := (10, 10, 10);
+
+    -- The initial position of the cube
+    CONSTANT INIT_CUBE_POS : vec3_int := (512, 300, -10);
+
+    -- The default rotation of the cube in euler angles
+    CONSTANT INIT_CUBE_ROT : vec3_int := (0, 0, 0);
 
     COMPONENT vga_controller IS
         PORT (
@@ -59,12 +69,25 @@ ARCHITECTURE renderer3D_arch OF renderer3D IS
         );
     END COMPONENT;
 
-    COMPONENT rotation_input_controller IS
+    -- COMPONENT rotation_input_controller IS
+    --     PORT (
+    --         CLK : IN STD_LOGIC;
+    --         RESET : IN STD_LOGIC;
+    --         POSITIVE_X_IN, POSITIVE_Y_IN, NEGATIVE_X_IN, NEGATIVE_Y_IN : IN STD_LOGIC;
+    --         ROTATION_VEC3 : OUT vec3_int
+    --     );
+    -- END COMPONENT;
+
+    COMPONENT transform_input_controller IS
         PORT (
             CLK : IN STD_LOGIC;
             RESET : IN STD_LOGIC;
-            POSITIVE_X_IN, POSITIVE_Y_IN, NEGATIVE_X_IN, NEGATIVE_Y_IN : IN STD_LOGIC;
-            ROTATION_VEC3 : OUT vec3_int
+            DEFAULT_POS_VEC3 : IN vec3_int;
+            DEFAULT_ROT_VEC3 : IN vec3_int;
+            DEFAULT_SCALE_VEC3 : IN vec3_int;
+            BTNC, BTNL, BTNR, BTNU, BTND : IN STD_LOGIC;
+            SW : IN STD_LOGIC_VECTOR(7 DOWNTO 0);
+            POS_VEC3, ROT_VEC3, SCALE_VEC3 : OUT vec3_int
         );
     END COMPONENT;
 
@@ -77,13 +100,13 @@ ARCHITECTURE renderer3D_arch OF renderer3D IS
     -- Cube Properties
 
     -- The pixel scale of the cube
-    SIGNAL cube_scale : vec3_int := (10, 10, 10);
+    SIGNAL cube_scale : vec3_int := INIT_CUBE_SCALE;
 
     -- The position of the cube
-    SIGNAL cube_pos : vec3_int := (512, 300, -10);
+    SIGNAL cube_pos : vec3_int := INIT_CUBE_POS;
 
     -- The rotation of the cube in euler angles
-    SIGNAL cube_rot : vec3_int := (0, 0, 0);
+    SIGNAL cube_rot : vec3_int := INIT_CUBE_ROT;
 BEGIN
     -- DEBUG USE
     DEBUG_PROCESS : PROCESS (CLK)
@@ -122,14 +145,31 @@ BEGIN
         BLUE_OUT => buffer_blue_out
     );
 
-    rot_ctrl_inst : rotation_input_controller PORT MAP(
+    -- rot_ctrl_inst : rotation_input_controller PORT MAP(
+    --     CLK => CLK,
+    --     RESET => BTNC,
+    --     POSITIVE_X_IN => BTNR,
+    --     POSITIVE_Y_IN => BTNU,
+    --     NEGATIVE_X_IN => BTNL,
+    --     NEGATIVE_Y_IN => BTND,
+    --     ROTATION_VEC3 => cube_rot
+    -- );
+
+    trans_ipt_ctrl_inst : transform_input_controller PORT MAP(
         CLK => CLK,
         RESET => BTNC,
-        POSITIVE_X_IN => BTNR,
-        POSITIVE_Y_IN => BTNU,
-        NEGATIVE_X_IN => BTNL,
-        NEGATIVE_Y_IN => BTND,
-        ROTATION_VEC3 => cube_rot
+        DEFAULT_POS_VEC3 => INIT_CUBE_POS,
+        DEFAULT_ROT_VEC3 => INIT_CUBE_ROT,
+        DEFAULT_SCALE_VEC3 => INIT_CUBE_SCALE,
+        BTNC => BTNC,
+        BTNL => BTNL,
+        BTNR => BTNR,
+        BTNU => BTNU,
+        BTND => BTND,
+        SW => SW,
+        POS_VEC3 => cube_pos,
+        ROT_VEC3 => cube_rot,
+        SCALE_VEC3 => cube_scale
     );
 
 END renderer3D_arch;
