@@ -86,11 +86,10 @@ ARCHITECTURE renderer3D_arch OF renderer3D IS
     SIGNAL cube_rot : vec3_int := (0, 0, 0);
 BEGIN
     -- DEBUG USE
-    LED(0) <= BTNC;
-    LED(1) <= BTNL;
-    LED(2) <= BTNR;
-    LED(3) <= BTNU;
-    LED(4) <= BTND;
+    DEBUG_PROCESS : PROCESS (CLK)
+    BEGIN
+        LED(0) <= CLK;
+    END PROCESS;
 
     vga_controller_inst : vga_controller PORT MAP(
         CLK => CLK,

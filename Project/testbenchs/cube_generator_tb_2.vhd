@@ -59,11 +59,11 @@ BEGIN
         projection_matrix <= default_ortho_mat4_float;
         view_matrix <= look_forward_mat4_float;
 
-        pos_in <= (500, 500, -10);
-        rot_in <= (10, 10, 10);
-        scale_in <= (10, 10, 10);
-        FOR i IN 450 TO 550 LOOP
-            FOR j IN 450 TO 550 LOOP
+        pos_in <= (500, 500, 0);
+        rot_in <= (0, 0, 0);
+        scale_in <= (5, 5, 5);
+        FOR i IN 475 TO 525 LOOP
+            FOR j IN 475 TO 525 LOOP
                 clk <= '0';
                 WAIT FOR 1 ns;
 
