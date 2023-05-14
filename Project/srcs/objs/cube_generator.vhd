@@ -66,6 +66,14 @@ ARCHITECTURE Behavioral OF cube_generator IS
     -- --------------------------------------------------------------------
     --                       Components
     -- --------------------------------------------------------------------
+    COMPONENT clock_divider IS
+        GENERIC (N : INTEGER);
+        PORT (
+            CLK_IN : IN STD_LOGIC;
+            CLK_OUT : OUT STD_LOGIC
+        );
+    END COMPONENT;
+
     COMPONENT world_to_screen_convertor IS
         GENERIC (
             SCREEN_WIDTH : INTEGER := 1024;
@@ -123,10 +131,20 @@ ARCHITECTURE Behavioral OF cube_generator IS
     -- Bits 11..0 are the signals for lines drawning
     -- Bits 19..12 are the signals for vertices drawning
     SIGNAL draw_signal : STD_LOGIC_VECTOR(19 DOWNTO 0) := (OTHERS => '0');
+
+    SIGNAL clk_50Mhz : STD_LOGIC;
 BEGIN
     -- --------------------------------------------------------------------
     --                    Port maps
     -- --------------------------------------------------------------------
+    -- Clock divider
+    clk_divider : clock_divider
+    GENERIC MAP(N => 1)
+    PORT MAP(
+        CLK_IN => CLK,
+        CLK_OUT => clk_50Mhz
+    );
+
     vertices_map_gen : FOR i IN 0 TO 7 GENERATE
         -- Vertex controller
         vertex_controller_inst_i : vertex_controller
@@ -205,11 +223,11 @@ BEGIN
     END GENERATE;
 
     -- Convert the screen coordinates from float to integer
-    PROCESS (CLK, RESET, screen_vertices_float)
+    PROCESS (clk_50Mhz, RESET, screen_vertices_float)
     BEGIN
         IF RESET = '1' THEN
             screen_vertices_int <= (OTHERS => (0, 0));
-        ELSIF rising_edge(CLK) THEN
+        ELSIF rising_edge(clk_50Mhz) THEN
             FOR i IN 0 TO 7 LOOP
                 screen_vertices_int(i) <= to_vec2_int(screen_vertices_float(i));
             END LOOP;
@@ -217,7 +235,7 @@ BEGIN
     END PROCESS;
 
     -- Determine if the current pixel should be drawn
-    PROCESS (CLK, RESET, screen_vertices_int, DISPLAY_COOR_H, DISPLAY_COOR_V)
+    PROCESS (clk_50Mhz, RESET, screen_vertices_int, DISPLAY_COOR_H, DISPLAY_COOR_V)
     BEGIN
         FOR i IN 0 TO 7 LOOP
             IF (DISPLAY_COOR_H >= screen_vertices_int(i)(0)) AND (DISPLAY_COOR_H <= (screen_vertices_int(i)(0) + FRAME_WIDTH)) AND
@@ -230,13 +248,13 @@ BEGIN
     END PROCESS;
 
     -- Color output process
-    PROCESS (CLK, RESET, draw_signal)
+    PROCESS (clk_50Mhz, RESET, draw_signal)
     BEGIN
         IF RESET = '1' THEN
             RED_OUT <= (OTHERS => '0');
             GREEN_OUT <= (OTHERS => '0');
             BLUE_OUT <= (OTHERS => '0');
-        ELSIF rising_edge(CLK) THEN
+        ELSIF rising_edge(clk_50Mhz) THEN
             -- Calculate if the current pixel is in the cube
             IF (draw_signal /= "00000000000000000000") THEN
                 RED_OUT <= "1111";

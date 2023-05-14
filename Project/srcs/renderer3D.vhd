@@ -108,12 +108,6 @@ ARCHITECTURE renderer3D_arch OF renderer3D IS
     -- The rotation of the cube in euler angles
     SIGNAL cube_rot : vec3_int := INIT_CUBE_ROT;
 BEGIN
-    -- DEBUG USE
-    DEBUG_PROCESS : PROCESS (CLK)
-    BEGIN
-        LED(0) <= CLK;
-    END PROCESS;
-
     vga_controller_inst : vga_controller PORT MAP(
         CLK => CLK,
         VGA_HSYNC => VGA_HSYNC,
