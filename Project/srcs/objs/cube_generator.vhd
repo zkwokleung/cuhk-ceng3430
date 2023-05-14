@@ -66,14 +66,6 @@ ARCHITECTURE Behavioral OF cube_generator IS
     -- --------------------------------------------------------------------
     --                       Components
     -- --------------------------------------------------------------------
-    COMPONENT clock_divider IS
-        GENERIC (N : INTEGER);
-        PORT (
-            CLK_IN : IN STD_LOGIC;
-            CLK_OUT : OUT STD_LOGIC
-        );
-    END COMPONENT;
-
     COMPONENT world_to_screen_convertor IS
         GENERIC (
             SCREEN_WIDTH : INTEGER := 1024;
@@ -131,19 +123,10 @@ ARCHITECTURE Behavioral OF cube_generator IS
     -- Bits 11..0 are the signals for lines drawning
     -- Bits 19..12 are the signals for vertices drawning
     SIGNAL draw_signal : STD_LOGIC_VECTOR(19 DOWNTO 0) := (OTHERS => '0');
-
-    SIGNAL clk_50Mhz : STD_LOGIC := '0';
 BEGIN
     -- --------------------------------------------------------------------
     --                    Port maps
     -- --------------------------------------------------------------------
-    -- Clock divider
-    clk_divider_50Mhz : clock_divider
-    GENERIC MAP(N => 1)
-    PORT MAP(
-        CLK_IN => CLK,
-        CLK_OUT => clk_50Mhz
-    );
     vertices_map_gen : FOR i IN 0 TO 7 GENERATE
         -- Vertex controller
         vertex_controller_inst_i : vertex_controller

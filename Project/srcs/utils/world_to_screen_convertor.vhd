@@ -27,26 +27,8 @@ ENTITY world_to_screen_convertor IS
 END world_to_screen_convertor;
 
 ARCHITECTURE world_to_screen_convertor_arch OF world_to_screen_convertor IS
-    COMPONENT clock_divider IS
-        GENERIC (N : INTEGER);
-        PORT (
-            CLK_IN : IN STD_LOGIC;
-            CLK_OUT : OUT STD_LOGIC
-        );
-    END COMPONENT;
-
     CONSTANT viewSize : vec2_int := (SCREEN_WIDTH, SCREEN_HEIGHT);
-
-    SIGNAL clk_50Mhz : STD_LOGIC;
 BEGIN
-    -- Clock divider
-    clk_divider_50Mhz : clock_divider
-    GENERIC MAP(N => 1)
-    PORT MAP(
-        CLK_IN => CLK,
-        CLK_OUT => clk_50Mhz
-    );
-
     -- Pipeline the calculations
     PROCESS (CLK, VIEW_MATRIX, POINT_3D, PROJECTION_MATRIX)
         VARIABLE clipSpacePos, view_times_point : vec4_float := (float32_zero, float32_zero, float32_zero, float32_zero);

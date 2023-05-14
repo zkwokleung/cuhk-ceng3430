@@ -44,27 +44,12 @@ ARCHITECTURE vga_controller_arch OF vga_controller IS
 
     SIGNAL h_count, v_count : INTEGER;
     --------- VGA CONSTANT END ---------    
-    -- Clock
-    COMPONENT clock_divider IS
-        GENERIC (N : INTEGER);
-        PORT (
-            CLK_IN : IN STD_LOGIC;
-            CLK_OUT : OUT STD_LOGIC
-        );
-    END COMPONENT;
-
-    SIGNAL clk1Hz, clk10Hz, clk50MHz : STD_LOGIC;
 BEGIN
-    -- generate clocks
-    u_clk1hz : clock_divider GENERIC MAP(N => 50000000) PORT MAP(clk, clk1Hz);
-    u_clk10hz : clock_divider GENERIC MAP(N => 5000000) PORT MAP(clk, clk10Hz);
-    u_clk50mhz : clock_divider GENERIC MAP(N => 1) PORT MAP(clk, clk50MHz);
-
     --------- VGA UTILITY START ---------
     -- horizontal counter in [0, h_total]
-    pixel_count_proc : PROCESS (clk50MHz)
+    pixel_count_proc : PROCESS (CLK)
     BEGIN
-        IF (rising_edge(clk50MHz))
+        IF (rising_edge(CLK))
             THEN
             IF (h_count = h_total)
                 THEN
@@ -76,9 +61,9 @@ BEGIN
     END PROCESS pixel_count_proc;
 
     -- generate hsync in [0, h_sync)
-    hsync_gen_proc : PROCESS (clk50MHz, h_count)
+    hsync_gen_proc : PROCESS (CLK, h_count)
     BEGIN
-        IF (rising_edge(clk50MHz)) THEN
+        IF (rising_edge(CLK)) THEN
             IF (h_count <= h_sync)
                 THEN
                 VGA_HSYNC <= '1';
@@ -89,9 +74,9 @@ BEGIN
     END PROCESS hsync_gen_proc;
 
     -- vertical counter in [0, v_total]
-    line_count_proc : PROCESS (clk50MHz)
+    line_count_proc : PROCESS (CLK)
     BEGIN
-        IF (rising_edge(clk50MHz))
+        IF (rising_edge(CLK))
             THEN
             IF (h_count = h_total)
                 THEN
@@ -106,9 +91,9 @@ BEGIN
     END PROCESS line_count_proc;
 
     -- generate vsync in [0, v_sync)
-    vsync_gen_proc : PROCESS (clk50MHz, v_count)
+    vsync_gen_proc : PROCESS (CLK, v_count)
     BEGIN
-        IF (rising_edge(clk50MHz)) THEN
+        IF (rising_edge(CLK)) THEN
             IF (v_count <= v_sync) THEN
                 VGA_VSYNC <= '1';
             ELSE
@@ -119,9 +104,9 @@ BEGIN
     --------- VGA UTILITY END ---------
 
     -- Rendering process
-    PROCESS (clk50MHz, h_count, v_count, RED_IN, GREEN_IN, BLUE_IN)
+    PROCESS (CLK, h_count, v_count, RED_IN, GREEN_IN, BLUE_IN)
     BEGIN
-        IF (rising_edge(clk50MHz)) THEN
+        IF (rising_edge(CLK)) THEN
             -- Check if we are in the active area
             IF ((h_count >= h_start AND h_count <= h_end) AND
                 (v_count >= v_start AND v_count <= v_end))
