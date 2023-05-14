@@ -1376,12 +1376,20 @@ PACKAGE BODY math3D_pkg IS
     -- --------------------------------------------------------------------
     FUNCTION sin_float32 (x : INTEGER) RETURN float32 IS
     BEGIN
-        RETURN sin_table(x MOD 360);
+        IF x < 0 THEN
+            RETURN -sin_table(-x MOD 360);
+        ELSE
+            RETURN sin_table(x MOD 360);
+        END IF;
     END sin_float32;
 
     FUNCTION cos_float32 (x : INTEGER) RETURN float32 IS
     BEGIN
-        RETURN cos_table(x MOD 360);
+        IF x < 0 THEN
+            RETURN cos_table(-x MOD 360);
+        ELSE
+            RETURN cos_table(x MOD 360);
+        END IF;
     END cos_float32;
 
     -- --------------------------------------------------------------------
