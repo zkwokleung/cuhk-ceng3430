@@ -124,8 +124,8 @@ ARCHITECTURE Behavioral OF cube_generator IS
     SIGNAL vertices : cube_vertex_float := (OTHERS => vec3_float_zero);
 
     -- The coordinate of the vertex in the screen space
-    SIGNAL screen_vertices_float : screen_vertex_float := (OTHERS => vec2_float_zero);
-    SIGNAL screen_vertices_int : screen_vertex_int := (OTHERS => vec2_int_zero);
+    SIGNAL screen_vertices_float, tmp2 : screen_vertex_float := (OTHERS => vec2_float_zero);
+    SIGNAL screen_vertices_int, tmp : screen_vertex_int := (OTHERS => vec2_int_zero);
 
     -- The signals determining whether the current pixel should be drawn.
     -- Bits 11..0 are the signals for lines drawning
@@ -143,6 +143,13 @@ BEGIN
     PORT MAP(
         CLK_IN => CLK,
         CLK_OUT => clk_50Mhz
+    );
+
+    clk_divider_500k : clock_divider
+    GENERIC MAP(N => 100)
+    PORT MAP(
+        CLK_IN => clk_50Mhz,
+        CLK_OUT => clk_500khz
     );
 
     -- vertices_map_gen : FOR i IN 0 TO 7 GENERATE
@@ -174,14 +181,14 @@ BEGIN
     --     );
     -- END GENERATE;
 
-    test_proc_0 : PROCESS (CLK)
-    BEGIN
-        IF rising_edge(CLK) THEN
-            FOR i IN 0 TO 7 LOOP
-                screen_vertices_int(i) <= (to_integer(to_float(i * 120 + 120, 8, 23)), to_integer(to_float(i * 70 + 70, 8, 23)));
-            END LOOP;
-        END IF;
-    END PROCESS;
+    -- test_proc_0 : PROCESS (CLK)
+    -- BEGIN
+    --     IF rising_edge(CLK) THEN
+    --         FOR i IN 0 TO 7 LOOP
+    --             screen_vertices_int(i) <= (to_integer(to_float(i * 120 + 120, 8, 23)), to_integer(to_float(i * 70 + 70, 8, 23)));
+    --         END LOOP;
+    --     END IF;
+    -- END PROCESS;
 
     -- test_proc_1 : PROCESS (CLK)
     -- BEGIN
@@ -192,14 +199,21 @@ BEGIN
     --     END IF;
     -- END PROCESS;
 
-    -- test_proc_2 : PROCESS (CLK)
+    -- screen_vertices_int(0) <= to_vec2_int(screen_vertices_float(0));
+    -- screen_vertices_int(1) <= to_vec2_int(screen_vertices_float(1));
+    -- screen_vertices_int(2) <= to_vec2_int(screen_vertices_float(2));
+    -- screen_vertices_int(3) <= to_vec2_int(screen_vertices_float(3));
+    -- screen_vertices_int(4) <= to_vec2_int(screen_vertices_float(4));
+    -- screen_vertices_int(5) <= to_vec2_int(screen_vertices_float(5));
+    -- screen_vertices_int(6) <= to_vec2_int(screen_vertices_float(6));
+    -- screen_vertices_int(7) <= to_vec2_int(screen_vertices_float(7));
+
+    -- test_proc_2 : PROCESS (screen_vertices_float)
     --     VARIABLE temp : vec2_float;
     -- BEGIN
-    --     IF rising_edge(CLK) THEN
-    --         FOR i IN 0 TO 7 LOOP
-    --             screen_vertices_int(i) <= to_vec2_int(screen_vertices_float(i));
-    --         END LOOP;
-    --     END IF;
+    --     FOR i IN 0 TO 7 LOOP
+    --         temp := screen_vertices_float(i);
+    --     END LOOP;
     -- END PROCESS;
 
     -- test_proc_3 : PROCESS (clk_50Mhz)
@@ -210,6 +224,54 @@ BEGIN
     --         END LOOP;
     --     END IF;
     -- END PROCESS;
+
+    test_proc_4 : PROCESS (clk_50Mhz)
+    BEGIN
+        IF (rising_edge(clk_50Mhz)) THEN
+            FOR i IN 0 TO 7 LOOP
+                tmp2(i) <= (to_float(i * 120 + 120, 8, 23), to_float(i * 70 + 70, 8, 23));
+            END LOOP;
+        END IF;
+    END PROCESS;
+
+    test_proc_5 : PROCESS (clk_50Mhz)
+    BEGIN
+        IF (rising_edge(clk_50Mhz)) THEN
+            FOR i IN 0 TO 7 LOOP
+                screen_vertices_int(i) <= tmp(i);
+            END LOOP;
+        END IF;
+    END PROCESS;
+
+    test_proc_6 : PROCESS (clk_50Mhz)
+    BEGIN
+        IF (rising_edge(clk_50Mhz)) THEN
+            FOR i IN 0 TO 7 LOOP
+                tmp(i) <= (to_integer(tmp2(i)(0)), to_integer(tmp2(i)(1)));
+            END LOOP;
+        END IF;
+    END PROCESS;
+
+    -- PROCESS (clk_50Mhz)
+    -- BEGIN
+    --     IF (rising_edge(clk_50Mhz)) THEN
+    --     END IF;
+    -- END PROCESS;
+    -- vertices(0) <= (to_float(500, 8, 23), to_float(300, 8, 23), float32_zero);
+
+    -- world_to_screen_convertor_inst_i : world_to_screen_convertor
+    -- GENERIC MAP(
+    --     SCREEN_WIDTH => SCREEN_WIDTH,
+    --     SCREEN_HEIGHT => SCREEN_HEIGHT
+    -- )
+    -- PORT MAP(
+    --     RESET => RESET,
+    --     CLK => clk_50Mhz,
+    --     PROJECTION_MATRIX => PROJECTION_MATRIX,
+    --     VIEW_MATRIX => VIEW_MATRIX,
+    --     POINT_3D => vertices(0),
+    --     SCREEN_POS_OUT => screen_vertices_int(0)
+    -- );
 
     -- -- Line connector
     -- lines_map_gen : FOR i IN 0 TO 3 GENERATE

@@ -113,37 +113,13 @@ BEGIN
     --------- VGA UTILITY END ---------
 
     -- Calculate the coordinates
-    coor_calc_proc : PROCESS (clk_50Mhz)
-    BEGIN
-        IF (rising_edge(clk_50Mhz)) THEN
+    COOR_H <= h_count - h_start;
+    COOR_V <= v_count - v_start;
+    NEXT_COOR_H <= h_count - h_start + 1;
+    NEXT_COOR_V <= v_count - v_start + 1;
 
-            -- Calculate the coordinates
-            COOR_H <= h_count - h_start;
-            COOR_V <= v_count - v_start;
-            NEXT_COOR_H <= h_count - h_start + 1;
-            NEXT_COOR_V <= v_count - v_start + 1;
-        END IF;
-    END PROCESS;
-
-    -- Rendering process
-    render_proc : PROCESS (clk_50Mhz)
-    BEGIN
-        IF (rising_edge(clk_50Mhz)) THEN
-            -- Check if we are in the active area
-            IF ((h_count >= h_start AND h_count <= h_end) AND
-                (v_count >= v_start AND v_count <= v_end))
-                THEN
-                -- Render the color
-                VGA_RED <= RED_IN;
-                VGA_GREEN <= GREEN_IN;
-                VGA_BLUE <= BLUE_IN;
-
-            ELSE
-                -- Set the color to black
-                VGA_RED <= "0000";
-                VGA_GREEN <= "0000";
-                VGA_BLUE <= "0000";
-            END IF;
-        END IF;
-    END PROCESS;
+    -- Render the color
+    VGA_RED <= RED_IN;
+    VGA_GREEN <= GREEN_IN;
+    VGA_BLUE <= BLUE_IN;
 END vga_controller_arch;
