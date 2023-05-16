@@ -28,11 +28,12 @@ END world_to_screen_convertor;
 
 ARCHITECTURE world_to_screen_convertor_arch OF world_to_screen_convertor IS
     CONSTANT viewSize : vec2_int := (SCREEN_WIDTH, SCREEN_HEIGHT);
+    SIGNAL clipSpacePos : vec4_fixed := (fixed_zero, fixed_zero, fixed_zero, fixed_zero);
+    SIGNAL ndcPos : vec3_fixed := (fixed_zero, fixed_zero, fixed_zero);
 BEGIN
     -- Pipeline the calculations
     PROCESS (CLK)
-        VARIABLE clipSpacePos, view_times_point : vec4_fixed := (fixed_zero, fixed_zero, fixed_zero, fixed_zero);
-        VARIABLE ndcPos : vec3_fixed := (fixed_zero, fixed_zero, fixed_zero);
+        VARIABLE view_times_point : vec4_fixed := (fixed_zero, fixed_zero, fixed_zero, fixed_zero);
         VARIABLE ndcSpacePos_xy_plus_one_halfed, result : vec2_fixed := (fixed_zero, fixed_zero);
     BEGIN
         IF rising_edge(CLK) THEN
@@ -40,10 +41,10 @@ BEGIN
             view_times_point := VIEW_MATRIX * to_vec4_fixed(POINT_3D, fixed_one);
 
             -- clipSpacePos = projectionMatrix * viewMatrix * point
-            clipSpacePos := PROJECTION_MATRIX * view_times_point;
+            clipSpacePos <= PROJECTION_MATRIX * view_times_point;
 
             -- ndcSpacePos = clipSpacePos.xyz / clipSpacePos.w
-            ndcPos := to_vec3_fixed(clipSpacePos) / clipSpacePos(3);
+            ndcPos <= to_vec3_fixed(clipSpacePos) / clipSpacePos(3);
 
             -- screenPos = (ndcSpacePos.xy + 1) / 2 * viewSize
             ndcSpacePos_xy_plus_one_halfed := (to_vec2_fixed(ndcPos) + (fixed_one, fixed_one)) / to_sfixed(2, 22, -8);
