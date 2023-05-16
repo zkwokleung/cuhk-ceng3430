@@ -225,32 +225,32 @@ BEGIN
     --     END IF;
     -- END PROCESS;
 
-    test_proc_4 : PROCESS (clk_50Mhz)
-    BEGIN
-        IF (rising_edge(clk_50Mhz)) THEN
-            FOR i IN 0 TO 7 LOOP
-                tmp2(i) <= (to_float(i * 120 + 120, 8, 23), to_float(i * 70 + 70, 8, 23));
-            END LOOP;
-        END IF;
-    END PROCESS;
+    -- test_proc_4 : PROCESS (clk_50Mhz)
+    -- BEGIN
+    --     IF (rising_edge(clk_50Mhz)) THEN
+    --         FOR i IN 0 TO 7 LOOP
+    --             tmp2(i) <= (to_float(i * 120 + 120, 8, 23), to_float(i * 70 + 70, 8, 23));
+    --         END LOOP;
+    --     END IF;
+    -- END PROCESS;
 
-    test_proc_5 : PROCESS (clk_50Mhz)
-    BEGIN
-        IF (rising_edge(clk_50Mhz)) THEN
-            FOR i IN 0 TO 7 LOOP
-                screen_vertices_int(i) <= tmp(i);
-            END LOOP;
-        END IF;
-    END PROCESS;
+    -- test_proc_5 : PROCESS (clk_50Mhz)
+    -- BEGIN
+    --     IF (rising_edge(clk_50Mhz)) THEN
+    --         FOR i IN 0 TO 7 LOOP
+    --             screen_vertices_int(i) <= tmp(i);
+    --         END LOOP;
+    --     END IF;
+    -- END PROCESS;
 
-    test_proc_6 : PROCESS (clk_50Mhz)
-    BEGIN
-        IF (rising_edge(clk_50Mhz)) THEN
-            FOR i IN 0 TO 7 LOOP
-                tmp(i) <= (to_integer(tmp2(i)(0)), to_integer(tmp2(i)(1)));
-            END LOOP;
-        END IF;
-    END PROCESS;
+    -- test_proc_6 : PROCESS (clk_50Mhz)
+    -- BEGIN
+    --     IF (rising_edge(clk_50Mhz)) THEN
+    --         FOR i IN 0 TO 7 LOOP
+    --             tmp(i) <= (i * 120 + 120, i * 70 + 70);
+    --         END LOOP;
+    --     END IF;
+    -- END PROCESS;
 
     -- PROCESS (clk_50Mhz)
     -- BEGIN
