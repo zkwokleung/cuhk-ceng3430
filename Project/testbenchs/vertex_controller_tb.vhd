@@ -24,6 +24,7 @@ ARCHITECTURE vertex_controller_tb_arch OF vertex_controller_tb IS
 
     SIGNAL reset, clk : STD_LOGIC := '0';
     SIGNAL vertex_in, vertex_out : vec3_fixed := (fixed_neg_one, fixed_neg_one, fixed_neg_one);
+    SIGNAL vertex_out_int : vec3_int;
     SIGNAL translation_in : vec3_int := (0, 0, 0);
     SIGNAL rotation_in : vec3_int := (0, 0, 0);
     SIGNAL scale_in : vec3_int := (1, 1, 1);
@@ -48,27 +49,8 @@ BEGIN
         reset <= '0';
         WAIT FOR 10 ns;
 
-        translation_in <= (300, 300, 300);
-        WAIT FOR 10 ns;
-
-        FOR i IN 0 TO 10 LOOP
-            clk <= '1';
-            WAIT FOR 10 ns;
-            clk <= '0';
-            WAIT FOR 10 ns;
-        END LOOP;
-
-        translation_in <= (0, 0, 0);
-        rotation_in <= (0, 0, 90);
-
-        FOR i IN 0 TO 10 LOOP
-            clk <= '1';
-            WAIT FOR 10 ns;
-            clk <= '0';
-            WAIT FOR 10 ns;
-        END LOOP;
-
-        scale_in <= (10, 10, 10);
+        scale_in <= (1, 1, 1);
+        rotation_in <= (1, 1, 1);
         translation_in <= (512, 300, 0);
 
         FOR i IN 0 TO 10 LOOP
@@ -77,6 +59,9 @@ BEGIN
             clk <= '0';
             WAIT FOR 10 ns;
         END LOOP;
+
+        vertex_out_int <= to_vec3_int(vertex_out);
+        WAIT FOR 10 ns;
 
         WAIT;
 

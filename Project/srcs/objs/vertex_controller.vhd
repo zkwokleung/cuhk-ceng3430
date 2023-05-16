@@ -33,6 +33,9 @@ ARCHITECTURE vertex_controller_arch OF vertex_controller IS
     END COMPONENT;
 
     SIGNAL clk_50Mhz : STD_LOGIC;
+    -- signals for the calculation of the vertex position
+    SIGNAL translation_mat4, rotation_mat4, scale_mat4 : mat4_fixed := identity_mat4_fixed;
+    SIGNAL scaled_vertex, rotated_vertex, translated_vertex : vec4_fixed;
 BEGIN
     -- Clock divider
     clk_divider : clock_divider
@@ -44,24 +47,21 @@ BEGIN
 
     -- Pipeline the calculation of the vertex position
     PROCESS (CLK)
-        -- Registers for the calculation of the vertex position
-        VARIABLE translation_mat4, rotation_mat4, scale_mat4 : mat4_fixed := identity_mat4_fixed;
-        VARIABLE scaled_vertex, rotated_vertex, translated_vertex : vec4_fixed;
     BEGIN
         IF rising_edge(CLK) THEN
             -- Obtain the matrices from the input signals
-            translation_mat4 := translation_mat4_fixed(TRANSLATION_IN);
-            rotation_mat4 := rotation_mat4_fixed(ROTATION_IN);
-            scale_mat4 := scaling_mat4_fixed(SCALE_IN);
+            translation_mat4 <= translation_mat4_fixed(TRANSLATION_IN);
+            rotation_mat4 <= rotation_mat4_fixed(ROTATION_IN);
+            scale_mat4 <= scaling_mat4_fixed(SCALE_IN);
 
             -- 1. Scale the vertex
-            scaled_vertex := scale_mat4 * to_vec4_fixed(VERTEX_IN, fixed_one);
+            scaled_vertex <= scale_mat4 * to_vec4_fixed(VERTEX_IN, fixed_one);
 
             -- 2. Rotate the vertex
-            rotated_vertex := rotation_mat4 * scaled_vertex;
+            rotated_vertex <= rotation_mat4 * scaled_vertex;
 
             -- 3. Translate the vertex
-            translated_vertex := translation_mat4 * rotated_vertex;
+            translated_vertex <= translation_mat4 * rotated_vertex;
 
             -- 4. Convert the vertex to vec3_fixed
             VERTEX_OUT <= to_vec3_fixed(translated_vertex);
