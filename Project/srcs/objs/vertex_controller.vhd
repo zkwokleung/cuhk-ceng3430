@@ -43,12 +43,12 @@ BEGIN
     );
 
     -- Pipeline the calculation of the vertex position
-    PROCESS (clk_50Mhz)
+    PROCESS (CLK)
         -- Registers for the calculation of the vertex position
         VARIABLE translation_mat4, rotation_mat4, scale_mat4 : mat4_fixed := identity_mat4_fixed;
         VARIABLE scaled_vertex, rotated_vertex, translated_vertex : vec4_fixed;
     BEGIN
-        IF rising_edge(clk_50Mhz) THEN
+        IF rising_edge(CLK) THEN
             -- Obtain the matrices from the input signals
             translation_mat4 := translation_mat4_fixed(TRANSLATION_IN);
             rotation_mat4 := rotation_mat4_fixed(ROTATION_IN);

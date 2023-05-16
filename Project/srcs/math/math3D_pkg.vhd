@@ -1347,8 +1347,8 @@ PACKAGE math3D_pkg IS
     --     (fixed_zero, fixed_zero, "10111101110011001101001000001011", fixed_zero)
     -- );
     CONSTANT default_perspective_mat4_fixed : mat4_fixed := (
-    (227, 023, fixed_zero, fixed_one, fixed_zero),
-        (fixed_zero, 227, 023, fixed_neg_one, fixed_zero),
+    (227023, fixed_zero, fixed_one, fixed_zero),
+        (fixed_zero, 227023, fixed_neg_one, fixed_zero),
         (fixed_zero, fixed_zero, fixed_one, fixed_neg_one),
         (fixed_zero, fixed_zero, -13108, fixed_zero)
     );

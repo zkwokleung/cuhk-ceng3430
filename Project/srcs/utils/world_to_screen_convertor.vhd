@@ -33,7 +33,6 @@ BEGIN
         VARIABLE clipSpacePos, view_times_point : vec4_fixed := (fixed_zero, fixed_zero, fixed_zero, fixed_zero);
         VARIABLE ndcPos : vec3_fixed := (fixed_zero, fixed_zero, fixed_zero);
         VARIABLE ndcSpacePos_xy_plus_one_halfed, result : vec2_fixed := (fixed_zero, fixed_zero);
-        VARIABLE temp : fixed;
     BEGIN
         IF rising_edge(CLK) THEN
             -- viewMatrix * point
