@@ -8,21 +8,27 @@ scale = 131072
 
 # print("(")
 # for i in range(0, 360):
-#     print(math.floor(math.sin(math.radians(i)) * scale), sep="", end="")
+#     print("to_sfixed(", math.sin(math.radians(i)), ", 22, -8)", sep="", end="")
 #     if i != 359:
 #         print(",")
 # print("\n)")
 
 print("(")
 for i in range(0, 360):
-    print(math.floor(math.cos(math.radians(i)) * scale), sep="", end="")
+    print("to_sfixed(", math.cos(math.radians(i)), ", 22,-8)", sep="", end="")
     if i != 359:
         print(",")
 print("\n)")
 
 # print("(")
 # for i in range(0, 360):
-#     print("\"", math.floor(math.tan(math.radians(i)) * scale), "\"", sep="", end="")
+#     print("\"",
+#           "to_sfixed(",
+#           math.tan(math.radians(i)),
+#           ", 22,-8)",
+#           "\"",
+#           sep="",
+#           end="")
 #     if i != 359:
 #         print(",")
 # print("\n)")

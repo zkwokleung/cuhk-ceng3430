@@ -1,38 +1,79 @@
-LIBRARY ieee;
-USE ieee.std_logic_1164.ALL;
-USE ieee.numeric_std.ALL;
+-- LIBRARY ieee;
+-- USE ieee.std_logic_1164.ALL;
+-- USE ieee.numeric_std.ALL;
 
-PACKAGE my_fixed_pkg IS
-    CONSTANT fixed_scale_factor : INTEGER := 131072;
+-- PACKAGE my_fixed_pkg IS
+-- END PACKAGE;
 
-    SUBTYPE fixed IS INTEGER;
+-- PACKAGE BODY my_fixed_pkg IS
+--     --------------------------------------------------------------------
+--     --  Type conversion
+--     --------------------------------------------------------------------
+--     FUNCTION to_fixed(value : INTEGER) RETURN fixed IS
+--     BEGIN
+--         RETURN to_signed(value * fixed_scale_factor, 32);
+--     END to_fixed;
 
-    FUNCTION to_fixed(value : INTEGER) RETURN fixed;
-    FUNCTION to_integer(value : fixed) RETURN INTEGER;
+--     -- FUNCTION to_fixed(value : real) RETURN fixed IS
+--     -- BEGIN
+--     --     RETURN to_signed(value * fixed_scale_factor, 32);
+--     -- END to_fixed;
 
-    FUNCTION mult_fixed(a : fixed; b : fixed) RETURN fixed;
-    FUNCTION div_fixed(a : fixed; b : fixed) RETURN fixed;
+--     FUNCTION to_integer(value : fixed) RETURN INTEGER IS
+--     BEGIN
+--         RETURN to_integer(signed(value) / fixed_scale_factor);
+--     END to_integer;
 
-END PACKAGE;
+--     --------------------------------------------------------------------
+--     --  Arithmetic
+--     --------------------------------------------------------------------
+--     FUNCTION "+" (a : fixed; b : fixed) RETURN fixed IS
+--     BEGIN
+--         RETURN a + b;
+--     END "+";
 
-PACKAGE BODY my_fixed_pkg IS
-    FUNCTION to_fixed(value : INTEGER) RETURN fixed IS
-    BEGIN
-        RETURN fixed(value * fixed_scale_factor);
-    END to_fixed;
+--     FUNCTION "-" (a : fixed; b : fixed) RETURN fixed IS
+--     BEGIN
+--         RETURN a - b;
+--     END "-";
 
-    FUNCTION to_integer(value : fixed) RETURN INTEGER IS
-    BEGIN
-        RETURN INTEGER(value / fixed_scale_factor);
-    END to_integer;
+--     FUNCTION "*" (a : fixed; b : fixed) RETURN fixed IS
+--     BEGIN
+--         RETURN radix_multiply(a, b, word_length);
+--     END "*";
 
-    FUNCTION mult_fixed(a : fixed; b : fixed) RETURN fixed IS
-    BEGIN
-        RETURN a * (b / fixed_scale_factor);
-    END mult_fixed;
+--     FUNCTION "/" (a : fixed; b : fixed) RETURN fixed IS
+--     BEGIN
+--         RETURN divide(a, b);
+--     END "/";
 
-    FUNCTION div_fixed(a : fixed; b : fixed) RETURN fixed IS
-    BEGIN
-        RETURN a * fixed_scale_factor / b;
-    END div_fixed;
-END PACKAGE BODY;
+--     FUNCTION add(a, b : signed) RETURN signed IS
+--         VARIABLE result : signed(a'length + 1 DOWNTO 0);
+--     BEGIN
+--         result := a + b;
+--         RETURN result;
+--     END add;
+
+--     FUNCTION subtract(a, b : signed) RETURN signed IS
+--         VARIABLE result : signed(a'length + 1 DOWNTO 0);
+--     BEGIN
+--         result := a - b;
+--         RETURN result;
+--     END subtract;
+
+--     FUNCTION radix_multiply(a, b : signed; radix : NATURAL) RETURN signed IS
+--         CONSTANT word_length : NATURAL := a'length + b'length;
+--         VARIABLE result : signed(word_length - 1 DOWNTO 0);
+--     BEGIN
+--         result := a * b;
+--         RETURN result(a'length + radix - 1 DOWNTO radix);
+--     END radix_multiply;
+
+--     FUNCTION divide(a, b : signed) RETURN signed IS
+--         CONSTANT word_length : NATURAL := a'length;
+--         VARIABLE result : signed(word_length - 1 DOWNTO 0);
+--     BEGIN
+--         result := (a * fixed_scale_factor) / b;
+--         RETURN result;
+--     END divide;
+-- END PACKAGE BODY;

@@ -6,7 +6,8 @@ LIBRARY ieee;
 USE ieee.std_logic_1164.ALL;
 USE ieee.numeric_std.ALL;
 LIBRARY IEEE_PROPOSED;
-USE work.my_fixed_pkg.ALL;
+USE work.fixed_float_types.ALL;
+USE work.fixed_pkg.ALL;
 USE work.math3D_pkg.ALL;
 
 -- TODO: Update the output to be int
@@ -45,9 +46,9 @@ BEGIN
             ndcPos := to_vec3_fixed(clipSpacePos) / clipSpacePos(3);
 
             -- screenPos = (ndcSpacePos.xy + 1) / 2 * viewSize
-            ndcSpacePos_xy_plus_one_halfed := (to_vec2_fixed(ndcPos) + (fixed_one, fixed_one)) / to_fixed(2);
+            ndcSpacePos_xy_plus_one_halfed := (to_vec2_fixed(ndcPos) + (fixed_one, fixed_one)) / to_sfixed(2, 22, -8);
 
-            result := (ndcSpacePos_xy_plus_one_halfed(0) * viewSize(0), ndcSpacePos_xy_plus_one_halfed(1) * viewSize(1));
+            result := (resize(ndcSpacePos_xy_plus_one_halfed(0) * viewSize(0), 22, -8), resize(ndcSpacePos_xy_plus_one_halfed(1) * viewSize(1), 22, -8));
 
             SCREEN_POS_OUT <= to_vec2_int(result);
         END IF;

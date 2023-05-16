@@ -4,7 +4,8 @@
 LIBRARY IEEE;
 USE IEEE.STD_LOGIC_1164.ALL;
 USE IEEE.Numeric_Std.ALL;
-USE work.my_fixed_pkg.ALL;
+USE work.fixed_float_types.ALL;
+USE work.fixed_pkg.ALL;
 USE work.math3D_pkg.ALL;
 
 ENTITY renderer3D IS

@@ -1,7 +1,8 @@
 LIBRARY IEEE;
 USE IEEE.STD_LOGIC_1164.ALL;
 USE IEEE.Numeric_Std.ALL;
-USE work.my_fixed_pkg.ALL;
+USE work.fixed_float_types.ALL;
+USE work.fixed_pkg.ALL;
 USE work.math3D_pkg.ALL;
 
 -- Determine the color of the current rendering pixel
@@ -118,7 +119,7 @@ ARCHITECTURE Behavioral OF cube_generator IS
     -- --------------------------------------------------------------------
 
     -- The coordinate(after transformation) of the cube
-    SIGNAL vertices : cube_vertex_fixed := (OTHERS => (0, 0, 0));
+    SIGNAL vertices : cube_vertex_fixed := (OTHERS => (fixed_zero, fixed_zero, fixed_zero));
 
     -- The coordinate of the vertex in the screen space
     SIGNAL screen_vertices_fixed, tmp2 : screen_vertex_fixed := (OTHERS => vec2_fixed_zero);
