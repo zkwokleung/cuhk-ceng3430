@@ -2383,15 +2383,15 @@ PACKAGE BODY math3D_pkg IS
         sin_y := sin_fixed(euler(1));
         sin_z := sin_fixed(euler(2));
 
-        a := cos_y * cos_z;
-        b := cos_y * sin_z;
+        a := mult_fixed(cos_y, cos_z);
+        b := mult_fixed(cos_y, sin_z);
         c := - sin_y;
-        d := (sin_x * sin_y * cos_z) - (cos_x * sin_z);
-        e := sin_x * sin_y * sin_z + cos_x * cos_z;
-        f := sin_x * cos_y;
-        g := cos_x * sin_y * cos_z + sin_x * sin_z;
-        h := cos_x * sin_y * sin_z - sin_x * cos_z;
-        i := cos_x * cos_y;
+        d := mult_fixed(mult_fixed(sin_x, sin_y), cos_z) - mult_fixed(cos_x, sin_z);
+        e := mult_fixed(mult_fixed(sin_x, sin_y), sin_z) + mult_fixed(cos_x, cos_z);
+        f := mult_fixed(sin_x, cos_y);
+        g := mult_fixed(cos_x, mult_fixed(sin_y, cos_z)) + mult_fixed(sin_x, sin_z);
+        h := mult_fixed(cos_x, mult_fixed(sin_y, sin_z)) - mult_fixed(sin_x, cos_z);
+        i := mult_fixed(cos_x, cos_y);
 
         result(0)(0) := a;
         result(0)(1) := b;
