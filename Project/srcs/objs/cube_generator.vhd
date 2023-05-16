@@ -1,7 +1,7 @@
 LIBRARY IEEE;
 USE IEEE.STD_LOGIC_1164.ALL;
 USE IEEE.Numeric_Std.ALL;
-USE work.my_float_pkg.ALL;
+USE work.my_fixed_pkg.ALL;
 USE work.math3D_pkg.ALL;
 
 -- Determine the color of the current rendering pixel
@@ -25,7 +25,7 @@ ENTITY cube_generator IS
         DISPLAY_COOR_H, DISPLAY_COOR_V : IN INTEGER;
 
         -- Rendering data
-        PROJECTION_MATRIX, VIEW_MATRIX : IN mat4_float;
+        PROJECTION_MATRIX, VIEW_MATRIX : IN mat4_fixed;
 
         -- Cube properties
         POS_IN, ROT_IN, SCALE_IN : IN vec3_int;
@@ -38,26 +38,26 @@ ARCHITECTURE Behavioral OF cube_generator IS
     -- --------------------------------------------------------------------
     --                       Type Definitions
     -- --------------------------------------------------------------------
-    TYPE cube_vertex_float IS ARRAY(0 TO 7) OF vec3_float;
+    TYPE cube_vertex_fixed IS ARRAY(0 TO 7) OF vec3_fixed;
     TYPE cube_vertex_int IS ARRAY(0 TO 7) OF vec3_int;
-    TYPE screen_vertex_float IS ARRAY(0 TO 7) OF vec2_float;
+    TYPE screen_vertex_fixed IS ARRAY(0 TO 7) OF vec2_fixed;
     TYPE screen_vertex_int IS ARRAY(0 TO 7) OF vec2_int;
 
     -- --------------------------------------------------------------------
     --                       Constants
     -- --------------------------------------------------------------------
-    CONSTANT CUBE_DEFAULT_VERTEX : cube_vertex_float := (
+    CONSTANT CUBE_DEFAULT_VERTEX : cube_vertex_fixed := (
         -- Top vertices
-        (float_neg_one, float_one, float_one),
-        (float_one, float_one, float_one),
-        (float_one, float_one, float_neg_one),
-        (float_neg_one, float_one, float_neg_one),
+        (fixed_neg_one, fixed_one, fixed_one),
+        (fixed_one, fixed_one, fixed_one),
+        (fixed_one, fixed_one, fixed_neg_one),
+        (fixed_neg_one, fixed_one, fixed_neg_one),
 
         -- Bottom vertices
-        (float_neg_one, float_neg_one, float_one),
-        (float_one, float_neg_one, float_one),
-        (float_one, float_neg_one, float_neg_one),
-        (float_neg_one, float_neg_one, float_neg_one)
+        (fixed_neg_one, fixed_neg_one, fixed_one),
+        (fixed_one, fixed_neg_one, fixed_one),
+        (fixed_one, fixed_neg_one, fixed_neg_one),
+        (fixed_neg_one, fixed_neg_one, fixed_neg_one)
     );
 
     -- --------------------------------------------------------------------
@@ -80,8 +80,8 @@ ARCHITECTURE Behavioral OF cube_generator IS
             RESET : IN STD_LOGIC;
             CLK : IN STD_LOGIC;
             PROJECTION_MATRIX,
-            VIEW_MATRIX : IN mat4_float;
-            POINT_3D : IN vec3_float;
+            VIEW_MATRIX : IN mat4_fixed;
+            POINT_3D : IN vec3_fixed;
             SCREEN_POS_OUT : OUT vec2_int
         );
     END COMPONENT;
@@ -91,12 +91,12 @@ ARCHITECTURE Behavioral OF cube_generator IS
             RESET : IN STD_LOGIC;
             CLK : IN STD_LOGIC;
 
-            VERTEX_IN : IN vec3_float;
+            VERTEX_IN : IN vec3_fixed;
             TRANSLATION_IN : IN vec3_int;
             ROTATION_IN : IN vec3_int;
             SCALE_IN : IN vec3_int;
 
-            VERTEX_OUT : OUT vec3_float
+            VERTEX_OUT : OUT vec3_fixed
         );
     END COMPONENT;
 
@@ -118,10 +118,10 @@ ARCHITECTURE Behavioral OF cube_generator IS
     -- --------------------------------------------------------------------
 
     -- The coordinate(after transformation) of the cube
-    SIGNAL vertices : cube_vertex_float := (OTHERS => vec3_float_zero);
+    SIGNAL vertices : cube_vertex_fixed := (OTHERS => (0, 0, 0));
 
     -- The coordinate of the vertex in the screen space
-    SIGNAL screen_vertices_float, tmp2 : screen_vertex_float := (OTHERS => vec2_float_zero);
+    SIGNAL screen_vertices_fixed, tmp2 : screen_vertex_fixed := (OTHERS => vec2_fixed_zero);
     SIGNAL screen_vertices_int, tmp : screen_vertex_int := (OTHERS => vec2_int_zero);
 
     -- The signals determining whether the current pixel should be drawn.
@@ -129,7 +129,7 @@ ARCHITECTURE Behavioral OF cube_generator IS
     -- Bits 19..12 are the signals for vertices drawning
     SIGNAL draw_signal : STD_LOGIC_VECTOR(19 DOWNTO 0) := (OTHERS => '0');
 
-    SIGNAL clk_50Mhz, clk_25Mhz, clk_10Mhz, clk_5Mhz, clk_1Mhz, clk_500khz : STD_LOGIC;
+    SIGNAL clk_50Mhz : STD_LOGIC;
 BEGIN
     -- --------------------------------------------------------------------
     --                    Port maps
@@ -142,47 +142,40 @@ BEGIN
         CLK_OUT => clk_50Mhz
     );
 
-    clk_divider_500k : clock_divider
-    GENERIC MAP(N => 100)
-    PORT MAP(
-        CLK_IN => clk_50Mhz,
-        CLK_OUT => clk_500khz
-    );
+    vertices_map_gen : FOR i IN 0 TO 7 GENERATE
+        -- Vertex controller
+        vertex_controller_inst_i : vertex_controller
+        PORT MAP(
+            RESET => RESET,
+            CLK => CLK,
+            VERTEX_IN => CUBE_DEFAULT_VERTEX(i),
+            TRANSLATION_IN => POS_IN,
+            ROTATION_IN => ROT_IN,
+            SCALE_IN => SCALE_IN,
+            VERTEX_OUT => vertices(i)
+        );
 
-    -- vertices_map_gen : FOR i IN 0 TO 7 GENERATE
-    --     -- Vertex controller
-    --     vertex_controller_inst_i : vertex_controller
-    --     PORT MAP(
-    --         RESET => RESET,
-    --         CLK => CLK,
-    --         VERTEX_IN => CUBE_DEFAULT_VERTEX(i),
-    --         TRANSLATION_IN => POS_IN,
-    --         ROTATION_IN => ROT_IN,
-    --         SCALE_IN => SCALE_IN,
-    --         VERTEX_OUT => vertices(i)
-    --     );
-
-    --     -- 3D world point TO screen coordinate convertor
-    --     world_to_screen_convertor_inst_i : world_to_screen_convertor
-    --     GENERIC MAP(
-    --         SCREEN_WIDTH => SCREEN_WIDTH,
-    --         SCREEN_HEIGHT => SCREEN_HEIGHT
-    --     )
-    --     PORT MAP(
-    --         RESET => RESET,
-    --         CLK => CLK,
-    --         PROJECTION_MATRIX => PROJECTION_MATRIX,
-    --         VIEW_MATRIX => VIEW_MATRIX,
-    --         POINT_3D => vertices(i),
-    --         SCREEN_POS_OUT => screen_vertices_int(i)
-    --     );
-    -- END GENERATE;
+        -- 3D world point TO screen coordinate convertor
+        world_to_screen_convertor_inst_i : world_to_screen_convertor
+        GENERIC MAP(
+            SCREEN_WIDTH => SCREEN_WIDTH,
+            SCREEN_HEIGHT => SCREEN_HEIGHT
+        )
+        PORT MAP(
+            RESET => RESET,
+            CLK => CLK,
+            PROJECTION_MATRIX => PROJECTION_MATRIX,
+            VIEW_MATRIX => VIEW_MATRIX,
+            POINT_3D => vertices(i),
+            SCREEN_POS_OUT => screen_vertices_int(i)
+        );
+    END GENERATE;
 
     -- test_proc_0 : PROCESS (CLK)
     -- BEGIN
     --     IF rising_edge(CLK) THEN
     --         FOR i IN 0 TO 7 LOOP
-    --             screen_vertices_int(i) <= (to_integer(to_float(i * 120 + 120)), to_integer(to_float(i * 70 + 70)));
+    --             screen_vertices_int(i) <= (to_integer(to_fixed(i * 120 + 120)), to_integer(to_fixed(i * 70 + 70)));
     --         END LOOP;
     --     END IF;
     -- END PROCESS;
@@ -191,25 +184,25 @@ BEGIN
     -- BEGIN
     --     IF rising_edge(CLK) THEN
     --         FOR i IN 7 TO 0 LOOP
-    --             screen_vertices_float(i) <= (to_float(i * 120 + 120), to_float(i * 70 + 70));
+    --             screen_vertices_fixed(i) <= (to_fixed(i * 120 + 120), to_fixed(i * 70 + 70));
     --         END LOOP;
     --     END IF;
     -- END PROCESS;
 
-    -- screen_vertices_int(0) <= to_vec2_int(screen_vertices_float(0));
-    -- screen_vertices_int(1) <= to_vec2_int(screen_vertices_float(1));
-    -- screen_vertices_int(2) <= to_vec2_int(screen_vertices_float(2));
-    -- screen_vertices_int(3) <= to_vec2_int(screen_vertices_float(3));
-    -- screen_vertices_int(4) <= to_vec2_int(screen_vertices_float(4));
-    -- screen_vertices_int(5) <= to_vec2_int(screen_vertices_float(5));
-    -- screen_vertices_int(6) <= to_vec2_int(screen_vertices_float(6));
-    -- screen_vertices_int(7) <= to_vec2_int(screen_vertices_float(7));
+    -- screen_vertices_int(0) <= to_vec2_int(screen_vertices_fixed(0));
+    -- screen_vertices_int(1) <= to_vec2_int(screen_vertices_fixed(1));
+    -- screen_vertices_int(2) <= to_vec2_int(screen_vertices_fixed(2));
+    -- screen_vertices_int(3) <= to_vec2_int(screen_vertices_fixed(3));
+    -- screen_vertices_int(4) <= to_vec2_int(screen_vertices_fixed(4));
+    -- screen_vertices_int(5) <= to_vec2_int(screen_vertices_fixed(5));
+    -- screen_vertices_int(6) <= to_vec2_int(screen_vertices_fixed(6));
+    -- screen_vertices_int(7) <= to_vec2_int(screen_vertices_fixed(7));
 
-    -- test_proc_2 : PROCESS (screen_vertices_float)
-    --     VARIABLE temp : vec2_float;
+    -- test_proc_2 : PROCESS (screen_vertices_fixed)
+    --     VARIABLE temp : vec2_fixed;
     -- BEGIN
     --     FOR i IN 0 TO 7 LOOP
-    --         temp := screen_vertices_float(i);
+    --         temp := screen_vertices_fixed(i);
     --     END LOOP;
     -- END PROCESS;
 
@@ -217,7 +210,7 @@ BEGIN
     -- BEGIN
     --     IF rising_edge(clk_50Mhz) THEN
     --         FOR i IN 0 TO 7 LOOP
-    --             vertices(i) <= (to_float(i * 120 + 120), to_float(i * 70 + 70), float_zero);
+    --             vertices(i) <= (to_fixed(i * 120 + 120), to_fixed(i * 70 + 70), fixed_zero);
     --         END LOOP;
     --     END IF;
     -- END PROCESS;
@@ -226,7 +219,7 @@ BEGIN
     -- BEGIN
     --     IF (rising_edge(clk_50Mhz)) THEN
     --         FOR i IN 0 TO 7 LOOP
-    --             tmp2(i) <= (to_float(i * 120 + 120), to_float(i * 70 + 70));
+    --             tmp2(i) <= (to_fixed(i * 120 + 120), to_fixed(i * 70 + 70));
     --         END LOOP;
     --     END IF;
     -- END PROCESS;
@@ -254,7 +247,7 @@ BEGIN
     --     IF (rising_edge(clk_50Mhz)) THEN
     --     END IF;
     -- END PROCESS;
-    -- vertices(0) <= (to_float(500), to_float(300), float_zero);
+    -- vertices(0) <= (to_fixed(500), to_fixed(300), fixed_zero);
 
     -- world_to_screen_convertor_inst_i : world_to_screen_convertor
     -- GENERIC MAP(
@@ -318,12 +311,12 @@ BEGIN
     --     );
     -- END GENERATE;
 
-    -- -- Convert the screen coordinates from float TO INTEGER
-    -- PROCESS (clk_50Mhz, RESET, screen_vertices_float)
+    -- -- Convert the screen coordinates from fixed TO INTEGER
+    -- PROCESS (clk_50Mhz, RESET, screen_vertices_fixed)
     -- BEGIN
     --     IF rising_edge(clk_50Mhz) THEN
     --         FOR i IN 0 TO 7 LOOP
-    --             screen_vertices_int(i) <= (to_integer(screen_vertices_float(i)(0)), to_integer(screen_vertices_float(i)(1)));
+    --             screen_vertices_int(i) <= (to_integer(screen_vertices_fixed(i)(0)), to_integer(screen_vertices_fixed(i)(1)));
     --         END LOOP;
     --     END IF;
     -- END PROCESS;

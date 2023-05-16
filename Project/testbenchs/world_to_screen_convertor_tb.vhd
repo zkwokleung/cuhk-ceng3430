@@ -1,7 +1,7 @@
 LIBRARY ieee;
 USE ieee.std_logic_1164.ALL;
 USE ieee.numeric_std.ALL;
-USE work.my_float_pkg.ALL;
+USE work.my_fixed_pkg.ALL;
 USE work.math3D_pkg.ALL;
 
 ENTITY world_to_screen_convertor_tb IS
@@ -17,19 +17,19 @@ ARCHITECTURE world_to_screen_convertor_tb_arch OF world_to_screen_convertor_tb I
             RESET : IN STD_LOGIC;
             CLK : IN STD_LOGIC;
             PROJECTION_MATRIX,
-            VIEW_MATRIX : IN mat4_float;
-            POINT_3D : IN vec3_float;
-            SCREEN_POS_OUT : OUT vec2_float
+            VIEW_MATRIX : IN mat4_fixed;
+            POINT_3D : IN vec3_fixed;
+            SCREEN_POS_OUT : OUT vec2_fixed
         );
     END COMPONENT;
 
     SIGNAL RESET : STD_LOGIC := '0';
     SIGNAL CLK : STD_LOGIC := '0';
-    SIGNAL PROJECTION_MATRIX : mat4_float;
-    SIGNAL VIEW_MATRIX : mat4_float;
+    SIGNAL PROJECTION_MATRIX : mat4_fixed;
+    SIGNAL VIEW_MATRIX : mat4_fixed;
     SIGNAL POINT_3D_INT : vec3_int;
-    SIGNAL POINT_3D : vec3_float;
-    SIGNAL SCREEN_POS_OUT : vec2_float;
+    SIGNAL POINT_3D : vec3_fixed;
+    SIGNAL SCREEN_POS_OUT : vec2_fixed;
 BEGIN
     world_to_screen_convertor_inst : world_to_screen_convertor
     GENERIC MAP(
@@ -51,12 +51,12 @@ BEGIN
         RESET <= '0';
         WAIT FOR 10 ns;
 
-        PROJECTION_MATRIX <= default_ortho_mat4_float;
-        VIEW_MATRIX <= look_forward_mat4_float;
+        PROJECTION_MATRIX <= default_ortho_mat4_fixed;
+        VIEW_MATRIX <= look_forward_mat4_fixed;
 
         POINT_3D_INT <= (20, 50, 100);
         WAIT FOR 10 ns;
-        POINT_3D <= to_vec3_float(POINT_3D_INT);
+        POINT_3D <= to_vec3_fixed(POINT_3D_INT);
         WAIT FOR 10 ns;
 
         CLK <= '1';
@@ -66,7 +66,7 @@ BEGIN
 
         POINT_3D_INT <= (1000, 600, 0);
         WAIT FOR 10 ns;
-        POINT_3D <= to_vec3_float(POINT_3D_INT);
+        POINT_3D <= to_vec3_fixed(POINT_3D_INT);
         WAIT FOR 10 ns;
 
         CLK <= '1';
@@ -76,7 +76,7 @@ BEGIN
 
         POINT_3D_INT <= (500, 300, 100);
         WAIT FOR 10 ns;
-        POINT_3D <= to_vec3_float(POINT_3D_INT);
+        POINT_3D <= to_vec3_fixed(POINT_3D_INT);
         WAIT FOR 10 ns;
 
         CLK <= '1';

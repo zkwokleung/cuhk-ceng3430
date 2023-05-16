@@ -1,7 +1,7 @@
 LIBRARY ieee;
 USE ieee.std_logic_1164.ALL;
 USE ieee.numeric_std.ALL;
-USE work.my_float_pkg.ALL;
+USE work.my_fixed_pkg.ALL;
 USE work.math3D_pkg.ALL;
 
 ENTITY rotation_input_controller_tb IS

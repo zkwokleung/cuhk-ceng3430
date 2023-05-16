@@ -1,7 +1,7 @@
 LIBRARY IEEE;
 USE IEEE.STD_LOGIC_1164.ALL;
 USE IEEE.Numeric_Std.ALL;
-USE work.my_float_pkg.ALL;
+USE work.my_fixed_pkg.ALL;
 USE work.math3D_pkg.ALL;
 
 ENTITY rotation_input_controller IS

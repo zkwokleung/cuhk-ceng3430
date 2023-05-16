@@ -4,7 +4,7 @@
 LIBRARY IEEE;
 USE IEEE.STD_LOGIC_1164.ALL;
 USE IEEE.Numeric_Std.ALL;
-USE work.my_float_pkg.ALL;
+USE work.my_fixed_pkg.ALL;
 USE work.math3D_pkg.ALL;
 
 ENTITY renderer3D IS
@@ -27,8 +27,8 @@ ARCHITECTURE renderer3D_arch OF renderer3D IS
     CONSTANT SCREEN_HEIGHT : INTEGER := 600;
     CONSTANT BIT_DEPTH : INTEGER := 4;
 
-    CONSTANT PROJECTION_MATRIX : mat4_float := default_ortho_mat4_float;
-    CONSTANT VIEW_MATRIX : mat4_float := look_forward_mat4_float;
+    CONSTANT PROJECTION_MATRIX : mat4_fixed := default_ortho_mat4_fixed;
+    CONSTANT VIEW_MATRIX : mat4_fixed := look_forward_mat4_fixed;
 
     -- The default scale of the cube
     CONSTANT INIT_CUBE_SCALE : vec3_int := (10, 10, 10);
@@ -60,7 +60,7 @@ ARCHITECTURE renderer3D_arch OF renderer3D IS
             CLK : IN STD_LOGIC;
             RESET : IN STD_LOGIC;
             DISPLAY_COOR_H, DISPLAY_COOR_V : IN INTEGER;
-            PROJECTION_MATRIX, VIEW_MATRIX : IN mat4_float;
+            PROJECTION_MATRIX, VIEW_MATRIX : IN mat4_fixed;
             POS_IN, ROT_IN, SCALE_IN : IN vec3_int;
             RED_OUT, GREEN_OUT, BLUE_OUT : OUT STD_LOGIC_VECTOR(BIT_DEPTH - 1 DOWNTO 0)
         );

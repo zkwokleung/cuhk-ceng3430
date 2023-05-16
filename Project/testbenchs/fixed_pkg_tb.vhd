@@ -1,7 +1,7 @@
 LIBRARY ieee;
 USE ieee.std_logic_1164.ALL;
 USE ieee.numeric_std.ALL;
-USE work.fixed_float_types.ALL;
+USE work.fixed_fixed_types.ALL;
 USE work.fixed_pkg.ALL;
 
 ENTITY fixed_pkg_tb IS

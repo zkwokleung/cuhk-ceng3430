@@ -1,741 +1,741 @@
 LIBRARY ieee;
 USE ieee.std_logic_1164.ALL;
 USE ieee.numeric_std.ALL;
-USE work.my_float_pkg.ALL;
+USE work.my_fixed_pkg.ALL;
 
 PACKAGE math3D_pkg IS
     -- --------------------------------------------------------------------
     --               Trigonometry
     -- -------------------------------------------------------------------- 
-    TYPE t_trig_table IS ARRAY (0 TO 359) OF INTEGER;
+    TYPE t_trig_table IS ARRAY (0 TO 359) OF fixed;
 
     -- The lookup table for sine
     CONSTANT sin_table : t_trig_table :=
     (
     0,
-    1,
-    3,
-    5,
-    6,
-    8,
-    10,
-    12,
-    13,
-    15,
-    17,
-    19,
-    20,
-    22,
-    24,
-    25,
-    27,
-    29,
-    30,
-    32,
-    34,
-    35,
-    37,
-    39,
-    40,
-    42,
-    43,
-    45,
-    46,
-    48,
-    49,
-    51,
-    52,
-    54,
-    55,
-    57,
-    58,
-    60,
-    61,
-    62,
-    64,
-    65,
-    66,
-    68,
-    69,
-    70,
-    71,
-    73,
-    74,
-    75,
-    76,
-    77,
-    78,
-    79,
-    80,
-    81,
-    82,
-    83,
-    84,
-    85,
-    86,
-    87,
-    88,
-    89,
-    89,
-    90,
-    91,
-    92,
-    92,
-    93,
-    93,
-    94,
-    95,
-    95,
-    96,
-    96,
-    97,
-    97,
-    97,
-    98,
-    98,
-    98,
-    99,
-    99,
-    99,
-    99,
-    99,
-    99,
-    99,
-    99,
-    100,
-    99,
-    99,
-    99,
-    99,
-    99,
-    99,
-    99,
-    99,
-    98,
-    98,
-    98,
-    97,
-    97,
-    97,
-    96,
-    96,
-    95,
-    95,
-    94,
-    93,
-    93,
-    92,
-    92,
-    91,
-    90,
-    89,
-    89,
-    88,
-    87,
-    86,
-    85,
-    84,
-    83,
-    82,
-    81,
-    80,
-    79,
-    78,
-    77,
-    76,
-    75,
-    74,
-    73,
-    71,
-    70,
-    69,
-    68,
-    66,
-    65,
-    64,
-    62,
-    61,
-    60,
-    58,
-    57,
-    55,
-    54,
-    52,
-    51,
-    49,
-    48,
-    46,
-    45,
-    43,
-    42,
-    40,
-    39,
-    37,
-    35,
-    34,
-    32,
-    30,
-    29,
-    27,
-    25,
-    24,
-    22,
-    20,
-    19,
-    17,
-    15,
-    13,
-    12,
-    10,
-    8,
-    6,
-    5,
-    3,
-    1,
+    2287,
+    4574,
+    6859,
+    9143,
+    11423,
+    13700,
+    15973,
+    18241,
+    20504,
+    22760,
+    25009,
+    27251,
+    29484,
+    31709,
+    33923,
+    36128,
+    38321,
+    40503,
+    42672,
+    44829,
+    46972,
+    49100,
+    51213,
+    53311,
+    55393,
+    57458,
+    59505,
+    61534,
+    63544,
+    65535,
+    67507,
+    69457,
+    71386,
+    73294,
+    75179,
+    77042,
+    78881,
+    80695,
+    82486,
+    84251,
+    85990,
+    87704,
+    89390,
+    91050,
+    92681,
+    94285,
+    95859,
+    97405,
+    98921,
+    100406,
+    101862,
+    103286,
+    104678,
+    106039,
+    107367,
+    108663,
+    109926,
+    111155,
+    112350,
+    113511,
+    114638,
+    115729,
+    116786,
+    117806,
+    118791,
+    119740,
+    120652,
+    121527,
+    122366,
+    123167,
+    123931,
+    124656,
+    125344,
+    125994,
+    126605,
+    127178,
+    127712,
+    128207,
+    128663,
+    129080,
+    129458,
+    129796,
+    130095,
+    130353,
+    130573,
+    130752,
+    130892,
+    130992,
+    131052,
+    131072,
+    131052,
+    130992,
+    130892,
+    130752,
+    130573,
+    130353,
+    130095,
+    129796,
+    129458,
+    129080,
+    128663,
+    128207,
+    127712,
+    127178,
+    126605,
+    125994,
+    125344,
+    124656,
+    123931,
+    123167,
+    122366,
+    121527,
+    120652,
+    119740,
+    118791,
+    117806,
+    116786,
+    115729,
+    114638,
+    113511,
+    112350,
+    111155,
+    109926,
+    108663,
+    107367,
+    106039,
+    104678,
+    103286,
+    101862,
+    100406,
+    98921,
+    97405,
+    95859,
+    94285,
+    92681,
+    91050,
+    89390,
+    87704,
+    85990,
+    84251,
+    82486,
+    80695,
+    78881,
+    77042,
+    75179,
+    73294,
+    71386,
+    69457,
+    67507,
+    65535,
+    63544,
+    61534,
+    59505,
+    57458,
+    55393,
+    53311,
+    51213,
+    49100,
+    46972,
+    44829,
+    42672,
+    40503,
+    38321,
+    36128,
+    33923,
+    31709,
+    29484,
+    27251,
+    25009,
+    22760,
+    20504,
+    18241,
+    15973,
+    13700,
+    11423,
+    9143,
+    6859,
+    4574,
+    2287,
     0,
-    - 2,
-    - 4,
-    - 6,
-    - 7,
-    - 9,
-    - 11,
-    - 13,
-    - 14,
-    - 16,
-    - 18,
-    - 20,
-    - 21,
-    - 23,
-    - 25,
-    - 26,
-    - 28,
-    - 30,
-    - 31,
-    - 33,
-    - 35,
-    - 36,
-    - 38,
-    - 40,
-    - 41,
-    - 43,
-    - 44,
-    - 46,
-    - 47,
-    - 49,
-    - 51,
-    - 52,
-    - 53,
-    - 55,
-    - 56,
-    - 58,
-    - 59,
-    - 61,
-    - 62,
-    - 63,
-    - 65,
-    - 66,
-    - 67,
-    - 69,
-    - 70,
-    - 71,
-    - 72,
-    - 74,
-    - 75,
-    - 76,
-    - 77,
-    - 78,
-    - 79,
-    - 80,
-    - 81,
-    - 82,
-    - 83,
-    - 84,
-    - 85,
-    - 86,
-    - 87,
-    - 88,
-    - 89,
-    - 90,
-    - 90,
-    - 91,
-    - 92,
-    - 93,
-    - 93,
-    - 94,
-    - 94,
-    - 95,
-    - 96,
-    - 96,
-    - 97,
-    - 97,
-    - 98,
-    - 98,
-    - 98,
-    - 99,
-    - 99,
-    - 99,
-    - 100,
-    - 100,
-    - 100,
-    - 100,
-    - 100,
-    - 100,
-    - 100,
-    - 100,
-    - 100,
-    - 100,
-    - 100,
-    - 100,
-    - 100,
-    - 100,
-    - 100,
-    - 100,
-    - 100,
-    - 99,
-    - 99,
-    - 99,
-    - 98,
-    - 98,
-    - 98,
-    - 97,
-    - 97,
-    - 96,
-    - 96,
-    - 95,
-    - 94,
-    - 94,
-    - 93,
-    - 93,
-    - 92,
-    - 91,
-    - 90,
-    - 90,
-    - 89,
-    - 88,
-    - 87,
-    - 86,
-    - 85,
-    - 84,
-    - 83,
-    - 82,
-    - 81,
-    - 80,
-    - 79,
-    - 78,
-    - 77,
-    - 76,
-    - 75,
-    - 74,
-    - 72,
-    - 71,
-    - 70,
-    - 69,
-    - 67,
-    - 66,
-    - 65,
-    - 63,
-    - 62,
-    - 61,
-    - 59,
-    - 58,
-    - 56,
-    - 55,
-    - 53,
-    - 52,
-    - 51,
-    - 49,
-    - 47,
-    - 46,
-    - 44,
-    - 43,
-    - 41,
-    - 40,
-    - 38,
-    - 36,
-    - 35,
-    - 33,
-    - 31,
-    - 30,
-    - 28,
-    - 26,
-    - 25,
-    - 23,
-    - 21,
-    - 20,
-    - 18,
-    - 16,
-    - 14,
-    - 13,
-    - 11,
-    - 9,
-    - 7,
-    - 6,
-    - 4,
-    - 2
+    - 2288,
+    - 4575,
+    - 6860,
+    - 9144,
+    - 11424,
+    - 13701,
+    - 15974,
+    - 18242,
+    - 20505,
+    - 22761,
+    - 25010,
+    - 27252,
+    - 29485,
+    - 31710,
+    - 33924,
+    - 36129,
+    - 38322,
+    - 40504,
+    - 42673,
+    - 44830,
+    - 46973,
+    - 49101,
+    - 51214,
+    - 53312,
+    - 55394,
+    - 57459,
+    - 59506,
+    - 61535,
+    - 63545,
+    - 65537,
+    - 67508,
+    - 69458,
+    - 71387,
+    - 73295,
+    - 75180,
+    - 77043,
+    - 78882,
+    - 80696,
+    - 82487,
+    - 84252,
+    - 85991,
+    - 87705,
+    - 89391,
+    - 91051,
+    - 92682,
+    - 94286,
+    - 95860,
+    - 97406,
+    - 98922,
+    - 100407,
+    - 101863,
+    - 103287,
+    - 104679,
+    - 106040,
+    - 107368,
+    - 108664,
+    - 109927,
+    - 111156,
+    - 112351,
+    - 113512,
+    - 114639,
+    - 115730,
+    - 116787,
+    - 117807,
+    - 118792,
+    - 119741,
+    - 120653,
+    - 121528,
+    - 122367,
+    - 123168,
+    - 123932,
+    - 124657,
+    - 125345,
+    - 125995,
+    - 126606,
+    - 127179,
+    - 127713,
+    - 128208,
+    - 128664,
+    - 129081,
+    - 129459,
+    - 129797,
+    - 130096,
+    - 130354,
+    - 130574,
+    - 130753,
+    - 130893,
+    - 130993,
+    - 131053,
+    - 131072,
+    - 131053,
+    - 130993,
+    - 130893,
+    - 130753,
+    - 130574,
+    - 130354,
+    - 130096,
+    - 129797,
+    - 129459,
+    - 129081,
+    - 128664,
+    - 128208,
+    - 127713,
+    - 127179,
+    - 126606,
+    - 125995,
+    - 125345,
+    - 124657,
+    - 123932,
+    - 123168,
+    - 122367,
+    - 121528,
+    - 120653,
+    - 119741,
+    - 118792,
+    - 117807,
+    - 116787,
+    - 115730,
+    - 114639,
+    - 113512,
+    - 112351,
+    - 111156,
+    - 109927,
+    - 108664,
+    - 107368,
+    - 106040,
+    - 104679,
+    - 103287,
+    - 101863,
+    - 100407,
+    - 98922,
+    - 97406,
+    - 95860,
+    - 94286,
+    - 92682,
+    - 91051,
+    - 89391,
+    - 87705,
+    - 85991,
+    - 84252,
+    - 82487,
+    - 80696,
+    - 78882,
+    - 77043,
+    - 75180,
+    - 73295,
+    - 71387,
+    - 69458,
+    - 67508,
+    - 65537,
+    - 63545,
+    - 61535,
+    - 59506,
+    - 57459,
+    - 55394,
+    - 53312,
+    - 51214,
+    - 49101,
+    - 46973,
+    - 44830,
+    - 42673,
+    - 40504,
+    - 38322,
+    - 36129,
+    - 33924,
+    - 31710,
+    - 29485,
+    - 27252,
+    - 25010,
+    - 22761,
+    - 20505,
+    - 18242,
+    - 15974,
+    - 13701,
+    - 11424,
+    - 9144,
+    - 6860,
+    - 4575,
+    - 2288
     );
 
     -- The lookup table for cosine
     CONSTANT cos_table : t_trig_table := (
-        100,
-        99,
-        99,
-        99,
-        99,
-        99,
-        99,
-        99,
-        99,
-        98,
-        98,
-        98,
-        97,
-        97,
-        97,
-        96,
-        96,
-        95,
-        95,
-        94,
-        93,
-        93,
-        92,
-        92,
-        91,
-        90,
-        89,
-        89,
-        88,
-        87,
-        86,
-        85,
-        84,
-        83,
-        82,
-        81,
-        80,
-        79,
-        78,
-        77,
-        76,
-        75,
-        74,
-        73,
-        71,
-        70,
-        69,
-        68,
-        66,
-        65,
-        64,
-        62,
-        61,
-        60,
-        58,
-        57,
-        55,
-        54,
-        52,
-        51,
-        50,
-        48,
-        46,
-        45,
-        43,
-        42,
-        40,
-        39,
-        37,
-        35,
-        34,
-        32,
-        30,
-        29,
-        27,
-        25,
-        24,
-        22,
-        20,
-        19,
-        17,
-        15,
-        13,
-        12,
-        10,
-        8,
-        6,
-        5,
-        3,
-        1,
+        131072,
+        131052,
+        130992,
+        130892,
+        130752,
+        130573,
+        130353,
+        130095,
+        129796,
+        129458,
+        129080,
+        128663,
+        128207,
+        127712,
+        127178,
+        126605,
+        125994,
+        125344,
+        124656,
+        123931,
+        123167,
+        122366,
+        121527,
+        120652,
+        119740,
+        118791,
+        117806,
+        116786,
+        115729,
+        114638,
+        113511,
+        112350,
+        111155,
+        109926,
+        108663,
+        107367,
+        106039,
+        104678,
+        103286,
+        101862,
+        100406,
+        98921,
+        97405,
+        95859,
+        94285,
+        92681,
+        91050,
+        89390,
+        87704,
+        85990,
+        84251,
+        82486,
+        80695,
+        78881,
+        77042,
+        75179,
+        73294,
+        71386,
+        69457,
+        67507,
+        65536,
+        63544,
+        61534,
+        59505,
+        57458,
+        55393,
+        53311,
+        51213,
+        49100,
+        46972,
+        44829,
+        42672,
+        40503,
+        38321,
+        36128,
+        33923,
+        31709,
+        29484,
+        27251,
+        25009,
+        22760,
+        20504,
+        18241,
+        15973,
+        13700,
+        11423,
+        9143,
+        6859,
+        4574,
+        2287,
         0,
-        - 2,
-        - 4,
-        - 6,
-        - 7,
-        - 9,
-        - 11,
-        - 13,
-        - 14,
-        - 16,
-        - 18,
-        - 20,
-        - 21,
-        - 23,
-        - 25,
-        - 26,
-        - 28,
-        - 30,
-        - 31,
-        - 33,
-        - 35,
-        - 36,
-        - 38,
-        - 40,
-        - 41,
-        - 43,
-        - 44,
-        - 46,
-        - 47,
-        - 49,
-        - 50,
-        - 52,
-        - 53,
-        - 55,
-        - 56,
-        - 58,
-        - 59,
-        - 61,
-        - 62,
-        - 63,
-        - 65,
-        - 66,
-        - 67,
-        - 69,
-        - 70,
-        - 71,
-        - 72,
-        - 74,
-        - 75,
-        - 76,
-        - 77,
-        - 78,
-        - 79,
-        - 80,
-        - 81,
-        - 82,
-        - 83,
-        - 84,
-        - 85,
-        - 86,
-        - 87,
-        - 88,
-        - 89,
-        - 90,
-        - 90,
-        - 91,
-        - 92,
-        - 93,
-        - 93,
-        - 94,
-        - 94,
-        - 95,
-        - 96,
-        - 96,
-        - 97,
-        - 97,
-        - 98,
-        - 98,
-        - 98,
-        - 99,
-        - 99,
-        - 99,
-        - 100,
-        - 100,
-        - 100,
-        - 100,
-        - 100,
-        - 100,
-        - 100,
-        - 100,
-        - 100,
-        - 100,
-        - 100,
-        - 100,
-        - 100,
-        - 100,
-        - 100,
-        - 100,
-        - 100,
-        - 99,
-        - 99,
-        - 99,
-        - 98,
-        - 98,
-        - 98,
-        - 97,
-        - 97,
-        - 96,
-        - 96,
-        - 95,
-        - 94,
-        - 94,
-        - 93,
-        - 93,
-        - 92,
-        - 91,
-        - 90,
-        - 90,
-        - 89,
-        - 88,
-        - 87,
-        - 86,
-        - 85,
-        - 84,
-        - 83,
-        - 82,
-        - 81,
-        - 80,
-        - 79,
-        - 78,
-        - 77,
-        - 76,
-        - 75,
-        - 74,
-        - 72,
-        - 71,
-        - 70,
-        - 69,
-        - 67,
-        - 66,
-        - 65,
-        - 63,
-        - 62,
-        - 61,
-        - 59,
-        - 58,
-        - 56,
-        - 55,
-        - 53,
-        - 52,
-        - 51,
-        - 49,
-        - 47,
-        - 46,
-        - 44,
-        - 43,
-        - 41,
-        - 40,
-        - 38,
-        - 36,
-        - 35,
-        - 33,
-        - 31,
-        - 30,
-        - 28,
-        - 26,
-        - 25,
-        - 23,
-        - 21,
-        - 20,
-        - 18,
-        - 16,
-        - 14,
-        - 13,
-        - 11,
-        - 9,
-        - 7,
-        - 6,
-        - 4,
-        - 2,
+        - 2288,
+        - 4575,
+        - 6860,
+        - 9144,
+        - 11424,
+        - 13701,
+        - 15974,
+        - 18242,
+        - 20505,
+        - 22761,
+        - 25010,
+        - 27252,
+        - 29485,
+        - 31710,
+        - 33924,
+        - 36129,
+        - 38322,
+        - 40504,
+        - 42673,
+        - 44830,
+        - 46973,
+        - 49101,
+        - 51214,
+        - 53312,
+        - 55394,
+        - 57459,
+        - 59506,
+        - 61535,
+        - 63545,
+        - 65536,
+        - 67508,
+        - 69458,
+        - 71387,
+        - 73295,
+        - 75180,
+        - 77043,
+        - 78882,
+        - 80696,
+        - 82487,
+        - 84252,
+        - 85991,
+        - 87705,
+        - 89391,
+        - 91051,
+        - 92682,
+        - 94286,
+        - 95860,
+        - 97406,
+        - 98922,
+        - 100407,
+        - 101863,
+        - 103287,
+        - 104679,
+        - 106040,
+        - 107368,
+        - 108664,
+        - 109927,
+        - 111156,
+        - 112351,
+        - 113512,
+        - 114639,
+        - 115730,
+        - 116787,
+        - 117807,
+        - 118792,
+        - 119741,
+        - 120653,
+        - 121528,
+        - 122367,
+        - 123168,
+        - 123932,
+        - 124657,
+        - 125345,
+        - 125995,
+        - 126606,
+        - 127179,
+        - 127713,
+        - 128208,
+        - 128664,
+        - 129081,
+        - 129459,
+        - 129797,
+        - 130096,
+        - 130354,
+        - 130574,
+        - 130753,
+        - 130893,
+        - 130993,
+        - 131053,
+        - 131072,
+        - 131053,
+        - 130993,
+        - 130893,
+        - 130753,
+        - 130574,
+        - 130354,
+        - 130096,
+        - 129797,
+        - 129459,
+        - 129081,
+        - 128664,
+        - 128208,
+        - 127713,
+        - 127179,
+        - 126606,
+        - 125995,
+        - 125345,
+        - 124657,
+        - 123932,
+        - 123168,
+        - 122367,
+        - 121528,
+        - 120653,
+        - 119741,
+        - 118792,
+        - 117807,
+        - 116787,
+        - 115730,
+        - 114639,
+        - 113512,
+        - 112351,
+        - 111156,
+        - 109927,
+        - 108664,
+        - 107368,
+        - 106040,
+        - 104679,
+        - 103287,
+        - 101863,
+        - 100407,
+        - 98922,
+        - 97406,
+        - 95860,
+        - 94286,
+        - 92682,
+        - 91051,
+        - 89391,
+        - 87705,
+        - 85991,
+        - 84252,
+        - 82487,
+        - 80696,
+        - 78882,
+        - 77043,
+        - 75180,
+        - 73295,
+        - 71387,
+        - 69458,
+        - 67508,
+        - 65537,
+        - 63545,
+        - 61535,
+        - 59506,
+        - 57459,
+        - 55394,
+        - 53312,
+        - 51214,
+        - 49101,
+        - 46973,
+        - 44830,
+        - 42673,
+        - 40504,
+        - 38322,
+        - 36129,
+        - 33924,
+        - 31710,
+        - 29485,
+        - 27252,
+        - 25010,
+        - 22761,
+        - 20505,
+        - 18242,
+        - 15974,
+        - 13701,
+        - 11424,
+        - 9144,
+        - 6860,
+        - 4575,
+        - 2288,
         - 1,
-        1,
-        3,
-        5,
-        6,
-        8,
-        10,
-        12,
-        13,
-        15,
-        17,
-        19,
-        20,
-        22,
-        24,
-        25,
-        27,
-        29,
-        30,
-        32,
-        34,
-        35,
-        37,
-        39,
-        40,
-        42,
-        43,
-        45,
-        46,
-        48,
-        50,
-        51,
-        52,
-        54,
-        55,
-        57,
-        58,
-        60,
-        61,
-        62,
-        64,
-        65,
-        66,
-        68,
-        69,
-        70,
-        71,
-        73,
-        74,
-        75,
-        76,
-        77,
-        78,
-        79,
-        80,
-        81,
-        82,
-        83,
-        84,
-        85,
-        86,
-        87,
-        88,
-        89,
-        89,
-        90,
-        91,
-        92,
-        92,
-        93,
-        93,
-        94,
-        95,
-        95,
-        96,
-        96,
-        97,
-        97,
-        97,
-        98,
-        98,
-        98,
-        99,
-        99,
-        99,
-        99,
-        99,
-        99,
-        99,
-        99
+        2287,
+        4574,
+        6859,
+        9143,
+        11423,
+        13700,
+        15973,
+        18241,
+        20504,
+        22760,
+        25009,
+        27251,
+        29484,
+        31709,
+        33923,
+        36128,
+        38321,
+        40503,
+        42672,
+        44829,
+        46972,
+        49100,
+        51213,
+        53311,
+        55393,
+        57458,
+        59505,
+        61534,
+        63544,
+        65536,
+        67507,
+        69457,
+        71386,
+        73294,
+        75179,
+        77042,
+        78881,
+        80695,
+        82486,
+        84251,
+        85990,
+        87704,
+        89390,
+        91050,
+        92681,
+        94285,
+        95859,
+        97405,
+        98921,
+        100406,
+        101862,
+        103286,
+        104678,
+        106039,
+        107367,
+        108663,
+        109926,
+        111155,
+        112350,
+        113511,
+        114638,
+        115729,
+        116786,
+        117806,
+        118791,
+        119740,
+        120652,
+        121527,
+        122366,
+        123167,
+        123931,
+        124656,
+        125344,
+        125994,
+        126605,
+        127178,
+        127712,
+        128207,
+        128663,
+        129080,
+        129458,
+        129796,
+        130095,
+        130353,
+        130573,
+        130752,
+        130892,
+        130992,
+        131052
     );
 
     -- -- The lookup talble for tangent
@@ -1102,13 +1102,13 @@ PACKAGE math3D_pkg IS
     --     "10111100100011101111110111101101"
     -- );
 
-    -- The function of sin that returns a float
+    -- The function of sin that returns a fixed
     -- It will also normalize the input to [0, 359]
-    FUNCTION sin_float (x : INTEGER) RETURN float;
+    FUNCTION sin_fixed (x : INTEGER) RETURN fixed;
 
-    -- The function of cos that returns a float
+    -- The function of cos that returns a fixed
     -- It will also normalize the input to [0, 359]
-    FUNCTION cos_float (x : INTEGER) RETURN float;
+    FUNCTION cos_fixed (x : INTEGER) RETURN fixed;
 
     -- --------------------------------------------------------------------
     --            Vector and Matrix
@@ -1117,15 +1117,15 @@ PACKAGE math3D_pkg IS
     TYPE vec3_int IS ARRAY (0 TO 2) OF INTEGER;
     TYPE vec4_int IS ARRAY (0 TO 3) OF INTEGER;
 
-    TYPE vec2_float IS ARRAY (0 TO 1) OF float;
-    TYPE vec3_float IS ARRAY (0 TO 2) OF float;
-    TYPE vec4_float IS ARRAY (0 TO 3) OF float;
+    TYPE vec2_fixed IS ARRAY (0 TO 1) OF fixed;
+    TYPE vec3_fixed IS ARRAY (0 TO 2) OF fixed;
+    TYPE vec4_fixed IS ARRAY (0 TO 3) OF fixed;
 
     TYPE mat3_int IS ARRAY (0 TO 2) OF vec3_int;
     TYPE mat4_int IS ARRAY (0 TO 3) OF vec4_int;
 
-    TYPE mat3_float IS ARRAY (0 TO 2) OF vec3_float;
-    TYPE mat4_float IS ARRAY (0 TO 3) OF vec4_float;
+    TYPE mat3_fixed IS ARRAY (0 TO 2) OF vec3_fixed;
+    TYPE mat4_fixed IS ARRAY (0 TO 3) OF vec4_fixed;
 
     -- --------------------------------------------------------------------
     --            Vector and Matrix Operations
@@ -1183,203 +1183,203 @@ PACKAGE math3D_pkg IS
     FUNCTION "*" (a : mat4_int; b : vec4_int) RETURN vec4_int;
 
     -- --------------------------------------------------------------------
-    -- FLOAT type data structures
+    -- fixed type data structures
     -- --------------------------------------------------------------------
 
     -- Vector2 Addition
-    FUNCTION "+" (a, b : vec2_float) RETURN vec2_float;
+    FUNCTION "+" (a, b : vec2_fixed) RETURN vec2_fixed;
     -- Vector2 Subtraction
-    FUNCTION "-" (a, b : vec2_float) RETURN vec2_float;
+    FUNCTION "-" (a, b : vec2_fixed) RETURN vec2_fixed;
     -- Vector2 Dot Product
-    FUNCTION "*" (a, b : vec2_float) RETURN float;
+    FUNCTION "*" (a, b : vec2_fixed) RETURN fixed;
     -- Vector2 Scalar Multiplication
-    FUNCTION "*" (a : vec2_float; b : float) RETURN vec2_float;
+    FUNCTION "*" (a : vec2_fixed; b : fixed) RETURN vec2_fixed;
     -- Vector2 Scalar Division
-    FUNCTION "/" (a : vec2_float; b : float) RETURN vec2_float;
+    FUNCTION "/" (a : vec2_fixed; b : fixed) RETURN vec2_fixed;
 
     -- Vector3 Addition
-    FUNCTION "+" (a, b : vec3_float) RETURN vec3_float;
+    FUNCTION "+" (a, b : vec3_fixed) RETURN vec3_fixed;
     -- Vector3 Subtraction
-    FUNCTION "-" (a, b : vec3_float) RETURN vec3_float;
+    FUNCTION "-" (a, b : vec3_fixed) RETURN vec3_fixed;
     -- Vector3 Dot Product
-    FUNCTION "*" (a, b : vec3_float) RETURN float;
+    FUNCTION "*" (a, b : vec3_fixed) RETURN fixed;
     -- Vector3 Scalar Multiplication
-    FUNCTION "*" (a : vec3_float; b : float) RETURN vec3_float;
+    FUNCTION "*" (a : vec3_fixed; b : fixed) RETURN vec3_fixed;
     -- Vector3 Scalar Division
-    FUNCTION "/" (a : vec3_float; b : float) RETURN vec3_float;
+    FUNCTION "/" (a : vec3_fixed; b : fixed) RETURN vec3_fixed;
 
     -- Vector4 Addition
-    FUNCTION "+" (a, b : vec4_float) RETURN vec4_float;
+    FUNCTION "+" (a, b : vec4_fixed) RETURN vec4_fixed;
     -- Vector4 Subtraction
-    FUNCTION "-" (a, b : vec4_float) RETURN vec4_float;
+    FUNCTION "-" (a, b : vec4_fixed) RETURN vec4_fixed;
     -- Vector4 Dot Product
-    FUNCTION "*" (a, b : vec4_float) RETURN float;
+    FUNCTION "*" (a, b : vec4_fixed) RETURN fixed;
     -- Vector4 Scalar Multiplication
-    FUNCTION "*" (a : vec4_float; b : float) RETURN vec4_float;
+    FUNCTION "*" (a : vec4_fixed; b : fixed) RETURN vec4_fixed;
     -- Vector4 Scalar Division
-    FUNCTION "/" (a : vec4_float; b : float) RETURN vec4_float;
+    FUNCTION "/" (a : vec4_fixed; b : fixed) RETURN vec4_fixed;
 
     -- Vector Cross Product
-    FUNCTION cross (a : vec3_float; b : vec3_float) RETURN vec3_float;
+    FUNCTION cross (a : vec3_fixed; b : vec3_fixed) RETURN vec3_fixed;
 
     -- -- Normalize the vector
-    -- FUNCTION normalize (a : vec2_float) RETURN vec2_float;
-    -- FUNCTION normalize (a : vec3_float) RETURN vec3_float;
-    -- FUNCTION normalize (a : vec4_float) RETURN vec4_float;
+    -- FUNCTION normalize (a : vec2_fixed) RETURN vec2_fixed;
+    -- FUNCTION normalize (a : vec3_fixed) RETURN vec3_fixed;
+    -- FUNCTION normalize (a : vec4_fixed) RETURN vec4_fixed;
 
     -- -- Length of the vector
-    -- FUNCTION length (a : vec2_float) RETURN float;
-    -- FUNCTION length (a : vec3_float) RETURN float;
-    -- FUNCTION length (a : vec4_float) RETURN float;
+    -- FUNCTION length (a : vec2_fixed) RETURN fixed;
+    -- FUNCTION length (a : vec3_fixed) RETURN fixed;
+    -- FUNCTION length (a : vec4_fixed) RETURN fixed;
 
     -- -- Distance between two vectors
-    -- FUNCTION distance (a, b : vec2_float) RETURN float;
-    -- FUNCTION distance (a, b : vec3_float) RETURN float;
-    -- FUNCTION distance (a, b : vec4_float) RETURN float;
+    -- FUNCTION distance (a, b : vec2_fixed) RETURN fixed;
+    -- FUNCTION distance (a, b : vec3_fixed) RETURN fixed;
+    -- FUNCTION distance (a, b : vec4_fixed) RETURN fixed;
 
     -- Matrix3 Addition
-    FUNCTION "+" (a, b : mat3_float) RETURN mat3_float;
+    FUNCTION "+" (a, b : mat3_fixed) RETURN mat3_fixed;
     -- Matrix3 Subtraction
-    FUNCTION "-" (a, b : mat3_float) RETURN mat3_float;
+    FUNCTION "-" (a, b : mat3_fixed) RETURN mat3_fixed;
     -- Matrix3 Multiplication
-    FUNCTION "*" (a, b : mat3_float) RETURN mat3_float;
+    FUNCTION "*" (a, b : mat3_fixed) RETURN mat3_fixed;
     -- Matrix3 Vector3 Multiplication
-    FUNCTION "*" (a : mat3_float; b : vec3_float) RETURN vec3_float;
+    FUNCTION "*" (a : mat3_fixed; b : vec3_fixed) RETURN vec3_fixed;
 
     -- Matrix4 Addition
-    FUNCTION "+" (a, b : mat4_float) RETURN mat4_float;
+    FUNCTION "+" (a, b : mat4_fixed) RETURN mat4_fixed;
     -- Matrix4 Subtraction
-    FUNCTION "-" (a, b : mat4_float) RETURN mat4_float;
+    FUNCTION "-" (a, b : mat4_fixed) RETURN mat4_fixed;
     -- Matrix4 Multiplication
-    FUNCTION "*" (a, b : mat4_float) RETURN mat4_float;
+    FUNCTION "*" (a, b : mat4_fixed) RETURN mat4_fixed;
     -- Matrix4 Vector4 Multiplication
-    FUNCTION "*" (a : mat4_float; b : vec4_float) RETURN vec4_float;
+    FUNCTION "*" (a : mat4_fixed; b : vec4_fixed) RETURN vec4_fixed;
 
     -- --------------------------------------------------------------------
     -- Type Conversion
     -- --------------------------------------------------------------------
 
     -- To int type
-    FUNCTION to_vec2_int (a : vec2_float) RETURN vec2_int;
+    FUNCTION to_vec2_int (a : vec2_fixed) RETURN vec2_int;
     FUNCTION to_vec2_int (a : vec3_int) RETURN vec2_int;
-    FUNCTION to_vec3_int (a : vec3_float) RETURN vec3_int;
+    FUNCTION to_vec3_int (a : vec3_fixed) RETURN vec3_int;
     FUNCTION to_vec3_int (a : vec2_int; w : INTEGER) RETURN vec3_int;
     FUNCTION to_vec3_int (a : vec4_int) RETURN vec3_int;
-    FUNCTION to_vec4_int (a : vec4_float) RETURN vec4_int;
+    FUNCTION to_vec4_int (a : vec4_fixed) RETURN vec4_int;
     FUNCTION to_vec4_int (a : vec3_int; w : INTEGER) RETURN vec4_int;
-    FUNCTION to_mat3_int (a : mat3_float) RETURN mat3_int;
-    FUNCTION to_mat4_int (a : mat4_float) RETURN mat4_int;
+    FUNCTION to_mat3_int (a : mat3_fixed) RETURN mat3_int;
+    FUNCTION to_mat4_int (a : mat4_fixed) RETURN mat4_int;
     FUNCTION to_mat4_int (a : mat3_int) RETURN mat4_int;
 
-    -- To float type
-    FUNCTION to_vec2_float (a : vec2_int) RETURN vec2_float;
-    FUNCTION to_vec2_float (a : vec3_float) RETURN vec2_float;
-    FUNCTION to_vec3_float (a : vec3_int) RETURN vec3_float;
-    FUNCTION to_vec3_float (a : vec2_float; w : float) RETURN vec3_float;
-    FUNCTION to_vec3_float (a : vec4_float) RETURN vec3_float;
-    FUNCTION to_vec4_float (a : vec4_int) RETURN vec4_float;
-    FUNCTION to_vec4_float (a : vec3_float; w : float) RETURN vec4_float;
-    FUNCTION to_mat3_float (a : mat3_int) RETURN mat3_float;
-    FUNCTION to_mat4_float (a : mat4_int) RETURN mat4_float;
-    FUNCTION to_mat4_float (a : mat3_float) RETURN mat4_float;
+    -- To fixed type
+    FUNCTION to_vec2_fixed (a : vec2_int) RETURN vec2_fixed;
+    FUNCTION to_vec2_fixed (a : vec3_fixed) RETURN vec2_fixed;
+    FUNCTION to_vec3_fixed (a : vec3_int) RETURN vec3_fixed;
+    FUNCTION to_vec3_fixed (a : vec2_fixed; w : fixed) RETURN vec3_fixed;
+    FUNCTION to_vec3_fixed (a : vec4_fixed) RETURN vec3_fixed;
+    FUNCTION to_vec4_fixed (a : vec4_int) RETURN vec4_fixed;
+    FUNCTION to_vec4_fixed (a : vec3_fixed; w : fixed) RETURN vec4_fixed;
+    FUNCTION to_mat3_fixed (a : mat3_int) RETURN mat3_fixed;
+    FUNCTION to_mat4_fixed (a : mat4_int) RETURN mat4_fixed;
+    FUNCTION to_mat4_fixed (a : mat3_fixed) RETURN mat4_fixed;
 
     -- --------------------------------------------------------------------
     --               Projection
     -- --------------------------------------------------------------------
-    -- Perspective Projection
-    FUNCTION perspective (left, right, bottom, top, near, far : INTEGER) RETURN mat4_float;
-    -- Orthographic Projection
-    FUNCTION orthographic (left, right, bottom, top, near, far : INTEGER) RETURN mat4_float;
-    -- Look at function for the view matrix
-    -- FUNCTION look_at (eye, at, up : vec3_int) RETURN mat4_float;
+    -- -- Perspective Projection
+    -- FUNCTION perspective (left, right, bottom, top, near, far : INTEGER) RETURN mat4_fixed;
+    -- -- Orthographic Projection
+    -- FUNCTION orthographic (left, right, bottom, top, near, far : INTEGER) RETURN mat4_fixed;
+    -- -- Look at function for the view matrix
+    -- FUNCTION look_at (eye, at, up : vec3_int) RETURN mat4_fixed;
 
     -- --------------------------------------------------------------------
     --                Constants
     -- --------------------------------------------------------------------
-    -- CONSTANT float_zero : float := "00000000000000000000000000000000";
-    -- CONSTANT float_one : float := "00111111100000000000000000000000";
-    -- CONSTANT float_neg_one : float := "10111111100000000000000000000000";
-    CONSTANT float_zero : float := 0;
-    CONSTANT float_one : float := 100;
-    CONSTANT float_neg_one : float := - 100;
+    -- CONSTANT fixed_zero : fixed := "00000000000000000000000000000000";
+    -- CONSTANT fixed_one : fixed := "00111111100000000000000000000000";
+    -- CONSTANT fixed_neg_one : fixed := "10111111100000000000000000000000";
+    CONSTANT fixed_zero : fixed := 0;
+    CONSTANT fixed_one : fixed := 131072;
+    CONSTANT fixed_neg_one : fixed := - 131072;
 
     CONSTANT vec2_int_zero : vec2_int := (0, 0);
     CONSTANT vec2_int_one : vec2_int := (1, 1);
     CONSTANT vec2_int_neg_one : vec2_int := (-1, -1);
 
-    CONSTANT vec2_float_zero : vec2_float := (float_zero, float_zero);
-    CONSTANT vec2_float_one : vec2_float := (float_one, float_one);
-    CONSTANT vec2_float_neg_one : vec2_float := (float_neg_one, float_neg_one);
+    CONSTANT vec2_fixed_zero : vec2_fixed := (fixed_zero, fixed_zero);
+    CONSTANT vec2_fixed_one : vec2_fixed := (fixed_one, fixed_one);
+    CONSTANT vec2_fixed_neg_one : vec2_fixed := (fixed_neg_one, fixed_neg_one);
 
     CONSTANT vec3_int_zero : vec3_int := (0, 0, 0);
     CONSTANT vec3_int_one : vec3_int := (1, 1, 1);
     CONSTANT vec3_int_neg_one : vec3_int := (-1, -1, -1);
 
-    -- CONSTANT vec3_float_zero : vec3_float := (float_zero, float_zero, float_zero);
-    -- CONSTANT vec3_float_one : vec3_float := (float_one, float_one, float_one);
-    -- CONSTANT vec3_float_neg_one : vec3_float := (float_neg_one, float_neg_one, float_neg_one);
+    -- CONSTANT vec3_fixed_zero : vec3_fixed := (fixed_zero, fixed_zero, fixed_zero);
+    -- CONSTANT vec3_fixed_one : vec3_fixed := (fixed_one, fixed_one, fixed_one);
+    -- CONSTANT vec3_fixed_neg_one : vec3_fixed := (fixed_neg_one, fixed_neg_one, fixed_neg_one);
 
     CONSTANT vec4_int_zero : vec4_int := (0, 0, 0, 0);
     CONSTANT vec4_int_one : vec4_int := (1, 1, 1, 1);
     CONSTANT vec4_int_neg_one : vec4_int := (-1, -1, -1, -1);
 
-    CONSTANT vec4_float_zero : vec4_float := (float_zero, float_zero, float_zero, float_zero);
-    CONSTANT vec4_float_one : vec4_float := (float_one, float_one, float_one, float_one);
-    CONSTANT vec4_float_neg_one : vec4_float := (float_neg_one, float_neg_one, float_neg_one, float_neg_one);
+    CONSTANT vec4_fixed_zero : vec4_fixed := (fixed_zero, fixed_zero, fixed_zero, fixed_zero);
+    CONSTANT vec4_fixed_one : vec4_fixed := (fixed_one, fixed_one, fixed_one, fixed_one);
+    CONSTANT vec4_fixed_neg_one : vec4_fixed := (fixed_neg_one, fixed_neg_one, fixed_neg_one, fixed_neg_one);
 
     CONSTANT identity_mat3_int : mat3_int := ((1, 0, 0), (0, 1, 0), (0, 0, 1));
     CONSTANT identity_mat4_int : mat4_int := ((1, 0, 0, 0), (0, 1, 0, 0), (0, 0, 1, 0), (0, 0, 0, 1));
-    CONSTANT identity_mat3_float : mat3_float := (
-    (float_one, float_zero, float_zero),
-        (float_zero, float_one, float_zero),
-        (float_zero, float_zero, float_one)
+    CONSTANT identity_mat3_fixed : mat3_fixed := (
+    (fixed_one, fixed_zero, fixed_zero),
+        (fixed_zero, fixed_one, fixed_zero),
+        (fixed_zero, fixed_zero, fixed_one)
     );
-    CONSTANT identity_mat4_float : mat4_float := (
-    (float_one, float_zero, float_zero, float_zero),
-        (float_zero, float_one, float_zero, float_zero),
-        (float_zero, float_zero, float_one, float_zero),
-        (float_zero, float_zero, float_zero, float_one)
+    CONSTANT identity_mat4_fixed : mat4_fixed := (
+    (fixed_one, fixed_zero, fixed_zero, fixed_zero),
+        (fixed_zero, fixed_one, fixed_zero, fixed_zero),
+        (fixed_zero, fixed_zero, fixed_one, fixed_zero),
+        (fixed_zero, fixed_zero, fixed_zero, fixed_one)
     );
-    -- CONSTANT default_perspective_mat4_float : mat4_float := (
-    -- ("00111111110111011011001111010111", float_zero, float_one, float_zero),
-    --     (float_zero, "00111111110111011011001111010111", float_neg_one, float_zero),
-    --     (float_zero, float_zero, "00111111100000000000000001010100", float_neg_one),
-    --     (float_zero, float_zero, "10111101110011001101001000001011", float_zero)
+    -- CONSTANT default_perspective_mat4_fixed : mat4_fixed := (
+    -- ("00111111110111011011001111010111", fixed_zero, fixed_one, fixed_zero),
+    --     (fixed_zero, "00111111110111011011001111010111", fixed_neg_one, fixed_zero),
+    --     (fixed_zero, fixed_zero, "00111111100000000000000001010100", fixed_neg_one),
+    --     (fixed_zero, fixed_zero, "10111101110011001101001000001011", fixed_zero)
     -- );
-    CONSTANT default_perspective_mat4_float : mat4_float := (
-    (173, float_zero, float_one, float_zero),
-        (float_zero, 173, float_neg_one, float_zero),
-        (float_zero, float_zero, float_one, float_neg_one),
-        (float_zero, float_zero, -10, float_zero)
+    CONSTANT default_perspective_mat4_fixed : mat4_fixed := (
+    (227, 023, fixed_zero, fixed_one, fixed_zero),
+        (fixed_zero, 227, 023, fixed_neg_one, fixed_zero),
+        (fixed_zero, fixed_zero, fixed_one, fixed_neg_one),
+        (fixed_zero, fixed_zero, -13108, fixed_zero)
     );
-    -- CONSTANT default_ortho_mat4_float : mat4_float := (
-    -- ("00111011000000000000000000000000", float_zero, float_zero, float_neg_one),
-    --     (float_zero, "00111011010110100111010000001110", float_zero, float_neg_one),
-    --     (float_zero, float_zero, "10111001010100011011110001110110", "10111111100000000000011010001110"),
-    --     (float_zero, float_zero, float_zero, float_one)
+    -- CONSTANT default_ortho_mat4_fixed : mat4_fixed := (
+    -- ("00111011000000000000000000000000", fixed_zero, fixed_zero, fixed_neg_one),
+    --     (fixed_zero, "00111011010110100111010000001110", fixed_zero, fixed_neg_one),
+    --     (fixed_zero, fixed_zero, "10111001010100011011110001110110", "10111111100000000000011010001110"),
+    --     (fixed_zero, fixed_zero, fixed_zero, fixed_one)
     -- );
-    CONSTANT default_ortho_mat4_float : mat4_float := (
-    (float_zero, float_zero, float_zero, float_neg_one),
-        (float_zero, float_zero, float_zero, float_neg_one),
-        (float_zero, float_zero, float_zero, -100),
-        (float_zero, float_zero, float_zero, float_one)
+    CONSTANT default_ortho_mat4_fixed : mat4_fixed := (
+    (256, fixed_zero, fixed_zero, fixed_neg_one),
+        (fixed_zero, 436, fixed_zero, fixed_neg_one),
+        (fixed_zero, fixed_zero, -26, -100),
+        (fixed_zero, fixed_zero, fixed_zero, -131098)
     );
-    CONSTANT look_forward_mat4_float : mat4_float := (
-    (float_one, float_zero, float_zero, float_zero),
-        (float_zero, float_one, float_zero, float_zero),
-        (float_zero, float_zero, float_one, float_zero),
-        (float_zero, float_zero, float_zero, float_one)
+    CONSTANT look_forward_mat4_fixed : mat4_fixed := (
+    (fixed_one, fixed_zero, fixed_zero, fixed_zero),
+        (fixed_zero, fixed_one, fixed_zero, fixed_zero),
+        (fixed_zero, fixed_zero, fixed_one, fixed_zero),
+        (fixed_zero, fixed_zero, fixed_zero, fixed_one)
     );
 
     -- --------------------------------------------------------------------
     --               Transformation
     -- --------------------------------------------------------------------
     -- Translation
-    FUNCTION translation_mat4_float (displacement : vec3_int) RETURN mat4_float;
+    FUNCTION translation_mat4_fixed (displacement : vec3_int) RETURN mat4_fixed;
     -- Rotation
-    FUNCTION rotation_mat4_float (euler : vec3_int) RETURN mat4_float;
+    FUNCTION rotation_mat4_fixed (euler : vec3_int) RETURN mat4_fixed;
     -- Scaling
-    FUNCTION scaling_mat4_float (scale : vec3_int) RETURN mat4_float;
+    FUNCTION scaling_mat4_fixed (scale : vec3_int) RETURN mat4_fixed;
 
 END PACKAGE;
 
@@ -1387,23 +1387,23 @@ PACKAGE BODY math3D_pkg IS
     -- --------------------------------------------------------------------
     --            Trigonometric Func
     -- --------------------------------------------------------------------
-    FUNCTION sin_float (x : INTEGER) RETURN float IS
+    FUNCTION sin_fixed (x : INTEGER) RETURN fixed IS
     BEGIN
         IF x < 0 THEN
             RETURN -sin_table(-x MOD 360);
         ELSE
             RETURN sin_table(x MOD 360);
         END IF;
-    END sin_float;
+    END sin_fixed;
 
-    FUNCTION cos_float (x : INTEGER) RETURN float IS
+    FUNCTION cos_fixed (x : INTEGER) RETURN fixed IS
     BEGIN
         IF x < 0 THEN
             RETURN cos_table(-x MOD 360);
         ELSE
             RETURN cos_table(x MOD 360);
         END IF;
-    END cos_float;
+    END cos_fixed;
 
     -- --------------------------------------------------------------------
     --            Vector and Matrix
@@ -1663,12 +1663,12 @@ PACKAGE BODY math3D_pkg IS
     END FUNCTION;
 
     -- --------------------------------------------------------------------
-    -- FLOAT type data structures
+    -- fixed type data structures
     -- --------------------------------------------------------------------
 
     -- Vector2 Addition
-    FUNCTION "+" (a, b : vec2_float) RETURN vec2_float IS
-        VARIABLE result : vec2_float;
+    FUNCTION "+" (a, b : vec2_fixed) RETURN vec2_fixed IS
+        VARIABLE result : vec2_fixed;
     BEGIN
         result(0) := a(0) + b(0);
         result(1) := a(1) + b(1);
@@ -1676,8 +1676,8 @@ PACKAGE BODY math3D_pkg IS
     END FUNCTION;
 
     -- Vector2 Subtraction
-    FUNCTION "-" (a, b : vec2_float) RETURN vec2_float IS
-        VARIABLE result : vec2_float;
+    FUNCTION "-" (a, b : vec2_fixed) RETURN vec2_fixed IS
+        VARIABLE result : vec2_fixed;
     BEGIN
         result(0) := a(0) - b(0);
         result(1) := a(1) - b(1);
@@ -1685,38 +1685,38 @@ PACKAGE BODY math3D_pkg IS
     END FUNCTION;
 
     -- Vector2 Dot Product
-    FUNCTION "*" (a, b : vec2_float) RETURN float IS
-        VARIABLE result : float;
+    FUNCTION "*" (a, b : vec2_fixed) RETURN fixed IS
+        VARIABLE result : fixed;
     BEGIN
         result := a(0) * b(0) + a(1) * b(1);
         RETURN result;
     END FUNCTION;
 
     -- Vector2 Scalar Multiplication
-    FUNCTION "*" (a : vec2_float; b : float) RETURN vec2_float IS
-        VARIABLE result : vec2_float;
+    FUNCTION "*" (a : vec2_fixed; b : fixed) RETURN vec2_fixed IS
+        VARIABLE result : vec2_fixed;
     BEGIN
         -- result(0) := a(0) * b;
         -- result(1) := a(1) * b;
-        result(0) := mult_float(a(0), b);
-        result(1) := mult_float(a(1), b);
+        result(0) := mult_fixed(a(0), b);
+        result(1) := mult_fixed(a(1), b);
         RETURN result;
     END FUNCTION;
 
     -- Vector2 Scalar Division
-    FUNCTION "/" (a : vec2_float; b : float) RETURN vec2_float IS
-        VARIABLE result : vec2_float;
+    FUNCTION "/" (a : vec2_fixed; b : fixed) RETURN vec2_fixed IS
+        VARIABLE result : vec2_fixed;
     BEGIN
         -- result(0) := a(0) / b;
         -- result(1) := a(1) / b;
-        result(0) := div_float(a(0), b);
-        result(1) := div_float(a(1), b);
+        result(0) := div_fixed(a(0), b);
+        result(1) := div_fixed(a(1), b);
         RETURN result;
     END FUNCTION;
 
     -- Vector3 Addition
-    FUNCTION "+" (a, b : vec3_float) RETURN vec3_float IS
-        VARIABLE result : vec3_float;
+    FUNCTION "+" (a, b : vec3_fixed) RETURN vec3_fixed IS
+        VARIABLE result : vec3_fixed;
     BEGIN
         result(0) := a(0) + b(0);
         result(1) := a(1) + b(1);
@@ -1725,8 +1725,8 @@ PACKAGE BODY math3D_pkg IS
     END FUNCTION;
 
     -- Vector3 Subtraction
-    FUNCTION "-" (a, b : vec3_float) RETURN vec3_float IS
-        VARIABLE result : vec3_float;
+    FUNCTION "-" (a, b : vec3_fixed) RETURN vec3_fixed IS
+        VARIABLE result : vec3_fixed;
     BEGIN
         result(0) := a(0) - b(0);
         result(1) := a(1) - b(1);
@@ -1735,43 +1735,43 @@ PACKAGE BODY math3D_pkg IS
     END FUNCTION;
 
     -- Vector3 Dot Product
-    FUNCTION "*" (a, b : vec3_float) RETURN float IS
-        VARIABLE result : float;
+    FUNCTION "*" (a, b : vec3_fixed) RETURN fixed IS
+        VARIABLE result : fixed;
     BEGIN
         -- result := a(0) * b(0) + a(1) * b(1) + a(2) * b(2);
-        result := mult_float(a(0), b(0)) + mult_float(a(1), b(1)) + mult_float(a(2), b(2));
+        result := mult_fixed(a(0), b(0)) + mult_fixed(a(1), b(1)) + mult_fixed(a(2), b(2));
         RETURN result;
     END FUNCTION;
 
     -- Vector3 Scalar Multiplication
-    FUNCTION "*" (a : vec3_float; b : float) RETURN vec3_float IS
-        VARIABLE result : vec3_float;
+    FUNCTION "*" (a : vec3_fixed; b : fixed) RETURN vec3_fixed IS
+        VARIABLE result : vec3_fixed;
     BEGIN
         -- result(0) := a(0) * b;
         -- result(1) := a(1) * b;
         -- result(2) := a(2) * b;
-        result(0) := mult_float(a(0), b);
-        result(1) := mult_float(a(1), b);
-        result(2) := mult_float(a(2), b);
+        result(0) := mult_fixed(a(0), b);
+        result(1) := mult_fixed(a(1), b);
+        result(2) := mult_fixed(a(2), b);
         RETURN result;
     END FUNCTION;
 
     -- Vector3 Scalar Division
-    FUNCTION "/" (a : vec3_float; b : float) RETURN vec3_float IS
-        VARIABLE result : vec3_float;
+    FUNCTION "/" (a : vec3_fixed; b : fixed) RETURN vec3_fixed IS
+        VARIABLE result : vec3_fixed;
     BEGIN
         -- result(0) := a(0) / b;
         -- result(1) := a(1) / b;
         -- result(2) := a(2) / b;
-        result(0) := div_float(a(0), b);
-        result(1) := div_float(a(1), b);
-        result(2) := div_float(a(2), b);
+        result(0) := div_fixed(a(0), b);
+        result(1) := div_fixed(a(1), b);
+        result(2) := div_fixed(a(2), b);
         RETURN result;
     END FUNCTION;
 
     -- Vector4 Addition
-    FUNCTION "+" (a, b : vec4_float) RETURN vec4_float IS
-        VARIABLE result : vec4_float;
+    FUNCTION "+" (a, b : vec4_fixed) RETURN vec4_fixed IS
+        VARIABLE result : vec4_fixed;
     BEGIN
         result(0) := a(0) + b(0);
         result(1) := a(1) + b(1);
@@ -1781,8 +1781,8 @@ PACKAGE BODY math3D_pkg IS
     END FUNCTION;
 
     -- Vector4 Subtraction
-    FUNCTION "-" (a, b : vec4_float) RETURN vec4_float IS
-        VARIABLE result : vec4_float;
+    FUNCTION "-" (a, b : vec4_fixed) RETURN vec4_fixed IS
+        VARIABLE result : vec4_fixed;
     BEGIN
         result(0) := a(0) - b(0);
         result(1) := a(1) - b(1);
@@ -1792,73 +1792,73 @@ PACKAGE BODY math3D_pkg IS
     END FUNCTION;
 
     -- Vector4 Dot Product
-    FUNCTION "*" (a, b : vec4_float) RETURN float IS
-        VARIABLE result : float;
+    FUNCTION "*" (a, b : vec4_fixed) RETURN fixed IS
+        VARIABLE result : fixed;
     BEGIN
         -- result := a(0) * b(0) + a(1) * b(1) + a(2) * b(2) + a(3) * b(3);
-        result := mult_float(a(0), b(0)) + mult_float(a(1), b(1)) + mult_float(a(2), b(2)) + mult_float(a(3), b(3));
+        result := mult_fixed(a(0), b(0)) + mult_fixed(a(1), b(1)) + mult_fixed(a(2), b(2)) + mult_fixed(a(3), b(3));
         RETURN result;
     END FUNCTION;
 
     -- Vector4 Scalar Multiplication
-    FUNCTION "*" (a : vec4_float; b : float) RETURN vec4_float IS
-        VARIABLE result : vec4_float;
+    FUNCTION "*" (a : vec4_fixed; b : fixed) RETURN vec4_fixed IS
+        VARIABLE result : vec4_fixed;
     BEGIN
         -- result(0) := a(0) * b;
         -- result(1) := a(1) * b;
         -- result(2) := a(2) * b;
         -- result(3) := a(3) * b;
-        result(0) := mult_float(a(0), b);
-        result(1) := mult_float(a(1), b);
-        result(2) := mult_float(a(2), b);
-        result(3) := mult_float(a(3), b);
+        result(0) := mult_fixed(a(0), b);
+        result(1) := mult_fixed(a(1), b);
+        result(2) := mult_fixed(a(2), b);
+        result(3) := mult_fixed(a(3), b);
         RETURN result;
     END FUNCTION;
 
     -- Vector4 Scalar Division
-    FUNCTION "/" (a : vec4_float; b : float) RETURN vec4_float IS
-        VARIABLE result : vec4_float;
+    FUNCTION "/" (a : vec4_fixed; b : fixed) RETURN vec4_fixed IS
+        VARIABLE result : vec4_fixed;
     BEGIN
         -- result(0) := a(0) / b;
         -- result(1) := a(1) / b;
         -- result(2) := a(2) / b;
         -- result(3) := a(3) / b;
-        result(0) := div_float(a(0), b);
-        result(1) := div_float(a(1), b);
-        result(2) := div_float(a(2), b);
-        result(3) := div_float(a(3), b);
+        result(0) := div_fixed(a(0), b);
+        result(1) := div_fixed(a(1), b);
+        result(2) := div_fixed(a(2), b);
+        result(3) := div_fixed(a(3), b);
         RETURN result;
     END FUNCTION;
 
     -- Vector Cross Product
-    FUNCTION cross (a : vec3_float; b : vec3_float) RETURN vec3_float IS
-        VARIABLE result : vec3_float;
+    FUNCTION cross (a : vec3_fixed; b : vec3_fixed) RETURN vec3_fixed IS
+        VARIABLE result : vec3_fixed;
     BEGIN
         -- result(0) := (a(1) * b(2)) - (a(2) * b(1));
         -- result(1) := (a(2) * b(0)) - (a(0) * b(2));
         -- result(2) := (a(0) * b(1)) - (a(1) * b(0));
-        result(0) := mult_float(a(1), b(2)) - mult_float(a(2), b(1));
-        result(1) := mult_float(a(2), b(0)) - mult_float(a(0), b(2));
-        result(2) := mult_float(a(0), b(1)) - mult_float(a(1), b(0));
+        result(0) := mult_fixed(a(1), b(2)) - mult_fixed(a(2), b(1));
+        result(1) := mult_fixed(a(2), b(0)) - mult_fixed(a(0), b(2));
+        result(2) := mult_fixed(a(0), b(1)) - mult_fixed(a(1), b(0));
         RETURN result;
     END FUNCTION;
 
     -- -- Vector Length
-    -- FUNCTION length (a : vec2_float) RETURN float IS
+    -- FUNCTION length (a : vec2_fixed) RETURN fixed IS
     --     VARIABLE result : integer;
     -- BEGIN
     --     result := sqrt(1);
     --     RETURN result;
     -- END FUNCTION;
 
-    -- FUNCTION length (a : vec3_float) RETURN float IS
+    -- FUNCTION length (a : vec3_fixed) RETURN fixed IS
     --     VARIABLE result : integer;
     -- BEGIN
     --     result := sqrt((a(0) * a(0)) + (a(1) * a(1)) + (a(2) * a(2)));
     --     RETURN result;
     -- END FUNCTION;
 
-    -- FUNCTION length (a : vec4_float) RETURN float IS
+    -- FUNCTION length (a : vec4_fixed) RETURN fixed IS
     --     VARIABLE result : integer;
     -- BEGIN
     --     result := sqrt((a(0) * a(0)) + (a(1) * a(1)) + (a(2) * a(2)) + (a(3) * a(3)));
@@ -1866,21 +1866,21 @@ PACKAGE BODY math3D_pkg IS
     -- END FUNCTION;
 
     -- -- Vector Distance
-    -- FUNCTION distance (a, b : vec2_float) RETURN float IS
+    -- FUNCTION distance (a, b : vec2_fixed) RETURN fixed IS
     --     VARIABLE result : integer;
     -- BEGIN
     --     result := sqrt((a(0) - b(0)) * (a(0) - b(0)) + (a(1) - b(1)) * (a(1) - b(1)));
     --     RETURN result;
     -- END FUNCTION;
 
-    -- FUNCTION distance (a, b : vec3_float) RETURN float IS
+    -- FUNCTION distance (a, b : vec3_fixed) RETURN fixed IS
     --     VARIABLE result : integer;
     -- BEGIN
     --     result := sqrt((a(0) - b(0)) * (a(0) - b(0)) + (a(1) - b(1)) * (a(1) - b(1)) + (a(2) - b(2)) * (a(2) - b(2)));
     --     RETURN result;
     -- END FUNCTION;
 
-    -- FUNCTION distance (a, b : vec4_float) RETURN float IS
+    -- FUNCTION distance (a, b : vec4_fixed) RETURN fixed IS
     --     VARIABLE result : integer;
     -- BEGIN
     --     result := sqrt((a(0) - b(0)) * (a(0) - b(0)) + (a(1) - b(1)) * (a(1) - b(1)) + (a(2) - b(2)) * (a(2) - b(2)) + (a(3) - b(3)) * (a(3) - b(3)));
@@ -1888,8 +1888,8 @@ PACKAGE BODY math3D_pkg IS
     -- END FUNCTION;
 
     -- -- Vector Nomalization
-    -- FUNCTION normalize (a : vec2_float) RETURN vec2_float IS
-    --     VARIABLE result : vec2_float;
+    -- FUNCTION normalize (a : vec2_fixed) RETURN vec2_fixed IS
+    --     VARIABLE result : vec2_fixed;
     --     VARIABLE length : integer;
     -- BEGIN
     --     length := sqrt(a(0) * a(0) + a(1) * a(1));
@@ -1898,8 +1898,8 @@ PACKAGE BODY math3D_pkg IS
     --     RETURN result;
     -- END FUNCTION;
 
-    -- FUNCTION normalize (a : vec3_float) RETURN vec3_float IS
-    --     VARIABLE result : vec3_float;
+    -- FUNCTION normalize (a : vec3_fixed) RETURN vec3_fixed IS
+    --     VARIABLE result : vec3_fixed;
     --     VARIABLE length : integer;
     -- BEGIN
     --     length := sqrt(a(0) * a(0) + a(1) * a(1) + a(2) * a(2));
@@ -1909,8 +1909,8 @@ PACKAGE BODY math3D_pkg IS
     --     RETURN result;
     -- END FUNCTION;
 
-    -- FUNCTION normalize (a : vec4_float) RETURN vec4_float IS
-    --     VARIABLE result : vec4_float;
+    -- FUNCTION normalize (a : vec4_fixed) RETURN vec4_fixed IS
+    --     VARIABLE result : vec4_fixed;
     --     VARIABLE length : integer;
     -- BEGIN
     --     length := sqrt(a(0) * a(0) + a(1) * a(1) + a(2) * a(2) + a(3) * a(3));
@@ -1922,8 +1922,8 @@ PACKAGE BODY math3D_pkg IS
     -- END FUNCTION;
 
     -- Matrix3 Addition
-    FUNCTION "+" (a, b : mat3_float) RETURN mat3_float IS
-        VARIABLE result : mat3_float;
+    FUNCTION "+" (a, b : mat3_fixed) RETURN mat3_fixed IS
+        VARIABLE result : mat3_fixed;
     BEGIN
         result(0)(0) := a(0)(0) + b(0)(0);
         result(0)(1) := a(0)(1) + b(0)(1);
@@ -1941,8 +1941,8 @@ PACKAGE BODY math3D_pkg IS
     END FUNCTION;
 
     -- Matrix3 Subtraction
-    FUNCTION "-" (a, b : mat3_float) RETURN mat3_float IS
-        VARIABLE result : mat3_float;
+    FUNCTION "-" (a, b : mat3_fixed) RETURN mat3_fixed IS
+        VARIABLE result : mat3_fixed;
     BEGIN
         result(0)(0) := a(0)(0) - b(0)(0);
         result(0)(1) := a(0)(1) - b(0)(1);
@@ -1960,8 +1960,8 @@ PACKAGE BODY math3D_pkg IS
     END FUNCTION;
 
     -- Matrix3 Multiplication
-    FUNCTION "*" (a, b : mat3_float) RETURN mat3_float IS
-        VARIABLE result : mat3_float;
+    FUNCTION "*" (a, b : mat3_fixed) RETURN mat3_fixed IS
+        VARIABLE result : mat3_fixed;
     BEGIN
         -- result(0)(0) := a(0)(0) * b(0)(0) + a(0)(1) * b(1)(0) + a(0)(2) * b(2)(0);
         -- result(0)(1) := a(0)(0) * b(0)(1) + a(0)(1) * b(1)(1) + a(0)(2) * b(2)(1);
@@ -1975,37 +1975,37 @@ PACKAGE BODY math3D_pkg IS
         -- result(2)(1) := a(2)(0) * b(0)(1) + a(2)(1) * b(1)(1) + a(2)(2) * b(2)(1);
         -- result(2)(2) := a(2)(0) * b(0)(2) + a(2)(1) * b(1)(2) + a(2)(2) * b(2)(2);
 
-        result(0)(0) := mult_float(a(0)(0), b(0)(0)) + mult_float(a(0)(1), b(1)(0)) + mult_float(a(0)(2), b(2)(0));
-        result(0)(1) := mult_float(a(0)(0), b(0)(1)) + mult_float(a(0)(1), b(1)(1)) + mult_float(a(0)(2), b(2)(1));
-        result(0)(2) := mult_float(a(0)(0), b(0)(2)) + mult_float(a(0)(1), b(1)(2)) + mult_float(a(0)(2), b(2)(2));
+        result(0)(0) := mult_fixed(a(0)(0), b(0)(0)) + mult_fixed(a(0)(1), b(1)(0)) + mult_fixed(a(0)(2), b(2)(0));
+        result(0)(1) := mult_fixed(a(0)(0), b(0)(1)) + mult_fixed(a(0)(1), b(1)(1)) + mult_fixed(a(0)(2), b(2)(1));
+        result(0)(2) := mult_fixed(a(0)(0), b(0)(2)) + mult_fixed(a(0)(1), b(1)(2)) + mult_fixed(a(0)(2), b(2)(2));
 
-        result(1)(0) := mult_float(a(1)(0), b(0)(0)) + mult_float(a(1)(1), b(1)(0)) + mult_float(a(1)(2), b(2)(0));
-        result(1)(1) := mult_float(a(1)(0), b(0)(1)) + mult_float(a(1)(1), b(1)(1)) + mult_float(a(1)(2), b(2)(1));
-        result(1)(2) := mult_float(a(1)(0), b(0)(2)) + mult_float(a(1)(1), b(1)(2)) + mult_float(a(1)(2), b(2)(2));
+        result(1)(0) := mult_fixed(a(1)(0), b(0)(0)) + mult_fixed(a(1)(1), b(1)(0)) + mult_fixed(a(1)(2), b(2)(0));
+        result(1)(1) := mult_fixed(a(1)(0), b(0)(1)) + mult_fixed(a(1)(1), b(1)(1)) + mult_fixed(a(1)(2), b(2)(1));
+        result(1)(2) := mult_fixed(a(1)(0), b(0)(2)) + mult_fixed(a(1)(1), b(1)(2)) + mult_fixed(a(1)(2), b(2)(2));
 
-        result(2)(0) := mult_float(a(2)(0), b(0)(0)) + mult_float(a(2)(1), b(1)(0)) + mult_float(a(2)(2), b(2)(0));
-        result(2)(1) := mult_float(a(2)(0), b(0)(1)) + mult_float(a(2)(1), b(1)(1)) + mult_float(a(2)(2), b(2)(1));
-        result(2)(2) := mult_float(a(2)(0), b(0)(2)) + mult_float(a(2)(1), b(1)(2)) + mult_float(a(2)(2), b(2)(2));
+        result(2)(0) := mult_fixed(a(2)(0), b(0)(0)) + mult_fixed(a(2)(1), b(1)(0)) + mult_fixed(a(2)(2), b(2)(0));
+        result(2)(1) := mult_fixed(a(2)(0), b(0)(1)) + mult_fixed(a(2)(1), b(1)(1)) + mult_fixed(a(2)(2), b(2)(1));
+        result(2)(2) := mult_fixed(a(2)(0), b(0)(2)) + mult_fixed(a(2)(1), b(1)(2)) + mult_fixed(a(2)(2), b(2)(2));
 
         RETURN result;
     END FUNCTION;
 
     -- Matrix3 Vector3 Multiplication
-    FUNCTION "*" (a : mat3_float; b : vec3_float) RETURN vec3_float IS
-        VARIABLE result : vec3_float;
+    FUNCTION "*" (a : mat3_fixed; b : vec3_fixed) RETURN vec3_fixed IS
+        VARIABLE result : vec3_fixed;
     BEGIN
         -- result(0) := a(0)(0) * b(0) + a(0)(1) * b(1) + a(0)(2) * b(2);
         -- result(1) := a(1)(0) * b(0) + a(1)(1) * b(1) + a(1)(2) * b(2);
         -- result(2) := a(2)(0) * b(0) + a(2)(1) * b(1) + a(2)(2) * b(2);
-        result(0) := mult_float(a(0)(0), b(0)) + mult_float(a(0)(1), b(1)) + mult_float(a(0)(2), b(2));
-        result(1) := mult_float(a(1)(0), b(0)) + mult_float(a(1)(1), b(1)) + mult_float(a(1)(2), b(2));
-        result(2) := mult_float(a(2)(0), b(0)) + mult_float(a(2)(1), b(1)) + mult_float(a(2)(2), b(2));
+        result(0) := mult_fixed(a(0)(0), b(0)) + mult_fixed(a(0)(1), b(1)) + mult_fixed(a(0)(2), b(2));
+        result(1) := mult_fixed(a(1)(0), b(0)) + mult_fixed(a(1)(1), b(1)) + mult_fixed(a(1)(2), b(2));
+        result(2) := mult_fixed(a(2)(0), b(0)) + mult_fixed(a(2)(1), b(1)) + mult_fixed(a(2)(2), b(2));
         RETURN result;
     END FUNCTION;
 
     -- Matrix4 Addition
-    FUNCTION "+" (a, b : mat4_float) RETURN mat4_float IS
-        VARIABLE result : mat4_float;
+    FUNCTION "+" (a, b : mat4_fixed) RETURN mat4_fixed IS
+        VARIABLE result : mat4_fixed;
     BEGIN
         result(0) := a(0) + b(0);
         result(1) := a(1) + b(1);
@@ -2015,8 +2015,8 @@ PACKAGE BODY math3D_pkg IS
     END FUNCTION;
 
     -- Matrix4 Subtraction
-    FUNCTION "-" (a, b : mat4_float) RETURN mat4_float IS
-        VARIABLE result : mat4_float;
+    FUNCTION "-" (a, b : mat4_fixed) RETURN mat4_fixed IS
+        VARIABLE result : mat4_fixed;
     BEGIN
         result(0) := a(0) - b(0);
         result(1) := a(1) - b(1);
@@ -2026,8 +2026,8 @@ PACKAGE BODY math3D_pkg IS
     END FUNCTION;
 
     -- Matrix4 Multiplication
-    FUNCTION "*" (a, b : mat4_float) RETURN mat4_float IS
-        VARIABLE result : mat4_float;
+    FUNCTION "*" (a, b : mat4_fixed) RETURN mat4_fixed IS
+        VARIABLE result : mat4_fixed;
     BEGIN
         -- result(0)(0) := a(0)(0) * b(0)(0) + a(0)(1) * b(1)(0) + a(0)(2) * b(2)(0) + a(0)(3) * b(3)(0);
         -- result(0)(1) := a(0)(0) * b(0)(1) + a(0)(1) * b(1)(1) + a(0)(2) * b(2)(1) + a(0)(3) * b(3)(1);
@@ -2049,42 +2049,42 @@ PACKAGE BODY math3D_pkg IS
         -- result(3)(2) := a(3)(0) * b(0)(2) + a(3)(1) * b(1)(2) + a(3)(2) * b(2)(2) + a(3)(3) * b(3)(2);
         -- result(3)(3) := a(3)(0) * b(0)(3) + a(3)(1) * b(1)(3) + a(3)(2) * b(2)(3) + a(3)(3) * b(3)(3);
 
-        result (0)(0) := mult_float(a(0)(0), b(0)(0)) + mult_float(a(0)(1), b(1)(0)) + mult_float(a(0)(2), b(2)(0)) + mult_float(a(0)(3), b(3)(0));
-        result (0)(1) := mult_float(a(0)(0), b(0)(1)) + mult_float(a(0)(1), b(1)(1)) + mult_float(a(0)(2), b(2)(1)) + mult_float(a(0)(3), b(3)(1));
-        result (0)(2) := mult_float(a(0)(0), b(0)(2)) + mult_float(a(0)(1), b(1)(2)) + mult_float(a(0)(2), b(2)(2)) + mult_float(a(0)(3), b(3)(2));
-        result (0)(3) := mult_float(a(0)(0), b(0)(3)) + mult_float(a(0)(1), b(1)(3)) + mult_float(a(0)(2), b(2)(3)) + mult_float(a(0)(3), b(3)(3));
+        result (0)(0) := mult_fixed(a(0)(0), b(0)(0)) + mult_fixed(a(0)(1), b(1)(0)) + mult_fixed(a(0)(2), b(2)(0)) + mult_fixed(a(0)(3), b(3)(0));
+        result (0)(1) := mult_fixed(a(0)(0), b(0)(1)) + mult_fixed(a(0)(1), b(1)(1)) + mult_fixed(a(0)(2), b(2)(1)) + mult_fixed(a(0)(3), b(3)(1));
+        result (0)(2) := mult_fixed(a(0)(0), b(0)(2)) + mult_fixed(a(0)(1), b(1)(2)) + mult_fixed(a(0)(2), b(2)(2)) + mult_fixed(a(0)(3), b(3)(2));
+        result (0)(3) := mult_fixed(a(0)(0), b(0)(3)) + mult_fixed(a(0)(1), b(1)(3)) + mult_fixed(a(0)(2), b(2)(3)) + mult_fixed(a(0)(3), b(3)(3));
 
-        result (1)(0) := mult_float(a(1)(0), b(0)(0)) + mult_float(a(1)(1), b(1)(0)) + mult_float(a(1)(2), b(2)(0)) + mult_float(a(1)(3), b(3)(0));
-        result (1)(1) := mult_float(a(1)(0), b(0)(1)) + mult_float(a(1)(1), b(1)(1)) + mult_float(a(1)(2), b(2)(1)) + mult_float(a(1)(3), b(3)(1));
-        result (1)(2) := mult_float(a(1)(0), b(0)(2)) + mult_float(a(1)(1), b(1)(2)) + mult_float(a(1)(2), b(2)(2)) + mult_float(a(1)(3), b(3)(2));
-        result (1)(3) := mult_float(a(1)(0), b(0)(3)) + mult_float(a(1)(1), b(1)(3)) + mult_float(a(1)(2), b(2)(3)) + mult_float(a(1)(3), b(3)(3));
+        result (1)(0) := mult_fixed(a(1)(0), b(0)(0)) + mult_fixed(a(1)(1), b(1)(0)) + mult_fixed(a(1)(2), b(2)(0)) + mult_fixed(a(1)(3), b(3)(0));
+        result (1)(1) := mult_fixed(a(1)(0), b(0)(1)) + mult_fixed(a(1)(1), b(1)(1)) + mult_fixed(a(1)(2), b(2)(1)) + mult_fixed(a(1)(3), b(3)(1));
+        result (1)(2) := mult_fixed(a(1)(0), b(0)(2)) + mult_fixed(a(1)(1), b(1)(2)) + mult_fixed(a(1)(2), b(2)(2)) + mult_fixed(a(1)(3), b(3)(2));
+        result (1)(3) := mult_fixed(a(1)(0), b(0)(3)) + mult_fixed(a(1)(1), b(1)(3)) + mult_fixed(a(1)(2), b(2)(3)) + mult_fixed(a(1)(3), b(3)(3));
 
-        result (2)(0) := mult_float(a(2)(0), b(0)(0)) + mult_float(a(2)(1), b(1)(0)) + mult_float(a(2)(2), b(2)(0)) + mult_float(a(2)(3), b(3)(0));
-        result (2)(1) := mult_float(a(2)(0), b(0)(1)) + mult_float(a(2)(1), b(1)(1)) + mult_float(a(2)(2), b(2)(1)) + mult_float(a(2)(3), b(3)(1));
-        result (2)(2) := mult_float(a(2)(0), b(0)(2)) + mult_float(a(2)(1), b(1)(2)) + mult_float(a(2)(2), b(2)(2)) + mult_float(a(2)(3), b(3)(2));
-        result (2)(3) := mult_float(a(2)(0), b(0)(3)) + mult_float(a(2)(1), b(1)(3)) + mult_float(a(2)(2), b(2)(3)) + mult_float(a(2)(3), b(3)(3));
+        result (2)(0) := mult_fixed(a(2)(0), b(0)(0)) + mult_fixed(a(2)(1), b(1)(0)) + mult_fixed(a(2)(2), b(2)(0)) + mult_fixed(a(2)(3), b(3)(0));
+        result (2)(1) := mult_fixed(a(2)(0), b(0)(1)) + mult_fixed(a(2)(1), b(1)(1)) + mult_fixed(a(2)(2), b(2)(1)) + mult_fixed(a(2)(3), b(3)(1));
+        result (2)(2) := mult_fixed(a(2)(0), b(0)(2)) + mult_fixed(a(2)(1), b(1)(2)) + mult_fixed(a(2)(2), b(2)(2)) + mult_fixed(a(2)(3), b(3)(2));
+        result (2)(3) := mult_fixed(a(2)(0), b(0)(3)) + mult_fixed(a(2)(1), b(1)(3)) + mult_fixed(a(2)(2), b(2)(3)) + mult_fixed(a(2)(3), b(3)(3));
 
-        result (3)(0) := mult_float(a(3)(0), b(0)(0)) + mult_float(a(3)(1), b(1)(0)) + mult_float(a(3)(2), b(2)(0)) + mult_float(a(3)(3), b(3)(0));
-        result (3)(1) := mult_float(a(3)(0), b(0)(1)) + mult_float(a(3)(1), b(1)(1)) + mult_float(a(3)(2), b(2)(1)) + mult_float(a(3)(3), b(3)(1));
-        result (3)(2) := mult_float(a(3)(0), b(0)(2)) + mult_float(a(3)(1), b(1)(2)) + mult_float(a(3)(2), b(2)(2)) + mult_float(a(3)(3), b(3)(2));
-        result (3)(3) := mult_float(a(3)(0), b(0)(3)) + mult_float(a(3)(1), b(1)(3)) + mult_float(a(3)(2), b(2)(3)) + mult_float(a(3)(3), b(3)(3));
+        result (3)(0) := mult_fixed(a(3)(0), b(0)(0)) + mult_fixed(a(3)(1), b(1)(0)) + mult_fixed(a(3)(2), b(2)(0)) + mult_fixed(a(3)(3), b(3)(0));
+        result (3)(1) := mult_fixed(a(3)(0), b(0)(1)) + mult_fixed(a(3)(1), b(1)(1)) + mult_fixed(a(3)(2), b(2)(1)) + mult_fixed(a(3)(3), b(3)(1));
+        result (3)(2) := mult_fixed(a(3)(0), b(0)(2)) + mult_fixed(a(3)(1), b(1)(2)) + mult_fixed(a(3)(2), b(2)(2)) + mult_fixed(a(3)(3), b(3)(2));
+        result (3)(3) := mult_fixed(a(3)(0), b(0)(3)) + mult_fixed(a(3)(1), b(1)(3)) + mult_fixed(a(3)(2), b(2)(3)) + mult_fixed(a(3)(3), b(3)(3));
 
         RETURN result;
     END FUNCTION;
 
     -- Matrix4 Vector4 Multiplication
-    FUNCTION "*" (a : mat4_float; b : vec4_float) RETURN vec4_float IS
-        VARIABLE result : vec4_float;
+    FUNCTION "*" (a : mat4_fixed; b : vec4_fixed) RETURN vec4_fixed IS
+        VARIABLE result : vec4_fixed;
     BEGIN
         -- result(0) := a(0)(0) * b(0) + a(0)(1) * b(1) + a(0)(2) * b(2) + a(0)(3) * b(3);
         -- result(1) := a(1)(0) * b(0) + a(1)(1) * b(1) + a(1)(2) * b(2) + a(1)(3) * b(3);
         -- result(2) := a(2)(0) * b(0) + a(2)(1) * b(1) + a(2)(2) * b(2) + a(2)(3) * b(3);
         -- result(3) := a(3)(0) * b(0) + a(3)(1) * b(1) + a(3)(2) * b(2) + a(3)(3) * b(3);
 
-        result(0) := mult_float(a(0)(0), b(0)) + mult_float(a(0)(1), b(1)) + mult_float(a(0)(2), b(2)) + mult_float(a(0)(3), b(3));
-        result(1) := mult_float(a(1)(0), b(0)) + mult_float(a(1)(1), b(1)) + mult_float(a(1)(2), b(2)) + mult_float(a(1)(3), b(3));
-        result(2) := mult_float(a(2)(0), b(0)) + mult_float(a(2)(1), b(1)) + mult_float(a(2)(2), b(2)) + mult_float(a(2)(3), b(3));
-        result(3) := mult_float(a(3)(0), b(0)) + mult_float(a(3)(1), b(1)) + mult_float(a(3)(2), b(2)) + mult_float(a(3)(3), b(3));
+        result(0) := mult_fixed(a(0)(0), b(0)) + mult_fixed(a(0)(1), b(1)) + mult_fixed(a(0)(2), b(2)) + mult_fixed(a(0)(3), b(3));
+        result(1) := mult_fixed(a(1)(0), b(0)) + mult_fixed(a(1)(1), b(1)) + mult_fixed(a(1)(2), b(2)) + mult_fixed(a(1)(3), b(3));
+        result(2) := mult_fixed(a(2)(0), b(0)) + mult_fixed(a(2)(1), b(1)) + mult_fixed(a(2)(2), b(2)) + mult_fixed(a(2)(3), b(3));
+        result(3) := mult_fixed(a(3)(0), b(0)) + mult_fixed(a(3)(1), b(1)) + mult_fixed(a(3)(2), b(2)) + mult_fixed(a(3)(3), b(3));
 
         RETURN result;
     END FUNCTION;
@@ -2094,7 +2094,7 @@ PACKAGE BODY math3D_pkg IS
     -- --------------------------------------------------------------------
 
     -- To int type
-    FUNCTION to_vec2_int (a : vec2_float) RETURN vec2_int IS
+    FUNCTION to_vec2_int (a : vec2_fixed) RETURN vec2_int IS
         VARIABLE result : vec2_int;
     BEGIN
         result(0) := to_integer(a(0));
@@ -2110,7 +2110,7 @@ PACKAGE BODY math3D_pkg IS
         RETURN result;
     END FUNCTION;
 
-    FUNCTION to_vec3_int (a : vec3_float) RETURN vec3_int IS
+    FUNCTION to_vec3_int (a : vec3_fixed) RETURN vec3_int IS
         VARIABLE result : vec3_int;
     BEGIN
         result(0) := to_integer(a(0));
@@ -2137,7 +2137,7 @@ PACKAGE BODY math3D_pkg IS
         RETURN result;
     END FUNCTION;
 
-    FUNCTION to_vec4_int (a : vec4_float) RETURN vec4_int IS
+    FUNCTION to_vec4_int (a : vec4_fixed) RETURN vec4_int IS
         VARIABLE result : vec4_int;
     BEGIN
         result(0) := to_integer(a(0));
@@ -2157,7 +2157,7 @@ PACKAGE BODY math3D_pkg IS
         RETURN result;
     END FUNCTION;
 
-    FUNCTION to_mat3_int (a : mat3_float) RETURN mat3_int IS
+    FUNCTION to_mat3_int (a : mat3_fixed) RETURN mat3_int IS
         VARIABLE result : mat3_int;
     BEGIN
         result(0)(0) := to_integer(a(0)(0));
@@ -2174,7 +2174,7 @@ PACKAGE BODY math3D_pkg IS
         RETURN result;
     END FUNCTION;
 
-    FUNCTION to_mat4_int (a : mat4_float) RETURN mat4_int IS
+    FUNCTION to_mat4_int (a : mat4_fixed) RETURN mat4_int IS
         VARIABLE result : mat4_int;
     BEGIN
         result(0)(0) := to_integer(a(0)(0));
@@ -2224,34 +2224,34 @@ PACKAGE BODY math3D_pkg IS
         RETURN result;
     END FUNCTION;
 
-    -- To float type
-    FUNCTION to_vec2_float (a : vec2_int) RETURN vec2_float IS
-        VARIABLE result : vec2_float;
+    -- To fixed type
+    FUNCTION to_vec2_fixed (a : vec2_int) RETURN vec2_fixed IS
+        VARIABLE result : vec2_fixed;
     BEGIN
-        result(0) := to_float(a(0));
-        result(1) := to_float(a(1));
+        result(0) := to_fixed(a(0));
+        result(1) := to_fixed(a(1));
         RETURN result;
     END FUNCTION;
 
-    FUNCTION to_vec2_float (a : vec3_float) RETURN vec2_float IS
-        VARIABLE result : vec2_float;
+    FUNCTION to_vec2_fixed (a : vec3_fixed) RETURN vec2_fixed IS
+        VARIABLE result : vec2_fixed;
     BEGIN
         result(0) := a(0);
         result(1) := a(1);
         RETURN result;
     END FUNCTION;
 
-    FUNCTION to_vec3_float (a : vec3_int) RETURN vec3_float IS
-        VARIABLE result : vec3_float;
+    FUNCTION to_vec3_fixed (a : vec3_int) RETURN vec3_fixed IS
+        VARIABLE result : vec3_fixed;
     BEGIN
-        result(0) := to_float(a(0));
-        result(1) := to_float(a(1));
-        result(2) := to_float(a(2));
+        result(0) := to_fixed(a(0));
+        result(1) := to_fixed(a(1));
+        result(2) := to_fixed(a(2));
         RETURN result;
     END FUNCTION;
 
-    FUNCTION to_vec3_float (a : vec2_float; w : float) RETURN vec3_float IS
-        VARIABLE result : vec3_float;
+    FUNCTION to_vec3_fixed (a : vec2_fixed; w : fixed) RETURN vec3_fixed IS
+        VARIABLE result : vec3_fixed;
     BEGIN
         result(0) := a(0);
         result(1) := a(1);
@@ -2259,8 +2259,8 @@ PACKAGE BODY math3D_pkg IS
         RETURN result;
     END FUNCTION;
 
-    FUNCTION to_vec3_float (a : vec4_float) RETURN vec3_float IS
-        VARIABLE result : vec3_float;
+    FUNCTION to_vec3_fixed (a : vec4_fixed) RETURN vec3_fixed IS
+        VARIABLE result : vec3_fixed;
     BEGIN
         result(0) := a(0);
         result(1) := a(1);
@@ -2268,18 +2268,18 @@ PACKAGE BODY math3D_pkg IS
         RETURN result;
     END FUNCTION;
 
-    FUNCTION to_vec4_float (a : vec4_int) RETURN vec4_float IS
-        VARIABLE result : vec4_float;
+    FUNCTION to_vec4_fixed (a : vec4_int) RETURN vec4_fixed IS
+        VARIABLE result : vec4_fixed;
     BEGIN
-        result(0) := to_float(a(0));
-        result(1) := to_float(a(1));
-        result(2) := to_float(a(2));
-        result(3) := to_float(a(3));
+        result(0) := to_fixed(a(0));
+        result(1) := to_fixed(a(1));
+        result(2) := to_fixed(a(2));
+        result(3) := to_fixed(a(3));
         RETURN result;
     END FUNCTION;
 
-    FUNCTION to_vec4_float (a : vec3_float; w : float) RETURN vec4_float IS
-        VARIABLE result : vec4_float;
+    FUNCTION to_vec4_fixed (a : vec3_fixed; w : fixed) RETURN vec4_fixed IS
+        VARIABLE result : vec4_fixed;
     BEGIN
         result(0) := a(0);
         result(1) := a(1);
@@ -2288,70 +2288,70 @@ PACKAGE BODY math3D_pkg IS
         RETURN result;
     END FUNCTION;
 
-    FUNCTION to_mat3_float (a : mat3_int) RETURN mat3_float IS
-        VARIABLE result : mat3_float;
+    FUNCTION to_mat3_fixed (a : mat3_int) RETURN mat3_fixed IS
+        VARIABLE result : mat3_fixed;
     BEGIN
-        result(0)(0) := to_float(a(0)(0));
-        result(0)(1) := to_float(a(0)(1));
-        result(0)(2) := to_float(a(0)(2));
+        result(0)(0) := to_fixed(a(0)(0));
+        result(0)(1) := to_fixed(a(0)(1));
+        result(0)(2) := to_fixed(a(0)(2));
 
-        result(1)(0) := to_float(a(1)(0));
-        result(1)(1) := to_float(a(1)(1));
-        result(1)(2) := to_float(a(1)(2));
+        result(1)(0) := to_fixed(a(1)(0));
+        result(1)(1) := to_fixed(a(1)(1));
+        result(1)(2) := to_fixed(a(1)(2));
 
-        result(2)(0) := to_float(a(2)(0));
-        result(2)(1) := to_float(a(2)(1));
-        result(2)(2) := to_float(a(2)(2));
+        result(2)(0) := to_fixed(a(2)(0));
+        result(2)(1) := to_fixed(a(2)(1));
+        result(2)(2) := to_fixed(a(2)(2));
         RETURN result;
     END FUNCTION;
 
-    FUNCTION to_mat4_float (a : mat4_int) RETURN mat4_float IS
-        VARIABLE result : mat4_float;
+    FUNCTION to_mat4_fixed (a : mat4_int) RETURN mat4_fixed IS
+        VARIABLE result : mat4_fixed;
     BEGIN
-        result(0)(0) := to_float(a(0)(0));
-        result(0)(1) := to_float(a(0)(1));
-        result(0)(2) := to_float(a(0)(2));
-        result(0)(3) := to_float(a(0)(3));
+        result(0)(0) := to_fixed(a(0)(0));
+        result(0)(1) := to_fixed(a(0)(1));
+        result(0)(2) := to_fixed(a(0)(2));
+        result(0)(3) := to_fixed(a(0)(3));
 
-        result(1)(0) := to_float(a(1)(0));
-        result(1)(1) := to_float(a(1)(1));
-        result(1)(2) := to_float(a(1)(2));
-        result(1)(3) := to_float(a(1)(3));
+        result(1)(0) := to_fixed(a(1)(0));
+        result(1)(1) := to_fixed(a(1)(1));
+        result(1)(2) := to_fixed(a(1)(2));
+        result(1)(3) := to_fixed(a(1)(3));
 
-        result(2)(0) := to_float(a(2)(0));
-        result(2)(1) := to_float(a(2)(1));
-        result(2)(2) := to_float(a(2)(2));
-        result(2)(3) := to_float(a(2)(3));
+        result(2)(0) := to_fixed(a(2)(0));
+        result(2)(1) := to_fixed(a(2)(1));
+        result(2)(2) := to_fixed(a(2)(2));
+        result(2)(3) := to_fixed(a(2)(3));
 
-        result(3)(0) := to_float(a(3)(0));
-        result(3)(1) := to_float(a(3)(1));
-        result(3)(2) := to_float(a(3)(2));
-        result(3)(3) := to_float(a(3)(3));
+        result(3)(0) := to_fixed(a(3)(0));
+        result(3)(1) := to_fixed(a(3)(1));
+        result(3)(2) := to_fixed(a(3)(2));
+        result(3)(3) := to_fixed(a(3)(3));
         RETURN result;
     END FUNCTION;
 
-    FUNCTION to_mat4_float (a : mat3_float) RETURN mat4_float IS
-        VARIABLE result : mat4_float;
+    FUNCTION to_mat4_fixed (a : mat3_fixed) RETURN mat4_fixed IS
+        VARIABLE result : mat4_fixed;
     BEGIN
         result(0)(0) := a(0)(0);
         result(0)(1) := a(0)(1);
         result(0)(2) := a(0)(2);
-        result(0)(3) := float_zero;
+        result(0)(3) := fixed_zero;
 
         result(1)(0) := a(1)(0);
         result(1)(1) := a(1)(1);
         result(1)(2) := a(1)(2);
-        result(1)(3) := float_zero;
+        result(1)(3) := fixed_zero;
 
         result(2)(0) := a(2)(0);
         result(2)(1) := a(2)(1);
         result(2)(2) := a(2)(2);
-        result(2)(3) := float_zero;
+        result(2)(3) := fixed_zero;
 
-        result(3)(0) := float_zero;
-        result(3)(1) := float_zero;
-        result(3)(2) := float_zero;
-        result(3)(3) := float_one;
+        result(3)(0) := fixed_zero;
+        result(3)(1) := fixed_zero;
+        result(3)(2) := fixed_zero;
+        result(3)(3) := fixed_one;
         RETURN result;
     END FUNCTION;
 
@@ -2359,30 +2359,30 @@ PACKAGE BODY math3D_pkg IS
     --                Transform
     -- --------------------------------------------------------------------
     -- Translate
-    FUNCTION translation_mat4_float (displacement : vec3_int) RETURN mat4_float IS
-        VARIABLE result : mat4_float;
+    FUNCTION translation_mat4_fixed (displacement : vec3_int) RETURN mat4_fixed IS
+        VARIABLE result : mat4_fixed;
     BEGIN
-        result := identity_mat4_float;
-        result(0)(3) := to_float(displacement(0));
-        result(1)(3) := to_float(displacement(1));
-        result(2)(3) := to_float(displacement(2));
+        result := identity_mat4_fixed;
+        result(0)(3) := to_fixed(displacement(0));
+        result(1)(3) := to_fixed(displacement(1));
+        result(2)(3) := to_fixed(displacement(2));
         RETURN result;
     END FUNCTION;
 
     -- Rotation
-    FUNCTION rotation_mat4_float (euler : vec3_int) RETURN mat4_float IS
-        VARIABLE result : mat4_float;
+    FUNCTION rotation_mat4_fixed (euler : vec3_int) RETURN mat4_fixed IS
+        VARIABLE result : mat4_fixed;
         VARIABLE a, b, c, d, e, f, g, h, i : INTEGER;
         VARIABLE cos_x, cos_y, cos_z, sin_x, sin_y, sin_z : INTEGER;
     BEGIN
-        result := identity_mat4_float;
+        result := identity_mat4_fixed;
 
-        cos_x := cos_float(euler(0));
-        cos_y := cos_float(euler(1));
-        cos_z := cos_float(euler(2));
-        sin_x := sin_float(euler(0));
-        sin_y := sin_float(euler(1));
-        sin_z := sin_float(euler(2));
+        cos_x := cos_fixed(euler(0));
+        cos_y := cos_fixed(euler(1));
+        cos_z := cos_fixed(euler(2));
+        sin_x := sin_fixed(euler(0));
+        sin_y := sin_fixed(euler(1));
+        sin_z := sin_fixed(euler(2));
 
         a := cos_y * cos_z;
         b := cos_y * sin_z;
@@ -2408,117 +2408,117 @@ PACKAGE BODY math3D_pkg IS
     END FUNCTION;
 
     -- Scaling
-    FUNCTION scaling_mat4_float (scale : vec3_int) RETURN mat4_float IS
-        VARIABLE result : mat4_float;
+    FUNCTION scaling_mat4_fixed (scale : vec3_int) RETURN mat4_fixed IS
+        VARIABLE result : mat4_fixed;
     BEGIN
-        result := identity_mat4_float;
-        result(0)(0) := to_float(scale(0));
-        result(1)(1) := to_float(scale(1));
-        result(2)(2) := to_float(scale(2));
+        result := identity_mat4_fixed;
+        result(0)(0) := to_fixed(scale(0));
+        result(1)(1) := to_fixed(scale(1));
+        result(2)(2) := to_fixed(scale(2));
         RETURN result;
     END FUNCTION;
 
     -- --------------------------------------------------------------------
     --               Projection
     -- --------------------------------------------------------------------
-    -- Perspective Projection
-    FUNCTION perspective(left, right, bottom, top, near, far : INTEGER) RETURN mat4_float IS
-        VARIABLE result : mat4_float;
-        VARIABLE l, r, b, t, n, f : INTEGER;
-    BEGIN
-        l := to_float(left);
-        r := to_float(right);
-        b := to_float(bottom);
-        t := to_float(top);
-        n := to_float(near);
-        f := to_float(far);
+    -- -- Perspective Projection
+    -- FUNCTION perspective(left, right, bottom, top, near, far : INTEGER) RETURN mat4_fixed IS
+    --     VARIABLE result : mat4_fixed;
+    --     VARIABLE l, r, b, t, n, f : INTEGER;
+    -- BEGIN
+    --     l := to_fixed(left);
+    --     r := to_fixed(right);
+    --     b := to_fixed(bottom);
+    --     t := to_fixed(top);
+    --     n := to_fixed(near);
+    --     f := to_fixed(far);
 
-        result(0)(0) := (n * 2) / (r - l);
-        result(0)(1) := to_float(0.0);
-        result(0)(2) := (r + l) / (r - l);
-        result(0)(3) := to_float(0.0);
+    --     result(0)(0) := (n * 2) / (r - l);
+    --     result(0)(1) := to_fixed(0.0);
+    --     result(0)(2) := (r + l) / (r - l);
+    --     result(0)(3) := to_fixed(0.0);
 
-        result(1)(0) := to_float(0.0);
-        result(1)(1) := (2 * n) / (t - b);
-        result(1)(2) := (t + b) / (t - b);
-        result(1)(3) := to_float(0.0);
+    --     result(1)(0) := to_fixed(0.0);
+    --     result(1)(1) := (2 * n) / (t - b);
+    --     result(1)(2) := (t + b) / (t - b);
+    --     result(1)(3) := to_fixed(0.0);
 
-        result(2)(0) := to_float(0.0);
-        result(2)(1) := to_float(0.0);
-        result(2)(2) := - 1.0 * (f + n) / (f - n);
-        result(2)(3) := - 1.0 * (2 * f * n) / (f - n);
+    --     result(2)(0) := to_fixed(0.0);
+    --     result(2)(1) := to_fixed(0.0);
+    --     result(2)(2) := - 1.0 * (f + n) / (f - n);
+    --     result(2)(3) := - 1.0 * (2 * f * n) / (f - n);
 
-        result(3)(0) := to_float(0.0);
-        result(3)(1) := to_float(0.0);
-        result(3)(2) := to_float(-1.0);
-        result(3)(3) := to_float(0.0);
+    --     result(3)(0) := to_fixed(0.0);
+    --     result(3)(1) := to_fixed(0.0);
+    --     result(3)(2) := to_fixed(-1.0);
+    --     result(3)(3) := to_fixed(0.0);
 
-        RETURN result;
-    END FUNCTION;
+    --     RETURN result;
+    -- END FUNCTION;
 
-    -- Orthographic Projection
-    FUNCTION orthographic(left, right, bottom, top, near, far : INTEGER) RETURN mat4_float IS
-        VARIABLE result : mat4_float;
-        VARIABLE l, r, b, t, n, f : INTEGER;
-    BEGIN
-        l := to_float(left);
-        r := to_float(right);
-        b := to_float(bottom);
-        t := to_float(top);
-        n := to_float(near);
-        f := to_float(far);
+    -- -- Orthographic Projection
+    -- FUNCTION orthographic(left, right, bottom, top, near, far : INTEGER) RETURN mat4_fixed IS
+    --     VARIABLE result : mat4_fixed;
+    --     VARIABLE l, r, b, t, n, f : INTEGER;
+    -- BEGIN
+    --     l := to_fixed(left);
+    --     r := to_fixed(right);
+    --     b := to_fixed(bottom);
+    --     t := to_fixed(top);
+    --     n := to_fixed(near);
+    --     f := to_fixed(far);
 
-        result(0)(0) := to_float(2.0) / (r - l);
-        result(0)(1) := to_float(0.0);
-        result(0)(2) := to_float(0.0);
-        result(0)(3) := to_float(-1.0) * (r + l) / (r - l);
+    --     result(0)(0) := to_fixed(2.0) / (r - l);
+    --     result(0)(1) := to_fixed(0.0);
+    --     result(0)(2) := to_fixed(0.0);
+    --     result(0)(3) := to_fixed(-1.0) * (r + l) / (r - l);
 
-        result(1)(0) := to_float(0.0);
-        result(1)(1) := to_float(2.0) / (t - b);
-        result(1)(2) := to_float(0.0);
-        result(1)(3) := to_float(-1.0) * (t + b) / (t - b);
+    --     result(1)(0) := to_fixed(0.0);
+    --     result(1)(1) := to_fixed(2.0) / (t - b);
+    --     result(1)(2) := to_fixed(0.0);
+    --     result(1)(3) := to_fixed(-1.0) * (t + b) / (t - b);
 
-        result(2)(0) := to_float(0.0);
-        result(2)(1) := to_float(0.0);
-        result(2)(2) := to_float(-2.0) / (f - n);
-        result(2)(3) := to_float(-1.0) * (f + n) / (f - n);
+    --     result(2)(0) := to_fixed(0.0);
+    --     result(2)(1) := to_fixed(0.0);
+    --     result(2)(2) := to_fixed(-2.0) / (f - n);
+    --     result(2)(3) := to_fixed(-1.0) * (f + n) / (f - n);
 
-        result(3)(0) := to_float(0.0);
-        result(3)(1) := to_float(0.0);
-        result(3)(2) := to_float(0.0);
-        result(3)(3) := to_float(1.0);
+    --     result(3)(0) := to_fixed(0.0);
+    --     result(3)(1) := to_fixed(0.0);
+    --     result(3)(2) := to_fixed(0.0);
+    --     result(3)(3) := to_fixed(1.0);
 
-        RETURN result;
-    END FUNCTION;
+    --     RETURN result;
+    -- END FUNCTION;
 
     -- -- LookAt
-    -- FUNCTION look_at(eye, at, up : vec3_int) RETURN mat4_float IS
-    --     VARIABLE result : mat4_float;
-    --     VARIABLE f, s, u : vec3_float;
+    -- FUNCTION look_at(eye, at, up : vec3_int) RETURN mat4_fixed IS
+    --     VARIABLE result : mat4_fixed;
+    --     VARIABLE f, s, u : vec3_fixed;
     -- BEGIN
-    --     f := normalize(to_vec3_float(at - eye));
-    --     s := normalize(cross(f, to_vec3_float(up)));
+    --     f := normalize(to_vec3_fixed(at - eye));
+    --     s := normalize(cross(f, to_vec3_fixed(up)));
     --     u := cross(s, f);
 
     --     result(0)(0) := s(0);
     --     result(0)(1) := u(0);
     --     result(0)(2) := - f(0);
-    --     result(0)(3) := float_zero;
+    --     result(0)(3) := fixed_zero;
 
     --     result(1)(0) := s(1);
     --     result(1)(1) := u(1);
     --     result(1)(2) := - f(1);
-    --     result(1)(3) := float_zero;
+    --     result(1)(3) := fixed_zero;
 
     --     result(2)(0) := s(2);
     --     result(2)(1) := u(2);
     --     result(2)(2) := - f(2);
-    --     result(2)(3) := float_zero;
+    --     result(2)(3) := fixed_zero;
 
-    --     result(3)(0) := float_zero;
-    --     result(3)(1) := float_zero;
-    --     result(3)(2) := float_zero;
-    --     result(3)(3) := float_one;
+    --     result(3)(0) := fixed_zero;
+    --     result(3)(1) := fixed_zero;
+    --     result(3)(2) := fixed_zero;
+    --     result(3)(3) := fixed_one;
 
     --     RETURN result;
     -- END FUNCTION;

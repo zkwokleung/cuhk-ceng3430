@@ -1,7 +1,7 @@
 LIBRARY IEEE;
 USE IEEE.STD_LOGIC_1164.ALL;
 USE IEEE.Numeric_Std.ALL;
-USE work.my_float_pkg.ALL;
+USE work.my_fixed_pkg.ALL;
 USE work.math3D_pkg.ALL;
 
 ENTITY cube_generator_tb_2 IS
@@ -19,7 +19,7 @@ ARCHITECTURE Behavioral OF cube_generator_tb_2 IS
             CLK : IN STD_LOGIC;
             RESET : IN STD_LOGIC;
             DISPLAY_COOR_H, DISPLAY_COOR_V : IN INTEGER;
-            PROJECTION_MATRIX, VIEW_MATRIX : IN mat4_float;
+            PROJECTION_MATRIX, VIEW_MATRIX : IN mat4_fixed;
             POS_IN, ROT_IN, SCALE_IN : IN vec3_int;
             RED_OUT, GREEN_OUT, BLUE_OUT : OUT STD_LOGIC_VECTOR(BIT_DEPTH - 1 DOWNTO 0)
         );
@@ -27,7 +27,7 @@ ARCHITECTURE Behavioral OF cube_generator_tb_2 IS
 
     SIGNAL clk, reset : STD_LOGIC := '0';
     SIGNAL display_coor_h, display_coor_v : INTEGER := 0;
-    SIGNAL projection_matrix, view_matrix : mat4_float := (OTHERS => (OTHERS => float_zero));
+    SIGNAL projection_matrix, view_matrix : mat4_fixed := (OTHERS => (OTHERS => fixed_zero));
     SIGNAL pos_in, rot_in, scale_in : vec3_int := (OTHERS => 0);
     SIGNAL red_out, green_out, blue_out : STD_LOGIC_VECTOR(3 DOWNTO 0) := (OTHERS => '0');
 BEGIN
@@ -53,8 +53,8 @@ BEGIN
     );
 
     test_process : PROCESS BEGIN
-        projection_matrix <= default_ortho_mat4_float;
-        view_matrix <= look_forward_mat4_float;
+        projection_matrix <= default_ortho_mat4_fixed;
+        view_matrix <= look_forward_mat4_fixed;
 
         pos_in <= (500, 500, 0);
         rot_in <= (0, 0, 0);

@@ -1,7 +1,7 @@
 LIBRARY IEEE;
 USE IEEE.STD_LOGIC_1164.ALL;
 USE IEEE.Numeric_Std.ALL;
-USE work.my_float_pkg.ALL;
+USE work.my_fixed_pkg.ALL;
 USE work.math3D_pkg.ALL;
 
 ENTITY cube_generator_tb IS
@@ -11,26 +11,26 @@ ARCHITECTURE Behavioral OF cube_generator_tb IS
     -- --------------------------------------------------------------------
     --                       Type Definitions
     -- --------------------------------------------------------------------
-    TYPE cube_vertex_float IS ARRAY(0 TO 7) OF vec3_float;
+    TYPE cube_vertex_fixed IS ARRAY(0 TO 7) OF vec3_fixed;
     TYPE cube_vertex_int IS ARRAY(0 TO 7) OF vec3_int;
-    TYPE screen_vertex_float IS ARRAY(0 TO 7) OF vec2_float;
+    TYPE screen_vertex_fixed IS ARRAY(0 TO 7) OF vec2_fixed;
     TYPE screen_vertex_int IS ARRAY(0 TO 7) OF vec2_int;
 
     -- --------------------------------------------------------------------
     --                       Constants
     -- --------------------------------------------------------------------
-    CONSTANT CUBE_DEFAULT_VERTEX : cube_vertex_float := (
+    CONSTANT CUBE_DEFAULT_VERTEX : cube_vertex_fixed := (
         -- Top vertices
-        (float_neg_one, float_one, float_one),
-        (float_one, float_one, float_one),
-        (float_one, float_one, float_neg_one),
-        (float_neg_one, float_one, float_neg_one),
+        (fixed_neg_one, fixed_one, fixed_one),
+        (fixed_one, fixed_one, fixed_one),
+        (fixed_one, fixed_one, fixed_neg_one),
+        (fixed_neg_one, fixed_one, fixed_neg_one),
 
         -- Bottom vertices
-        (float_neg_one, float_neg_one, float_one),
-        (float_one, float_neg_one, float_one),
-        (float_one, float_neg_one, float_neg_one),
-        (float_neg_one, float_neg_one, float_neg_one)
+        (fixed_neg_one, fixed_neg_one, fixed_one),
+        (fixed_one, fixed_neg_one, fixed_one),
+        (fixed_one, fixed_neg_one, fixed_neg_one),
+        (fixed_neg_one, fixed_neg_one, fixed_neg_one)
     );
 
     -- --------------------------------------------------------------------
@@ -45,9 +45,9 @@ ARCHITECTURE Behavioral OF cube_generator_tb IS
             RESET : IN STD_LOGIC;
             CLK : IN STD_LOGIC;
             PROJECTION_MATRIX,
-            VIEW_MATRIX : IN mat4_float;
-            POINT_3D : IN vec3_float;
-            SCREEN_POS_OUT : OUT vec2_float
+            VIEW_MATRIX : IN mat4_fixed;
+            POINT_3D : IN vec3_fixed;
+            SCREEN_POS_OUT : OUT vec2_fixed
         );
     END COMPONENT;
 
@@ -56,12 +56,12 @@ ARCHITECTURE Behavioral OF cube_generator_tb IS
             RESET : IN STD_LOGIC;
             CLK : IN STD_LOGIC;
 
-            VERTEX_IN : IN vec3_float;
+            VERTEX_IN : IN vec3_fixed;
             TRANSLATION_IN : IN vec3_int;
             ROTATION_IN : IN vec3_int;
             SCALE_IN : IN vec3_int;
 
-            VERTEX_OUT : OUT vec3_float
+            VERTEX_OUT : OUT vec3_fixed
         );
     END COMPONENT;
 
@@ -83,10 +83,10 @@ ARCHITECTURE Behavioral OF cube_generator_tb IS
     -- --------------------------------------------------------------------
 
     -- The coordinate(after transformation) of the cube
-    SIGNAL vertices : cube_vertex_float;
+    SIGNAL vertices : cube_vertex_fixed;
 
     -- The coordinate of the vertex in the screen space
-    SIGNAL screen_vertices_float : screen_vertex_float;
+    SIGNAL screen_vertices_fixed : screen_vertex_fixed;
     SIGNAL screen_vertices_int : screen_vertex_int;
 
     -- The signals determining whether the current pixel should be drawn.
@@ -101,8 +101,8 @@ ARCHITECTURE Behavioral OF cube_generator_tb IS
     SIGNAL DISPLAY_COOR_H, DISPLAY_COOR_V : INTEGER := 0;
 
     -- Rendering data
-    SIGNAL PROJECTION_MATRIX : mat4_float := default_ortho_mat4_float;
-    SIGNAL VIEW_MATRIX : mat4_float := look_forward_mat4_float;
+    SIGNAL PROJECTION_MATRIX : mat4_fixed := default_ortho_mat4_fixed;
+    SIGNAL VIEW_MATRIX : mat4_fixed := look_forward_mat4_fixed;
 
     -- Cube properties
     SIGNAL POS_IN, ROT_IN, SCALE_IN : vec3_int;
@@ -137,7 +137,7 @@ BEGIN
             PROJECTION_MATRIX => PROJECTION_MATRIX,
             VIEW_MATRIX => VIEW_MATRIX,
             POINT_3D => vertices(i),
-            SCREEN_POS_OUT => screen_vertices_float(i)
+            SCREEN_POS_OUT => screen_vertices_fixed(i)
         );
     END GENERATE;
 
@@ -213,7 +213,7 @@ BEGIN
         END LOOP;
 
         FOR i IN 0 TO 7 LOOP
-            screen_vertices_int(i) <= to_vec2_int(screen_vertices_float(i));
+            screen_vertices_int(i) <= to_vec2_int(screen_vertices_fixed(i));
         END LOOP;
 
         WAIT FOR 10 ns;
