@@ -6,10 +6,7 @@
 LIBRARY IEEE;
 USE IEEE.STD_LOGIC_1164.ALL;
 USE IEEE.Numeric_Std.ALL;
-LIBRARY ieee_proposed;
-USE ieee_proposed.fixed_float_types.ALL;
-USE ieee_proposed.fixed_pkg.ALL;
-USE ieee_proposed.float_pkg.ALL;
+USE work.my_float_pkg.ALL;
 USE work.math3D_pkg.ALL;
 
 ENTITY vertex_controller IS
@@ -58,7 +55,7 @@ BEGIN
             scale_mat4 <= scaling_mat4_float(SCALE_IN);
 
             -- 1. Scale the vertex
-            scaled_vertex := scale_mat4 * to_vec4_float(VERTEX_IN, float32_one);
+            scaled_vertex := scale_mat4 * to_vec4_float(VERTEX_IN, float_one);
 
             -- 2. Rotate the vertex
             rotated_vertex := rotation_mat4 * scaled_vertex;

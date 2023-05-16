@@ -1,10 +1,7 @@
 LIBRARY ieee;
 USE ieee.std_logic_1164.ALL;
 USE ieee.numeric_std.ALL;
-LIBRARY ieee_proposed;
-USE ieee_proposed.fixed_float_types.ALL;
-USE ieee_proposed.fixed_pkg.ALL;
-USE ieee_proposed.float_pkg.ALL;
+USE work.my_float_pkg.ALL;
 USE work.math3D_pkg.ALL;
 
 ENTITY vertex_controller_tb IS
@@ -26,7 +23,7 @@ ARCHITECTURE vertex_controller_tb_arch OF vertex_controller_tb IS
     END COMPONENT;
 
     SIGNAL reset, clk : STD_LOGIC := '0';
-    SIGNAL vertex_in, vertex_out : vec3_float := (float32_neg_one, float32_neg_one, float32_neg_one);
+    SIGNAL vertex_in, vertex_out : vec3_float := (float_neg_one, float_neg_one, float_neg_one);
     SIGNAL translation_in : vec3_int := (0, 0, 0);
     SIGNAL rotation_in : vec3_int := (0, 0, 0);
     SIGNAL scale_in : vec3_int := (1, 1, 1);

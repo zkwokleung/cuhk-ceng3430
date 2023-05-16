@@ -7,10 +7,7 @@
 LIBRARY IEEE;
 USE IEEE.STD_LOGIC_1164.ALL;
 USE IEEE.Numeric_Std.ALL;
-LIBRARY ieee_proposed;
-USE ieee_proposed.fixed_float_types.ALL;
-USE ieee_proposed.fixed_pkg.ALL;
-USE ieee_proposed.float_pkg.ALL;
+USE work.my_float_pkg.ALL;
 USE work.math3D_pkg.ALL;
 
 ENTITY line_connector_tb IS

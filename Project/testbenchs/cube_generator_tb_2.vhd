@@ -1,10 +1,7 @@
 LIBRARY IEEE;
 USE IEEE.STD_LOGIC_1164.ALL;
 USE IEEE.Numeric_Std.ALL;
-LIBRARY ieee_proposed;
-USE ieee_proposed.fixed_float_types.ALL;
-USE ieee_proposed.fixed_pkg.ALL;
-USE ieee_proposed.float_pkg.ALL;
+USE work.my_float_pkg.ALL;
 USE work.math3D_pkg.ALL;
 
 ENTITY cube_generator_tb_2 IS
@@ -30,7 +27,7 @@ ARCHITECTURE Behavioral OF cube_generator_tb_2 IS
 
     SIGNAL clk, reset : STD_LOGIC := '0';
     SIGNAL display_coor_h, display_coor_v : INTEGER := 0;
-    SIGNAL projection_matrix, view_matrix : mat4_float := (OTHERS => (OTHERS => float32_zero));
+    SIGNAL projection_matrix, view_matrix : mat4_float := (OTHERS => (OTHERS => float_zero));
     SIGNAL pos_in, rot_in, scale_in : vec3_int := (OTHERS => 0);
     SIGNAL red_out, green_out, blue_out : STD_LOGIC_VECTOR(3 DOWNTO 0) := (OTHERS => '0');
 BEGIN

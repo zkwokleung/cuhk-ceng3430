@@ -5,10 +5,7 @@
 LIBRARY ieee;
 USE ieee.std_logic_1164.ALL;
 USE ieee.numeric_std.ALL;
-LIBRARY ieee_proposed;
-USE ieee_proposed.fixed_float_types.ALL;
-USE ieee_proposed.fixed_pkg.ALL;
-USE ieee_proposed.float_pkg.ALL;
+USE work.my_float_pkg.ALL;
 USE work.math3D_pkg.ALL;
 
 -- TODO: Update the output to be int
@@ -32,14 +29,14 @@ ARCHITECTURE world_to_screen_convertor_arch OF world_to_screen_convertor IS
 BEGIN
     -- Pipeline the calculations
     PROCESS (CLK)
-        VARIABLE clipSpacePos, view_times_point : vec4_float := (float32_zero, float32_zero, float32_zero, float32_zero);
-        VARIABLE ndcPos : vec3_float := (float32_zero, float32_zero, float32_zero);
-        VARIABLE ndcSpacePos_xy_plus_one_halfed, result : vec2_float := (float32_zero, float32_zero);
-        VARIABLE temp : float32;
+        VARIABLE clipSpacePos, view_times_point : vec4_float := (float_zero, float_zero, float_zero, float_zero);
+        VARIABLE ndcPos : vec3_float := (float_zero, float_zero, float_zero);
+        VARIABLE ndcSpacePos_xy_plus_one_halfed, result : vec2_float := (float_zero, float_zero);
+        VARIABLE temp : float;
     BEGIN
         IF rising_edge(CLK) THEN
             -- viewMatrix * point
-            -- view_times_point := VIEW_MATRIX * to_vec4_float(POINT_3D, float32_one);
+            -- view_times_point := VIEW_MATRIX * to_vec4_float(POINT_3D, float_one);
 
             -- -- clipSpacePos = projectionMatrix * viewMatrix * point
             -- clipSpacePos := PROJECTION_MATRIX * view_times_point;
@@ -48,7 +45,7 @@ BEGIN
             -- ndcPos := to_vec3_float(clipSpacePos) / clipSpacePos(3);
 
             -- -- screenPos = (ndcSpacePos.xy + 1) / 2 * viewSize
-            -- ndcSpacePos_xy_plus_one_halfed := (to_vec2_float(ndcPos) + (float32_one, float32_one)) / to_float(2, 8, 23);
+            -- ndcSpacePos_xy_plus_one_halfed := (to_vec2_float(ndcPos) + (float_one, float_one)) / to_float(2);
 
             -- result := (ndcSpacePos_xy_plus_one_halfed(0) * viewSize(0), ndcSpacePos_xy_plus_one_halfed(1) * viewSize(1));
 

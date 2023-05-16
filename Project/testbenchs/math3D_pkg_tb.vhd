@@ -1,10 +1,7 @@
 LIBRARY IEEE;
 USE IEEE.STD_LOGIC_1164.ALL;
 USE IEEE.Numeric_Std.ALL;
-LIBRARY ieee_proposed;
-USE ieee_proposed.fixed_float_types.ALL;
-USE ieee_proposed.fixed_pkg.ALL;
-USE ieee_proposed.float_pkg.ALL;
+USE work.my_float_pkg.ALL;
 USE work.math3D_pkg.ALL;
 
 ENTITY math3D_pkg_tb IS
@@ -19,8 +16,8 @@ ARCHITECTURE math3D_pkg_tb_arch OF math3D_pkg_tb IS
     SIGNAL v4f : vec4_float;
     SIGNAL v3f : vec3_float;
     SIGNAL v2f : vec2_float;
-    SIGNAL sx : float32;
-    SIGNAL sy : float32;
+    SIGNAL sx : float;
+    SIGNAL sy : float;
     SIGNAL view_mat : mat4_float := look_forward_mat4_float;
 
     SIGNAL trans, rot, scale : mat4_float := identity_mat4_float;
@@ -32,7 +29,7 @@ BEGIN
         rot <= rotation_mat4_float((10, 10, 10));
         scale <= scaling_mat4_float((100, 100, 100));
 
-        -- v4f <= to_vec4_float(to_vec3_float(a), float32_one);
+        -- v4f <= to_vec4_float(to_vec3_float(a), float_one);
         -- WAIT FOR 10 ns;
         -- v4f <= view_mat * v4f;
         -- WAIT FOR 10 ns;
@@ -43,9 +40,9 @@ BEGIN
 
         -- v2f <= (v3f(0), v3f(1));
         -- WAIT FOR 10 ns;
-        -- v2f <= v2f + (float32_one, float32_one);
+        -- v2f <= v2f + (float_one, float_one);
         -- WAIT FOR 10 ns;
-        -- v2f <= v2f / to_float(2, 8, 23);
+        -- v2f <= v2f / to_float(2);
         -- WAIT FOR 10 ns;
 
         -- sx <= v2f(0) * 1024;

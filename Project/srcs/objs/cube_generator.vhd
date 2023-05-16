@@ -1,10 +1,7 @@
 LIBRARY IEEE;
 USE IEEE.STD_LOGIC_1164.ALL;
 USE IEEE.Numeric_Std.ALL;
-LIBRARY ieee_proposed;
-USE ieee_proposed.fixed_float_types.ALL;
-USE ieee_proposed.fixed_pkg.ALL;
-USE ieee_proposed.float_pkg.ALL;
+USE work.my_float_pkg.ALL;
 USE work.math3D_pkg.ALL;
 
 -- Determine the color of the current rendering pixel
@@ -51,16 +48,16 @@ ARCHITECTURE Behavioral OF cube_generator IS
     -- --------------------------------------------------------------------
     CONSTANT CUBE_DEFAULT_VERTEX : cube_vertex_float := (
         -- Top vertices
-        (float32_neg_one, float32_one, float32_one),
-        (float32_one, float32_one, float32_one),
-        (float32_one, float32_one, float32_neg_one),
-        (float32_neg_one, float32_one, float32_neg_one),
+        (float_neg_one, float_one, float_one),
+        (float_one, float_one, float_one),
+        (float_one, float_one, float_neg_one),
+        (float_neg_one, float_one, float_neg_one),
 
         -- Bottom vertices
-        (float32_neg_one, float32_neg_one, float32_one),
-        (float32_one, float32_neg_one, float32_one),
-        (float32_one, float32_neg_one, float32_neg_one),
-        (float32_neg_one, float32_neg_one, float32_neg_one)
+        (float_neg_one, float_neg_one, float_one),
+        (float_one, float_neg_one, float_one),
+        (float_one, float_neg_one, float_neg_one),
+        (float_neg_one, float_neg_one, float_neg_one)
     );
 
     -- --------------------------------------------------------------------
@@ -185,7 +182,7 @@ BEGIN
     -- BEGIN
     --     IF rising_edge(CLK) THEN
     --         FOR i IN 0 TO 7 LOOP
-    --             screen_vertices_int(i) <= (to_integer(to_float(i * 120 + 120, 8, 23)), to_integer(to_float(i * 70 + 70, 8, 23)));
+    --             screen_vertices_int(i) <= (to_integer(to_float(i * 120 + 120)), to_integer(to_float(i * 70 + 70)));
     --         END LOOP;
     --     END IF;
     -- END PROCESS;
@@ -194,7 +191,7 @@ BEGIN
     -- BEGIN
     --     IF rising_edge(CLK) THEN
     --         FOR i IN 7 TO 0 LOOP
-    --             screen_vertices_float(i) <= (to_float(i * 120 + 120, 8, 23), to_float(i * 70 + 70, 8, 23));
+    --             screen_vertices_float(i) <= (to_float(i * 120 + 120), to_float(i * 70 + 70));
     --         END LOOP;
     --     END IF;
     -- END PROCESS;
@@ -220,7 +217,7 @@ BEGIN
     -- BEGIN
     --     IF rising_edge(clk_50Mhz) THEN
     --         FOR i IN 0 TO 7 LOOP
-    --             vertices(i) <= (to_float(i * 120 + 120, 8, 23), to_float(i * 70 + 70, 8, 23), float32_zero);
+    --             vertices(i) <= (to_float(i * 120 + 120), to_float(i * 70 + 70), float_zero);
     --         END LOOP;
     --     END IF;
     -- END PROCESS;
@@ -229,7 +226,7 @@ BEGIN
     -- BEGIN
     --     IF (rising_edge(clk_50Mhz)) THEN
     --         FOR i IN 0 TO 7 LOOP
-    --             tmp2(i) <= (to_float(i * 120 + 120, 8, 23), to_float(i * 70 + 70, 8, 23));
+    --             tmp2(i) <= (to_float(i * 120 + 120), to_float(i * 70 + 70));
     --         END LOOP;
     --     END IF;
     -- END PROCESS;
@@ -257,7 +254,7 @@ BEGIN
     --     IF (rising_edge(clk_50Mhz)) THEN
     --     END IF;
     -- END PROCESS;
-    -- vertices(0) <= (to_float(500, 8, 23), to_float(300, 8, 23), float32_zero);
+    -- vertices(0) <= (to_float(500), to_float(300), float_zero);
 
     -- world_to_screen_convertor_inst_i : world_to_screen_convertor
     -- GENERIC MAP(

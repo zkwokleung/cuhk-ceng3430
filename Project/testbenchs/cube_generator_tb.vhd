@@ -1,10 +1,7 @@
 LIBRARY IEEE;
 USE IEEE.STD_LOGIC_1164.ALL;
 USE IEEE.Numeric_Std.ALL;
-LIBRARY ieee_proposed;
-USE ieee_proposed.fixed_float_types.ALL;
-USE ieee_proposed.fixed_pkg.ALL;
-USE ieee_proposed.float_pkg.ALL;
+USE work.my_float_pkg.ALL;
 USE work.math3D_pkg.ALL;
 
 ENTITY cube_generator_tb IS
@@ -24,16 +21,16 @@ ARCHITECTURE Behavioral OF cube_generator_tb IS
     -- --------------------------------------------------------------------
     CONSTANT CUBE_DEFAULT_VERTEX : cube_vertex_float := (
         -- Top vertices
-        (float32_neg_one, float32_one, float32_one),
-        (float32_one, float32_one, float32_one),
-        (float32_one, float32_one, float32_neg_one),
-        (float32_neg_one, float32_one, float32_neg_one),
+        (float_neg_one, float_one, float_one),
+        (float_one, float_one, float_one),
+        (float_one, float_one, float_neg_one),
+        (float_neg_one, float_one, float_neg_one),
 
         -- Bottom vertices
-        (float32_neg_one, float32_neg_one, float32_one),
-        (float32_one, float32_neg_one, float32_one),
-        (float32_one, float32_neg_one, float32_neg_one),
-        (float32_neg_one, float32_neg_one, float32_neg_one)
+        (float_neg_one, float_neg_one, float_one),
+        (float_one, float_neg_one, float_one),
+        (float_one, float_neg_one, float_neg_one),
+        (float_neg_one, float_neg_one, float_neg_one)
     );
 
     -- --------------------------------------------------------------------
