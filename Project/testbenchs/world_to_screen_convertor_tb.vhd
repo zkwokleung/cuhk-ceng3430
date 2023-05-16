@@ -20,7 +20,7 @@ ARCHITECTURE world_to_screen_convertor_tb_arch OF world_to_screen_convertor_tb I
             PROJECTION_MATRIX,
             VIEW_MATRIX : IN mat4_fixed;
             POINT_3D : IN vec3_fixed;
-            SCREEN_POS_OUT : OUT vec2_fixed
+            SCREEN_POS_OUT : OUT vec2_int
         );
     END COMPONENT;
 
@@ -30,7 +30,7 @@ ARCHITECTURE world_to_screen_convertor_tb_arch OF world_to_screen_convertor_tb I
     SIGNAL VIEW_MATRIX : mat4_fixed;
     SIGNAL POINT_3D_INT : vec3_int;
     SIGNAL POINT_3D : vec3_fixed;
-    SIGNAL SCREEN_POS_OUT : vec2_fixed;
+    SIGNAL SCREEN_POS_OUT : vec2_int;
 BEGIN
     world_to_screen_convertor_inst : world_to_screen_convertor
     GENERIC MAP(

@@ -1376,8 +1376,8 @@ PACKAGE math3D_pkg IS
     -- With 512 as the scale factor, the following matrix is equivalent to the one above
     CONSTANT default_ortho_mat4_fixed : mat4_fixed := (
     (to_sfixed(0.001953125, 22, -8), fixed_zero, fixed_zero, fixed_neg_one),
-        (fixed_zero, to_sfixed(2, 22, -8), fixed_zero, fixed_neg_one),
-        (fixed_zero, fixed_zero, to_sfixed(-0.000200020003831, 22, -8), to_sfixed(-1.00020003319, 22, -8)),
+        (fixed_zero, to_sfixed(-0.003333333, 22, -8), fixed_zero, fixed_neg_one),
+        (fixed_zero, fixed_zero, to_sfixed(-0.000200020002, 22, -8), to_sfixed(-1.00020002, 22, -8)),
         (fixed_zero, fixed_zero, fixed_zero, fixed_one)
     );
     CONSTANT look_forward_mat4_fixed : mat4_fixed := (
