@@ -1,8 +1,7 @@
 LIBRARY ieee;
 USE ieee.std_logic_1164.ALL;
 USE ieee.numeric_std.ALL;
-USE work.fixed_float_types.ALL;
-USE work.fixed_pkg.ALL;
+USE ieee.fixed_pkg.ALL;
 USE work.math3D_pkg.ALL;
 
 ENTITY vertex_controller_tb IS

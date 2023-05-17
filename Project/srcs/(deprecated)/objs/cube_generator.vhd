@@ -1,8 +1,7 @@
 LIBRARY IEEE;
 USE IEEE.STD_LOGIC_1164.ALL;
 USE IEEE.Numeric_Std.ALL;
-USE work.fixed_float_types.ALL;
-USE work.fixed_pkg.ALL;
+USE ieee.fixed_pkg.ALL;
 USE work.math3D_pkg.ALL;
 
 -- Determine the color of the current rendering pixel
@@ -143,52 +142,52 @@ BEGIN
         CLK_OUT => clk_50Mhz
     );
 
-    vertices_map_gen : FOR i IN 0 TO 7 GENERATE
-        -- Vertex controller
-        vertex_controller_inst_i : vertex_controller
-        PORT MAP(
-            RESET => RESET,
-            CLK => CLK,
-            VERTEX_IN => CUBE_DEFAULT_VERTEX(i),
-            TRANSLATION_IN => POS_IN,
-            ROTATION_IN => ROT_IN,
-            SCALE_IN => SCALE_IN,
-            VERTEX_OUT => vertices(i)
-        );
+    -- vertices_map_gen : FOR i IN 0 TO 7 GENERATE
+    --     -- Vertex controller
+    --     vertex_controller_inst_i : vertex_controller
+    --     PORT MAP(
+    --         RESET => RESET,
+    --         CLK => CLK,
+    --         VERTEX_IN => CUBE_DEFAULT_VERTEX(i),
+    --         TRANSLATION_IN => POS_IN,
+    --         ROTATION_IN => ROT_IN,
+    --         SCALE_IN => SCALE_IN,
+    --         VERTEX_OUT => vertices(i)
+    --     );
 
-        -- 3D world point TO screen coordinate convertor
-        world_to_screen_convertor_inst_i : world_to_screen_convertor
-        GENERIC MAP(
-            SCREEN_WIDTH => SCREEN_WIDTH,
-            SCREEN_HEIGHT => SCREEN_HEIGHT
-        )
-        PORT MAP(
-            RESET => RESET,
-            CLK => CLK,
-            PROJECTION_MATRIX => PROJECTION_MATRIX,
-            VIEW_MATRIX => VIEW_MATRIX,
-            POINT_3D => vertices(i),
-            SCREEN_POS_OUT => screen_vertices_int(i)
-        );
-    END GENERATE;
+    --     -- 3D world point TO screen coordinate convertor
+    --     world_to_screen_convertor_inst_i : world_to_screen_convertor
+    --     GENERIC MAP(
+    --         SCREEN_WIDTH => SCREEN_WIDTH,
+    --         SCREEN_HEIGHT => SCREEN_HEIGHT
+    --     )
+    --     PORT MAP(
+    --         RESET => RESET,
+    --         CLK => CLK,
+    --         PROJECTION_MATRIX => PROJECTION_MATRIX,
+    --         VIEW_MATRIX => VIEW_MATRIX,
+    --         POINT_3D => vertices(i),
+    --         SCREEN_POS_OUT => screen_vertices_int(i)
+    --     );
+    -- END GENERATE;
 
     -- test_proc_0 : PROCESS (CLK)
     -- BEGIN
     --     IF rising_edge(CLK) THEN
     --         FOR i IN 0 TO 7 LOOP
-    --             screen_vertices_int(i) <= (to_integer(to_fixed(i * 120 + 120)), to_integer(to_fixed(i * 70 + 70)));
+    --             screen_vertices_int(i) <= (to_integer(to_sfixed(i * 120 + 120, 22, -8)), to_integer(to_sfixed(i * 70 + 70, 22, -8)));
     --         END LOOP;
     --     END IF;
     -- END PROCESS;
 
-    -- test_proc_1 : PROCESS (CLK)
-    -- BEGIN
-    --     IF rising_edge(CLK) THEN
-    --         FOR i IN 7 TO 0 LOOP
-    --             screen_vertices_fixed(i) <= (to_fixed(i * 120 + 120), to_fixed(i * 70 + 70));
-    --         END LOOP;
-    --     END IF;
-    -- END PROCESS;
+    test_proc_1 : PROCESS (CLK)
+    BEGIN
+        IF rising_edge(CLK) THEN
+            FOR i IN 7 TO 0 LOOP
+                screen_vertices_fixed(i) <= (to_sfixed(i * 120 + 120, 22, -8), to_sfixed(i * 70 + 70, 22, -8));
+            END LOOP;
+        END IF;
+    END PROCESS;
 
     -- screen_vertices_int(0) <= to_vec2_int(screen_vertices_fixed(0));
     -- screen_vertices_int(1) <= to_vec2_int(screen_vertices_fixed(1));
@@ -200,10 +199,9 @@ BEGIN
     -- screen_vertices_int(7) <= to_vec2_int(screen_vertices_fixed(7));
 
     -- test_proc_2 : PROCESS (screen_vertices_fixed)
-    --     VARIABLE temp : vec2_fixed;
     -- BEGIN
     --     FOR i IN 0 TO 7 LOOP
-    --         temp := screen_vertices_fixed(i);
+    --         screen_vertices_int(i) <= (to_integer(signed(STD_LOGIC_VECTOR(screen_vertices_fixed(i)(0)))/256), to_integer(signed(STD_LOGIC_VECTOR(screen_vertices_fixed(i)(1)))/256));
     --     END LOOP;
     -- END PROCESS;
 
@@ -326,8 +324,8 @@ BEGIN
     PROCESS (DISPLAY_COOR_H, DISPLAY_COOR_V, screen_vertices_int)
     BEGIN
         FOR i IN 0 TO 7 LOOP
-            IF (DISPLAY_COOR_H >= screen_vertices_int(i)(0)) AND (DISPLAY_COOR_H <= (screen_vertices_int(i)(0) + FRAME_WIDTH)) AND
-                (DISPLAY_COOR_V >= screen_vertices_int(i)(1)) AND (DISPLAY_COOR_V <= (screen_vertices_int(i)(1) + FRAME_WIDTH)) THEN
+            IF (DISPLAY_COOR_H >= screen_vertices_fixed(i)(0)) AND (DISPLAY_COOR_H <= (resize(screen_vertices_fixed(i)(0) + FRAME_WIDTH, 22, -8))) AND
+                (DISPLAY_COOR_V >= screen_vertices_fixed(i)(1)) AND (DISPLAY_COOR_V <= (resize(screen_vertices_fixed(i)(1) + FRAME_WIDTH, 22, -8))) THEN
                 draw_signal(i + 12) <= '1';
             ELSE
                 draw_signal(i + 12) <= '0';

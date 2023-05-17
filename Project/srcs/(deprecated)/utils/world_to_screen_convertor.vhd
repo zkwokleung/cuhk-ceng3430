@@ -6,8 +6,7 @@ LIBRARY ieee;
 USE ieee.std_logic_1164.ALL;
 USE ieee.numeric_std.ALL;
 LIBRARY IEEE_PROPOSED;
-USE work.fixed_float_types.ALL;
-USE work.fixed_pkg.ALL;
+USE ieee.fixed_pkg.ALL;
 USE work.math3D_pkg.ALL;
 
 -- TODO: Update the output to be int
@@ -41,7 +40,8 @@ BEGIN
             view_times_point := VIEW_MATRIX * to_vec4_fixed(POINT_3D, fixed_one);
 
             -- clipSpacePos = projectionMatrix * viewMatrix * point
-            clipSpacePos <= PROJECTION_MATRIX * view_times_point;
+            -- clipSpacePos <= PROJECTION_MATRIX * view_times_point;
+            clipSpacePos <= view_times_point;
 
             -- ndcSpacePos = clipSpacePos.xyz / clipSpacePos.w
             ndcPos <= to_vec3_fixed(clipSpacePos) / clipSpacePos(3);

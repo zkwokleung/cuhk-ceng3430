@@ -2,7 +2,8 @@ LIBRARY ieee;
 USE ieee.std_logic_1164.ALL;
 USE ieee.numeric_std.ALL;
 USE work.fixed_fixed_types.ALL;
-USE work.fixed_pkg.ALL;
+USE ieee.fixed_pkg.ALL;
+USE work.math3D_pkg.ALL;
 
 ENTITY fixed_pkg_tb IS
 END ENTITY fixed_pkg_tb;
