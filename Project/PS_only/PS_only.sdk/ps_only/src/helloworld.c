@@ -9,6 +9,8 @@ int main()
 
     float pos[4] = {1.3f, 2.4f, 5.6f, 9.8f};
 
+    print("FUCK");
+
     printf("%f, %f, %f, %f\n", pos[0], pos[1], pos[2], pos[3]);
 
     cleanup_platform();

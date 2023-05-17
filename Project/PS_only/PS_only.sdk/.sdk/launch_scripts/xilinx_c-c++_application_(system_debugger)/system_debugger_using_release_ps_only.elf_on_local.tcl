@@ -10,7 +10,3 @@ loadhw D:/Git/cuhk-ceng3430/Project/PS_only/PS_only.sdk/design_1_wrapper_hw_plat
 targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Zed 210248565423"} -index 0
 ps7_init
 ps7_post_config
-targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zed 210248565423"} -index 0
-dow D:/Git/cuhk-ceng3430/Project/PS_only/PS_only.sdk/ps_only/Release/ps_only.elf
-targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zed 210248565423"} -index 0
-con
