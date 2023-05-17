@@ -8,24 +8,24 @@
 /*
  *      Vector constants
  */
-const float VEC2_ZERO[] = {0.0f, 0.0f};
-const float VEC2_ONE[] = {1.0f, 1.0f};
-const float VEC2_UP[] = {0.0f, 1.0f};
-const float VEC2_DOWN[] = {0.0f, -1.0f};
-const float VEC2_LEFT[] = {-1.0f, 0.0f};
-const float VEC2_RIGHT[] = {1.0f, 0.0f};
+// const float VEC2_ZERO[] = {0.0f, 0.0f};
+// const float VEC2_ONE[] = {1.0f, 1.0f};
+// const float VEC2_UP[] = {0.0f, 1.0f};
+// const float VEC2_DOWN[] = {0.0f, -1.0f};
+// const float VEC2_LEFT[] = {-1.0f, 0.0f};
+// const float VEC2_RIGHT[] = {1.0f, 0.0f};
 
-const float VEC3_ZERO[] = {0.0f, 0.0f, 0.0f};
-const float VEC3_ONE[] = {1.0f, 1.0f, 1.0f};
-const float VEC3_UP[] = {0.0f, 1.0f, 0.0f};
-const float VEC3_DOWN[] = {0.0f, -1.0f, 0.0f};
-const float VEC3_LEFT[] = {-1.0f, 0.0f, 0.0f};
-const float VEC3_RIGHT[] = {1.0f, 0.0f, 0.0f};
-const float VEC3_FORWARD[] = {0.0f, 0.0f, 1.0f};
-const float VEC3_BACK[] = {0.0f, 0.0f, -1.0f};
+// const float VEC3_ZERO[] = {0.0f, 0.0f, 0.0f};
+// const float VEC3_ONE[] = {1.0f, 1.0f, 1.0f};
+// const float VEC3_UP[] = {0.0f, 1.0f, 0.0f};
+// const float VEC3_DOWN[] = {0.0f, -1.0f, 0.0f};
+// const float VEC3_LEFT[] = {-1.0f, 0.0f, 0.0f};
+// const float VEC3_RIGHT[] = {1.0f, 0.0f, 0.0f};
+// const float VEC3_FORWARD[] = {0.0f, 0.0f, 1.0f};
+// const float VEC3_BACK[] = {0.0f, 0.0f, -1.0f};
 
-const float VEC4_ZERO[] = {0.0f, 0.0f, 0.0f, 0.0f};
-const float VEC4_ONE[] = {1.0f, 1.0f, 1.0f, 1.0f};
+// const float VEC4_ZERO[] = {0.0f, 0.0f, 0.0f, 0.0f};
+// const float VEC4_ONE[] = {1.0f, 1.0f, 1.0f, 1.0f};
 
 /*
  *      Matrix constants

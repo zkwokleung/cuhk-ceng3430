@@ -1,36 +1,6 @@
 #include "math3d.h"
 
 /*
- * Matrix functions
- */
-float *get_vec2(float x, float y)
-{
-    float *result = (float *)malloc(sizeof(float) * 2);
-    result[0] = x;
-    result[1] = y;
-    return result;
-}
-
-float *get_vec3(float x, float y, float z)
-{
-    float *result = (float *)malloc(sizeof(float) * 3);
-    result[0] = x;
-    result[1] = y;
-    result[2] = z;
-    return result;
-}
-
-float *get_vec4(float x, float y, float z, float w)
-{
-    float *result = (float *)malloc(sizeof(float) * 4);
-    result[0] = x;
-    result[1] = y;
-    result[2] = z;
-    result[3] = w;
-    return result;
-}
-
-/*
  * Vector arithmetic functions
  */
 
@@ -721,10 +691,10 @@ void perspective(float **result, float fovy, float aspect, float near, float far
 
 void look_at(float **result, float *eye, float *center, float *up)
 {
-    float f[3];
-    float s[3];
-    float u[3];
-    float tmp[3];
+    float *f = get_vec3(0.0f, 0.0f, 0.0f);
+    float *s = get_vec3(0.0f, 0.0f, 0.0f);
+    float *u = get_vec3(0.0f, 0.0f, 0.0f);
+    float *tmp = get_vec3(0.0f, 0.0f, 0.0f);
 
     tmp[0] = eye[0] - center[0];
     tmp[1] = eye[1] - center[1];
@@ -753,9 +723,14 @@ void look_at(float **result, float *eye, float *center, float *up)
     result[3][1] = -vec3_dot(u, eye);
     result[3][2] = -vec3_dot(f, eye);
     result[3][3] = 1.0f;
+
+    free(f);
+    free(s);
+    free(u);
+    free(tmp);
 }
 
-void to_screen_space(float *result, float *point, float **projection, float **view, float width, float height);
+void to_screen_space(float *result, float *point, float **projection, float **view, float width, float height)
 {
     float tmp[4];
     float clipSpacePos[4];
@@ -763,7 +738,7 @@ void to_screen_space(float *result, float *point, float **projection, float **vi
     mat4_vec4_mul(tmp, view, point);
     mat4_vec4_mul(clipSpacePos, projection, tmp);
 
-    float *ndcSpacePos = get_vec3();
+    float ndcSpacePos[3];
     ndcSpacePos[0] = clipSpacePos[0] / clipSpacePos[3];
     ndcSpacePos[1] = clipSpacePos[1] / clipSpacePos[3];
     ndcSpacePos[2] = clipSpacePos[2] / clipSpacePos[3];
@@ -878,12 +853,11 @@ void translate(float *result, float *point, float *displacement)
     float **translation = get_mat4();
     get_translation_mat4(translation, displacement);
 
-    float *point_vec4 = get_vec4(point[0], point[1], point[2], 1.0f);
+    float point_vec4[4] = {point[0], point[1], point[2], 1.0f};
 
     mat4_vec4_mul(result, translation, point_vec4);
 
     free_mat4(translation);
-    free(point_vec4);
 }
 
 void rotate_x(float *result, float *point, float angle)
@@ -891,12 +865,11 @@ void rotate_x(float *result, float *point, float angle)
     float **rotation = get_mat4();
     get_rotation_x_mat4(rotation, angle);
 
-    float *point_vec4 = get_vec4(point[0], point[1], point[2], 1.0f);
+    float point_vec4[4] = {point[0], point[1], point[2], 1.0f};
 
     mat4_vec4_mul(result, rotation, point_vec4);
 
     free_mat4(rotation);
-    free(point_vec4);
 }
 
 void rotate_y(float *result, float *point, float angle)
@@ -904,12 +877,11 @@ void rotate_y(float *result, float *point, float angle)
     float **rotation = get_mat4();
     get_rotation_y_mat4(rotation, angle);
 
-    float *point_vec4 = get_vec4(point[0], point[1], point[2], 1.0f);
+    float point_vec4[4] = {point[0], point[1], point[2], 1.0f};
 
     mat4_vec4_mul(result, rotation, point_vec4);
 
     free_mat4(rotation);
-    free(point_vec4);
 }
 
 void rotate_z(float *result, float *point, float angle)
@@ -917,12 +889,11 @@ void rotate_z(float *result, float *point, float angle)
     float **rotation = get_mat4();
     get_rotation_z_mat4(rotation, angle);
 
-    float *point_vec4 = get_vec4(point[0], point[1], point[2], 1.0f);
+    float point_vec4[4] = {point[0], point[1], point[2], 1.0f};
 
     mat4_vec4_mul(result, rotation, point_vec4);
 
     free_mat4(rotation);
-    free(point_vec4);
 }
 
 void scale(float *result, float *point, float *scale)
@@ -930,10 +901,9 @@ void scale(float *result, float *point, float *scale)
     float **scaling = get_mat4();
     get_scale_mat4(scaling, scale);
 
-    float *point_vec4 = get_vec4(point[0], point[1], point[2], 1.0f);
+    float point_vec4[4] = {point[0], point[1], point[2], 1.0f};
 
     mat4_vec4_mul(result, scaling, point_vec4);
 
     free_mat4(scaling);
-    free(point_vec4);
 }
