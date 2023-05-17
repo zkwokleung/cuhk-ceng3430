@@ -1,665 +1,922 @@
 #include "math3d.h"
 
 /*
- *      Vector2 arithmetic functions
+ * Matrix functions
  */
-vec2 vec2_add(const vec2 a, const vec2 b)
+float *get_vec2(float x, float y)
 {
-    vec2 c;
-    c.x = a.x + b.x;
-    c.y = a.y + b.y;
-    return c;
+    float *result = (float *)malloc(sizeof(float) * 2);
+    result[0] = x;
+    result[1] = y;
+    return result;
 }
 
-vec2 vec2_sub(const vec2 a, const vec2 b)
+float *get_vec3(float x, float y, float z)
 {
-    vec2 c;
-    c.x = a.x - b.x;
-    c.y = a.y - b.y;
-    return c;
+    float *result = (float *)malloc(sizeof(float) * 3);
+    result[0] = x;
+    result[1] = y;
+    result[2] = z;
+    return result;
 }
 
-vec2 vec2_mul(const vec2 a, const vec2 b)
+float *get_vec4(float x, float y, float z, float w)
 {
-    vec2 c;
-    c.x = a.x * b.x;
-    c.y = a.y * b.y;
-    return c;
-}
-
-vec2 vec2_div(const vec2 a, const vec2 b)
-{
-    vec2 c;
-    c.x = a.x / b.x;
-    c.y = a.y / b.y;
-    return c;
-}
-
-vec2 vec2_scale(const vec2 a, float s)
-{
-    vec2 c;
-    c.x = a.x * s;
-    c.y = a.y * s;
-    return c;
-}
-
-vec2 vec2_neg(const vec2 a)
-{
-    vec2 c;
-    c.x = -a.x;
-    c.y = -a.y;
-    return c;
-}
-
-float vec2_dot(const vec2 a, const vec2 b)
-{
-    return a.x * b.x + a.y * b.y;
-}
-
-float vec2_mag(const vec2 a)
-{
-    return sqrtf(a.x * a.x + a.y * a.y);
-}
-
-float vec2_dist(const vec2 a, const vec2 b)
-{
-    return vec2_mag(vec2_sub(a, b));
-}
-
-vec2 vec2_norm(const vec2 a)
-{
-    float mag = vec2_mag(a);
-    vec2 c;
-    c.x = a.x / mag;
-    c.y = a.y / mag;
-    return c;
+    float *result = (float *)malloc(sizeof(float) * 4);
+    result[0] = x;
+    result[1] = y;
+    result[2] = z;
+    result[3] = w;
+    return result;
 }
 
 /*
- *      Vector3 arithmetic functions
+ * Vector arithmetic functions
  */
-vec3 vec3_add(const vec3 a, const vec3 b)
+
+// Vector addition
+void vec2_add(float *result, float *a, float *b)
 {
-    vec3 c;
-    c.x = a.x + b.x;
-    c.y = a.y + b.y;
-    c.z = a.z + b.z;
-    return c;
+    result[0] = a[0] + b[0];
+    result[1] = a[1] + b[1];
 }
 
-vec3 vec3_sub(const vec3 a, const vec3 b)
+void vec3_add(float *result, float *a, float *b)
 {
-    vec3 c;
-    c.x = a.x - b.x;
-    c.y = a.y - b.y;
-    c.z = a.z - b.z;
-    return c;
+    result[0] = a[0] + b[0];
+    result[1] = a[1] + b[1];
+    result[2] = a[2] + b[2];
 }
 
-vec3 vec3_mul(const vec3 a, const vec3 b)
+void vec4_add(float *result, float *a, float *b)
 {
-    vec3 c;
-    c.x = a.x * b.x;
-    c.y = a.y * b.y;
-    c.z = a.z * b.z;
-    return c;
+    result[0] = a[0] + b[0];
+    result[1] = a[1] + b[1];
+    result[2] = a[2] + b[2];
+    result[3] = a[3] + b[3];
 }
 
-vec3 vec3_div(const vec3 a, const vec3 b)
+// Vector subtraction
+void vec2_sub(float *result, float *a, float *b)
 {
-    vec3 c;
-    c.x = a.x / b.x;
-    c.y = a.y / b.y;
-    c.z = a.z / b.z;
-    return c;
+    result[0] = a[0] - b[0];
+    result[1] = a[1] - b[1];
 }
 
-vec3 vec3_scale(const vec3 a, const float s)
+void vec3_sub(float *result, float *a, float *b)
 {
-    vec3 c;
-    c.x = a.x * s;
-    c.y = a.y * s;
-    c.z = a.z * s;
-    return c;
+    result[0] = a[0] - b[0];
+    result[1] = a[1] - b[1];
+    result[2] = a[2] - b[2];
 }
 
-vec3 vec3_neg(const vec3 a)
+void vec4_sub(float *result, float *a, float *b)
 {
-    vec3 c;
-    c.x = -a.x;
-    c.y = -a.y;
-    c.z = -a.z;
-    return c;
+    result[0] = a[0] - b[0];
+    result[1] = a[1] - b[1];
+    result[2] = a[2] - b[2];
+    result[3] = a[3] - b[3];
 }
 
-float vec3_dot(const vec3 a, const vec3 b)
+// Vector multiplication
+void vec2_mul(float *result, float *a, float *b)
 {
-    return a.x * b.x + a.y * b.y + a.z * b.z;
+    result[0] = a[0] * b[0];
+    result[1] = a[1] * b[1];
 }
 
-vec3 cross(const vec3 a, const vec3 b)
+void vec3_mul(float *result, float *a, float *b)
 {
-    vec3 c;
-    c.x = a.y * b.z - a.z * b.y;
-    c.y = a.z * b.x - a.x * b.z;
-    c.z = a.x * b.y - a.y * b.x;
-    return c;
+    result[0] = a[0] * b[0];
+    result[1] = a[1] * b[1];
+    result[2] = a[2] * b[2];
 }
 
-float vec3_mag(const vec3 a)
+void vec4_mul(float *result, float *a, float *b)
 {
-    return sqrtf(a.x * a.x + a.y * a.y + a.z * a.z);
+    result[0] = a[0] * b[0];
+    result[1] = a[1] * b[1];
+    result[2] = a[2] * b[2];
+    result[3] = a[3] * b[3];
 }
 
-float vec3_dist(const vec3 a, const vec3 b)
+// Vector division
+void vec2_div(float *result, float *a, float *b)
 {
-    return vec3_mag(vec3_sub(a, b));
+    result[0] = a[0] / b[0];
+    result[1] = a[1] / b[1];
 }
 
-vec3 vec3_norm(const vec3 a)
+void vec3_div(float *result, float *a, float *b)
 {
-    float mag = vec3_mag(a);
-    vec3 c;
-    c.x = a.x / mag;
-    c.y = a.y / mag;
-    c.z = a.z / mag;
-    return c;
+    result[0] = a[0] / b[0];
+    result[1] = a[1] / b[1];
+    result[2] = a[2] / b[2];
+}
+
+void vec4_div(float *result, float *a, float *b)
+{
+    result[0] = a[0] / b[0];
+    result[1] = a[1] / b[1];
+    result[2] = a[2] / b[2];
+    result[3] = a[3] / b[3];
+}
+
+// Vector Cross Product
+void vec3_cross(float *result, float *a, float *b)
+{
+    result[0] = (a[1] * b[2]) - (a[2] * b[1]);
+    result[1] = (a[2] * b[0]) - (a[0] * b[2]);
+    result[2] = (a[0] * b[1]) - (a[1] * b[0]);
+}
+
+// Vector scaling
+void vec2_scale(float *result, float *a, float s)
+{
+    result[0] = a[0] * s;
+    result[1] = a[1] * s;
+}
+
+void vec3_scale(float *result, float *a, float s)
+{
+    result[0] = a[0] * s;
+    result[1] = a[1] * s;
+    result[2] = a[2] * s;
+}
+
+void vec4_scale(float *result, float *a, float s)
+{
+    result[0] = a[0] * s;
+    result[1] = a[1] * s;
+    result[2] = a[2] * s;
+    result[3] = a[3] * s;
+}
+
+// Vector normalization
+void vec2_norm(float *result, float *a)
+{
+    float mag = sqrtf(vec2_dot(a, a));
+    vec2_scale(result, a, 1.0f / mag);
+}
+
+void vec3_norm(float *result, float *a)
+{
+    float mag = sqrtf(vec3_dot(a, a));
+    vec3_scale(result, a, 1.0f / mag);
+}
+
+void vec4_norm(float *result, float *a)
+{
+    float mag = sqrtf(vec4_dot(a, a));
+    vec4_scale(result, a, 1.0f / mag);
+}
+
+// Vector negation
+void vec2_neg(float *result, float *a)
+{
+    result[0] = -a[0];
+    result[1] = -a[1];
+}
+
+void vec3_neg(float *result, float *a)
+{
+    result[0] = -a[0];
+    result[1] = -a[1];
+    result[2] = -a[2];
+}
+
+void vec4_neg(float *result, float *a)
+{
+    result[0] = -a[0];
+    result[1] = -a[1];
+    result[2] = -a[2];
+    result[3] = -a[3];
+}
+
+// Vector Dot Product
+float vec2_dot(float *a, float *b)
+{
+    return (a[0] * b[0]) + (a[1] * b[1]);
+}
+
+float vec3_dot(float *a, float *b)
+{
+    return (a[0] * b[0]) + (a[1] * b[1]) + (a[2] * b[2]);
+}
+
+float vec4_dot(float *a, float *b)
+{
+    return (a[0] * b[0]) + (a[1] * b[1]) + (a[2] * b[2]) + (a[3] * b[3]);
+}
+
+// Vector Magnitude
+float vec2_mag(float *a)
+{
+    return sqrtf(vec2_dot(a, a));
+}
+
+float vec3_mag(float *a)
+{
+    return sqrtf(vec3_dot(a, a));
+}
+
+float vec4_mag(float *a)
+{
+    return sqrtf(vec4_dot(a, a));
+}
+
+// Vector Distance
+float vec2_dist(float *a, float *b)
+{
+    float result[2];
+    vec2_sub(result, a, b);
+    return vec2_mag(result);
+}
+
+float vec3_dist(float *a, float *b)
+{
+    float result[3];
+    vec3_sub(result, a, b);
+    return vec3_mag(result);
+}
+
+float vec4_dist(float *a, float *b)
+{
+    float result[4];
+    vec4_sub(result, a, b);
+    return vec4_mag(result);
 }
 
 /*
- *      Vector4 arithmetic functions
+ *      Matrix Functions
  */
-vec4 vec4_add(const vec4 a, const vec4 b)
+float **get_mat2()
 {
-    vec4 c;
-    c.x = a.x + b.x;
-    c.y = a.y + b.y;
-    c.z = a.z + b.z;
-    c.w = a.w + b.w;
-    return c;
+    float **result = (float **)malloc(2 * sizeof(float *));
+    for (int i = 0; i < 2; i++)
+        result[i] = (float *)malloc(2 * sizeof(float));
+    return result;
 }
 
-vec4 vec4_sub(const vec4 a, const vec4 b)
+float **get_mat3()
 {
-    vec4 c;
-    c.x = a.x - b.x;
-    c.y = a.y - b.y;
-    c.z = a.z - b.z;
-    c.w = a.w - b.w;
-    return c;
+    float **result = (float **)malloc(3 * sizeof(float *));
+    for (int i = 0; i < 3; i++)
+        result[i] = (float *)malloc(3 * sizeof(float));
+    return result;
 }
 
-vec4 vec4_mul(const vec4 a, const vec4 b)
+float **get_mat4()
 {
-    vec4 c;
-    c.x = a.x * b.x;
-    c.y = a.y * b.y;
-    c.z = a.z * b.z;
-    c.w = a.w * b.w;
-    return c;
+    float **result = (float **)malloc(4 * sizeof(float *));
+    for (int i = 0; i < 4; i++)
+        result[i] = (float *)malloc(4 * sizeof(float));
+    return result;
 }
 
-vec4 vec4_div(const vec4 a, const vec4 b)
+float **get_mat2_identity()
 {
-    vec4 c;
-    c.x = a.x / b.x;
-    c.y = a.y / b.y;
-    c.z = a.z / b.z;
-    c.w = a.w / b.w;
-    return c;
+    float **result = get_mat2();
+    result[0][0] = 1.0f;
+    result[0][1] = 0.0f;
+    result[1][0] = 0.0f;
+    result[1][1] = 1.0f;
+    return result;
 }
 
-vec4 vec4_scale(const vec4 a, const float s)
+float **get_mat3_identity()
 {
-    vec4 c;
-    c.x = a.x * s;
-    c.y = a.y * s;
-    c.z = a.z * s;
-    c.w = a.w * s;
-    return c;
+    float **result = get_mat3();
+    result[0][0] = 1.0f;
+    result[0][1] = 0.0f;
+    result[0][2] = 0.0f;
+    result[1][0] = 0.0f;
+    result[1][1] = 1.0f;
+    result[1][2] = 0.0f;
+    result[2][0] = 0.0f;
+    result[2][1] = 0.0f;
+    result[2][2] = 1.0f;
+    return result;
 }
 
-vec4 vec4_neg(const vec4 a)
+float **get_mat4_identity()
 {
-    vec4 c;
-    c.x = -a.x;
-    c.y = -a.y;
-    c.z = -a.z;
-    c.w = -a.w;
-    return c;
+    float **result = get_mat4();
+    result[0][0] = 1.0f;
+    result[0][1] = 0.0f;
+    result[0][2] = 0.0f;
+    result[0][3] = 0.0f;
+    result[1][0] = 0.0f;
+    result[1][1] = 1.0f;
+    result[1][2] = 0.0f;
+    result[1][3] = 0.0f;
+    result[2][0] = 0.0f;
+    result[2][1] = 0.0f;
+    result[2][2] = 1.0f;
+    result[2][3] = 0.0f;
+    result[3][0] = 0.0f;
+    result[3][1] = 0.0f;
+    result[3][2] = 0.0f;
+    result[3][3] = 1.0f;
+    return result;
 }
 
-float vec4_dot(const vec4 a, const vec4 b)
+void free_mat2(float **mat)
 {
-    return a.x * b.x + a.y * b.y + a.z * b.z + a.w * b.w;
+    for (int i = 0; i < 2; i++)
+        free(mat[i]);
+    free(mat);
 }
 
-float vec4_mag(const vec4 a)
+void free_mat3(float **mat)
 {
-    return sqrtf(a.x * a.x + a.y * a.y + a.z * a.z + a.w * a.w);
+    for (int i = 0; i < 3; i++)
+        free(mat[i]);
+    free(mat);
 }
 
-float vec4_dist(const vec4 a, const vec4 b)
+void free_mat4(float **mat)
 {
-    return vec4_mag(vec4_sub(a, b));
+    for (int i = 0; i < 4; i++)
+        free(mat[i]);
+    free(mat);
 }
 
-vec4 vec4_norm(const vec4 a)
+// Matrix addition
+void mat2_add(float **result, float **a, float **b)
 {
-    float mag = vec4_mag(a);
-    vec4 c;
-    c.x = a.x / mag;
-    c.y = a.y / mag;
-    c.z = a.z / mag;
-    c.w = a.w / mag;
-    return c;
+    result[0][0] = a[0][0] + b[0][0];
+    result[0][1] = a[0][1] + b[0][1];
+    result[1][0] = a[1][0] + b[1][0];
+    result[1][1] = a[1][1] + b[1][1];
 }
 
-/*
- *      Matrix2 arithmetic functions
- */
-mat2 mat2_add(const mat2 a, const mat2 b)
+void mat3_add(float **result, float **a, float **b)
 {
-    mat2 c;
-    c.m[0][0] = a.m[0][0] + b.m[0][0];
-    c.m[0][1] = a.m[0][1] + b.m[0][1];
-    c.m[1][0] = a.m[1][0] + b.m[1][0];
-    c.m[1][1] = a.m[1][1] + b.m[1][1];
-    return c;
+    result[0][0] = a[0][0] + b[0][0];
+    result[0][1] = a[0][1] + b[0][1];
+    result[0][2] = a[0][2] + b[0][2];
+    result[1][0] = a[1][0] + b[1][0];
+    result[1][1] = a[1][1] + b[1][1];
+    result[1][2] = a[1][2] + b[1][2];
+    result[2][0] = a[2][0] + b[2][0];
+    result[2][1] = a[2][1] + b[2][1];
+    result[2][2] = a[2][2] + b[2][2];
 }
 
-mat2 mat2_sub(const mat2 a, const mat2 b)
+void mat4_add(float **result, float **a, float **b)
 {
-    mat2 c;
-    c.m[0][0] = a.m[0][0] - b.m[0][0];
-    c.m[0][1] = a.m[0][1] - b.m[0][1];
-    c.m[1][0] = a.m[1][0] - b.m[1][0];
-    c.m[1][1] = a.m[1][1] - b.m[1][1];
-    return c;
+    result[0][0] = a[0][0] + b[0][0];
+    result[0][1] = a[0][1] + b[0][1];
+    result[0][2] = a[0][2] + b[0][2];
+    result[0][3] = a[0][3] + b[0][3];
+    result[1][0] = a[1][0] + b[1][0];
+    result[1][1] = a[1][1] + b[1][1];
+    result[1][2] = a[1][2] + b[1][2];
+    result[1][3] = a[1][3] + b[1][3];
+    result[2][0] = a[2][0] + b[2][0];
+    result[2][1] = a[2][1] + b[2][1];
+    result[2][2] = a[2][2] + b[2][2];
+    result[2][3] = a[2][3] + b[2][3];
+    result[3][0] = a[3][0] + b[3][0];
+    result[3][1] = a[3][1] + b[3][1];
+    result[3][2] = a[3][2] + b[3][2];
+    result[3][3] = a[3][3] + b[3][3];
 }
 
-mat2 mat2_mul(const mat2 a, const mat2 b)
+// Matrix subtraction
+void mat2_sub(float **result, float **a, float **b)
 {
-    mat2 c;
-    c.m[0][0] = a.m[0][0] * b.m[0][0] + a.m[0][1] * b.m[1][0];
-    c.m[0][1] = a.m[0][0] * b.m[0][1] + a.m[0][1] * b.m[1][1];
-    c.m[1][0] = a.m[1][0] * b.m[0][0] + a.m[1][1] * b.m[1][0];
-    c.m[1][1] = a.m[1][0] * b.m[0][1] + a.m[1][1] * b.m[1][1];
-
-    return c;
+    result[0][0] = a[0][0] - b[0][0];
+    result[0][1] = a[0][1] - b[0][1];
+    result[1][0] = a[1][0] - b[1][0];
+    result[1][1] = a[1][1] - b[1][1];
 }
 
-mat2 mat2_scale(const mat2 a, const float s)
+void mat3_sub(float **result, float **a, float **b)
 {
-    mat2 c;
-    c.m[0][0] = a.m[0][0] * s;
-    c.m[0][1] = a.m[0][1] * s;
-    c.m[1][0] = a.m[1][0] * s;
-    c.m[1][1] = a.m[1][1] * s;
-    return c;
+    result[0][0] = a[0][0] - b[0][0];
+    result[0][1] = a[0][1] - b[0][1];
+    result[0][2] = a[0][2] - b[0][2];
+    result[1][0] = a[1][0] - b[1][0];
+    result[1][1] = a[1][1] - b[1][1];
+    result[1][2] = a[1][2] - b[1][2];
+    result[2][0] = a[2][0] - b[2][0];
+    result[2][1] = a[2][1] - b[2][1];
+    result[2][2] = a[2][2] - b[2][2];
 }
 
-vec2 mat2_vec2_mul(const mat2 a, const vec2 b)
+void mat4_sub(float **result, float **a, float **b)
 {
-    vec2 c;
-    c.x = a.m[0][0] * b.x + a.m[0][1] * b.y;
-    c.y = a.m[1][0] * b.x + a.m[1][1] * b.y;
-    return c;
+    result[0][0] = a[0][0] - b[0][0];
+    result[0][1] = a[0][1] - b[0][1];
+    result[0][2] = a[0][2] - b[0][2];
+    result[0][3] = a[0][3] - b[0][3];
+    result[1][0] = a[1][0] - b[1][0];
+    result[1][1] = a[1][1] - b[1][1];
+    result[1][2] = a[1][2] - b[1][2];
+    result[1][3] = a[1][3] - b[1][3];
+    result[2][0] = a[2][0] - b[2][0];
+    result[2][1] = a[2][1] - b[2][1];
+    result[2][2] = a[2][2] - b[2][2];
+    result[2][3] = a[2][3] - b[2][3];
+    result[3][0] = a[3][0] - b[3][0];
+    result[3][1] = a[3][1] - b[3][1];
+    result[3][2] = a[3][2] - b[3][2];
+    result[3][3] = a[3][3] - b[3][3];
 }
 
-mat3 mat3_add(const mat3 a, const mat3 b)
+// Matrix multiplication
+void mat2_mul(float **result, float **a, float **b)
 {
-    mat3 c;
-    c.m[0][0] = a.m[0][0] + b.m[0][0];
-    c.m[0][1] = a.m[0][1] + b.m[0][1];
-    c.m[0][2] = a.m[0][2] + b.m[0][2];
-    c.m[1][0] = a.m[1][0] + b.m[1][0];
-    c.m[1][1] = a.m[1][1] + b.m[1][1];
-    c.m[1][2] = a.m[1][2] + b.m[1][2];
-    c.m[2][0] = a.m[2][0] + b.m[2][0];
-    c.m[2][1] = a.m[2][1] + b.m[2][1];
-    c.m[2][2] = a.m[2][2] + b.m[2][2];
-    return c;
+    result[0][0] = a[0][0] * b[0][0] + a[0][1] * b[1][0];
+    result[0][1] = a[0][0] * b[0][1] + a[0][1] * b[1][1];
+    result[1][0] = a[1][0] * b[0][0] + a[1][1] * b[1][0];
+    result[1][1] = a[1][0] * b[0][1] + a[1][1] * b[1][1];
 }
 
-mat3 mat3_sub(const mat3 a, const mat3 b)
+void mat3_mul(float **result, float **a, float **b)
 {
-    mat3 c;
-    c.m[0][0] = a.m[0][0] - b.m[0][0];
-    c.m[0][1] = a.m[0][1] - b.m[0][1];
-    c.m[0][2] = a.m[0][2] - b.m[0][2];
-    c.m[1][0] = a.m[1][0] - b.m[1][0];
-    c.m[1][1] = a.m[1][1] - b.m[1][1];
-    c.m[1][2] = a.m[1][2] - b.m[1][2];
-    c.m[2][0] = a.m[2][0] - b.m[2][0];
-    c.m[2][1] = a.m[2][1] - b.m[2][1];
-    c.m[2][2] = a.m[2][2] - b.m[2][2];
-    return c;
+    result[0][0] = a[0][0] * b[0][0] + a[0][1] * b[1][0] + a[0][2] * b[2][0];
+    result[0][1] = a[0][0] * b[0][1] + a[0][1] * b[1][1] + a[0][2] * b[2][1];
+    result[0][2] = a[0][0] * b[0][2] + a[0][1] * b[1][2] + a[0][2] * b[2][2];
+    result[1][0] = a[1][0] * b[0][0] + a[1][1] * b[1][0] + a[1][2] * b[2][0];
+    result[1][1] = a[1][0] * b[0][1] + a[1][1] * b[1][1] + a[1][2] * b[2][1];
+    result[1][2] = a[1][0] * b[0][2] + a[1][1] * b[1][2] + a[1][2] * b[2][2];
+    result[2][0] = a[2][0] * b[0][0] + a[2][1] * b[1][0] + a[2][2] * b[2][0];
+    result[2][1] = a[2][0] * b[0][1] + a[2][1] * b[1][1] + a[2][2] * b[2][1];
+    result[2][2] = a[2][0] * b[0][2] + a[2][1] * b[1][2] + a[2][2] * b[2][2];
 }
 
-mat3 mat3_mul(const mat3 a, const mat3 b)
+void mat4_mul(float **result, float **a, float **b)
 {
-    mat3 c;
-    c.m[0][0] = a.m[0][0] * b.m[0][0] + a.m[0][1] * b.m[1][0] + a.m[0][2] * b.m[2][0];
-    c.m[0][1] = a.m[0][0] * b.m[0][1] + a.m[0][1] * b.m[1][1] + a.m[0][2] * b.m[2][1];
-    c.m[0][2] = a.m[0][0] * b.m[0][2] + a.m[0][1] * b.m[1][2] + a.m[0][2] * b.m[2][2];
-    c.m[1][0] = a.m[1][0] * b.m[0][0] + a.m[1][1] * b.m[1][0] + a.m[1][2] * b.m[2][0];
-    c.m[1][1] = a.m[1][0] * b.m[0][1] + a.m[1][1] * b.m[1][1] + a.m[1][2] * b.m[2][1];
-    c.m[1][2] = a.m[1][0] * b.m[0][2] + a.m[1][1] * b.m[1][2] + a.m[1][2] * b.m[2][2];
-    c.m[2][0] = a.m[2][0] * b.m[0][0] + a.m[2][1] * b.m[1][0] + a.m[2][2] * b.m[2][0];
-    c.m[2][1] = a.m[2][0] * b.m[0][1] + a.m[2][1] * b.m[1][1] + a.m[2][2] * b.m[2][1];
-    c.m[2][2] = a.m[2][0] * b.m[0][2] + a.m[2][1] * b.m[1][2] + a.m[2][2] * b.m[2][2];
-    return c;
+    result[0][0] = a[0][0] * b[0][0] + a[0][1] * b[1][0] + a[0][2] * b[2][0] + a[0][3] * b[3][0];
+    result[0][1] = a[0][0] * b[0][1] + a[0][1] * b[1][1] + a[0][2] * b[2][1] + a[0][3] * b[3][1];
+    result[0][2] = a[0][0] * b[0][2] + a[0][1] * b[1][2] + a[0][2] * b[2][2] + a[0][3] * b[3][2];
+    result[0][3] = a[0][0] * b[0][3] + a[0][1] * b[1][3] + a[0][2] * b[2][3] + a[0][3] * b[3][3];
+    result[1][0] = a[1][0] * b[0][0] + a[1][1] * b[1][0] + a[1][2] * b[2][0] + a[1][3] * b[3][0];
+    result[1][1] = a[1][0] * b[0][1] + a[1][1] * b[1][1] + a[1][2] * b[2][1] + a[1][3] * b[3][1];
+    result[1][2] = a[1][0] * b[0][2] + a[1][1] * b[1][2] + a[1][2] * b[2][2] + a[1][3] * b[3][2];
+    result[1][3] = a[1][0] * b[0][3] + a[1][1] * b[1][3] + a[1][2] * b[2][3] + a[1][3] * b[3][3];
+    result[2][0] = a[2][0] * b[0][0] + a[2][1] * b[1][0] + a[2][2] * b[2][0] + a[2][3] * b[3][0];
+    result[2][1] = a[2][0] * b[0][1] + a[2][1] * b[1][1] + a[2][2] * b[2][1] + a[2][3] * b[3][1];
+    result[2][2] = a[2][0] * b[0][2] + a[2][1] * b[1][2] + a[2][2] * b[2][2] + a[2][3] * b[3][2];
+    result[2][3] = a[2][0] * b[0][3] + a[2][1] * b[1][3] + a[2][2] * b[2][3] + a[2][3] * b[3][3];
+    result[3][0] = a[3][0] * b[0][0] + a[3][1] * b[1][0] + a[3][2] * b[2][0] + a[3][3] * b[3][0];
+    result[3][1] = a[3][0] * b[0][1] + a[3][1] * b[1][1] + a[3][2] * b[2][1] + a[3][3] * b[3][1];
+    result[3][2] = a[3][0] * b[0][2] + a[3][1] * b[1][2] + a[3][2] * b[2][2] + a[3][3] * b[3][2];
+    result[3][3] = a[3][0] * b[0][3] + a[3][1] * b[1][3] + a[3][2] * b[2][3] + a[3][3] * b[3][3];
 }
 
-mat3 mat3_scale(const mat3 a, const float s)
+// Matrix scale
+void mat2_scale(float **result, float **a, float s)
 {
-    mat3 c;
-    c.m[0][0] = a.m[0][0] * s;
-    c.m[0][1] = a.m[0][1] * s;
-    c.m[0][2] = a.m[0][2] * s;
-    c.m[1][0] = a.m[1][0] * s;
-    c.m[1][1] = a.m[1][1] * s;
-    c.m[1][2] = a.m[1][2] * s;
-    c.m[2][0] = a.m[2][0] * s;
-    c.m[2][1] = a.m[2][1] * s;
-    c.m[2][2] = a.m[2][2] * s;
-    return c;
+    result[0][0] = a[0][0] * s;
+    result[0][1] = a[0][1] * s;
+    result[1][0] = a[1][0] * s;
+    result[1][1] = a[1][1] * s;
 }
 
-vec3 mat3_vec3_mul(const mat3 a, const vec3 b)
+void mat3_scale(float **result, float **a, float s)
 {
-    vec3 c;
-    c.x = a.m[0][0] * b.x + a.m[0][1] * b.y + a.m[0][2] * b.z;
-    c.y = a.m[1][0] * b.x + a.m[1][1] * b.y + a.m[1][2] * b.z;
-    c.z = a.m[2][0] * b.x + a.m[2][1] * b.y + a.m[2][2] * b.z;
-    return c;
+    result[0][0] = a[0][0] * s;
+    result[0][1] = a[0][1] * s;
+    result[0][2] = a[0][2] * s;
+    result[1][0] = a[1][0] * s;
+    result[1][1] = a[1][1] * s;
+    result[1][2] = a[1][2] * s;
+    result[2][0] = a[2][0] * s;
+    result[2][1] = a[2][1] * s;
+    result[2][2] = a[2][2] * s;
 }
 
-mat4 mat4_add(const mat4 a, const mat4 b)
+void mat4_scale(float **result, float **a, float s)
 {
-    mat4 c;
-    c.m[0][0] = a.m[0][0] + b.m[0][0];
-    c.m[0][1] = a.m[0][1] + b.m[0][1];
-    c.m[0][2] = a.m[0][2] + b.m[0][2];
-    c.m[0][3] = a.m[0][3] + b.m[0][3];
-    c.m[1][0] = a.m[1][0] + b.m[1][0];
-    c.m[1][1] = a.m[1][1] + b.m[1][1];
-    c.m[1][2] = a.m[1][2] + b.m[1][2];
-    c.m[1][3] = a.m[1][3] + b.m[1][3];
-    c.m[2][0] = a.m[2][0] + b.m[2][0];
-    c.m[2][1] = a.m[2][1] + b.m[2][1];
-    c.m[2][2] = a.m[2][2] + b.m[2][2];
-    c.m[2][3] = a.m[2][3] + b.m[2][3];
-    c.m[3][0] = a.m[3][0] + b.m[3][0];
-    c.m[3][1] = a.m[3][1] + b.m[3][1];
-    c.m[3][2] = a.m[3][2] + b.m[3][2];
-    c.m[3][3] = a.m[3][3] + b.m[3][3];
-    return c;
+    result[0][0] = a[0][0] * s;
+    result[0][1] = a[0][1] * s;
+    result[0][2] = a[0][2] * s;
+    result[0][3] = a[0][3] * s;
+    result[1][0] = a[1][0] * s;
+    result[1][1] = a[1][1] * s;
+    result[1][2] = a[1][2] * s;
+    result[1][3] = a[1][3] * s;
+    result[2][0] = a[2][0] * s;
+    result[2][1] = a[2][1] * s;
+    result[2][2] = a[2][2] * s;
+    result[2][3] = a[2][3] * s;
+    result[3][0] = a[3][0] * s;
+    result[3][1] = a[3][1] * s;
+    result[3][2] = a[3][2] * s;
+    result[3][3] = a[3][3] * s;
 }
 
-mat4 mat4_sub(const mat4 a, const mat4 b)
+// Matrix Vector Multiplication
+void mat2_vec2_mul(float *result, float **a, float *b)
 {
-    mat4 c;
-    c.m[0][0] = a.m[0][0] - b.m[0][0];
-    c.m[0][1] = a.m[0][1] - b.m[0][1];
-    c.m[0][2] = a.m[0][2] - b.m[0][2];
-    c.m[0][3] = a.m[0][3] - b.m[0][3];
-    c.m[1][0] = a.m[1][0] - b.m[1][0];
-    c.m[1][1] = a.m[1][1] - b.m[1][1];
-    c.m[1][2] = a.m[1][2] - b.m[1][2];
-    c.m[1][3] = a.m[1][3] - b.m[1][3];
-    c.m[2][0] = a.m[2][0] - b.m[2][0];
-    c.m[2][1] = a.m[2][1] - b.m[2][1];
-    c.m[2][2] = a.m[2][2] - b.m[2][2];
-    c.m[2][3] = a.m[2][3] - b.m[2][3];
-    c.m[3][0] = a.m[3][0] - b.m[3][0];
-    c.m[3][1] = a.m[3][1] - b.m[3][1];
-    c.m[3][2] = a.m[3][2] - b.m[3][2];
-    c.m[3][3] = a.m[3][3] - b.m[3][3];
-    return c;
+    result[0] = a[0][0] * b[0] + a[0][1] * b[1];
+    result[1] = a[1][0] * b[0] + a[1][1] * b[1];
 }
 
-mat4 mat4_mul(const mat4 a, const mat4 b)
+void mat3_vec3_mul(float *result, float **a, float *b)
 {
-    mat4 c;
-    c.m[0][0] = a.m[0][0] * b.m[0][0] + a.m[0][1] * b.m[1][0] + a.m[0][2] * b.m[2][0] + a.m[0][3] * b.m[3][0];
-    c.m[0][1] = a.m[0][0] * b.m[0][1] + a.m[0][1] * b.m[1][1] + a.m[0][2] * b.m[2][1] + a.m[0][3] * b.m[3][1];
-    c.m[0][2] = a.m[0][0] * b.m[0][2] + a.m[0][1] * b.m[1][2] + a.m[0][2] * b.m[2][2] + a.m[0][3] * b.m[3][2];
-    c.m[0][3] = a.m[0][0] * b.m[0][3] + a.m[0][1] * b.m[1][3] + a.m[0][2] * b.m[2][3] + a.m[0][3] * b.m[3][3];
-    c.m[1][0] = a.m[1][0] * b.m[0][0] + a.m[1][1] * b.m[1][0] + a.m[1][2] * b.m[2][0] + a.m[1][3] * b.m[3][0];
-    c.m[1][1] = a.m[1][0] * b.m[0][1] + a.m[1][1] * b.m[1][1] + a.m[1][2] * b.m[2][1] + a.m[1][3] * b.m[3][1];
-    c.m[1][2] = a.m[1][0] * b.m[0][2] + a.m[1][1] * b.m[1][2] + a.m[1][2] * b.m[2][2] + a.m[1][3] * b.m[3][2];
-    c.m[1][3] = a.m[1][0] * b.m[0][3] + a.m[1][1] * b.m[1][3] + a.m[1][2] * b.m[2][3] + a.m[1][3] * b.m[3][3];
-    c.m[2][0] = a.m[2][0] * b.m[0][0] + a.m[2][1] * b.m[1][0] + a.m[2][2] * b.m[2][0] + a.m[2][3] * b.m[3][0];
-    c.m[2][1] = a.m[2][0] * b.m[0][1] + a.m[2][1] * b.m[1][1] + a.m[2][2] * b.m[2][1] + a.m[2][3] * b.m[3][1];
-    c.m[2][2] = a.m[2][0] * b.m[0][2] + a.m[2][1] * b.m[1][2] + a.m[2][2] * b.m[2][2] + a.m[2][3] * b.m[3][2];
-    c.m[2][3] = a.m[2][0] * b.m[0][3] + a.m[2][1] * b.m[1][3] + a.m[2][2] * b.m[2][3] + a.m[2][3] * b.m[3][3];
-    c.m[3][0] = a.m[3][0] * b.m[0][0] + a.m[3][1] * b.m[1][0] + a.m[3][2] * b.m[2][0] + a.m[3][3] * b.m[3][0];
-    c.m[3][1] = a.m[3][0] * b.m[0][1] + a.m[3][1] * b.m[1][1] + a.m[3][2] * b.m[2][1] + a.m[3][3] * b.m[3][1];
-    c.m[3][2] = a.m[3][0] * b.m[0][2] + a.m[3][1] * b.m[1][2] + a.m[3][2] * b.m[2][2] + a.m[3][3] * b.m[3][2];
-    c.m[3][3] = a.m[3][0] * b.m[0][3] + a.m[3][1] * b.m[1][3] + a.m[3][2] * b.m[2][3] + a.m[3][3] * b.m[3][3];
-    return c;
+    result[0] = a[0][0] * b[0] + a[0][1] * b[1] + a[0][2] * b[2];
+    result[1] = a[1][0] * b[0] + a[1][1] * b[1] + a[1][2] * b[2];
+    result[2] = a[2][0] * b[0] + a[2][1] * b[1] + a[2][2] * b[2];
 }
 
-vec4 mat4_vec4_mul(const mat4 a, const vec4 b)
+void mat4_vec4_mul(float *result, float **a, float *b)
 {
-    vec4 c;
-    c.x = a.m[0][0] * b.x + a.m[0][1] * b.y + a.m[0][2] * b.z + a.m[0][3] * b.w;
-    c.y = a.m[1][0] * b.x + a.m[1][1] * b.y + a.m[1][2] * b.z + a.m[1][3] * b.w;
-    c.z = a.m[2][0] * b.x + a.m[2][1] * b.y + a.m[2][2] * b.z + a.m[2][3] * b.w;
-    c.w = a.m[3][0] * b.x + a.m[3][1] * b.y + a.m[3][2] * b.z + a.m[3][3] * b.w;
-    return c;
+    result[0] = a[0][0] * b[0] + a[0][1] * b[1] + a[0][2] * b[2] + a[0][3] * b[3];
+    result[1] = a[1][0] * b[0] + a[1][1] * b[1] + a[1][2] * b[2] + a[1][3] * b[3];
+    result[2] = a[2][0] * b[0] + a[2][1] * b[1] + a[2][2] * b[2] + a[2][3] * b[3];
+    result[3] = a[3][0] * b[0] + a[3][1] * b[1] + a[3][2] * b[2] + a[3][3] * b[3];
 }
 
-/*
- *     Type conversion
- */
-vec2 vec3_to_vec2(const vec3 a)
+// Type conversion
+void vec3_to_vec2(float *result, float *a)
 {
-    vec2 c;
-    c.x = a.x;
-    c.y = a.y;
-    return c;
+    result[0] = a[0];
+    result[1] = a[1];
 }
 
-vec2 vec4_to_vec2(const vec4 a)
+void vec4_to_vec2(float *result, float *a)
 {
-    vec2 c;
-    c.x = a.x;
-    c.y = a.y;
-    return c;
+    result[0] = a[0];
+    result[1] = a[1];
 }
 
-vec3 vec2_to_vec3(const vec2 a, const float z)
+void vec4_to_vec3(float *result, float *a)
 {
-    vec3 c;
-    c.x = a.x;
-    c.y = a.y;
-    c.z = z;
-    return c;
+    result[0] = a[0];
+    result[1] = a[1];
+    result[2] = a[2];
 }
 
-vec3 vec4_to_vec3(const vec4 a)
+void vec2_to_vec3(float *result, float *a, float z)
 {
-    vec3 c;
-    c.x = a.x;
-    c.y = a.y;
-    c.z = a.z;
-    return c;
+    result[0] = a[0];
+    result[1] = a[1];
+    result[2] = z;
 }
 
-vec4 vec2_to_vec4(const vec2 a, const float z, const float w)
+void vec2_to_vec4(float *result, float *a, float z, float w)
 {
-    vec4 c;
-    c.x = a.x;
-    c.y = a.y;
-    c.z = z;
-    c.w = w;
-    return c;
+    result[0] = a[0];
+    result[1] = a[1];
+    result[2] = z;
+    result[3] = w;
 }
 
-vec4 vec3_to_vec4(const vec3 a, const float w)
+void vec3_to_vec4(float *result, float *a, float w)
 {
-    vec4 c;
-    c.x = a.x;
-    c.y = a.y;
-    c.z = a.z;
-    c.w = w;
-    return c;
+    result[0] = a[0];
+    result[1] = a[1];
+    result[2] = a[2];
+    result[3] = w;
 }
 
-mat2 mat3_to_mat2(const mat3 a)
+void mat2_to_mat3(float **result, float **a)
 {
-    mat2 c;
-    c.m[0][0] = a.m[0][0];
-    c.m[0][1] = a.m[0][1];
-    c.m[1][0] = a.m[1][0];
-    c.m[1][1] = a.m[1][1];
-    return c;
+    result[0][0] = a[0][0];
+    result[0][1] = a[0][1];
+    result[0][2] = 0.0f;
+    result[1][0] = a[1][0];
+    result[1][1] = a[1][1];
+    result[1][2] = 0.0f;
+    result[2][0] = 0.0f;
+    result[2][1] = 0.0f;
+    result[2][2] = 1.0f;
 }
 
-mat2 mat4_to_mat2(const mat4 a)
+void mat2_to_mat4(float **result, float **a)
 {
-    mat2 c;
-    c.m[0][0] = a.m[0][0];
-    c.m[0][1] = a.m[0][1];
-    c.m[1][0] = a.m[1][0];
-    c.m[1][1] = a.m[1][1];
-    return c;
+    result[0][0] = a[0][0];
+    result[0][1] = a[0][1];
+    result[0][2] = 0.0f;
+    result[0][3] = 0.0f;
+    result[1][0] = a[1][0];
+    result[1][1] = a[1][1];
+    result[1][2] = 0.0f;
+    result[1][3] = 0.0f;
+    result[2][0] = 0.0f;
+    result[2][1] = 0.0f;
+    result[2][2] = 1.0f;
+    result[2][3] = 0.0f;
+    result[3][0] = 0.0f;
+    result[3][1] = 0.0f;
+    result[3][2] = 0.0f;
+    result[3][3] = 1.0f;
 }
 
-mat3 mat2_to_mat3(const mat2 a)
+void mat3_to_mat2(float **result, float **a)
 {
-    mat3 c;
-    c.m[0][0] = a.m[0][0];
-    c.m[0][1] = a.m[0][1];
-    c.m[1][0] = a.m[1][0];
-    c.m[1][1] = a.m[1][1];
-    return c;
+    result[0][0] = a[0][0];
+    result[0][1] = a[0][1];
+    result[1][0] = a[1][0];
+    result[1][1] = a[1][1];
 }
 
-mat3 mat4_to_mat3(const mat4 a)
+void mat3_to_mat4(float **result, float **a)
 {
-    mat3 c;
-    c.m[0][0] = a.m[0][0];
-    c.m[0][1] = a.m[0][1];
-    c.m[0][2] = a.m[0][2];
-    c.m[1][0] = a.m[1][0];
-    c.m[1][1] = a.m[1][1];
-    c.m[1][2] = a.m[1][2];
-    c.m[2][0] = a.m[2][0];
-    c.m[2][1] = a.m[2][1];
-    c.m[2][2] = a.m[2][2];
-    return c;
+    result[0][0] = a[0][0];
+    result[0][1] = a[0][1];
+    result[0][2] = a[0][2];
+    result[0][3] = 0.0f;
+    result[1][0] = a[1][0];
+    result[1][1] = a[1][1];
+    result[1][2] = a[1][2];
+    result[1][3] = 0.0f;
+    result[2][0] = a[2][0];
+    result[2][1] = a[2][1];
+    result[2][2] = a[2][2];
+    result[2][3] = 0.0f;
+    result[3][0] = 0.0f;
+    result[3][1] = 0.0f;
+    result[3][2] = 0.0f;
+    result[3][3] = 1.0f;
 }
 
-mat4 mat2_to_mat4(const mat2 a)
+void mat4_to_mat2(float **result, float **a)
 {
-    mat4 c;
-    c.m[0][0] = a.m[0][0];
-    c.m[0][1] = a.m[0][1];
-    c.m[1][0] = a.m[1][0];
-    c.m[1][1] = a.m[1][1];
-    return c;
+    result[0][0] = a[0][0];
+    result[0][1] = a[0][1];
+    result[1][0] = a[1][0];
+    result[1][1] = a[1][1];
 }
 
-mat4 mat3_to_mat4(const mat3 a)
+void mat4_to_mat3(float **result, float **a)
 {
-    mat4 c;
-    c.m[0][0] = a.m[0][0];
-    c.m[0][1] = a.m[0][1];
-    c.m[0][2] = a.m[0][2];
-    c.m[1][0] = a.m[1][0];
-    c.m[1][1] = a.m[1][1];
-    c.m[1][2] = a.m[1][2];
-    c.m[2][0] = a.m[2][0];
-    c.m[2][1] = a.m[2][1];
-    c.m[2][2] = a.m[2][2];
-    return c;
+    result[0][0] = a[0][0];
+    result[0][1] = a[0][1];
+    result[0][2] = a[0][2];
+    result[1][0] = a[1][0];
+    result[1][1] = a[1][1];
+    result[1][2] = a[1][2];
+    result[2][0] = a[2][0];
+    result[2][1] = a[2][1];
+    result[2][2] = a[2][2];
 }
 
-/*
- *      Graphic functions
- */
-mat4 ortho(float left, float right, float bottom, float top, float near, float far)
+// Graphic functions
+void ortho(float **result, float left, float right, float bottom, float top, float near, float far)
 {
-    mat4 c;
-    c.m[0][0] = 2.0f / (right - left);
-    c.m[0][1] = 0.0f;
-    c.m[0][2] = 0.0f;
-    c.m[0][3] = 0.0f;
-    c.m[1][0] = 0.0f;
-    c.m[1][1] = 2.0f / (top - bottom);
-    c.m[1][2] = 0.0f;
-    c.m[1][3] = 0.0f;
-    c.m[2][0] = 0.0f;
-    c.m[2][1] = 0.0f;
-    c.m[2][2] = -2.0f / (far - near);
-    c.m[2][3] = 0.0f;
-    c.m[3][0] = -(right + left) / (right - left);
-    c.m[3][1] = -(top + bottom) / (top - bottom);
-    c.m[3][2] = -(far + near) / (far - near);
-    c.m[3][3] = 1.0f;
-    return c;
+    result[0][0] = 2.0f / (right - left);
+    result[0][1] = 0.0f;
+    result[0][2] = 0.0f;
+    result[0][3] = 0.0f;
+    result[1][0] = 0.0f;
+    result[1][1] = 2.0f / (top - bottom);
+    result[1][2] = 0.0f;
+    result[1][3] = 0.0f;
+    result[2][0] = 0.0f;
+    result[2][1] = 0.0f;
+    result[2][2] = -2.0f / (far - near);
+    result[2][3] = 0.0f;
+    result[3][0] = -(right + left) / (right - left);
+    result[3][1] = -(top + bottom) / (top - bottom);
+    result[3][2] = -(far + near) / (far - near);
+    result[3][3] = 1.0f;
 }
 
-mat4 perspective(float fov, float aspect, float near, float far)
+void frustum(float **result, float left, float right, float bottom, float top, float near, float far)
 {
-    mat4 c;
-    float tanHalfFovy = tan(fov / 2.0f);
-    c.m[0][0] = 1.0f / (aspect * tanHalfFovy);
-    c.m[0][1] = 0.0f;
-    c.m[0][2] = 0.0f;
-    c.m[0][3] = 0.0f;
-    c.m[1][0] = 0.0f;
-    c.m[1][1] = 1.0f / (tanHalfFovy);
-    c.m[1][2] = 0.0f;
-    c.m[1][3] = 0.0f;
-    c.m[2][0] = 0.0f;
-    c.m[2][1] = 0.0f;
-    c.m[2][2] = -(far + near) / (far - near);
-    c.m[2][3] = -1.0f;
-    c.m[3][0] = 0.0f;
-    c.m[3][1] = 0.0f;
-    c.m[3][2] = -(2.0f * far * near) / (far - near);
-    c.m[3][3] = 0.0f;
-    return c;
+    result[0][0] = 2.0f * near / (right - left);
+    result[0][1] = 0.0f;
+    result[0][2] = 0.0f;
+    result[0][3] = 0.0f;
+    result[1][0] = 0.0f;
+    result[1][1] = 2.0f * near / (top - bottom);
+    result[1][2] = 0.0f;
+    result[1][3] = 0.0f;
+    result[2][0] = (right + left) / (right - left);
+    result[2][1] = (top + bottom) / (top - bottom);
+    result[2][2] = -(far + near) / (far - near);
+    result[2][3] = -1.0f;
+    result[3][0] = 0.0f;
+    result[3][1] = 0.0f;
+    result[3][2] = -2.0f * far * near / (far - near);
+    result[3][3] = 0.0f;
 }
 
-mat4 look_at(vec3 eye, vec3 center, vec3 up)
+void perspective(float **result, float fovy, float aspect, float near, float far)
 {
-    mat4 c;
-    vec3 f = vec3_norm(vec3_sub(center, eye));
-    vec3 s = vec3_norm(cross(f, up));
-    vec3 u = cross(s, f);
-    c.m[0][0] = s.x;
-    c.m[0][1] = u.x;
-    c.m[0][2] = -f.x;
-    c.m[0][3] = 0.0f;
-    c.m[1][0] = s.y;
-    c.m[1][1] = u.y;
-    c.m[1][2] = -f.y;
-    c.m[1][3] = 0.0f;
-    c.m[2][0] = s.z;
-    c.m[2][1] = u.z;
-    c.m[2][2] = -f.z;
-    c.m[2][3] = 0.0f;
-    c.m[3][0] = -vec3_dot(s, eye);
-    c.m[3][1] = -vec3_dot(u, eye);
-    c.m[3][2] = vec3_dot(f, eye);
-    c.m[3][3] = 1.0f;
-    return c;
+    float f = 1.0f / tanf(fovy * 0.5f);
+    result[0][0] = f / aspect;
+    result[0][1] = 0.0f;
+    result[0][2] = 0.0f;
+    result[0][3] = 0.0f;
+    result[1][0] = 0.0f;
+    result[1][1] = f;
+    result[1][2] = 0.0f;
+    result[1][3] = 0.0f;
+    result[2][0] = 0.0f;
+    result[2][1] = 0.0f;
+    result[2][2] = (far + near) / (near - far);
+    result[2][3] = -1.0f;
+    result[3][0] = 0.0f;
+    result[3][1] = 0.0f;
+    result[3][2] = 2.0f * far * near / (near - far);
+    result[3][3] = 0.0f;
 }
 
-/*
- *      Transformation functions
- */
-mat4 get_translation_mat4(vec3 v)
+void look_at(float **result, float *eye, float *center, float *up)
 {
-    mat4 c = MAT4_IDENTITY;
-    c.m[3][0] = v.x;
-    c.m[3][1] = v.y;
-    c.m[3][2] = v.z;
-    return c;
+    float f[3];
+    float s[3];
+    float u[3];
+    float tmp[3];
+
+    tmp[0] = eye[0] - center[0];
+    tmp[1] = eye[1] - center[1];
+    tmp[2] = eye[2] - center[2];
+    vec3_norm(f, tmp);
+
+    cross(s, up, f);
+    vec3_norm(s, s);
+
+    cross(u, f, s);
+    vec3_norm(u, u);
+
+    result[0][0] = s[0];
+    result[0][1] = u[0];
+    result[0][2] = f[0];
+    result[0][3] = 0.0f;
+    result[1][0] = s[1];
+    result[1][1] = u[1];
+    result[1][2] = f[1];
+    result[1][3] = 0.0f;
+    result[2][0] = s[2];
+    result[2][1] = u[2];
+    result[2][2] = f[2];
+    result[2][3] = 0.0f;
+    result[3][0] = -vec3_dot(s, eye);
+    result[3][1] = -vec3_dot(u, eye);
+    result[3][2] = -vec3_dot(f, eye);
+    result[3][3] = 1.0f;
+}
+
+// Transformations
+void get_translation_mat4(float **result, float *v)
+{
+    result[0][0] = 1.0f;
+    result[0][1] = 0.0f;
+    result[0][2] = 0.0f;
+    result[0][3] = v[0];
+    result[1][0] = 0.0f;
+    result[1][1] = 1.0f;
+    result[1][2] = 0.0f;
+    result[1][3] = v[1];
+    result[2][0] = 0.0f;
+    result[2][1] = 0.0f;
+    result[2][2] = 1.0f;
+    result[2][3] = v[2];
+    result[3][0] = 0.0f;
+    result[3][1] = 0.0f;
+    result[3][2] = 0.0f;
+    result[3][3] = 1.0f;
+}
+
+void get_rotation_x_mat4(float **result, float angle)
+{
+    result[0][0] = 1.0f;
+    result[0][1] = 0.0f;
+    result[0][2] = 0.0f;
+    result[0][3] = 0.0f;
+    result[1][0] = 0.0f;
+    result[1][1] = cosf(angle);
+    result[1][2] = -sinf(angle);
+    result[1][3] = 0.0f;
+    result[2][0] = 0.0f;
+    result[2][1] = sinf(angle);
+    result[2][2] = cosf(angle);
+    result[2][3] = 0.0f;
+    result[3][0] = 0.0f;
+    result[3][1] = 0.0f;
+    result[3][2] = 0.0f;
+    result[3][3] = 1.0f;
+}
+
+void get_rotation_y_mat4(float **result, float angle)
+{
+    result[0][0] = cosf(angle);
+    result[0][1] = 0.0f;
+    result[0][2] = sinf(angle);
+    result[0][3] = 0.0f;
+    result[1][0] = 0.0f;
+    result[1][1] = 1.0f;
+    result[1][2] = 0.0f;
+    result[1][3] = 0.0f;
+    result[2][0] = -sinf(angle);
+    result[2][1] = 0.0f;
+    result[2][2] = cosf(angle);
+    result[2][3] = 0.0f;
+    result[3][0] = 0.0f;
+    result[3][1] = 0.0f;
+    result[3][2] = 0.0f;
+    result[3][3] = 1.0f;
+}
+
+void get_rotation_z_mat4(float **result, float angle)
+{
+    result[0][0] = cosf(angle);
+    result[0][1] = -sinf(angle);
+    result[0][2] = 0.0f;
+    result[0][3] = 0.0f;
+    result[1][0] = sinf(angle);
+    result[1][1] = cosf(angle);
+    result[1][2] = 0.0f;
+    result[1][3] = 0.0f;
+    result[2][0] = 0.0f;
+    result[2][1] = 0.0f;
+    result[2][2] = 1.0f;
+    result[2][3] = 0.0f;
+    result[3][0] = 0.0f;
+    result[3][1] = 0.0f;
+    result[3][2] = 0.0f;
+    result[3][3] = 1.0f;
+}
+
+void get_scale_mat4(float **result, float *v)
+{
+    result[0][0] = v[0];
+    result[0][1] = 0.0f;
+    result[0][2] = 0.0f;
+    result[0][3] = 0.0f;
+    result[1][0] = 0.0f;
+    result[1][1] = v[1];
+    result[1][2] = 0.0f;
+    result[1][3] = 0.0f;
+    result[2][0] = 0.0f;
+    result[2][1] = 0.0f;
+    result[2][2] = v[2];
+    result[2][3] = 0.0f;
+    result[3][0] = 0.0f;
+    result[3][1] = 0.0f;
+    result[3][2] = 0.0f;
+    result[3][3] = 1.0f;
+}
+
+void translate(float *result, float *point, float *displacement)
+{
+    float **translation = get_mat4();
+    get_translation_mat4(translation, displacement);
+
+    float *point_vec4 = get_vec4(point[0], point[1], point[2], 1.0f);
+
+    mat4_vec4_mul(result, translation, point_vec4);
+
+    free_mat4(translation);
+    free(point_vec4);
+}
+
+void rotate_x(float *result, float *point, float angle)
+{
+    float **rotation = get_mat4();
+    get_rotation_x_mat4(rotation, angle);
+
+    float *point_vec4 = get_vec4(point[0], point[1], point[2], 1.0f);
+
+    mat4_vec4_mul(result, rotation, point_vec4);
+
+    free_mat4(rotation);
+    free(point_vec4);
+}
+
+void rotate_y(float *result, float *point, float angle)
+{
+    float **rotation = get_mat4();
+    get_rotation_y_mat4(rotation, angle);
+
+    float *point_vec4 = get_vec4(point[0], point[1], point[2], 1.0f);
+
+    mat4_vec4_mul(result, rotation, point_vec4);
+
+    free_mat4(rotation);
+    free(point_vec4);
+}
+
+void rotate_z(float *result, float *point, float angle)
+{
+    float **rotation = get_mat4();
+    get_rotation_z_mat4(rotation, angle);
+
+    float *point_vec4 = get_vec4(point[0], point[1], point[2], 1.0f);
+
+    mat4_vec4_mul(result, rotation, point_vec4);
+
+    free_mat4(rotation);
+    free(point_vec4);
+}
+
+void scale(float *result, float *point, float *scale)
+{
+    float **scaling = get_mat4();
+    get_scale_mat4(scaling, scale);
+
+    float *point_vec4 = get_vec4(point[0], point[1], point[2], 1.0f);
+
+    mat4_vec4_mul(result, scaling, point_vec4);
+
+    free_mat4(scaling);
+    free(point_vec4);
 }
