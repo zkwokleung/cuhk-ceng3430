@@ -1,0 +1,26 @@
+#-----------------------------------------------------------
+# Vivado v2016.3 (64-bit)
+# SW Build 1682563 on Mon Oct 10 19:07:27 MDT 2016
+# IP Build 1681267 on Mon Oct 10 21:28:31 MDT 2016
+# Start of session at: Wed May 17 17:43:40 2023
+# Process ID: 296
+# Current directory: D:/Git/cuhk-ceng3430/Project/ceng3430_proj_renderer3d
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent11440 D:\Git\cuhk-ceng3430\Project\ceng3430_proj_renderer3d\ceng3430_proj_renderer3d.xpr
+# Log file: D:/Git/cuhk-ceng3430/Project/ceng3430_proj_renderer3d/vivado.log
+# Journal file: D:/Git/cuhk-ceng3430/Project/ceng3430_proj_renderer3d\vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_project D:/Git/cuhk-ceng3430/Project/ceng3430_proj_renderer3d/ceng3430_proj_renderer3d.xpr
+INFO: [Project 1-313] Project file moved from 'D:/Workspace/ceng3430_proj_renderer3d' since last save.
+WARNING: [Project 1-312] File not found as 'D:/Git/cuhk-ceng3430/Git/cuhk-ceng3430/Project/srcs/vga/vga_controller.vhd'; using path 'D:/Git/cuhk-ceng3430/Project/srcs/vga/vga_controller.vhd' instead.
+WARNING: [Project 1-312] File not found as 'D:/Git/cuhk-ceng3430/Git/cuhk-ceng3430/Project/srcs/renderer3D.vhd'; using path 'D:/Git/cuhk-ceng3430/Project/srcs/renderer3D.vhd' instead.
+WARNING: [Project 1-312] File not found as 'D:/Git/cuhk-ceng3430/Git/cuhk-ceng3430/Project/constrs/board.xdc'; using path 'D:/Git/cuhk-ceng3430/Project/constrs/board.xdc' instead.
+Scanning sources...
+Finished scanning sources
+WARNING: [filemgmt 56-2] IP Output Repository Path: Could not find the directory 'D:/Git/cuhk-ceng3430/Project/ceng3430_proj_renderer3d/ceng3430_proj_renderer3d.cache/ip', nor could it be found using path 'D:/Workspace/ceng3430_proj_renderer3d/ceng3430_proj_renderer3d.cache/ip'.
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'D:/Xilinx/Vivado/2016.3/data/ip'.
+exit
+INFO: [Common 17-206] Exiting Vivado at Wed May 17 17:44:19 2023...
+

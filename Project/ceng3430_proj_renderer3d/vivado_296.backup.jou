@@ -1,0 +1,14 @@
+#-----------------------------------------------------------
+# Vivado v2016.3 (64-bit)
+# SW Build 1682563 on Mon Oct 10 19:07:27 MDT 2016
+# IP Build 1681267 on Mon Oct 10 21:28:31 MDT 2016
+# Start of session at: Wed May 17 17:43:40 2023
+# Process ID: 296
+# Current directory: D:/Git/cuhk-ceng3430/Project/ceng3430_proj_renderer3d
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent11440 D:\Git\cuhk-ceng3430\Project\ceng3430_proj_renderer3d\ceng3430_proj_renderer3d.xpr
+# Log file: D:/Git/cuhk-ceng3430/Project/ceng3430_proj_renderer3d/vivado.log
+# Journal file: D:/Git/cuhk-ceng3430/Project/ceng3430_proj_renderer3d\vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_project D:/Git/cuhk-ceng3430/Project/ceng3430_proj_renderer3d/ceng3430_proj_renderer3d.xpr
+
