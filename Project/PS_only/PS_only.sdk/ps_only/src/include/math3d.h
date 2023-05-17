@@ -154,6 +154,7 @@ void ortho(float **result, float left, float right, float bottom, float top, flo
 void frustum(float **result, float left, float right, float bottom, float top, float near, float far);
 void perspective(float **result, float fov, float aspect, float near, float far);
 void look_at(float **result, float *eye, float *center, float *up);
+void to_screen_space(float *result, float *point, float **projection, float **view, float width, float height);
 
 /*
  *      Transformations

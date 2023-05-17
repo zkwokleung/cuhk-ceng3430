@@ -755,6 +755,23 @@ void look_at(float **result, float *eye, float *center, float *up)
     result[3][3] = 1.0f;
 }
 
+void to_screen_space(float *result, float *point, float **projection, float **view, float width, float height);
+{
+    float tmp[4];
+    float clipSpacePos[4];
+
+    mat4_vec4_mul(tmp, view, point);
+    mat4_vec4_mul(clipSpacePos, projection, tmp);
+
+    float *ndcSpacePos = get_vec3();
+    ndcSpacePos[0] = clipSpacePos[0] / clipSpacePos[3];
+    ndcSpacePos[1] = clipSpacePos[1] / clipSpacePos[3];
+    ndcSpacePos[2] = clipSpacePos[2] / clipSpacePos[3];
+
+    result[0] = (ndcSpacePos[0] + 1.0f) * 0.5f * width;
+    result[1] = (ndcSpacePos[1] + 1.0f) * 0.5f * height;
+}
+
 // Transformations
 void get_translation_mat4(float **result, float *v)
 {
