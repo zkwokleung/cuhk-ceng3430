@@ -2,8 +2,8 @@
 # Vivado v2016.3 (64-bit)
 # SW Build 1682563 on Mon Oct 10 19:07:27 MDT 2016
 # IP Build 1681267 on Mon Oct 10 21:28:31 MDT 2016
-# Start of session at: Thu May 18 20:09:56 2023
-# Process ID: 19868
+# Start of session at: Thu May 18 23:57:41 2023
+# Process ID: 22772
 # Current directory: D:/Git/cuhk-ceng3430/Project/ceng3430_proj_renderer3d/ceng3430_proj_renderer3d.runs/synth_1
 # Command line: vivado.exe -log cube_renderering_system_wrapper.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source cube_renderering_system_wrapper.tcl
 # Log file: D:/Git/cuhk-ceng3430/Project/ceng3430_proj_renderer3d/ceng3430_proj_renderer3d.runs/synth_1/cube_renderering_system_wrapper.vds
@@ -24,9 +24,9 @@ Starting synth_design
 Attempting to get a license for feature 'Synthesis' and/or device 'xc7z020'
 INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7z020'
 INFO: Launching helper process for spawning children vivado processes
-INFO: Helper process launched with PID 10420 
+INFO: Helper process launched with PID 24236 
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:09 ; elapsed = 00:00:14 . Memory (MB): peak = 324.945 ; gain = 115.480
+Starting RTL Elaboration : Time (s): cpu = 00:00:09 ; elapsed = 00:00:16 . Memory (MB): peak = 324.668 ; gain = 115.379
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-638] synthesizing module 'cube_renderering_system_wrapper' [D:/Git/cuhk-ceng3430/Project/ceng3430_proj_renderer3d/ceng3430_proj_renderer3d.srcs/sources_1/bd/cube_renderering_system/hdl/cube_renderering_system_wrapper.vhd:53]
 INFO: [Synth 8-3491] module 'cube_renderering_system' declared at 'D:/Git/cuhk-ceng3430/Project/ceng3430_proj_renderer3d/ceng3430_proj_renderer3d.srcs/sources_1/bd/cube_renderering_system/hdl/cube_renderering_system.vhd:591' bound to instance 'cube_renderering_system_i' of component 'cube_renderering_system' [D:/Git/cuhk-ceng3430/Project/ceng3430_proj_renderer3d/ceng3430_proj_renderer3d.srcs/sources_1/bd/cube_renderering_system/hdl/cube_renderering_system_wrapper.vhd:93]
@@ -35,19 +35,20 @@ INFO: [Synth 8-3491] module 'cube_renderering_system_cube_renderer_controller_0_
 INFO: [Synth 8-638] synthesizing module 'cube_renderering_system_cube_renderer_controller_0_0' [d:/Git/cuhk-ceng3430/Project/ceng3430_proj_renderer3d/ceng3430_proj_renderer3d.srcs/sources_1/bd/cube_renderering_system/ip/cube_renderering_system_cube_renderer_controller_0_0/synth/cube_renderering_system_cube_renderer_controller_0_0.vhd:95]
 	Parameter C_S00_AXI_DATA_WIDTH bound to: 32 - type: integer 
 	Parameter C_S00_AXI_ADDR_WIDTH bound to: 8 - type: integer 
-INFO: [Synth 8-3491] module 'cube_renderer_controller_v2_0' declared at 'd:/Git/cuhk-ceng3430/Project/ceng3430_proj_renderer3d/ceng3430_proj_renderer3d.srcs/sources_1/bd/cube_renderering_system/ipshared/5f8f/hdl/cube_renderer_controller_v2_0.vhd:6' bound to instance 'U0' of component 'cube_renderer_controller_v2_0' [d:/Git/cuhk-ceng3430/Project/ceng3430_proj_renderer3d/ceng3430_proj_renderer3d.srcs/sources_1/bd/cube_renderering_system/ip/cube_renderering_system_cube_renderer_controller_0_0/synth/cube_renderering_system_cube_renderer_controller_0_0.vhd:170]
-INFO: [Synth 8-638] synthesizing module 'cube_renderer_controller_v2_0' [d:/Git/cuhk-ceng3430/Project/ceng3430_proj_renderer3d/ceng3430_proj_renderer3d.srcs/sources_1/bd/cube_renderering_system/ipshared/5f8f/hdl/cube_renderer_controller_v2_0.vhd:58]
+INFO: [Synth 8-3491] module 'cube_renderer_controller_v2_0' declared at 'd:/Git/cuhk-ceng3430/Project/ceng3430_proj_renderer3d/ceng3430_proj_renderer3d.srcs/sources_1/bd/cube_renderering_system/ipshared/8328/hdl/cube_renderer_controller_v2_0.vhd:6' bound to instance 'U0' of component 'cube_renderer_controller_v2_0' [d:/Git/cuhk-ceng3430/Project/ceng3430_proj_renderer3d/ceng3430_proj_renderer3d.srcs/sources_1/bd/cube_renderering_system/ip/cube_renderering_system_cube_renderer_controller_0_0/synth/cube_renderering_system_cube_renderer_controller_0_0.vhd:170]
+INFO: [Synth 8-638] synthesizing module 'cube_renderer_controller_v2_0' [d:/Git/cuhk-ceng3430/Project/ceng3430_proj_renderer3d/ceng3430_proj_renderer3d.srcs/sources_1/bd/cube_renderering_system/ipshared/8328/hdl/cube_renderer_controller_v2_0.vhd:58]
 	Parameter C_S00_AXI_DATA_WIDTH bound to: 32 - type: integer 
 	Parameter C_S00_AXI_ADDR_WIDTH bound to: 8 - type: integer 
 	Parameter C_S_AXI_DATA_WIDTH bound to: 32 - type: integer 
 	Parameter C_S_AXI_ADDR_WIDTH bound to: 8 - type: integer 
-INFO: [Synth 8-3491] module 'cube_renderer_controller_v2_0_S00_AXI' declared at 'd:/Git/cuhk-ceng3430/Project/ceng3430_proj_renderer3d/ceng3430_proj_renderer3d.srcs/sources_1/bd/cube_renderering_system/ipshared/5f8f/hdl/cube_renderer_controller_v2_0_S00_AXI.vhd:5' bound to instance 'cube_renderer_controller_v2_0_S00_AXI_inst' of component 'cube_renderer_controller_v2_0_S00_AXI' [d:/Git/cuhk-ceng3430/Project/ceng3430_proj_renderer3d/ceng3430_proj_renderer3d.srcs/sources_1/bd/cube_renderering_system/ipshared/5f8f/hdl/cube_renderer_controller_v2_0.vhd:148]
-INFO: [Synth 8-638] synthesizing module 'cube_renderer_controller_v2_0_S00_AXI' [d:/Git/cuhk-ceng3430/Project/ceng3430_proj_renderer3d/ceng3430_proj_renderer3d.srcs/sources_1/bd/cube_renderering_system/ipshared/5f8f/hdl/cube_renderer_controller_v2_0_S00_AXI.vhd:103]
+INFO: [Synth 8-3491] module 'cube_renderer_controller_v2_0_S00_AXI' declared at 'd:/Git/cuhk-ceng3430/Project/ceng3430_proj_renderer3d/ceng3430_proj_renderer3d.srcs/sources_1/bd/cube_renderering_system/ipshared/8328/hdl/cube_renderer_controller_v2_0_S00_AXI.vhd:5' bound to instance 'cube_renderer_controller_v2_0_S00_AXI_inst' of component 'cube_renderer_controller_v2_0_S00_AXI' [d:/Git/cuhk-ceng3430/Project/ceng3430_proj_renderer3d/ceng3430_proj_renderer3d.srcs/sources_1/bd/cube_renderering_system/ipshared/8328/hdl/cube_renderer_controller_v2_0.vhd:148]
+INFO: [Synth 8-638] synthesizing module 'cube_renderer_controller_v2_0_S00_AXI' [d:/Git/cuhk-ceng3430/Project/ceng3430_proj_renderer3d/ceng3430_proj_renderer3d.srcs/sources_1/bd/cube_renderering_system/ipshared/8328/hdl/cube_renderer_controller_v2_0_S00_AXI.vhd:103]
 	Parameter C_S_AXI_DATA_WIDTH bound to: 32 - type: integer 
 	Parameter C_S_AXI_ADDR_WIDTH bound to: 8 - type: integer 
-INFO: [Synth 8-256] done synthesizing module 'cube_renderer_controller_v2_0_S00_AXI' (1#1) [d:/Git/cuhk-ceng3430/Project/ceng3430_proj_renderer3d/ceng3430_proj_renderer3d.srcs/sources_1/bd/cube_renderering_system/ipshared/5f8f/hdl/cube_renderer_controller_v2_0_S00_AXI.vhd:103]
+WARNING: [Synth 8-614] signal 'slv_reg16' is read in the process but is not in the sensitivity list [d:/Git/cuhk-ceng3430/Project/ceng3430_proj_renderer3d/ceng3430_proj_renderer3d.srcs/sources_1/bd/cube_renderering_system/ipshared/8328/hdl/cube_renderer_controller_v2_0_S00_AXI.vhd:493]
+INFO: [Synth 8-256] done synthesizing module 'cube_renderer_controller_v2_0_S00_AXI' (1#1) [d:/Git/cuhk-ceng3430/Project/ceng3430_proj_renderer3d/ceng3430_proj_renderer3d.srcs/sources_1/bd/cube_renderering_system/ipshared/8328/hdl/cube_renderer_controller_v2_0_S00_AXI.vhd:103]
 	Parameter FRAME_THICKNESS bound to: 1 - type: integer 
-INFO: [Synth 8-3491] module 'renderer3D' declared at 'd:/Git/cuhk-ceng3430/Project/ceng3430_proj_renderer3d/ceng3430_proj_renderer3d.srcs/sources_1/bd/cube_renderering_system/srcs/renderer3D.vhd:6' bound to instance 'renderer3D_inst' of component 'renderer3D' [d:/Git/cuhk-ceng3430/Project/ceng3430_proj_renderer3d/ceng3430_proj_renderer3d.srcs/sources_1/bd/cube_renderering_system/ipshared/5f8f/hdl/cube_renderer_controller_v2_0.vhd:216]
+INFO: [Synth 8-3491] module 'renderer3D' declared at 'd:/Git/cuhk-ceng3430/Project/ceng3430_proj_renderer3d/ceng3430_proj_renderer3d.srcs/sources_1/bd/cube_renderering_system/srcs/renderer3D.vhd:6' bound to instance 'renderer3D_inst' of component 'renderer3D' [d:/Git/cuhk-ceng3430/Project/ceng3430_proj_renderer3d/ceng3430_proj_renderer3d.srcs/sources_1/bd/cube_renderering_system/ipshared/8328/hdl/cube_renderer_controller_v2_0.vhd:216]
 INFO: [Synth 8-638] synthesizing module 'renderer3D' [d:/Git/cuhk-ceng3430/Project/ceng3430_proj_renderer3d/ceng3430_proj_renderer3d.srcs/sources_1/bd/cube_renderering_system/srcs/renderer3D.vhd:20]
 	Parameter FRAME_THICKNESS bound to: 1 - type: integer 
 INFO: [Synth 8-3491] module 'point_on_segment' declared at 'd:/Git/cuhk-ceng3430/Project/ceng3430_proj_renderer3d/ceng3430_proj_renderer3d.srcs/sources_1/bd/cube_renderering_system/srcs/graphics/point_on_segment.vhd:6' bound to instance 'point_on_segment_i' of component 'point_on_segment' [d:/Git/cuhk-ceng3430/Project/ceng3430_proj_renderer3d/ceng3430_proj_renderer3d.srcs/sources_1/bd/cube_renderering_system/srcs/renderer3D.vhd:42]
@@ -65,7 +66,7 @@ INFO: [Synth 8-3491] module 'point_on_segment' declared at 'd:/Git/cuhk-ceng3430
 INFO: [Synth 8-3491] module 'point_on_segment' declared at 'd:/Git/cuhk-ceng3430/Project/ceng3430_proj_renderer3d/ceng3430_proj_renderer3d.srcs/sources_1/bd/cube_renderering_system/srcs/graphics/point_on_segment.vhd:6' bound to instance 'point_on_segment_j' of component 'point_on_segment' [d:/Git/cuhk-ceng3430/Project/ceng3430_proj_renderer3d/ceng3430_proj_renderer3d.srcs/sources_1/bd/cube_renderering_system/srcs/renderer3D.vhd:52]
 INFO: [Synth 8-3491] module 'point_on_segment' declared at 'd:/Git/cuhk-ceng3430/Project/ceng3430_proj_renderer3d/ceng3430_proj_renderer3d.srcs/sources_1/bd/cube_renderering_system/srcs/graphics/point_on_segment.vhd:6' bound to instance 'point_on_segment_k' of component 'point_on_segment' [d:/Git/cuhk-ceng3430/Project/ceng3430_proj_renderer3d/ceng3430_proj_renderer3d.srcs/sources_1/bd/cube_renderering_system/srcs/renderer3D.vhd:62]
 INFO: [Synth 8-256] done synthesizing module 'renderer3D' (3#1) [d:/Git/cuhk-ceng3430/Project/ceng3430_proj_renderer3d/ceng3430_proj_renderer3d.srcs/sources_1/bd/cube_renderering_system/srcs/renderer3D.vhd:20]
-INFO: [Synth 8-3491] module 'vga_controller' declared at 'd:/Git/cuhk-ceng3430/Project/ceng3430_proj_renderer3d/ceng3430_proj_renderer3d.srcs/sources_1/bd/cube_renderering_system/srcs/vga/vga_controller.vhd:7' bound to instance 'vga_controller_inst' of component 'vga_controller' [d:/Git/cuhk-ceng3430/Project/ceng3430_proj_renderer3d/ceng3430_proj_renderer3d.srcs/sources_1/bd/cube_renderering_system/ipshared/5f8f/hdl/cube_renderer_controller_v2_0.vhd:234]
+INFO: [Synth 8-3491] module 'vga_controller' declared at 'd:/Git/cuhk-ceng3430/Project/ceng3430_proj_renderer3d/ceng3430_proj_renderer3d.srcs/sources_1/bd/cube_renderering_system/srcs/vga/vga_controller.vhd:7' bound to instance 'vga_controller_inst' of component 'vga_controller' [d:/Git/cuhk-ceng3430/Project/ceng3430_proj_renderer3d/ceng3430_proj_renderer3d.srcs/sources_1/bd/cube_renderering_system/ipshared/8328/hdl/cube_renderer_controller_v2_0.vhd:234]
 INFO: [Synth 8-638] synthesizing module 'vga_controller' [d:/Git/cuhk-ceng3430/Project/ceng3430_proj_renderer3d/ceng3430_proj_renderer3d.srcs/sources_1/bd/cube_renderering_system/srcs/vga/vga_controller.vhd:25]
 	Parameter N bound to: 1 - type: integer 
 INFO: [Synth 8-3491] module 'clock_divider' declared at 'd:/Git/cuhk-ceng3430/Project/ceng3430_proj_renderer3d/ceng3430_proj_renderer3d.srcs/sources_1/bd/cube_renderering_system/srcs/utils/clock_divider.vhd:5' bound to instance 'clk_divider' of component 'clock_divider' [d:/Git/cuhk-ceng3430/Project/ceng3430_proj_renderer3d/ceng3430_proj_renderer3d.srcs/sources_1/bd/cube_renderering_system/srcs/vga/vga_controller.vhd:58]
@@ -73,7 +74,7 @@ INFO: [Synth 8-638] synthesizing module 'clock_divider' [d:/Git/cuhk-ceng3430/Pr
 	Parameter N bound to: 1 - type: integer 
 INFO: [Synth 8-256] done synthesizing module 'clock_divider' (4#1) [d:/Git/cuhk-ceng3430/Project/ceng3430_proj_renderer3d/ceng3430_proj_renderer3d.srcs/sources_1/bd/cube_renderering_system/srcs/utils/clock_divider.vhd:13]
 INFO: [Synth 8-256] done synthesizing module 'vga_controller' (5#1) [d:/Git/cuhk-ceng3430/Project/ceng3430_proj_renderer3d/ceng3430_proj_renderer3d.srcs/sources_1/bd/cube_renderering_system/srcs/vga/vga_controller.vhd:25]
-INFO: [Synth 8-256] done synthesizing module 'cube_renderer_controller_v2_0' (6#1) [d:/Git/cuhk-ceng3430/Project/ceng3430_proj_renderer3d/ceng3430_proj_renderer3d.srcs/sources_1/bd/cube_renderering_system/ipshared/5f8f/hdl/cube_renderer_controller_v2_0.vhd:58]
+INFO: [Synth 8-256] done synthesizing module 'cube_renderer_controller_v2_0' (6#1) [d:/Git/cuhk-ceng3430/Project/ceng3430_proj_renderer3d/ceng3430_proj_renderer3d.srcs/sources_1/bd/cube_renderering_system/ipshared/8328/hdl/cube_renderer_controller_v2_0.vhd:58]
 INFO: [Synth 8-256] done synthesizing module 'cube_renderering_system_cube_renderer_controller_0_0' (7#1) [d:/Git/cuhk-ceng3430/Project/ceng3430_proj_renderer3d/ceng3430_proj_renderer3d.srcs/sources_1/bd/cube_renderering_system/ip/cube_renderering_system_cube_renderer_controller_0_0/synth/cube_renderering_system_cube_renderer_controller_0_0.vhd:95]
 INFO: [Synth 8-3491] module 'cube_renderering_system_processing_system7_0_0' declared at 'd:/Git/cuhk-ceng3430/Project/ceng3430_proj_renderer3d/ceng3430_proj_renderer3d.srcs/sources_1/bd/cube_renderering_system/ip/cube_renderering_system_processing_system7_0_0/synth/cube_renderering_system_processing_system7_0_0.v:60' bound to instance 'processing_system7_0' of component 'cube_renderering_system_processing_system7_0_0' [D:/Git/cuhk-ceng3430/Project/ceng3430_proj_renderer3d/ceng3430_proj_renderer3d.srcs/sources_1/bd/cube_renderering_system/hdl/cube_renderering_system.vhd:913]
 INFO: [Synth 8-638] synthesizing module 'cube_renderering_system_processing_system7_0_0' [d:/Git/cuhk-ceng3430/Project/ceng3430_proj_renderer3d/ceng3430_proj_renderer3d.srcs/sources_1/bd/cube_renderering_system/ip/cube_renderering_system_processing_system7_0_0/synth/cube_renderering_system_processing_system7_0_0.v:60]
@@ -1050,7 +1051,7 @@ WARNING: [Synth 8-3331] design axi_protocol_converter_v2_1_10_b2s_rd_cmd_fsm has
 WARNING: [Synth 8-3331] design axi_protocol_converter_v2_1_10_b2s_rd_cmd_fsm has unconnected port s_arlen[2]
 INFO: [Common 17-14] Message 'Synth 8-3331' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:36 ; elapsed = 00:00:47 . Memory (MB): peak = 453.480 ; gain = 244.016
+Finished RTL Elaboration : Time (s): cpu = 00:00:35 ; elapsed = 00:00:47 . Memory (MB): peak = 454.188 ; gain = 244.898
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -1060,7 +1061,7 @@ Report Check Netlist:
 |1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
 +------+------------------+-------+---------+-------+------------------+
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:36 ; elapsed = 00:00:47 . Memory (MB): peak = 453.480 ; gain = 244.016
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:35 ; elapsed = 00:00:48 . Memory (MB): peak = 454.188 ; gain = 244.898
 ---------------------------------------------------------------------------------
 INFO: [Netlist 29-17] Analyzing 13 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
@@ -1093,16 +1094,16 @@ INFO: [Project 1-111] Unisim Transformation Summary:
   FDR => FDRE: 12 instances
   SRL16 => SRL16E: 1 instances
 
-Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.011 . Memory (MB): peak = 703.020 ; gain = 0.000
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.015 . Memory (MB): peak = 703.824 ; gain = 0.000
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:46 ; elapsed = 00:01:01 . Memory (MB): peak = 703.020 ; gain = 493.555
+Finished Constraint Validation : Time (s): cpu = 00:00:45 ; elapsed = 00:01:04 . Memory (MB): peak = 703.824 ; gain = 494.535
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7z020clg484-1
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:46 ; elapsed = 00:01:01 . Memory (MB): peak = 703.020 ; gain = 493.555
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:45 ; elapsed = 00:01:04 . Memory (MB): peak = 703.824 ; gain = 494.535
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
@@ -1116,7 +1117,7 @@ Applied set_property DONT_TOUCH = true for cube_renderering_system_i/ps7_0_axi_p
 Applied set_property DONT_TOUCH = true for cube_renderering_system_i/ps7_0_axi_periph/s00_couplers/auto_pc. (constraint file  auto generated constraint, line ).
 Applied set_property DONT_TOUCH = true for cube_renderering_system_i/rst_ps7_0_50M. (constraint file  auto generated constraint, line ).
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:46 ; elapsed = 00:01:02 . Memory (MB): peak = 703.020 ; gain = 493.555
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:45 ; elapsed = 00:01:04 . Memory (MB): peak = 703.824 ; gain = 494.535
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-5545] ROM "sig" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
 INFO: [Synth 8-5545] ROM "counter" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
@@ -1125,7 +1126,7 @@ INFO: [Synth 8-5545] ROM "v_count" won't be mapped to RAM because address size (
 INFO: [Synth 8-5545] ROM "v_count" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
 INFO: [Synth 8-4471] merging register 'seq_cnt_en_reg' into 'from_sys_reg' [d:/Git/cuhk-ceng3430/Project/ceng3430_proj_renderer3d/ceng3430_proj_renderer3d.srcs/sources_1/bd/cube_renderering_system/ipshared/04b4/hdl/proc_sys_reset_v5_0_vh_rfs.vhd:377]
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:48 ; elapsed = 00:01:04 . Memory (MB): peak = 703.020 ; gain = 493.555
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:47 ; elapsed = 00:01:07 . Memory (MB): peak = 703.824 ; gain = 494.535
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -2141,7 +2142,7 @@ WARNING: [Synth 8-3332] Sequential element (EXT_LPF/ACTIVE_LOW_EXT.ACT_LO_EXT/GE
 WARNING: [Synth 8-3332] Sequential element (EXT_LPF/ACTIVE_LOW_AUX.ACT_LO_AUX/GENERATE_LEVEL_P_S_CDC.SINGLE_BIT.CROSS_PLEVEL_IN2SCNDRY_s_level_out_d5) is unused and will be removed from module proc_sys_reset.
 WARNING: [Synth 8-3332] Sequential element (EXT_LPF/ACTIVE_LOW_AUX.ACT_LO_AUX/GENERATE_LEVEL_P_S_CDC.SINGLE_BIT.CROSS_PLEVEL_IN2SCNDRY_s_level_out_d6) is unused and will be removed from module proc_sys_reset.
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:57 ; elapsed = 00:01:15 . Memory (MB): peak = 703.020 ; gain = 493.555
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:56 ; elapsed = 00:01:19 . Memory (MB): peak = 703.824 ; gain = 494.535
 ---------------------------------------------------------------------------------
 WARNING: [Synth 8-3323] Resources of type DSP have been overutilized. Used = 222, Available = 220. Use report_utilization command for details.
 DSP Report: Generating DSP on_segment3, operation Mode is (post resource management): A*B.
@@ -2969,10 +2970,10 @@ Start Timing Optimization
 Start Applying XDC Timing Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:01:15 ; elapsed = 00:01:38 . Memory (MB): peak = 890.945 ; gain = 681.480
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:01:15 ; elapsed = 00:01:44 . Memory (MB): peak = 890.691 ; gain = 681.402
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:01:25 ; elapsed = 00:01:50 . Memory (MB): peak = 959.734 ; gain = 750.270
+Finished Timing Optimization : Time (s): cpu = 00:01:25 ; elapsed = 00:01:57 . Memory (MB): peak = 959.484 ; gain = 750.195
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -2988,7 +2989,7 @@ INFO: [Synth 8-3332] Sequential element (inst/gen_axilite.gen_b2s_conv.axilite_b
 INFO: [Synth 8-3332] Sequential element (inst/gen_axilite.gen_b2s_conv.axilite_b2s/RD.ar_channel_0/cmd_translator_0/incr_cmd_0/axlen_cnt_reg[8]) is unused and will be removed from module cube_renderering_system_auto_pc_0.
 INFO: [Synth 8-3332] Sequential element (inst/gen_axilite.gen_b2s_conv.axilite_b2s/RD.ar_channel_0/cmd_translator_0/wrap_cmd_0/axlen_cnt_reg[4]) is unused and will be removed from module cube_renderering_system_auto_pc_0.
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:01:46 ; elapsed = 00:02:15 . Memory (MB): peak = 1126.480 ; gain = 917.016
+Finished Technology Mapping : Time (s): cpu = 00:01:46 ; elapsed = 00:02:23 . Memory (MB): peak = 1127.973 ; gain = 918.684
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -3027,7 +3028,7 @@ INFO: [Synth 8-4618] Found max_fanout attribute set to 20 on net \inst/gen_axili
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:01:48 ; elapsed = 00:02:17 . Memory (MB): peak = 1126.480 ; gain = 917.016
+Finished IO Insertion : Time (s): cpu = 00:01:48 ; elapsed = 00:02:26 . Memory (MB): peak = 1127.973 ; gain = 918.684
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -3040,7 +3041,7 @@ Report Check Netlist:
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:01:48 ; elapsed = 00:02:17 . Memory (MB): peak = 1126.480 ; gain = 917.016
+Finished Renaming Generated Instances : Time (s): cpu = 00:01:48 ; elapsed = 00:02:26 . Memory (MB): peak = 1127.973 ; gain = 918.684
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -3052,25 +3053,25 @@ Report RTL Partitions:
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:01:55 ; elapsed = 00:02:25 . Memory (MB): peak = 1126.480 ; gain = 917.016
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:01:55 ; elapsed = 00:02:35 . Memory (MB): peak = 1127.973 ; gain = 918.684
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:01:55 ; elapsed = 00:02:25 . Memory (MB): peak = 1126.480 ; gain = 917.016
+Finished Renaming Generated Ports : Time (s): cpu = 00:01:55 ; elapsed = 00:02:35 . Memory (MB): peak = 1127.973 ; gain = 918.684
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:01:55 ; elapsed = 00:02:25 . Memory (MB): peak = 1126.480 ; gain = 917.016
+Finished Handling Custom Attributes : Time (s): cpu = 00:01:55 ; elapsed = 00:02:35 . Memory (MB): peak = 1127.973 ; gain = 918.684
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:01:55 ; elapsed = 00:02:25 . Memory (MB): peak = 1126.480 ; gain = 917.016
+Finished Renaming Generated Nets : Time (s): cpu = 00:01:55 ; elapsed = 00:02:35 . Memory (MB): peak = 1127.973 ; gain = 918.684
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start ROM, RAM, DSP and Shift Register Reporting
@@ -3108,12 +3109,12 @@ Report Cell Usage:
 |3     |CARRY4  |  1638|
 |4     |DSP48E1 |   192|
 |5     |LUT1    |   856|
-|6     |LUT2    |  5106|
+|6     |LUT2    |  5105|
 |7     |LUT3    |   418|
 |8     |LUT4    |   834|
-|9     |LUT5    |   231|
-|10    |LUT6    |  2341|
-|11    |MUXF7   |    32|
+|9     |LUT5    |   263|
+|10    |LUT6    |  2322|
+|11    |MUXF7   |    64|
 |12    |PS7     |     1|
 |13    |SRL16   |     1|
 |14    |SRL16E  |    22|
@@ -3130,11 +3131,11 @@ Report Instance Areas:
 +------+-----------------------------------------------------+---------------------------------------------------------------+------+
 |      |Instance                                             |Module                                                         |Cells |
 +------+-----------------------------------------------------+---------------------------------------------------------------+------+
-|1     |top                                                  |                                                               | 13199|
-|2     |  cube_renderering_system_i                          |cube_renderering_system                                        | 13162|
-|3     |    cube_renderer_controller_0                       |cube_renderering_system_cube_renderer_controller_0_0           | 11658|
-|4     |      U0                                             |cube_renderer_controller_v2_0                                  | 11213|
-|5     |        cube_renderer_controller_v2_0_S00_AXI_inst   |cube_renderer_controller_v2_0_S00_AXI                          |  2531|
+|1     |top                                                  |                                                               | 13243|
+|2     |  cube_renderering_system_i                          |cube_renderering_system                                        | 13206|
+|3     |    cube_renderer_controller_0                       |cube_renderering_system_cube_renderer_controller_0_0           | 11702|
+|4     |      U0                                             |cube_renderer_controller_v2_0                                  | 11257|
+|5     |        cube_renderer_controller_v2_0_S00_AXI_inst   |cube_renderer_controller_v2_0_S00_AXI                          |  2575|
 |6     |        renderer3D_inst                              |renderer3D                                                     |  8079|
 |7     |          \point_on_segment_i[0].point_on_segment_i  |point_on_segment                                               |   673|
 |8     |          \point_on_segment_i[0].point_on_segment_j  |point_on_segment_5                                             |   673|
@@ -3187,11 +3188,11 @@ Report Instance Areas:
 |55    |          SEQ_COUNTER                                |upcnt_n                                                        |    13|
 +------+-----------------------------------------------------+---------------------------------------------------------------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:01:55 ; elapsed = 00:02:25 . Memory (MB): peak = 1126.480 ; gain = 917.016
+Finished Writing Synthesis Report : Time (s): cpu = 00:01:55 ; elapsed = 00:02:35 . Memory (MB): peak = 1127.973 ; gain = 918.684
 ---------------------------------------------------------------------------------
-Synthesis finished with 0 errors, 0 critical warnings and 160 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:01:12 ; elapsed = 00:02:09 . Memory (MB): peak = 1126.480 ; gain = 631.141
-Synthesis Optimization Complete : Time (s): cpu = 00:01:55 ; elapsed = 00:02:26 . Memory (MB): peak = 1126.480 ; gain = 917.016
+Synthesis finished with 0 errors, 0 critical warnings and 128 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:01:13 ; elapsed = 00:02:18 . Memory (MB): peak = 1127.973 ; gain = 631.875
+Synthesis Optimization Complete : Time (s): cpu = 00:01:55 ; elapsed = 00:02:35 . Memory (MB): peak = 1127.973 ; gain = 918.684
 INFO: [Project 1-571] Translating synthesized netlist
 INFO: [Netlist 29-17] Analyzing 1854 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
@@ -3204,9 +3205,9 @@ INFO: [Project 1-111] Unisim Transformation Summary:
   SRL16 => SRL16E: 1 instances
 
 INFO: [Common 17-83] Releasing license: Synthesis
-257 Infos, 110 Warnings, 0 Critical Warnings and 0 Errors encountered.
+257 Infos, 111 Warnings, 0 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:01:56 ; elapsed = 00:02:25 . Memory (MB): peak = 1126.480 ; gain = 887.793
+synth_design: Time (s): cpu = 00:01:57 ; elapsed = 00:02:35 . Memory (MB): peak = 1127.973 ; gain = 889.441
 INFO: [Common 17-1381] The checkpoint 'D:/Git/cuhk-ceng3430/Project/ceng3430_proj_renderer3d/ceng3430_proj_renderer3d.runs/synth_1/cube_renderering_system_wrapper.dcp' has been generated.
-report_utilization: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.086 . Memory (MB): peak = 1126.480 ; gain = 0.000
-INFO: [Common 17-206] Exiting Vivado at Thu May 18 20:12:32 2023...
+report_utilization: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.093 . Memory (MB): peak = 1127.973 ; gain = 0.000
+INFO: [Common 17-206] Exiting Vivado at Fri May 19 00:00:28 2023...

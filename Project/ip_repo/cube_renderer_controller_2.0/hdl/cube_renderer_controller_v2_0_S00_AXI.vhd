@@ -528,6 +528,8 @@ BEGIN
 				reg_data_out <= slv_reg14;
 			WHEN b"001111" =>
 				reg_data_out <= slv_reg15;
+			WHEN b"010000" =>
+				reg_data_out <= slv_reg16;
 			WHEN OTHERS =>
 				reg_data_out <= (OTHERS => '0');
 		END CASE;

@@ -1,11 +1,11 @@
 -- Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2016.3 (win64) Build 1682563 Mon Oct 10 19:07:27 MDT 2016
--- Date        : Wed May 17 19:24:44 2023
+-- Date        : Thu May 18 23:06:51 2023
 -- Host        : LAPTOP-UCKDP9IT running 64-bit major release  (build 9200)
--- Command     : write_vhdl -force -mode synth_stub -rename_top cube_renderering_system_processing_system7_0_0 -prefix
---               cube_renderering_system_processing_system7_0_0_ design_1_processing_system7_0_0_stub.vhdl
--- Design      : design_1_processing_system7_0_0
+-- Command     : write_vhdl -force -mode synth_stub
+--               D:/Git/cuhk-ceng3430/Project/ceng3430_proj_renderer3d/ceng3430_proj_renderer3d.srcs/sources_1/bd/cube_renderering_system/ip/cube_renderering_system_processing_system7_0_0/cube_renderering_system_processing_system7_0_0_stub.vhdl
+-- Design      : cube_renderering_system_processing_system7_0_0
 -- Purpose     : Stub declaration of top-level module interface
 -- Device      : xc7z020clg484-1
 -- --------------------------------------------------------------------------------

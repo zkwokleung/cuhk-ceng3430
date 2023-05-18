@@ -16,22 +16,16 @@ END point_on_segment;
 ARCHITECTURE point_on_segment_arch OF point_on_segment IS
 BEGIN
     PROCESS (CLK)
-        VARIABLE d1, d2 : vec2;
-        VARIABLE cross, dot : INTEGER;
+        VARIABLE m, c : INTEGER;
     BEGIN
         IF rising_edge(CLK) THEN
-            d1(0) := point(0) - v1(0);
-            d1(1) := point(1) - v1(1);
-            d2(0) := v2(0) - v1(0);
-            d2(1) := v2(1) - v1(1);
-            cross := d1(0) * d2(1) - d1(1) * d2(0);
-            dot := d1(0) * d2(0) + d1(1) * d2(1);
-            IF cross /= 0 THEN
-                on_segment <= '0';
-            ELSIF dot < 0 OR dot > d2(0) * d2(0) + d2(1) * d2(1) THEN
-                on_segment <= '0';
-            ELSE
+            m := (v2(1) - v1(1)) / (v2(0) - v1(0));
+            c := v1(1) - (((v2(1) - v1(1)) * v1(0)) / (v2(0) - v1(0)));
+
+            IF (point(1) <= (m * point(0)) + c + 3) AND (point(1) >= (m * point(0)) + c - 3) THEN
                 on_segment <= '1';
+            ELSE
+                on_segment <= '0';
             END IF;
         END IF;
     END PROCESS;

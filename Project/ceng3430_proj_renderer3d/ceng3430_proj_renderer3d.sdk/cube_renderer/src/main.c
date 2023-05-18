@@ -37,9 +37,9 @@ int main()
     float cube_base_vertices[8][3] = {{-1.0f, -1.0f, -1.0f}, {-1.0f, -1.0f, 1.0f}, {1.0f, -1.0f, 1.0f},
                                       {1.0f, -1.0f, -1.0f},  {-1.0f, 1.0f, -1.0f}, {-1.0f, 1.0f, 1.0f},
                                       {1.0f, 1.0f, 1.0f},    {1.0f, 1.0f, -1.0f}};
-    float cube_pos[3] = {0.0f, 0.0f, 100.0f};
+    float cube_pos[3] = {0.0f, 0.0f, 500.0f};
     float cube_rot[3] = {0.0f, 0.0f, 0.0f};
-    float cube_scale[3] = {10.0f, 10.0f, 10.0f};
+    float cube_scale[3] = {100.0f, 100.0f, 100.0f};
 
     float camera_pos[3] = {0.0f, 0.0f, -100.0f};
     float camera_up[3] = {0.0f, 1.0f, 0.0f};
@@ -71,7 +71,7 @@ int main()
     {
         // Input
         // Read buttons
-        btnc_in = CUBE_RENDERER_CONTROLLER_mReadReg(BASEADDR, INPUT_ADDR);
+        btnc_in = get_btn(BTN_C);
         btnl_in = get_btn(BTN_L);
         btnr_in = get_btn(BTN_R);
         btnu_in = get_btn(BTN_U);
@@ -80,105 +80,217 @@ int main()
         // Read switches
         sw = get_sw();
 
-        if (btnc_in)
-        {
-            xil_printf("End\n\r");
-            running = 0;
-        }
-        // BTN will change the cube's position
-        if (btnl_in && !btnl_in_prev)
-        {
-            cube_pos[0] -= 10.0f;
-            xil_printf("Move left\n\r");
-        }
-        else if (btnr_in && !btnr_in_prev)
-        {
-            cube_pos[0] += 10.0f;
-            xil_printf("Move right\n\r");
-        }
-        else if (btnu_in && !btnu_in_prev)
-        {
-            cube_pos[1] -= 10.0f;
-            xil_printf("Move up\n\r");
-        }
-        else if (btnd_in && !btnd_in_prev)
-        {
-            cube_pos[1] += 10.0f;
-            xil_printf("Move down\n\r");
-        }
-
         // Check the state of the switches
         if (sw & SW_0)
         {
+            // BTN will change the cube's position
+            if (btnl_in)
+            {
+                cube_pos[0] += 1.0f;
+                xil_printf("Move left\n\r");
+            }
+            else if (btnr_in)
+            {
+                cube_pos[0] -= 1.0f;
+                xil_printf("Move right\n\r");
+            }
+            else if (btnu_in)
+            {
+                cube_pos[1] -= 1.0f;
+                xil_printf("Move up\n\r");
+            }
+            else if (btnd_in)
+            {
+                cube_pos[1] += 1.0f;
+                xil_printf("Move down\n\r");
+            }
         }
-        else if (sw & SW_1)
+        if (sw & SW_1)
         {
             // BTN will change the cube's rotation
-            if (btnl_in && !btnl_in_prev)
+            if (btnl_in)
             {
                 cube_rot[1] -= 0.1f;
                 xil_printf("Rotate left\n\r");
             }
-            else if (btnr_in && !btnr_in_prev)
+            else if (btnr_in)
             {
                 cube_rot[1] += 0.1f;
                 xil_printf("Rotate right\n\r");
             }
-            else if (btnu_in && !btnu_in_prev)
+            else if (btnu_in)
             {
                 cube_rot[0] -= 0.1f;
                 xil_printf("Rotate up\n\r");
             }
-            else if (btnd_in && !btnd_in_prev)
+            else if (btnd_in)
             {
                 cube_rot[0] += 0.1f;
                 xil_printf("Rotate down\n\r");
             }
         }
-        else if (sw & SW_2)
+        if (sw & SW_2)
         {
             // BTN will change the cube's scale
-            if (btnl_in && !btnl_in_prev)
+            if (btnl_in)
             {
-                cube_scale[0] -= 1.0f;
-                cube_scale[1] -= 1.0f;
-                cube_scale[2] -= 1.0f;
+                cube_scale[0] -= 0.01f;
+                cube_scale[1] -= 0.01f;
+                cube_scale[2] -= 0.01f;
             }
-            else if (btnr_in && !btnr_in_prev)
+            else if (btnr_in)
             {
-                cube_scale[0] += 1.0f;
-                cube_scale[1] += 1.0f;
-                cube_scale[2] += 1.0f;
+                cube_scale[0] += 0.01f;
+                cube_scale[1] += 0.01f;
+                cube_scale[2] += 0.01f;
             }
-            else if (btnu_in && !btnu_in_prev)
+            else if (btnu_in)
             {
-                cube_scale[0] += 1.0f;
-                cube_scale[1] += 1.0f;
-                cube_scale[2] += 1.0f;
+                cube_scale[0] += 0.01f;
+                cube_scale[1] += 0.01f;
+                cube_scale[2] += 0.01f;
             }
-            else if (btnd_in && !btnd_in_prev)
+            else if (btnd_in)
             {
-                cube_scale[0] -= 1.0f;
-                cube_scale[1] -= 1.0f;
-                cube_scale[2] -= 1.0f;
+                cube_scale[0] -= 0.01f;
+                cube_scale[1] -= 0.01f;
+                cube_scale[2] -= 0.01f;
             }
         }
-        else if (sw & SW_7)
+        if (sw & SW_3)
         {
-            // reset the cube attributes
-            cube_pos[0] = 500.0f;
-            cube_pos[1] = 300.0f;
-            cube_pos[2] = 1000.0f;
+            // Y axis Self rotate
+            cube_rot[2] += 0.01f;
+            if (cube_rot[2] > 360.0f)
+            {
+                cube_rot[2] = 0.0f;
+            }
+        }
 
-            cube_rot[0] = 0.0f;
-            cube_rot[1] = 0.0f;
-            cube_rot[2] = 0.0f;
+        if (sw & SW_4)
+        {
+        }
 
-            cube_scale[0] = 100.0f;
-            cube_scale[1] = 100.0f;
-            cube_scale[2] = 100.0f;
+        if (sw & SW_5)
+        {
+        }
 
-            xil_printf("Reseting");
+        if (sw & SW_6)
+        {
+            // Change the shape of the cube
+            if (btnl_in)
+            {
+                // Cube
+                cube_base_vertices[0][0] = -1.0f;
+                cube_base_vertices[0][1] = -1.0f;
+                cube_base_vertices[0][2] = -1.0f;
+                cube_base_vertices[1][0] = 1.0f;
+                cube_base_vertices[1][1] = -1.0f;
+                cube_base_vertices[1][2] = -1.0f;
+                cube_base_vertices[2][0] = 1.0f;
+                cube_base_vertices[2][1] = -1.0f;
+                cube_base_vertices[2][2] = 1.0f;
+                cube_base_vertices[3][0] = -1.0f;
+                cube_base_vertices[3][1] = 1.0f;
+                cube_base_vertices[3][2] = 1.0f;
+                cube_base_vertices[4][0] = -1.0f;
+                cube_base_vertices[4][1] = 1.0f;
+                cube_base_vertices[4][2] = -1.0f;
+                cube_base_vertices[5][0] = 1.0f;
+                cube_base_vertices[5][1] = 1.0f;
+                cube_base_vertices[5][2] = -1.0f;
+                cube_base_vertices[6][0] = 1.0f;
+                cube_base_vertices[6][1] = 1.0f;
+                cube_base_vertices[6][2] = 1.0f;
+                cube_base_vertices[7][0] = -1.0f;
+                cube_base_vertices[7][1] = -1.0f;
+                cube_base_vertices[7][2] = 1.0f;
+            }
+
+            if (btnr_in)
+            {
+                // Tetrahedron
+                cube_base_vertices[0][0] = 0.0f;
+                cube_base_vertices[0][1] = 1.0f;
+                cube_base_vertices[0][2] = 0.0f;
+                cube_base_vertices[1][0] = 0.0f;
+                cube_base_vertices[1][1] = 1.0f;
+                cube_base_vertices[1][2] = 0.0f;
+                cube_base_vertices[2][0] = 0.0f;
+                cube_base_vertices[2][1] = 1.0f;
+                cube_base_vertices[2][2] = 0.0f;
+                cube_base_vertices[3][0] = 0.0f;
+                cube_base_vertices[3][1] = 1.0f;
+                cube_base_vertices[3][2] = 0.0f;
+                cube_base_vertices[4][0] = -1.0f;
+                cube_base_vertices[4][1] = 1.0f;
+                cube_base_vertices[4][2] = -1.0f;
+                cube_base_vertices[5][0] = 1.0f;
+                cube_base_vertices[5][1] = 1.0f;
+                cube_base_vertices[5][2] = -1.0f;
+                cube_base_vertices[6][0] = 1.0f;
+                cube_base_vertices[6][1] = 1.0f;
+                cube_base_vertices[6][2] = 1.0f;
+                cube_base_vertices[7][0] = -1.0f;
+                cube_base_vertices[7][1] = -1.0f;
+                cube_base_vertices[7][2] = 1.0f;
+            }
+
+            if (btnu_in)
+            {
+                // triangular prism
+                cube_base_vertices[0][0] = -1.0f;
+                cube_base_vertices[0][1] = -1.0f;
+                cube_base_vertices[0][2] = -1.0f;
+                cube_base_vertices[1][0] = 0.0f;
+                cube_base_vertices[1][1] = -1.0f;
+                cube_base_vertices[1][2] = -1.0f;
+                cube_base_vertices[2][0] = 0.0f;
+                cube_base_vertices[2][1] = -1.0f;
+                cube_base_vertices[2][2] = 1.0f;
+                cube_base_vertices[3][0] = -1.0f;
+                cube_base_vertices[3][1] = 1.0f;
+                cube_base_vertices[3][2] = 1.0f;
+                cube_base_vertices[4][0] = -1.0f;
+                cube_base_vertices[4][1] = 1.0f;
+                cube_base_vertices[4][2] = -1.0f;
+                cube_base_vertices[5][0] = 0.0f;
+                cube_base_vertices[5][1] = 1.0f;
+                cube_base_vertices[5][2] = -1.0f;
+                cube_base_vertices[6][0] = 0.0f;
+                cube_base_vertices[6][1] = 1.0f;
+                cube_base_vertices[6][2] = 1.0f;
+                cube_base_vertices[7][0] = -1.0f;
+                cube_base_vertices[7][1] = -1.0f;
+                cube_base_vertices[7][2] = 1.0f;
+            }
+        }
+
+        if (sw & SW_7)
+        {
+            if (btnc_in)
+            {
+                xil_printf("End\n\r");
+                running = 0;
+            }
+
+            if (btnl_in && !btnl_in_prev)
+            {
+                // reset the cube attributes
+                cube_pos[0] = 500.0f;
+                cube_pos[1] = 300.0f;
+                cube_pos[2] = 1000.0f;
+
+                cube_rot[0] = 0.0f;
+                cube_rot[1] = 0.0f;
+                cube_rot[2] = 0.0f;
+
+                cube_scale[0] = 100.0f;
+                cube_scale[1] = 100.0f;
+                cube_scale[2] = 100.0f;
+
+                xil_printf("Reseting the cube\n\r");
+            }
         }
 
         // Apply the transformations in the correct order
@@ -194,22 +306,6 @@ int main()
             to_screen_space(screen_pos[i], translated[i], proj_mat, view_mat, WIDTH, HEIGHT);
             // xil_printf("Cube vertex %d: %f, %f, %f\n\r", i, translated[i][0], translated[i][1], translated[i][2]);
             // xil_printf("Screen position %d: %f, %f\n\r", i, screen_pos[i][0], screen_pos[i][1]);
-        }
-
-        if (debug_divider <= 0.0f)
-        {
-            for (unsigned int i = 0; i < 8; i++)
-            {
-                // Convert the 3D cube positions to 2D screen positions
-                to_screen_space(screen_pos[i], translated[i], proj_mat, view_mat, WIDTH, HEIGHT);
-                xil_printf("Cube vertex %d: %f, %f, %f\n\r", i, translated[i][0], translated[i][1], translated[i][2]);
-                xil_printf("Screen position %d: %f, %f\n\r", i, screen_pos[i][0], screen_pos[i][1]);
-            }
-            debug_divider = DEBUG_DEVIDER_INITAL_VALUE;
-        }
-        else
-        {
-            debug_divider -= 0.0000000001f;
         }
 
         // Output screen positions

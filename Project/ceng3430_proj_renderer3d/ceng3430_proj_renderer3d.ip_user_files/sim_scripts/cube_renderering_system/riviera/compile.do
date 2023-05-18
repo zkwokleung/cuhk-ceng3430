@@ -42,9 +42,9 @@ vcom -work xil_defaultlib -93 \
 "../../../bd/cube_renderering_system/srcs/graphics/point_on_segment.vhd" \
 "../../../bd/cube_renderering_system/srcs/utils/clock_divider.vhd" \
 "../../../bd/cube_renderering_system/srcs/renderer3D.vhd" \
-"../../../bd/cube_renderering_system/ipshared/5f8f/hdl/cube_renderer_controller_v2_0_S00_AXI.vhd" \
+"../../../bd/cube_renderering_system/ipshared/8328/hdl/cube_renderer_controller_v2_0_S00_AXI.vhd" \
 "../../../bd/cube_renderering_system/srcs/vga/vga_controller.vhd" \
-"../../../bd/cube_renderering_system/ipshared/5f8f/hdl/cube_renderer_controller_v2_0.vhd" \
+"../../../bd/cube_renderering_system/ipshared/8328/hdl/cube_renderer_controller_v2_0.vhd" \
 "../../../bd/cube_renderering_system/ip/cube_renderering_system_cube_renderer_controller_0_0/sim/cube_renderering_system_cube_renderer_controller_0_0.vhd" \
 
 vcom -work lib_cdc_v1_0_2 -93 \

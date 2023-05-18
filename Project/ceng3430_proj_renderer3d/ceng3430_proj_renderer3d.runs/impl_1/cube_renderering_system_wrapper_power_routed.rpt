@@ -1,7 +1,7 @@
 Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version     : Vivado v.2016.3 (win64) Build 1682563 Mon Oct 10 19:07:27 MDT 2016
-| Date             : Thu May 18 20:17:10 2023
+| Date             : Fri May 19 00:05:53 2023
 | Host             : LAPTOP-UCKDP9IT running 64-bit major release  (build 9200)
 | Command          : report_power -file cube_renderering_system_wrapper_power_routed.rpt -pb cube_renderering_system_wrapper_power_summary_routed.pb -rpx cube_renderering_system_wrapper_power_routed.rpx
 | Design           : cube_renderering_system_wrapper
@@ -30,12 +30,12 @@ Table of Contents
 ----------
 
 +--------------------------+-------+
-| Total On-Chip Power (W)  | 1.809 |
-| Dynamic (W)              | 1.646 |
+| Total On-Chip Power (W)  | 1.808 |
+| Dynamic (W)              | 1.645 |
 | Device Static (W)        | 0.163 |
 | Effective TJA (C/W)      | 11.5  |
-| Max Ambient (C)          | 64.1  |
-| Junction Temperature (C) | 45.9  |
+| Max Ambient (C)          | 64.2  |
+| Junction Temperature (C) | 45.8  |
 | Confidence Level         | Low   |
 | Setting File             | ---   |
 | Simulation Activity File | ---   |
@@ -49,21 +49,21 @@ Table of Contents
 +-------------------------+-----------+----------+-----------+-----------------+
 | On-Chip                 | Power (W) | Used     | Available | Utilization (%) |
 +-------------------------+-----------+----------+-----------+-----------------+
-| Clocks                  |     0.008 |        4 |       --- |             --- |
-| Slice Logic             |     0.013 |    11878 |       --- |             --- |
-|   LUT as Logic          |     0.011 |     7848 |     53200 |           14.75 |
+| Clocks                  |     0.009 |        4 |       --- |             --- |
+| Slice Logic             |     0.013 |    11922 |       --- |             --- |
+|   LUT as Logic          |     0.011 |     7889 |     53200 |           14.83 |
 |   CARRY4                |     0.002 |     1633 |     13300 |           12.28 |
 |   Register              |    <0.001 |     1163 |    106400 |            1.09 |
-|   F7/F8 Muxes           |    <0.001 |       32 |     53200 |            0.06 |
+|   F7/F8 Muxes           |    <0.001 |       64 |     53200 |            0.12 |
 |   LUT as Shift Register |    <0.001 |       68 |     17400 |            0.39 |
 |   Others                |     0.000 |      285 |       --- |             --- |
 |   BUFG                  |     0.000 |        1 |        32 |            3.13 |
-| Signals                 |     0.027 |    17344 |       --- |             --- |
+| Signals                 |     0.026 |    17331 |       --- |             --- |
 | DSPs                    |     0.062 |      192 |       220 |           87.27 |
-| I/O                     |     0.006 |       31 |       200 |           15.50 |
+| I/O                     |     0.006 |       36 |       200 |           18.00 |
 | PS7                     |     1.529 |        1 |       --- |             --- |
 | Static Power            |     0.163 |          |           |                 |
-| Total                   |     1.809 |          |           |                 |
+| Total                   |     1.808 |          |           |                 |
 +-------------------------+-----------+----------+-----------+-----------------+
 
 
@@ -73,7 +73,7 @@ Table of Contents
 +-----------+-------------+-----------+-------------+------------+
 | Source    | Voltage (V) | Total (A) | Dynamic (A) | Static (A) |
 +-----------+-------------+-----------+-------------+------------+
-| Vccint    |       1.000 |     0.127 |       0.111 |      0.016 |
+| Vccint    |       1.000 |     0.126 |       0.110 |      0.016 |
 | Vccaux    |       1.800 |     0.021 |       0.000 |      0.021 |
 | Vcco33    |       3.300 |     0.003 |       0.002 |      0.001 |
 | Vcco25    |       2.500 |     0.001 |       0.000 |      0.001 |
@@ -86,7 +86,7 @@ Table of Contents
 | MGTAVcc   |       1.000 |     0.000 |       0.000 |      0.000 |
 | MGTAVtt   |       1.200 |     0.000 |       0.000 |      0.000 |
 | MGTVccaux |       1.800 |     0.000 |       0.000 |      0.000 |
-| Vccpint   |       1.000 |     0.750 |       0.718 |      0.031 |
+| Vccpint   |       1.000 |     0.749 |       0.718 |      0.031 |
 | Vccpaux   |       1.800 |     0.061 |       0.051 |      0.010 |
 | Vccpll    |       1.800 |     0.017 |       0.014 |      0.003 |
 | Vcco_ddr  |       1.500 |     0.459 |       0.457 |      0.002 |
@@ -150,23 +150,23 @@ Table of Contents
 +----------------------------------------------------+-----------+
 | Name                                               | Power (W) |
 +----------------------------------------------------+-----------+
-| cube_renderering_system_wrapper                    |     1.646 |
-|   cube_renderering_system_i                        |     1.640 |
-|     cube_renderer_controller_0                     |     0.104 |
-|       U0                                           |     0.102 |
-|         cube_renderer_controller_v2_0_S00_AXI_inst |     0.004 |
-|         renderer3D_inst                            |     0.092 |
+| cube_renderering_system_wrapper                    |     1.645 |
+|   cube_renderering_system_i                        |     1.639 |
+|     cube_renderer_controller_0                     |     0.103 |
+|       U0                                           |     0.101 |
+|         cube_renderer_controller_v2_0_S00_AXI_inst |     0.005 |
+|         renderer3D_inst                            |     0.090 |
 |           point_on_segment_i[0].point_on_segment_i |     0.007 |
-|           point_on_segment_i[0].point_on_segment_j |     0.008 |
+|           point_on_segment_i[0].point_on_segment_j |     0.007 |
 |           point_on_segment_i[0].point_on_segment_k |     0.008 |
 |           point_on_segment_i[1].point_on_segment_i |     0.008 |
-|           point_on_segment_i[1].point_on_segment_j |     0.008 |
+|           point_on_segment_i[1].point_on_segment_j |     0.007 |
 |           point_on_segment_i[1].point_on_segment_k |     0.007 |
 |           point_on_segment_i[2].point_on_segment_i |     0.008 |
-|           point_on_segment_i[2].point_on_segment_j |     0.008 |
-|           point_on_segment_i[2].point_on_segment_k |     0.007 |
+|           point_on_segment_i[2].point_on_segment_j |     0.007 |
+|           point_on_segment_i[2].point_on_segment_k |     0.008 |
 |           point_on_segment_i[3].point_on_segment_i |     0.008 |
-|           point_on_segment_i[3].point_on_segment_j |     0.008 |
+|           point_on_segment_i[3].point_on_segment_j |     0.007 |
 |           point_on_segment_i[3].point_on_segment_k |     0.007 |
 |         vga_controller_inst                        |     0.006 |
 |           clk_divider                              |     0.002 |
