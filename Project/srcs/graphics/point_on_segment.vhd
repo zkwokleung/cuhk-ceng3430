@@ -14,7 +14,7 @@ END point_on_segment;
 
 ARCHITECTURE point_on_segment_arch OF point_on_segment IS
 BEGIN
-    PROCESS (RESET, CLK)
+    PROCESS (CLK)
         VARIABLE dx1, dy1, dx2, dy2, cross, dot : INTEGER;
     BEGIN
         dx1 := x - v1_x;

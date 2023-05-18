@@ -1,7 +1,7 @@
 LIBRARY IEEE;
 USE IEEE.STD_LOGIC_1164.ALL;
 USE IEEE.Numeric_Std.ALL;
-USE generic_type_pkg.ALL;
+USE work.generic_type_pkg.ALL;
 
 ENTITY renderer3D IS
     PORT (
@@ -91,11 +91,11 @@ BEGIN
     END GENERATE;
 
     -- Determine if the current pixel is the vertex of the cube
-    PROCESS (DISPLAY_COOR_H, DISPLAY_COOR_V, screen_vertices_int)
+    PROCESS (next_coor_h, next_coor_v, cube_screen_vertices)
     BEGIN
         FOR i IN 0 TO 7 LOOP
-            IF (DISPLAY_COOR_H >= cube_screen_vertices(i)(0)) AND (DISPLAY_COOR_H <= (cube_screen_vertices(i)(0) + FRAME_THICKNESS)) AND
-                (DISPLAY_COOR_V >= cube_screen_vertices(i)(1)) AND (DISPLAY_COOR_V <= (cube_screen_vertices(i)(1) + FRAME_THICKNESS)) THEN
+            IF (next_coor_h >= cube_screen_vertices(i)(0)) AND (next_coor_h <= (cube_screen_vertices(i)(0) + FRAME_THICKNESS)) AND
+                (next_coor_v >= cube_screen_vertices(i)(1)) AND (next_coor_v <= (cube_screen_vertices(i)(1) + FRAME_THICKNESS)) THEN
                 draw_signal(i) <= '1';
             ELSE
                 draw_signal(i) <= '0';
