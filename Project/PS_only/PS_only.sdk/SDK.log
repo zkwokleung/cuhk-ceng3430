@@ -2578,3 +2578,27 @@ con
 ----------------End of Script----------------
 
 08:20:32 INFO  : Launch script is exported to file 'D:\Git\cuhk-ceng3430\Project\PS_only\PS_only.sdk\.sdk\launch_scripts\xilinx_c-c++_application_(system_debugger)\system_debugger_using_debug_renderer3d.elf_on_local.tcl'
+12:48:22 ERROR : (XSDB Server)ERROR: [Hsi 55-1545] Problem running tcl command ::sw_standalone_v6_0::generate : error deleting "D:/Git/cuhk-ceng3430/Project/PS_only/PS_only.sdk/cube_renderer_bsp/ps7_cortexa9_0/libsrc/standalone_v6_0/src/arm\cortexa53\32bit\xtime_l.c": permission denied
+    while executing
+"file delete -force $armsrcdir"
+    (procedure "::sw_standalone_v6_0::generate" line 259)
+    invoked from within
+"::sw_standalone_v6_0::generate standalone"
+ERROR: [Hsi 55-1442] Error(s) while running TCL procedure generate()
+
+12:48:22 ERROR : (XSDB Server)ERROR: [Hsi 55-1450] Error: running generate_bsp.
+
+12:48:22 ERROR : Error generating bsp sources: Failed in generating sources
+12:48:30 ERROR : (XSDB Server)ERROR: [Hsi 55-1545] Problem running tcl command ::sw_standalone_v6_0::generate : error deleting "D:/Git/cuhk-ceng3430/Project/PS_only/PS_only.sdk/cube_renderer_bsp/ps7_cortexa9_0/libsrc/standalone_v6_0/src/arm\cortexa53\64bit\sleep.c": permission denied
+    while executing
+"file delete -force $armsrcdir"
+    (procedure "::sw_standalone_v6_0::generate" line 259)
+    invoked from within
+"::sw_standalone_v6_0::generate standalone"
+
+12:48:30 ERROR : (XSDB Server)ERROR: [Hsi 55-1442] Error(s) while running TCL procedure generate()
+
+12:48:30 ERROR : (XSDB Server)ERROR: [Hsi 55-1450] Error: running generate_bsp.
+
+12:48:30 ERROR : Error generating bsp sources: Failed in generating sources
+12:49:09 INFO  : Disconnected from the channel tcfchan#39.

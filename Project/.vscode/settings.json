@@ -1,0 +1,9 @@
+{
+    "files.associations": {
+        "cube_renderer_controller.h": "c",
+        "xil_io.h": "c",
+        "xparameters.h": "c",
+        "platform.h": "c",
+        "xil_printf.h": "c"
+    }
+}

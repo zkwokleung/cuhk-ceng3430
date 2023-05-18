@@ -2,8 +2,8 @@
 # Vivado v2016.3 (64-bit)
 # SW Build 1682563 on Mon Oct 10 19:07:27 MDT 2016
 # IP Build 1681267 on Mon Oct 10 21:28:31 MDT 2016
-# Start of session at: Thu May 18 12:44:46 2023
-# Process ID: 6208
+# Start of session at: Thu May 18 20:12:39 2023
+# Process ID: 22100
 # Current directory: D:/Git/cuhk-ceng3430/Project/ceng3430_proj_renderer3d/ceng3430_proj_renderer3d.runs/impl_1
 # Command line: vivado.exe -log cube_renderering_system_wrapper.vdi -applog -product Vivado -messageDb vivado.pb -mode batch -source cube_renderering_system_wrapper.tcl -notrace
 # Log file: D:/Git/cuhk-ceng3430/Project/ceng3430_proj_renderer3d/ceng3430_proj_renderer3d.runs/impl_1/cube_renderering_system_wrapper.vdi
@@ -12,11 +12,7 @@
 source cube_renderering_system_wrapper.tcl -notrace
 Design is defaulting to srcset: sources_1
 Design is defaulting to constrset: constrs_1
-INFO: [Project 1-454] Reading design checkpoint 'd:/Git/cuhk-ceng3430/Project/ceng3430_proj_renderer3d/ceng3430_proj_renderer3d.srcs/sources_1/bd/cube_renderering_system/ip/cube_renderering_system_cube_renderer_controller_0_0/cube_renderering_system_cube_renderer_controller_0_0.dcp' for cell 'cube_renderering_system_i/cube_renderer_controller_0'
-INFO: [Project 1-454] Reading design checkpoint 'd:/Git/cuhk-ceng3430/Project/ceng3430_proj_renderer3d/ceng3430_proj_renderer3d.srcs/sources_1/bd/cube_renderering_system/ip/cube_renderering_system_processing_system7_0_0/cube_renderering_system_processing_system7_0_0.dcp' for cell 'cube_renderering_system_i/processing_system7_0'
-INFO: [Project 1-454] Reading design checkpoint 'd:/Git/cuhk-ceng3430/Project/ceng3430_proj_renderer3d/ceng3430_proj_renderer3d.srcs/sources_1/bd/cube_renderering_system/ip/cube_renderering_system_rst_ps7_0_50M_0/cube_renderering_system_rst_ps7_0_50M_0.dcp' for cell 'cube_renderering_system_i/rst_ps7_0_50M'
-INFO: [Project 1-454] Reading design checkpoint 'd:/Git/cuhk-ceng3430/Project/ceng3430_proj_renderer3d/ceng3430_proj_renderer3d.srcs/sources_1/bd/cube_renderering_system/ip/cube_renderering_system_auto_pc_0/cube_renderering_system_auto_pc_0.dcp' for cell 'cube_renderering_system_i/ps7_0_axi_periph/s00_couplers/auto_pc'
-INFO: [Netlist 29-17] Analyzing 76 Unisim elements for replacement
+INFO: [Netlist 29-17] Analyzing 1845 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-479] Netlist was created with Vivado 2016.3
 INFO: [Device 21-403] Loading part xc7z020clg484-1
@@ -29,15 +25,11 @@ Parsing XDC File [d:/Git/cuhk-ceng3430/Project/ceng3430_proj_renderer3d/ceng3430
 Finished Parsing XDC File [d:/Git/cuhk-ceng3430/Project/ceng3430_proj_renderer3d/ceng3430_proj_renderer3d.srcs/sources_1/bd/cube_renderering_system/ip/cube_renderering_system_rst_ps7_0_50M_0/cube_renderering_system_rst_ps7_0_50M_0.xdc] for cell 'cube_renderering_system_i/rst_ps7_0_50M/U0'
 Parsing XDC File [D:/Git/cuhk-ceng3430/Project/constrs/board.xdc]
 Finished Parsing XDC File [D:/Git/cuhk-ceng3430/Project/constrs/board.xdc]
-INFO: [Project 1-538] Using original IP XDC constraints instead of the XDC constraints in dcp 'd:/Git/cuhk-ceng3430/Project/ceng3430_proj_renderer3d/ceng3430_proj_renderer3d.srcs/sources_1/bd/cube_renderering_system/ip/cube_renderering_system_processing_system7_0_0/cube_renderering_system_processing_system7_0_0.dcp'
-INFO: [Project 1-538] Using original IP XDC constraints instead of the XDC constraints in dcp 'd:/Git/cuhk-ceng3430/Project/ceng3430_proj_renderer3d/ceng3430_proj_renderer3d.srcs/sources_1/bd/cube_renderering_system/ip/cube_renderering_system_rst_ps7_0_50M_0/cube_renderering_system_rst_ps7_0_50M_0.dcp'
-INFO: [Project 1-538] Using original IP XDC constraints instead of the XDC constraints in dcp 'd:/Git/cuhk-ceng3430/Project/ceng3430_proj_renderer3d/ceng3430_proj_renderer3d.srcs/sources_1/bd/cube_renderering_system/ip/cube_renderering_system_auto_pc_0/cube_renderering_system_auto_pc_0.dcp'
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-link_design: Time (s): cpu = 00:00:07 ; elapsed = 00:00:12 . Memory (MB): peak = 505.648 ; gain = 296.207
-CRITICAL WARNING: [Pfi 67-13] Hardware Handoff file design_1_processing_system7_0_0.hwdef does not exist for instance cube_renderering_system_i/processing_system7_0/inst
+link_design: Time (s): cpu = 00:00:09 ; elapsed = 00:00:11 . Memory (MB): peak = 523.176 ; gain = 313.242
 Command: opt_design
 Attempting to get a license for feature 'Implementation' and/or device 'xc7z020'
 INFO: [Common 17-349] Got license for feature 'Implementation' and/or device 'xc7z020'
@@ -48,63 +40,61 @@ INFO: [DRC 23-27] Running DRC with 2 threads
 INFO: [Project 1-461] DRC finished with 0 Errors
 INFO: [Project 1-462] Please refer to the DRC report (report_drc) for more information.
 
-Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.659 . Memory (MB): peak = 516.805 ; gain = 11.156
+Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.767 . Memory (MB): peak = 528.777 ; gain = 5.602
 INFO: [Timing 38-35] Done setting XDC timing constraints.
 
 Starting Logic Optimization Task
-Implement Debug Cores | Checksum: 165585884
+Implement Debug Cores | Checksum: 12bde066e
 
 Phase 1 Retarget
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
 INFO: [Opt 31-49] Retargeted 0 cell(s).
-Phase 1 Retarget | Checksum: c94e0430
+Phase 1 Retarget | Checksum: 1074d89dc
 
-Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.246 . Memory (MB): peak = 1012.672 ; gain = 0.000
+Time (s): cpu = 00:00:01 ; elapsed = 00:00:02 . Memory (MB): peak = 1072.879 ; gain = 0.008
 
 Phase 2 Constant propagation
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
-INFO: [Opt 31-10] Eliminated 25 cells.
-Phase 2 Constant propagation | Checksum: 180ff4996
+INFO: [Opt 31-10] Eliminated 373 cells.
+Phase 2 Constant propagation | Checksum: f42ab054
 
-Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.594 . Memory (MB): peak = 1012.672 ; gain = 0.000
+Time (s): cpu = 00:00:03 ; elapsed = 00:00:04 . Memory (MB): peak = 1072.879 ; gain = 0.008
 
 Phase 3 Sweep
-INFO: [Opt 31-12] Eliminated 407 unconnected nets.
-INFO: [Opt 31-11] Eliminated 359 unconnected cells.
-Phase 3 Sweep | Checksum: 1b0f86bee
+INFO: [Opt 31-12] Eliminated 7949 unconnected nets.
+INFO: [Opt 31-11] Eliminated 414 unconnected cells.
+Phase 3 Sweep | Checksum: 16319348d
 
-Time (s): cpu = 00:00:01 ; elapsed = 00:00:01 . Memory (MB): peak = 1012.672 ; gain = 0.000
+Time (s): cpu = 00:00:05 ; elapsed = 00:00:06 . Memory (MB): peak = 1072.879 ; gain = 0.008
 
 Phase 4 BUFG optimization
-INFO: [Opt 31-194] Inserted BUFG CLK_IBUF_BUFG_inst to drive 45 load(s) on clock net CLK_IBUF_BUFG
-INFO: [Opt 31-193] Inserted 1 BUFG(s) on clock nets
 INFO: [Opt 31-12] Eliminated 0 unconnected nets.
 INFO: [Opt 31-11] Eliminated 0 unconnected cells.
-Phase 4 BUFG optimization | Checksum: 16876d677
+Phase 4 BUFG optimization | Checksum: 8a141454
 
-Time (s): cpu = 00:00:01 ; elapsed = 00:00:02 . Memory (MB): peak = 1012.672 ; gain = 0.000
+Time (s): cpu = 00:00:08 ; elapsed = 00:00:09 . Memory (MB): peak = 1072.879 ; gain = 0.008
 
 Starting Connectivity Check Task
 
-Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.007 . Memory (MB): peak = 1012.672 ; gain = 0.000
-Ending Logic Optimization Task | Checksum: 16876d677
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.047 . Memory (MB): peak = 1072.879 ; gain = 0.000
+Ending Logic Optimization Task | Checksum: 8a141454
 
-Time (s): cpu = 00:00:01 ; elapsed = 00:00:02 . Memory (MB): peak = 1012.672 ; gain = 0.000
+Time (s): cpu = 00:00:08 ; elapsed = 00:00:09 . Memory (MB): peak = 1072.879 ; gain = 0.008
 
 Starting Power Optimization Task
 INFO: [Pwropt 34-132] Skipping clock gating for clocks with a period < 2.00 ns.
-Ending Power Optimization Task | Checksum: 16876d677
+Ending Power Optimization Task | Checksum: 8a141454
 
-Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.015 . Memory (MB): peak = 1012.672 ; gain = 0.000
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.032 . Memory (MB): peak = 1072.879 ; gain = 0.000
 INFO: [Common 17-83] Releasing license: Implementation
-31 Infos, 0 Warnings, 1 Critical Warnings and 0 Errors encountered.
+22 Infos, 0 Warnings, 0 Critical Warnings and 0 Errors encountered.
 opt_design completed successfully
-opt_design: Time (s): cpu = 00:00:13 ; elapsed = 00:00:16 . Memory (MB): peak = 1012.672 ; gain = 507.023
+opt_design: Time (s): cpu = 00:00:24 ; elapsed = 00:00:26 . Memory (MB): peak = 1072.879 ; gain = 549.703
 Writing placer database...
 Writing XDEF routing.
 Writing XDEF routing logical nets.
 Writing XDEF routing special nets.
-Write XDEF Complete: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.137 . Memory (MB): peak = 1012.672 ; gain = 0.000
+Write XDEF Complete: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.116 . Memory (MB): peak = 1072.879 ; gain = 0.000
 INFO: [Common 17-1381] The checkpoint 'D:/Git/cuhk-ceng3430/Project/ceng3430_proj_renderer3d/ceng3430_proj_renderer3d.runs/impl_1/cube_renderering_system_wrapper_opt.dcp' has been generated.
 INFO: [DRC 23-27] Running DRC with 2 threads
 INFO: [Coretcl 2-168] The results of DRC are in file D:/Git/cuhk-ceng3430/Project/ceng3430_proj_renderer3d/ceng3430_proj_renderer3d.runs/impl_1/cube_renderering_system_wrapper_drc_opted.rpt.
@@ -126,77 +116,87 @@ Starting Placer Task
 INFO: [Place 30-611] Multithreading enabled for place_design using a maximum of 2 CPUs
 
 Phase 1 Placer Initialization
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.005 . Memory (MB): peak = 1012.672 ; gain = 0.000
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.005 . Memory (MB): peak = 1012.672 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.020 . Memory (MB): peak = 1072.879 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.020 . Memory (MB): peak = 1072.879 ; gain = 0.000
 
 Phase 1.1 IO Placement/ Clock Placement/ Build Placer Device
 INFO: [Timing 38-35] Done setting XDC timing constraints.
-Phase 1.1 IO Placement/ Clock Placement/ Build Placer Device | Checksum: 427af317
+Phase 1.1 IO Placement/ Clock Placement/ Build Placer Device | Checksum: b082ec49
 
-Time (s): cpu = 00:00:03 ; elapsed = 00:00:03 . Memory (MB): peak = 1033.559 ; gain = 20.887
+Time (s): cpu = 00:00:07 ; elapsed = 00:00:08 . Memory (MB): peak = 1088.699 ; gain = 15.820
 
 Phase 1.2 Build Placer Netlist Model
-Phase 1.2 Build Placer Netlist Model | Checksum: cd6b8225
+Phase 1.2 Build Placer Netlist Model | Checksum: 14d81710d
 
-Time (s): cpu = 00:00:03 ; elapsed = 00:00:04 . Memory (MB): peak = 1033.559 ; gain = 20.887
+Time (s): cpu = 00:00:14 ; elapsed = 00:00:16 . Memory (MB): peak = 1106.723 ; gain = 33.844
 
 Phase 1.3 Constrain Clocks/Macros
-Phase 1.3 Constrain Clocks/Macros | Checksum: cd6b8225
+Phase 1.3 Constrain Clocks/Macros | Checksum: 14d81710d
 
-Time (s): cpu = 00:00:03 ; elapsed = 00:00:04 . Memory (MB): peak = 1033.559 ; gain = 20.887
-Phase 1 Placer Initialization | Checksum: cd6b8225
+Time (s): cpu = 00:00:14 ; elapsed = 00:00:16 . Memory (MB): peak = 1106.723 ; gain = 33.844
+Phase 1 Placer Initialization | Checksum: 14d81710d
 
-Time (s): cpu = 00:00:03 ; elapsed = 00:00:04 . Memory (MB): peak = 1033.559 ; gain = 20.887
+Time (s): cpu = 00:00:14 ; elapsed = 00:00:16 . Memory (MB): peak = 1106.723 ; gain = 33.844
 
 Phase 2 Global Placement
-Phase 2 Global Placement | Checksum: 15e34519d
+Phase 2 Global Placement | Checksum: e5ae68aa
 
-Time (s): cpu = 00:00:05 ; elapsed = 00:00:06 . Memory (MB): peak = 1033.559 ; gain = 20.887
+Time (s): cpu = 00:00:38 ; elapsed = 00:00:38 . Memory (MB): peak = 1106.723 ; gain = 33.844
 
 Phase 3 Detail Placement
 
 Phase 3.1 Commit Multi Column Macros
-Phase 3.1 Commit Multi Column Macros | Checksum: 15e34519d
+Phase 3.1 Commit Multi Column Macros | Checksum: e5ae68aa
 
-Time (s): cpu = 00:00:05 ; elapsed = 00:00:06 . Memory (MB): peak = 1033.559 ; gain = 20.887
+Time (s): cpu = 00:00:38 ; elapsed = 00:00:38 . Memory (MB): peak = 1106.723 ; gain = 33.844
 
 Phase 3.2 Commit Most Macros & LUTRAMs
-Phase 3.2 Commit Most Macros & LUTRAMs | Checksum: 14b7d96be
+Phase 3.2 Commit Most Macros & LUTRAMs | Checksum: 1ac1a0765
 
-Time (s): cpu = 00:00:05 ; elapsed = 00:00:07 . Memory (MB): peak = 1033.559 ; gain = 20.887
+Time (s): cpu = 00:00:44 ; elapsed = 00:00:44 . Memory (MB): peak = 1106.723 ; gain = 33.844
 
 Phase 3.3 Area Swap Optimization
-Phase 3.3 Area Swap Optimization | Checksum: 1d717f609
+Phase 3.3 Area Swap Optimization | Checksum: 19a92ae6f
 
-Time (s): cpu = 00:00:05 ; elapsed = 00:00:07 . Memory (MB): peak = 1033.559 ; gain = 20.887
+Time (s): cpu = 00:00:44 ; elapsed = 00:00:45 . Memory (MB): peak = 1106.723 ; gain = 33.844
 
 Phase 3.4 Pipeline Register Optimization
-Phase 3.4 Pipeline Register Optimization | Checksum: 1d717f609
+Phase 3.4 Pipeline Register Optimization | Checksum: 19a92ae6f
 
-Time (s): cpu = 00:00:05 ; elapsed = 00:00:07 . Memory (MB): peak = 1033.559 ; gain = 20.887
+Time (s): cpu = 00:00:44 ; elapsed = 00:00:45 . Memory (MB): peak = 1106.723 ; gain = 33.844
 
 Phase 3.5 Timing Path Optimizer
-Phase 3.5 Timing Path Optimizer | Checksum: 17a7ad85f
+Phase 3.5 Timing Path Optimizer | Checksum: 128e447eb
 
-Time (s): cpu = 00:00:05 ; elapsed = 00:00:07 . Memory (MB): peak = 1033.559 ; gain = 20.887
+Time (s): cpu = 00:00:44 ; elapsed = 00:00:45 . Memory (MB): peak = 1106.723 ; gain = 33.844
 
-Phase 3.6 Small Shape Detail Placement
-Phase 3.6 Small Shape Detail Placement | Checksum: 1cff2dbc4
+Phase 3.6 Fast Optimization
+Phase 3.6 Fast Optimization | Checksum: 188c05aaa
 
-Time (s): cpu = 00:00:06 ; elapsed = 00:00:08 . Memory (MB): peak = 1033.559 ; gain = 20.887
+Time (s): cpu = 00:00:46 ; elapsed = 00:00:47 . Memory (MB): peak = 1106.723 ; gain = 33.844
 
-Phase 3.7 Re-assign LUT pins
-Phase 3.7 Re-assign LUT pins | Checksum: 1eb016cef
+Phase 3.7 Small Shape Detail Placement
+Phase 3.7 Small Shape Detail Placement | Checksum: 18f23414a
 
-Time (s): cpu = 00:00:06 ; elapsed = 00:00:08 . Memory (MB): peak = 1033.559 ; gain = 20.887
+Time (s): cpu = 00:00:48 ; elapsed = 00:00:51 . Memory (MB): peak = 1106.723 ; gain = 33.844
 
-Phase 3.8 Pipeline Register Optimization
-Phase 3.8 Pipeline Register Optimization | Checksum: 1eb016cef
+Phase 3.8 Re-assign LUT pins
+Phase 3.8 Re-assign LUT pins | Checksum: d268f543
 
-Time (s): cpu = 00:00:06 ; elapsed = 00:00:08 . Memory (MB): peak = 1033.559 ; gain = 20.887
-Phase 3 Detail Placement | Checksum: 1eb016cef
+Time (s): cpu = 00:00:48 ; elapsed = 00:00:52 . Memory (MB): peak = 1106.723 ; gain = 33.844
 
-Time (s): cpu = 00:00:06 ; elapsed = 00:00:08 . Memory (MB): peak = 1033.559 ; gain = 20.887
+Phase 3.9 Pipeline Register Optimization
+Phase 3.9 Pipeline Register Optimization | Checksum: d268f543
+
+Time (s): cpu = 00:00:49 ; elapsed = 00:00:52 . Memory (MB): peak = 1106.723 ; gain = 33.844
+
+Phase 3.10 Fast Optimization
+Phase 3.10 Fast Optimization | Checksum: 1eb3723a2
+
+Time (s): cpu = 00:00:53 ; elapsed = 00:00:56 . Memory (MB): peak = 1106.723 ; gain = 33.844
+Phase 3 Detail Placement | Checksum: 1eb3723a2
+
+Time (s): cpu = 00:00:54 ; elapsed = 00:00:57 . Memory (MB): peak = 1106.723 ; gain = 33.844
 
 Phase 4 Post Placement Optimization and Clean-Up
 
@@ -204,47 +204,47 @@ Phase 4.1 Post Commit Optimization
 INFO: [Timing 38-35] Done setting XDC timing constraints.
 
 Phase 4.1.1 Post Placement Optimization
-INFO: [Place 30-746] Post Placement Timing Summary WNS=4.205. For the most accurate timing information please run report_timing.
-Phase 4.1.1 Post Placement Optimization | Checksum: 167a0a111
+INFO: [Place 30-746] Post Placement Timing Summary WNS=-6.021. For the most accurate timing information please run report_timing.
+Phase 4.1.1 Post Placement Optimization | Checksum: 19ed4ee12
 
-Time (s): cpu = 00:00:06 ; elapsed = 00:00:09 . Memory (MB): peak = 1033.559 ; gain = 20.887
-Phase 4.1 Post Commit Optimization | Checksum: 167a0a111
+Time (s): cpu = 00:01:18 ; elapsed = 00:01:26 . Memory (MB): peak = 1138.984 ; gain = 66.105
+Phase 4.1 Post Commit Optimization | Checksum: 19ed4ee12
 
-Time (s): cpu = 00:00:06 ; elapsed = 00:00:09 . Memory (MB): peak = 1033.559 ; gain = 20.887
+Time (s): cpu = 00:01:19 ; elapsed = 00:01:27 . Memory (MB): peak = 1138.984 ; gain = 66.105
 
 Phase 4.2 Post Placement Cleanup
-Phase 4.2 Post Placement Cleanup | Checksum: 167a0a111
+Phase 4.2 Post Placement Cleanup | Checksum: 19ed4ee12
 
-Time (s): cpu = 00:00:06 ; elapsed = 00:00:09 . Memory (MB): peak = 1033.559 ; gain = 20.887
+Time (s): cpu = 00:01:19 ; elapsed = 00:01:27 . Memory (MB): peak = 1138.984 ; gain = 66.105
 
 Phase 4.3 Placer Reporting
-Phase 4.3 Placer Reporting | Checksum: 167a0a111
+Phase 4.3 Placer Reporting | Checksum: 19ed4ee12
 
-Time (s): cpu = 00:00:06 ; elapsed = 00:00:09 . Memory (MB): peak = 1033.559 ; gain = 20.887
+Time (s): cpu = 00:01:19 ; elapsed = 00:01:27 . Memory (MB): peak = 1138.984 ; gain = 66.105
 
 Phase 4.4 Final Placement Cleanup
-Phase 4.4 Final Placement Cleanup | Checksum: 11a51725f
+Phase 4.4 Final Placement Cleanup | Checksum: 16b1390fc
 
-Time (s): cpu = 00:00:06 ; elapsed = 00:00:09 . Memory (MB): peak = 1033.559 ; gain = 20.887
-Phase 4 Post Placement Optimization and Clean-Up | Checksum: 11a51725f
+Time (s): cpu = 00:01:19 ; elapsed = 00:01:27 . Memory (MB): peak = 1138.984 ; gain = 66.105
+Phase 4 Post Placement Optimization and Clean-Up | Checksum: 16b1390fc
 
-Time (s): cpu = 00:00:06 ; elapsed = 00:00:09 . Memory (MB): peak = 1033.559 ; gain = 20.887
-Ending Placer Task | Checksum: cf5c3c0c
+Time (s): cpu = 00:01:19 ; elapsed = 00:01:27 . Memory (MB): peak = 1138.984 ; gain = 66.105
+Ending Placer Task | Checksum: df800afd
 
-Time (s): cpu = 00:00:06 ; elapsed = 00:00:09 . Memory (MB): peak = 1033.559 ; gain = 20.887
+Time (s): cpu = 00:01:21 ; elapsed = 00:01:29 . Memory (MB): peak = 1138.984 ; gain = 66.105
 INFO: [Common 17-83] Releasing license: Implementation
-47 Infos, 0 Warnings, 1 Critical Warnings and 0 Errors encountered.
+38 Infos, 0 Warnings, 0 Critical Warnings and 0 Errors encountered.
 place_design completed successfully
-place_design: Time (s): cpu = 00:00:09 ; elapsed = 00:00:11 . Memory (MB): peak = 1033.559 ; gain = 20.887
+place_design: Time (s): cpu = 00:01:25 ; elapsed = 00:01:32 . Memory (MB): peak = 1138.984 ; gain = 66.105
 Writing placer database...
 Writing XDEF routing.
 Writing XDEF routing logical nets.
 Writing XDEF routing special nets.
-Write XDEF Complete: Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.438 . Memory (MB): peak = 1033.559 ; gain = 0.000
+Write XDEF Complete: Time (s): cpu = 00:00:05 ; elapsed = 00:00:02 . Memory (MB): peak = 1138.984 ; gain = 0.000
 INFO: [Common 17-1381] The checkpoint 'D:/Git/cuhk-ceng3430/Project/ceng3430_proj_renderer3d/ceng3430_proj_renderer3d.runs/impl_1/cube_renderering_system_wrapper_placed.dcp' has been generated.
-report_io: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.097 . Memory (MB): peak = 1033.559 ; gain = 0.000
-report_utilization: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.062 . Memory (MB): peak = 1033.559 ; gain = 0.000
-report_control_sets: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.013 . Memory (MB): peak = 1033.559 ; gain = 0.000
+report_io: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.093 . Memory (MB): peak = 1139.402 ; gain = 0.418
+report_utilization: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.081 . Memory (MB): peak = 1139.402 ; gain = 0.000
+report_control_sets: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.013 . Memory (MB): peak = 1139.402 ; gain = 0.000
 Command: route_design
 Attempting to get a license for feature 'Implementation' and/or device 'xc7z020'
 INFO: [Common 17-349] Got license for feature 'Implementation' and/or device 'xc7z020'
@@ -256,119 +256,183 @@ INFO: [Vivado_Tcl 4-199] Please refer to the DRC report (report_drc) for more in
 
 Starting Routing Task
 INFO: [Route 35-254] Multithreading enabled for route_design using a maximum of 2 CPUs
-Checksum: PlaceDB: c03b924c ConstDB: 0 ShapeSum: f20a9c0 RouteDB: 0
+Checksum: PlaceDB: 514dfc5f ConstDB: 0 ShapeSum: 8e320e9e RouteDB: 0
 
 Phase 1 Build RT Design
-Phase 1 Build RT Design | Checksum: f1392c80
+Phase 1 Build RT Design | Checksum: 13d474788
 
-Time (s): cpu = 00:00:29 ; elapsed = 00:00:34 . Memory (MB): peak = 1172.500 ; gain = 138.941
+Time (s): cpu = 00:00:32 ; elapsed = 00:00:33 . Memory (MB): peak = 1258.785 ; gain = 111.551
 
 Phase 2 Router Initialization
 
 Phase 2.1 Create Timer
-Phase 2.1 Create Timer | Checksum: f1392c80
+Phase 2.1 Create Timer | Checksum: 13d474788
 
-Time (s): cpu = 00:00:29 ; elapsed = 00:00:34 . Memory (MB): peak = 1172.500 ; gain = 138.941
+Time (s): cpu = 00:00:32 ; elapsed = 00:00:33 . Memory (MB): peak = 1258.785 ; gain = 111.551
 
 Phase 2.2 Fix Topology Constraints
-Phase 2.2 Fix Topology Constraints | Checksum: f1392c80
+Phase 2.2 Fix Topology Constraints | Checksum: 13d474788
 
-Time (s): cpu = 00:00:29 ; elapsed = 00:00:34 . Memory (MB): peak = 1172.500 ; gain = 138.941
+Time (s): cpu = 00:00:32 ; elapsed = 00:00:33 . Memory (MB): peak = 1258.785 ; gain = 111.551
 
 Phase 2.3 Pre Route Cleanup
-Phase 2.3 Pre Route Cleanup | Checksum: f1392c80
+Phase 2.3 Pre Route Cleanup | Checksum: 13d474788
 
-Time (s): cpu = 00:00:29 ; elapsed = 00:00:34 . Memory (MB): peak = 1172.500 ; gain = 138.941
+Time (s): cpu = 00:00:32 ; elapsed = 00:00:33 . Memory (MB): peak = 1258.785 ; gain = 111.551
  Number of Nodes with overlaps = 0
 
 Phase 2.4 Update Timing
-Phase 2.4 Update Timing | Checksum: 2ac75910e
+Phase 2.4 Update Timing | Checksum: 1346f64d5
 
-Time (s): cpu = 00:00:30 ; elapsed = 00:00:35 . Memory (MB): peak = 1178.449 ; gain = 144.891
-INFO: [Route 35-416] Intermediate Timing Summary | WNS=4.144  | TNS=0.000  | WHS=-0.149 | THS=-12.401|
+Time (s): cpu = 00:00:45 ; elapsed = 00:00:44 . Memory (MB): peak = 1287.406 ; gain = 140.172
+INFO: [Route 35-416] Intermediate Timing Summary | WNS=-6.040 | TNS=-68.132| WHS=-0.151 | THS=-11.929|
 
-Phase 2 Router Initialization | Checksum: 21a6a22ab
+Phase 2 Router Initialization | Checksum: 21c2acbaf
 
-Time (s): cpu = 00:00:30 ; elapsed = 00:00:35 . Memory (MB): peak = 1178.449 ; gain = 144.891
+Time (s): cpu = 00:00:47 ; elapsed = 00:00:47 . Memory (MB): peak = 1301.316 ; gain = 154.082
 
 Phase 3 Initial Routing
-Phase 3 Initial Routing | Checksum: 1af5de098
+Phase 3 Initial Routing | Checksum: 1526a8c82
 
-Time (s): cpu = 00:00:31 ; elapsed = 00:00:35 . Memory (MB): peak = 1178.449 ; gain = 144.891
+Time (s): cpu = 00:00:55 ; elapsed = 00:00:52 . Memory (MB): peak = 1301.316 ; gain = 154.082
 
 Phase 4 Rip-up And Reroute
 
 Phase 4.1 Global Iteration 0
- Number of Nodes with overlaps = 125
- Number of Nodes with overlaps = 2
+ Number of Nodes with overlaps = 1809
+ Number of Nodes with overlaps = 277
+ Number of Nodes with overlaps = 38
+ Number of Nodes with overlaps = 4
  Number of Nodes with overlaps = 0
 
 Phase 4.1.1 Update Timing
-Phase 4.1.1 Update Timing | Checksum: 12d73c7d1
+Phase 4.1.1 Update Timing | Checksum: 19fd9e970
 
-Time (s): cpu = 00:00:31 ; elapsed = 00:00:36 . Memory (MB): peak = 1178.449 ; gain = 144.891
-INFO: [Route 35-416] Intermediate Timing Summary | WNS=3.239  | TNS=0.000  | WHS=N/A    | THS=N/A    |
+Time (s): cpu = 00:01:16 ; elapsed = 00:01:07 . Memory (MB): peak = 1301.316 ; gain = 154.082
+INFO: [Route 35-416] Intermediate Timing Summary | WNS=-6.274 | TNS=-80.901| WHS=N/A    | THS=N/A    |
 
-Phase 4.1 Global Iteration 0 | Checksum: 242bc1d08
 
-Time (s): cpu = 00:00:31 ; elapsed = 00:00:36 . Memory (MB): peak = 1178.449 ; gain = 144.891
+Phase 4.1.2 GlobIterForTiming
+
+Phase 4.1.2.1 Update Timing
+Phase 4.1.2.1 Update Timing | Checksum: 158fc5793
+
+Time (s): cpu = 00:01:17 ; elapsed = 00:01:08 . Memory (MB): peak = 1301.316 ; gain = 154.082
+
+Phase 4.1.2.2 Fast Budgeting
+Phase 4.1.2.2 Fast Budgeting | Checksum: 16ea1b872
+
+Time (s): cpu = 00:01:18 ; elapsed = 00:01:09 . Memory (MB): peak = 1301.316 ; gain = 154.082
+Phase 4.1.2 GlobIterForTiming | Checksum: 12872787e
+
+Time (s): cpu = 00:01:18 ; elapsed = 00:01:09 . Memory (MB): peak = 1301.316 ; gain = 154.082
+Phase 4.1 Global Iteration 0 | Checksum: 12872787e
+
+Time (s): cpu = 00:01:18 ; elapsed = 00:01:09 . Memory (MB): peak = 1301.316 ; gain = 154.082
 
 Phase 4.2 Global Iteration 1
- Number of Nodes with overlaps = 1
- Number of Nodes with overlaps = 1
+ Number of Nodes with overlaps = 78
+ Number of Nodes with overlaps = 27
+ Number of Nodes with overlaps = 4
  Number of Nodes with overlaps = 2
+ Number of Nodes with overlaps = 2
+ Number of Nodes with overlaps = 2
+ Number of Nodes with overlaps = 2
+ Number of Nodes with overlaps = 1
  Number of Nodes with overlaps = 0
 
 Phase 4.2.1 Update Timing
-Phase 4.2.1 Update Timing | Checksum: 1328d6521
+Phase 4.2.1 Update Timing | Checksum: 13f1f9e81
 
-Time (s): cpu = 00:00:32 ; elapsed = 00:00:36 . Memory (MB): peak = 1178.449 ; gain = 144.891
-INFO: [Route 35-416] Intermediate Timing Summary | WNS=3.239  | TNS=0.000  | WHS=N/A    | THS=N/A    |
+Time (s): cpu = 00:01:24 ; elapsed = 00:01:15 . Memory (MB): peak = 1301.316 ; gain = 154.082
+INFO: [Route 35-416] Intermediate Timing Summary | WNS=-6.173 | TNS=-71.338| WHS=N/A    | THS=N/A    |
 
-Phase 4.2 Global Iteration 1 | Checksum: 90de24b6
 
-Time (s): cpu = 00:00:32 ; elapsed = 00:00:37 . Memory (MB): peak = 1178.449 ; gain = 144.891
-Phase 4 Rip-up And Reroute | Checksum: 90de24b6
+Phase 4.2.2 GlobIterForTiming
 
-Time (s): cpu = 00:00:32 ; elapsed = 00:00:37 . Memory (MB): peak = 1178.449 ; gain = 144.891
+Phase 4.2.2.1 Update Timing
+Phase 4.2.2.1 Update Timing | Checksum: 1593c9ae0
+
+Time (s): cpu = 00:01:25 ; elapsed = 00:01:16 . Memory (MB): peak = 1301.316 ; gain = 154.082
+
+Phase 4.2.2.2 Fast Budgeting
+Phase 4.2.2.2 Fast Budgeting | Checksum: 1462239c6
+
+Time (s): cpu = 00:01:26 ; elapsed = 00:01:17 . Memory (MB): peak = 1301.316 ; gain = 154.082
+Phase 4.2.2 GlobIterForTiming | Checksum: c5dde1c5
+
+Time (s): cpu = 00:01:27 ; elapsed = 00:01:18 . Memory (MB): peak = 1301.316 ; gain = 154.082
+Phase 4.2 Global Iteration 1 | Checksum: c5dde1c5
+
+Time (s): cpu = 00:01:27 ; elapsed = 00:01:18 . Memory (MB): peak = 1301.316 ; gain = 154.082
+
+Phase 4.3 Global Iteration 2
+ Number of Nodes with overlaps = 111
+ Number of Nodes with overlaps = 36
+ Number of Nodes with overlaps = 6
+ Number of Nodes with overlaps = 2
+ Number of Nodes with overlaps = 2
+ Number of Nodes with overlaps = 2
+ Number of Nodes with overlaps = 0
+
+Phase 4.3.1 Update Timing
+Phase 4.3.1 Update Timing | Checksum: 18d00d7bb
+
+Time (s): cpu = 00:01:32 ; elapsed = 00:01:23 . Memory (MB): peak = 1301.316 ; gain = 154.082
+INFO: [Route 35-416] Intermediate Timing Summary | WNS=-6.173 | TNS=-69.692| WHS=N/A    | THS=N/A    |
+
+Phase 4.3 Global Iteration 2 | Checksum: 17e260732
+
+Time (s): cpu = 00:01:32 ; elapsed = 00:01:23 . Memory (MB): peak = 1301.316 ; gain = 154.082
+Phase 4 Rip-up And Reroute | Checksum: 17e260732
+
+Time (s): cpu = 00:01:32 ; elapsed = 00:01:23 . Memory (MB): peak = 1301.316 ; gain = 154.082
 
 Phase 5 Delay and Skew Optimization
 
 Phase 5.1 Delay CleanUp
-Phase 5.1 Delay CleanUp | Checksum: 90de24b6
 
-Time (s): cpu = 00:00:32 ; elapsed = 00:00:37 . Memory (MB): peak = 1178.449 ; gain = 144.891
+Phase 5.1.1 Update Timing
+Phase 5.1.1 Update Timing | Checksum: 13d056552
+
+Time (s): cpu = 00:01:35 ; elapsed = 00:01:26 . Memory (MB): peak = 1301.316 ; gain = 154.082
+INFO: [Route 35-416] Intermediate Timing Summary | WNS=-6.173 | TNS=-69.692| WHS=N/A    | THS=N/A    |
+
+ Number of Nodes with overlaps = 0
+Phase 5.1 Delay CleanUp | Checksum: 18a14a5f6
+
+Time (s): cpu = 00:01:37 ; elapsed = 00:01:27 . Memory (MB): peak = 1301.316 ; gain = 154.082
 
 Phase 5.2 Clock Skew Optimization
-Phase 5.2 Clock Skew Optimization | Checksum: 90de24b6
+Phase 5.2 Clock Skew Optimization | Checksum: 18a14a5f6
 
-Time (s): cpu = 00:00:32 ; elapsed = 00:00:37 . Memory (MB): peak = 1178.449 ; gain = 144.891
-Phase 5 Delay and Skew Optimization | Checksum: 90de24b6
+Time (s): cpu = 00:01:37 ; elapsed = 00:01:27 . Memory (MB): peak = 1301.316 ; gain = 154.082
+Phase 5 Delay and Skew Optimization | Checksum: 18a14a5f6
 
-Time (s): cpu = 00:00:32 ; elapsed = 00:00:37 . Memory (MB): peak = 1178.449 ; gain = 144.891
+Time (s): cpu = 00:01:37 ; elapsed = 00:01:27 . Memory (MB): peak = 1301.316 ; gain = 154.082
 
 Phase 6 Post Hold Fix
 
 Phase 6.1 Hold Fix Iter
 
 Phase 6.1.1 Update Timing
-Phase 6.1.1 Update Timing | Checksum: 723dd734
+Phase 6.1.1 Update Timing | Checksum: 13623cd74
 
-Time (s): cpu = 00:00:32 ; elapsed = 00:00:37 . Memory (MB): peak = 1178.449 ; gain = 144.891
-INFO: [Route 35-416] Intermediate Timing Summary | WNS=3.354  | TNS=0.000  | WHS=0.045  | THS=0.000  |
+Time (s): cpu = 00:01:39 ; elapsed = 00:01:29 . Memory (MB): peak = 1301.316 ; gain = 154.082
+INFO: [Route 35-416] Intermediate Timing Summary | WNS=-6.173 | TNS=-69.187| WHS=0.083  | THS=0.000  |
 
-Phase 6.1 Hold Fix Iter | Checksum: 5f9dfd12
+Phase 6.1 Hold Fix Iter | Checksum: 13623cd74
 
-Time (s): cpu = 00:00:32 ; elapsed = 00:00:37 . Memory (MB): peak = 1178.449 ; gain = 144.891
-Phase 6 Post Hold Fix | Checksum: 5f9dfd12
+Time (s): cpu = 00:01:39 ; elapsed = 00:01:29 . Memory (MB): peak = 1301.316 ; gain = 154.082
+Phase 6 Post Hold Fix | Checksum: 13623cd74
 
-Time (s): cpu = 00:00:32 ; elapsed = 00:00:37 . Memory (MB): peak = 1178.449 ; gain = 144.891
+Time (s): cpu = 00:01:39 ; elapsed = 00:01:29 . Memory (MB): peak = 1301.316 ; gain = 154.082
 
 Phase 7 Route finalize
 
 Router Utilization Summary
-  Global Vertical Routing Utilization    = 0.255514 %
-  Global Horizontal Routing Utilization  = 0.312458 %
+  Global Vertical Routing Utilization    = 16.1588 %
+  Global Horizontal Routing Utilization  = 11.1008 %
   Routable Net Status*
   *Does not include unroutable nets such as driverless and loadless.
   Run report_route_status for detailed report.
@@ -377,65 +441,190 @@ Router Utilization Summary
   Number of Partially Routed Nets     = 0
   Number of Node Overlaps             = 0
 
-Phase 7 Route finalize | Checksum: 5f9dfd12
+Congestion Report
+North Dir 1x1 Area, Max Cong = 91.8919%, Congestion bounded by tiles (Lower Left Tile -> Upper Right Tile):
+   INT_R_X51Y85 -> INT_R_X51Y85
+   INT_L_X42Y84 -> INT_L_X42Y84
+   INT_R_X37Y80 -> INT_R_X37Y80
+   INT_L_X40Y80 -> INT_L_X40Y80
+   INT_L_X34Y77 -> INT_L_X34Y77
+South Dir 1x1 Area, Max Cong = 93.6937%, Congestion bounded by tiles (Lower Left Tile -> Upper Right Tile):
+   INT_L_X40Y57 -> INT_L_X40Y57
+   INT_L_X40Y56 -> INT_L_X40Y56
+   INT_R_X41Y55 -> INT_R_X41Y55
+East Dir 1x1 Area, Max Cong = 92.6471%, Congestion bounded by tiles (Lower Left Tile -> Upper Right Tile):
+   INT_L_X40Y88 -> INT_L_X40Y88
+   INT_R_X51Y88 -> INT_R_X51Y88
+   INT_R_X51Y87 -> INT_R_X51Y87
+   INT_R_X51Y86 -> INT_R_X51Y86
+   INT_R_X55Y86 -> INT_R_X55Y86
+West Dir 2x2 Area, Max Cong = 85.6618%, Congestion bounded by tiles (Lower Left Tile -> Upper Right Tile):
+   INT_L_X40Y52 -> INT_R_X41Y53
+Phase 7 Route finalize | Checksum: 1af517590
 
-Time (s): cpu = 00:00:32 ; elapsed = 00:00:37 . Memory (MB): peak = 1178.449 ; gain = 144.891
+Time (s): cpu = 00:01:39 ; elapsed = 00:01:29 . Memory (MB): peak = 1301.316 ; gain = 154.082
 
 Phase 8 Verifying routed nets
 
  Verification completed successfully
-Phase 8 Verifying routed nets | Checksum: 5f9dfd12
+Phase 8 Verifying routed nets | Checksum: 1af517590
 
-Time (s): cpu = 00:00:32 ; elapsed = 00:00:37 . Memory (MB): peak = 1178.449 ; gain = 144.891
+Time (s): cpu = 00:01:39 ; elapsed = 00:01:29 . Memory (MB): peak = 1301.316 ; gain = 154.082
 
 Phase 9 Depositing Routes
-Phase 9 Depositing Routes | Checksum: 49e2f450
+Phase 9 Depositing Routes | Checksum: 20457e235
 
-Time (s): cpu = 00:00:32 ; elapsed = 00:00:37 . Memory (MB): peak = 1178.449 ; gain = 144.891
+Time (s): cpu = 00:01:41 ; elapsed = 00:01:30 . Memory (MB): peak = 1301.316 ; gain = 154.082
 
 Phase 10 Post Router Timing
-INFO: [Route 35-57] Estimated Timing Summary | WNS=3.354  | TNS=0.000  | WHS=0.045  | THS=0.000  |
+INFO: [Route 35-57] Estimated Timing Summary | WNS=-6.173 | TNS=-69.187| WHS=0.083  | THS=0.000  |
 
-INFO: [Route 35-327] The final timing numbers are based on the router estimated timing analysis. For a complete and accurate timing signoff, please run report_timing_summary.
-Phase 10 Post Router Timing | Checksum: 49e2f450
+WARNING: [Route 35-328] Router estimated timing not met.
+Resolution: For a complete and accurate timing signoff, report_timing_summary must be run after route_design. Alternatively, route_design can be run with the -timing_summary option to enable a complete timing signoff at the end of route_design.
+Phase 10 Post Router Timing | Checksum: 20457e235
 
-Time (s): cpu = 00:00:32 ; elapsed = 00:00:37 . Memory (MB): peak = 1178.449 ; gain = 144.891
+Time (s): cpu = 00:01:41 ; elapsed = 00:01:30 . Memory (MB): peak = 1301.316 ; gain = 154.082
 INFO: [Route 35-16] Router Completed Successfully
 
-Time (s): cpu = 00:00:32 ; elapsed = 00:00:37 . Memory (MB): peak = 1178.449 ; gain = 144.891
+Time (s): cpu = 00:01:42 ; elapsed = 00:01:32 . Memory (MB): peak = 1301.316 ; gain = 154.082
 
 Routing Is Done.
 INFO: [Common 17-83] Releasing license: Implementation
-61 Infos, 0 Warnings, 1 Critical Warnings and 0 Errors encountered.
+53 Infos, 1 Warnings, 0 Critical Warnings and 0 Errors encountered.
 route_design completed successfully
-route_design: Time (s): cpu = 00:00:35 ; elapsed = 00:00:40 . Memory (MB): peak = 1178.449 ; gain = 144.891
+route_design: Time (s): cpu = 00:01:46 ; elapsed = 00:01:35 . Memory (MB): peak = 1301.316 ; gain = 161.914
 Writing placer database...
 Writing XDEF routing.
 Writing XDEF routing logical nets.
 Writing XDEF routing special nets.
-Write XDEF Complete: Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.443 . Memory (MB): peak = 1178.449 ; gain = 0.000
+Write XDEF Complete: Time (s): cpu = 00:00:06 ; elapsed = 00:00:03 . Memory (MB): peak = 1301.316 ; gain = 0.000
 INFO: [Common 17-1381] The checkpoint 'D:/Git/cuhk-ceng3430/Project/ceng3430_proj_renderer3d/ceng3430_proj_renderer3d.runs/impl_1/cube_renderering_system_wrapper_routed.dcp' has been generated.
 INFO: [DRC 23-27] Running DRC with 2 threads
 INFO: [Coretcl 2-168] The results of DRC are in file D:/Git/cuhk-ceng3430/Project/ceng3430_proj_renderer3d/ceng3430_proj_renderer3d.runs/impl_1/cube_renderering_system_wrapper_drc_routed.rpt.
+report_drc: Time (s): cpu = 00:00:08 ; elapsed = 00:00:05 . Memory (MB): peak = 1305.750 ; gain = 4.434
 INFO: [Timing 38-35] Done setting XDC timing constraints.
 INFO: [DRC 23-133] Running Methodology with 2 threads
 INFO: [Coretcl 2-1520] The results of Report Methodology are in file D:/Git/cuhk-ceng3430/Project/ceng3430_proj_renderer3d/ceng3430_proj_renderer3d.runs/impl_1/cube_renderering_system_wrapper_methodology_drc_routed.rpt.
+report_methodology: Time (s): cpu = 00:00:17 ; elapsed = 00:00:12 . Memory (MB): peak = 1305.750 ; gain = 0.000
 INFO: [Timing 38-35] Done setting XDC timing constraints.
 INFO: [Timing 38-91] UpdateTimingParams: Speed grade: -1, Delay Type: min_max.
 INFO: [Timing 38-191] Multithreading enabled for timing update using a maximum of 2 CPUs
 INFO: [Timing 38-35] Done setting XDC timing constraints.
+CRITICAL WARNING: [Timing 38-282] The design failed to meet the timing requirements. Please see the timing summary report for details on the timing violations.
+report_timing_summary: Time (s): cpu = 00:00:06 ; elapsed = 00:00:06 . Memory (MB): peak = 1305.750 ; gain = 0.000
 Command: report_power -file cube_renderering_system_wrapper_power_routed.rpt -pb cube_renderering_system_wrapper_power_summary_routed.pb -rpx cube_renderering_system_wrapper_power_routed.rpx
 Running Vector-less Activity Propagation...
 
 Finished Running Vector-less Activity Propagation
-71 Infos, 0 Warnings, 1 Critical Warnings and 0 Errors encountered.
+63 Infos, 1 Warnings, 1 Critical Warnings and 0 Errors encountered.
 report_power completed successfully
 Command: write_bitstream -force -no_partial_bitfile cube_renderering_system_wrapper.bit
 Attempting to get a license for feature 'Implementation' and/or device 'xc7z020'
 INFO: [Common 17-349] Got license for feature 'Implementation' and/or device 'xc7z020'
 Running DRC as a precondition to command write_bitstream
 INFO: [DRC 23-27] Running DRC with 2 threads
-INFO: [Vivado 12-3199] DRC finished with 0 Errors
+WARNING: [DRC 23-20] Rule violation (DPIP-1) Input pipelining - DSP cube_renderering_system_i/cube_renderer_controller_0/U0/renderer3D_inst/point_on_segment_i[0].point_on_segment_i/on_segment3 input cube_renderering_system_i/cube_renderer_controller_0/U0/renderer3D_inst/point_on_segment_i[0].point_on_segment_i/on_segment3/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC 23-20] Rule violation (DPIP-1) Input pipelining - DSP cube_renderering_system_i/cube_renderer_controller_0/U0/renderer3D_inst/point_on_segment_i[0].point_on_segment_i/on_segment3 input cube_renderering_system_i/cube_renderer_controller_0/U0/renderer3D_inst/point_on_segment_i[0].point_on_segment_i/on_segment3/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC 23-20] Rule violation (DPIP-1) Input pipelining - DSP cube_renderering_system_i/cube_renderer_controller_0/U0/renderer3D_inst/point_on_segment_i[0].point_on_segment_i/on_segment3__0 input cube_renderering_system_i/cube_renderer_controller_0/U0/renderer3D_inst/point_on_segment_i[0].point_on_segment_i/on_segment3__0/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC 23-20] Rule violation (DPIP-1) Input pipelining - DSP cube_renderering_system_i/cube_renderer_controller_0/U0/renderer3D_inst/point_on_segment_i[0].point_on_segment_i/on_segment3__0 input cube_renderering_system_i/cube_renderer_controller_0/U0/renderer3D_inst/point_on_segment_i[0].point_on_segment_i/on_segment3__0/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC 23-20] Rule violation (DPIP-1) Input pipelining - DSP cube_renderering_system_i/cube_renderer_controller_0/U0/renderer3D_inst/point_on_segment_i[0].point_on_segment_i/on_segment3__1 input cube_renderering_system_i/cube_renderer_controller_0/U0/renderer3D_inst/point_on_segment_i[0].point_on_segment_i/on_segment3__1/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC 23-20] Rule violation (DPIP-1) Input pipelining - DSP cube_renderering_system_i/cube_renderer_controller_0/U0/renderer3D_inst/point_on_segment_i[0].point_on_segment_i/on_segment3__1 input cube_renderering_system_i/cube_renderer_controller_0/U0/renderer3D_inst/point_on_segment_i[0].point_on_segment_i/on_segment3__1/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC 23-20] Rule violation (DPIP-1) Input pipelining - DSP cube_renderering_system_i/cube_renderer_controller_0/U0/renderer3D_inst/point_on_segment_i[0].point_on_segment_i/on_segment3__10 input cube_renderering_system_i/cube_renderer_controller_0/U0/renderer3D_inst/point_on_segment_i[0].point_on_segment_i/on_segment3__10/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC 23-20] Rule violation (DPIP-1) Input pipelining - DSP cube_renderering_system_i/cube_renderer_controller_0/U0/renderer3D_inst/point_on_segment_i[0].point_on_segment_i/on_segment3__10 input cube_renderering_system_i/cube_renderer_controller_0/U0/renderer3D_inst/point_on_segment_i[0].point_on_segment_i/on_segment3__10/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC 23-20] Rule violation (DPIP-1) Input pipelining - DSP cube_renderering_system_i/cube_renderer_controller_0/U0/renderer3D_inst/point_on_segment_i[0].point_on_segment_i/on_segment3__11 input cube_renderering_system_i/cube_renderer_controller_0/U0/renderer3D_inst/point_on_segment_i[0].point_on_segment_i/on_segment3__11/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC 23-20] Rule violation (DPIP-1) Input pipelining - DSP cube_renderering_system_i/cube_renderer_controller_0/U0/renderer3D_inst/point_on_segment_i[0].point_on_segment_i/on_segment3__11 input cube_renderering_system_i/cube_renderer_controller_0/U0/renderer3D_inst/point_on_segment_i[0].point_on_segment_i/on_segment3__11/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC 23-20] Rule violation (DPIP-1) Input pipelining - DSP cube_renderering_system_i/cube_renderer_controller_0/U0/renderer3D_inst/point_on_segment_i[0].point_on_segment_i/on_segment3__12 input cube_renderering_system_i/cube_renderer_controller_0/U0/renderer3D_inst/point_on_segment_i[0].point_on_segment_i/on_segment3__12/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC 23-20] Rule violation (DPIP-1) Input pipelining - DSP cube_renderering_system_i/cube_renderer_controller_0/U0/renderer3D_inst/point_on_segment_i[0].point_on_segment_i/on_segment3__12 input cube_renderering_system_i/cube_renderer_controller_0/U0/renderer3D_inst/point_on_segment_i[0].point_on_segment_i/on_segment3__12/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC 23-20] Rule violation (DPIP-1) Input pipelining - DSP cube_renderering_system_i/cube_renderer_controller_0/U0/renderer3D_inst/point_on_segment_i[0].point_on_segment_i/on_segment3__13 input cube_renderering_system_i/cube_renderer_controller_0/U0/renderer3D_inst/point_on_segment_i[0].point_on_segment_i/on_segment3__13/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC 23-20] Rule violation (DPIP-1) Input pipelining - DSP cube_renderering_system_i/cube_renderer_controller_0/U0/renderer3D_inst/point_on_segment_i[0].point_on_segment_i/on_segment3__13 input cube_renderering_system_i/cube_renderer_controller_0/U0/renderer3D_inst/point_on_segment_i[0].point_on_segment_i/on_segment3__13/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC 23-20] Rule violation (DPIP-1) Input pipelining - DSP cube_renderering_system_i/cube_renderer_controller_0/U0/renderer3D_inst/point_on_segment_i[0].point_on_segment_i/on_segment3__14 input cube_renderering_system_i/cube_renderer_controller_0/U0/renderer3D_inst/point_on_segment_i[0].point_on_segment_i/on_segment3__14/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC 23-20] Rule violation (DPIP-1) Input pipelining - DSP cube_renderering_system_i/cube_renderer_controller_0/U0/renderer3D_inst/point_on_segment_i[0].point_on_segment_i/on_segment3__14 input cube_renderering_system_i/cube_renderer_controller_0/U0/renderer3D_inst/point_on_segment_i[0].point_on_segment_i/on_segment3__14/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC 23-20] Rule violation (DPIP-1) Input pipelining - DSP cube_renderering_system_i/cube_renderer_controller_0/U0/renderer3D_inst/point_on_segment_i[0].point_on_segment_i/on_segment3__2 input cube_renderering_system_i/cube_renderer_controller_0/U0/renderer3D_inst/point_on_segment_i[0].point_on_segment_i/on_segment3__2/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC 23-20] Rule violation (DPIP-1) Input pipelining - DSP cube_renderering_system_i/cube_renderer_controller_0/U0/renderer3D_inst/point_on_segment_i[0].point_on_segment_i/on_segment3__2 input cube_renderering_system_i/cube_renderer_controller_0/U0/renderer3D_inst/point_on_segment_i[0].point_on_segment_i/on_segment3__2/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC 23-20] Rule violation (DPIP-1) Input pipelining - DSP cube_renderering_system_i/cube_renderer_controller_0/U0/renderer3D_inst/point_on_segment_i[0].point_on_segment_i/on_segment3__3 input cube_renderering_system_i/cube_renderer_controller_0/U0/renderer3D_inst/point_on_segment_i[0].point_on_segment_i/on_segment3__3/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC 23-20] Rule violation (DPIP-1) Input pipelining - DSP cube_renderering_system_i/cube_renderer_controller_0/U0/renderer3D_inst/point_on_segment_i[0].point_on_segment_i/on_segment3__3 input cube_renderering_system_i/cube_renderer_controller_0/U0/renderer3D_inst/point_on_segment_i[0].point_on_segment_i/on_segment3__3/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC 23-20] Rule violation (DPIP-1) Input pipelining - DSP cube_renderering_system_i/cube_renderer_controller_0/U0/renderer3D_inst/point_on_segment_i[0].point_on_segment_i/on_segment3__4 input cube_renderering_system_i/cube_renderer_controller_0/U0/renderer3D_inst/point_on_segment_i[0].point_on_segment_i/on_segment3__4/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC 23-20] Rule violation (DPIP-1) Input pipelining - DSP cube_renderering_system_i/cube_renderer_controller_0/U0/renderer3D_inst/point_on_segment_i[0].point_on_segment_i/on_segment3__4 input cube_renderering_system_i/cube_renderer_controller_0/U0/renderer3D_inst/point_on_segment_i[0].point_on_segment_i/on_segment3__4/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC 23-20] Rule violation (DPIP-1) Input pipelining - DSP cube_renderering_system_i/cube_renderer_controller_0/U0/renderer3D_inst/point_on_segment_i[0].point_on_segment_i/on_segment3__5 input cube_renderering_system_i/cube_renderer_controller_0/U0/renderer3D_inst/point_on_segment_i[0].point_on_segment_i/on_segment3__5/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC 23-20] Rule violation (DPIP-1) Input pipelining - DSP cube_renderering_system_i/cube_renderer_controller_0/U0/renderer3D_inst/point_on_segment_i[0].point_on_segment_i/on_segment3__5 input cube_renderering_system_i/cube_renderer_controller_0/U0/renderer3D_inst/point_on_segment_i[0].point_on_segment_i/on_segment3__5/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC 23-20] Rule violation (DPIP-1) Input pipelining - DSP cube_renderering_system_i/cube_renderer_controller_0/U0/renderer3D_inst/point_on_segment_i[0].point_on_segment_i/on_segment3__6 input cube_renderering_system_i/cube_renderer_controller_0/U0/renderer3D_inst/point_on_segment_i[0].point_on_segment_i/on_segment3__6/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC 23-20] Rule violation (DPIP-1) Input pipelining - DSP cube_renderering_system_i/cube_renderer_controller_0/U0/renderer3D_inst/point_on_segment_i[0].point_on_segment_i/on_segment3__6 input cube_renderering_system_i/cube_renderer_controller_0/U0/renderer3D_inst/point_on_segment_i[0].point_on_segment_i/on_segment3__6/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC 23-20] Rule violation (DPIP-1) Input pipelining - DSP cube_renderering_system_i/cube_renderer_controller_0/U0/renderer3D_inst/point_on_segment_i[0].point_on_segment_i/on_segment3__7 input cube_renderering_system_i/cube_renderer_controller_0/U0/renderer3D_inst/point_on_segment_i[0].point_on_segment_i/on_segment3__7/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC 23-20] Rule violation (DPIP-1) Input pipelining - DSP cube_renderering_system_i/cube_renderer_controller_0/U0/renderer3D_inst/point_on_segment_i[0].point_on_segment_i/on_segment3__7 input cube_renderering_system_i/cube_renderer_controller_0/U0/renderer3D_inst/point_on_segment_i[0].point_on_segment_i/on_segment3__7/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC 23-20] Rule violation (DPIP-1) Input pipelining - DSP cube_renderering_system_i/cube_renderer_controller_0/U0/renderer3D_inst/point_on_segment_i[0].point_on_segment_i/on_segment3__8 input cube_renderering_system_i/cube_renderer_controller_0/U0/renderer3D_inst/point_on_segment_i[0].point_on_segment_i/on_segment3__8/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC 23-20] Rule violation (DPIP-1) Input pipelining - DSP cube_renderering_system_i/cube_renderer_controller_0/U0/renderer3D_inst/point_on_segment_i[0].point_on_segment_i/on_segment3__8 input cube_renderering_system_i/cube_renderer_controller_0/U0/renderer3D_inst/point_on_segment_i[0].point_on_segment_i/on_segment3__8/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC 23-20] Rule violation (DPIP-1) Input pipelining - DSP cube_renderering_system_i/cube_renderer_controller_0/U0/renderer3D_inst/point_on_segment_i[0].point_on_segment_i/on_segment3__9 input cube_renderering_system_i/cube_renderer_controller_0/U0/renderer3D_inst/point_on_segment_i[0].point_on_segment_i/on_segment3__9/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC 23-20] Rule violation (DPIP-1) Input pipelining - DSP cube_renderering_system_i/cube_renderer_controller_0/U0/renderer3D_inst/point_on_segment_i[0].point_on_segment_i/on_segment3__9 input cube_renderering_system_i/cube_renderer_controller_0/U0/renderer3D_inst/point_on_segment_i[0].point_on_segment_i/on_segment3__9/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC 23-20] Rule violation (DPIP-1) Input pipelining - DSP cube_renderering_system_i/cube_renderer_controller_0/U0/renderer3D_inst/point_on_segment_i[0].point_on_segment_j/on_segment3 input cube_renderering_system_i/cube_renderer_controller_0/U0/renderer3D_inst/point_on_segment_i[0].point_on_segment_j/on_segment3/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC 23-20] Rule violation (DPIP-1) Input pipelining - DSP cube_renderering_system_i/cube_renderer_controller_0/U0/renderer3D_inst/point_on_segment_i[0].point_on_segment_j/on_segment3 input cube_renderering_system_i/cube_renderer_controller_0/U0/renderer3D_inst/point_on_segment_i[0].point_on_segment_j/on_segment3/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC 23-20] Rule violation (DPIP-1) Input pipelining - DSP cube_renderering_system_i/cube_renderer_controller_0/U0/renderer3D_inst/point_on_segment_i[0].point_on_segment_j/on_segment3__0 input cube_renderering_system_i/cube_renderer_controller_0/U0/renderer3D_inst/point_on_segment_i[0].point_on_segment_j/on_segment3__0/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC 23-20] Rule violation (DPIP-1) Input pipelining - DSP cube_renderering_system_i/cube_renderer_controller_0/U0/renderer3D_inst/point_on_segment_i[0].point_on_segment_j/on_segment3__0 input cube_renderering_system_i/cube_renderer_controller_0/U0/renderer3D_inst/point_on_segment_i[0].point_on_segment_j/on_segment3__0/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC 23-20] Rule violation (DPIP-1) Input pipelining - DSP cube_renderering_system_i/cube_renderer_controller_0/U0/renderer3D_inst/point_on_segment_i[0].point_on_segment_j/on_segment3__1 input cube_renderering_system_i/cube_renderer_controller_0/U0/renderer3D_inst/point_on_segment_i[0].point_on_segment_j/on_segment3__1/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC 23-20] Rule violation (DPIP-1) Input pipelining - DSP cube_renderering_system_i/cube_renderer_controller_0/U0/renderer3D_inst/point_on_segment_i[0].point_on_segment_j/on_segment3__1 input cube_renderering_system_i/cube_renderer_controller_0/U0/renderer3D_inst/point_on_segment_i[0].point_on_segment_j/on_segment3__1/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC 23-20] Rule violation (DPIP-1) Input pipelining - DSP cube_renderering_system_i/cube_renderer_controller_0/U0/renderer3D_inst/point_on_segment_i[0].point_on_segment_j/on_segment3__10 input cube_renderering_system_i/cube_renderer_controller_0/U0/renderer3D_inst/point_on_segment_i[0].point_on_segment_j/on_segment3__10/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC 23-20] Rule violation (DPIP-1) Input pipelining - DSP cube_renderering_system_i/cube_renderer_controller_0/U0/renderer3D_inst/point_on_segment_i[0].point_on_segment_j/on_segment3__10 input cube_renderering_system_i/cube_renderer_controller_0/U0/renderer3D_inst/point_on_segment_i[0].point_on_segment_j/on_segment3__10/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC 23-20] Rule violation (DPIP-1) Input pipelining - DSP cube_renderering_system_i/cube_renderer_controller_0/U0/renderer3D_inst/point_on_segment_i[0].point_on_segment_j/on_segment3__11 input cube_renderering_system_i/cube_renderer_controller_0/U0/renderer3D_inst/point_on_segment_i[0].point_on_segment_j/on_segment3__11/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC 23-20] Rule violation (DPIP-1) Input pipelining - DSP cube_renderering_system_i/cube_renderer_controller_0/U0/renderer3D_inst/point_on_segment_i[0].point_on_segment_j/on_segment3__11 input cube_renderering_system_i/cube_renderer_controller_0/U0/renderer3D_inst/point_on_segment_i[0].point_on_segment_j/on_segment3__11/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC 23-20] Rule violation (DPIP-1) Input pipelining - DSP cube_renderering_system_i/cube_renderer_controller_0/U0/renderer3D_inst/point_on_segment_i[0].point_on_segment_j/on_segment3__12 input cube_renderering_system_i/cube_renderer_controller_0/U0/renderer3D_inst/point_on_segment_i[0].point_on_segment_j/on_segment3__12/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC 23-20] Rule violation (DPIP-1) Input pipelining - DSP cube_renderering_system_i/cube_renderer_controller_0/U0/renderer3D_inst/point_on_segment_i[0].point_on_segment_j/on_segment3__12 input cube_renderering_system_i/cube_renderer_controller_0/U0/renderer3D_inst/point_on_segment_i[0].point_on_segment_j/on_segment3__12/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC 23-20] Rule violation (DPIP-1) Input pipelining - DSP cube_renderering_system_i/cube_renderer_controller_0/U0/renderer3D_inst/point_on_segment_i[0].point_on_segment_j/on_segment3__13 input cube_renderering_system_i/cube_renderer_controller_0/U0/renderer3D_inst/point_on_segment_i[0].point_on_segment_j/on_segment3__13/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC 23-20] Rule violation (DPIP-1) Input pipelining - DSP cube_renderering_system_i/cube_renderer_controller_0/U0/renderer3D_inst/point_on_segment_i[0].point_on_segment_j/on_segment3__13 input cube_renderering_system_i/cube_renderer_controller_0/U0/renderer3D_inst/point_on_segment_i[0].point_on_segment_j/on_segment3__13/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC 23-20] Rule violation (DPIP-1) Input pipelining - DSP cube_renderering_system_i/cube_renderer_controller_0/U0/renderer3D_inst/point_on_segment_i[0].point_on_segment_j/on_segment3__14 input cube_renderering_system_i/cube_renderer_controller_0/U0/renderer3D_inst/point_on_segment_i[0].point_on_segment_j/on_segment3__14/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC 23-20] Rule violation (DPIP-1) Input pipelining - DSP cube_renderering_system_i/cube_renderer_controller_0/U0/renderer3D_inst/point_on_segment_i[0].point_on_segment_j/on_segment3__14 input cube_renderering_system_i/cube_renderer_controller_0/U0/renderer3D_inst/point_on_segment_i[0].point_on_segment_j/on_segment3__14/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC 23-20] Rule violation (DPIP-1) Input pipelining - DSP cube_renderering_system_i/cube_renderer_controller_0/U0/renderer3D_inst/point_on_segment_i[0].point_on_segment_j/on_segment3__2 input cube_renderering_system_i/cube_renderer_controller_0/U0/renderer3D_inst/point_on_segment_i[0].point_on_segment_j/on_segment3__2/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC 23-20] Rule violation (DPIP-1) Input pipelining - DSP cube_renderering_system_i/cube_renderer_controller_0/U0/renderer3D_inst/point_on_segment_i[0].point_on_segment_j/on_segment3__2 input cube_renderering_system_i/cube_renderer_controller_0/U0/renderer3D_inst/point_on_segment_i[0].point_on_segment_j/on_segment3__2/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC 23-20] Rule violation (DPIP-1) Input pipelining - DSP cube_renderering_system_i/cube_renderer_controller_0/U0/renderer3D_inst/point_on_segment_i[0].point_on_segment_j/on_segment3__3 input cube_renderering_system_i/cube_renderer_controller_0/U0/renderer3D_inst/point_on_segment_i[0].point_on_segment_j/on_segment3__3/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC 23-20] Rule violation (DPIP-1) Input pipelining - DSP cube_renderering_system_i/cube_renderer_controller_0/U0/renderer3D_inst/point_on_segment_i[0].point_on_segment_j/on_segment3__3 input cube_renderering_system_i/cube_renderer_controller_0/U0/renderer3D_inst/point_on_segment_i[0].point_on_segment_j/on_segment3__3/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC 23-20] Rule violation (DPIP-1) Input pipelining - DSP cube_renderering_system_i/cube_renderer_controller_0/U0/renderer3D_inst/point_on_segment_i[0].point_on_segment_j/on_segment3__4 input cube_renderering_system_i/cube_renderer_controller_0/U0/renderer3D_inst/point_on_segment_i[0].point_on_segment_j/on_segment3__4/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC 23-20] Rule violation (DPIP-1) Input pipelining - DSP cube_renderering_system_i/cube_renderer_controller_0/U0/renderer3D_inst/point_on_segment_i[0].point_on_segment_j/on_segment3__4 input cube_renderering_system_i/cube_renderer_controller_0/U0/renderer3D_inst/point_on_segment_i[0].point_on_segment_j/on_segment3__4/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC 23-20] Rule violation (DPIP-1) Input pipelining - DSP cube_renderering_system_i/cube_renderer_controller_0/U0/renderer3D_inst/point_on_segment_i[0].point_on_segment_j/on_segment3__5 input cube_renderering_system_i/cube_renderer_controller_0/U0/renderer3D_inst/point_on_segment_i[0].point_on_segment_j/on_segment3__5/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC 23-20] Rule violation (DPIP-1) Input pipelining - DSP cube_renderering_system_i/cube_renderer_controller_0/U0/renderer3D_inst/point_on_segment_i[0].point_on_segment_j/on_segment3__5 input cube_renderering_system_i/cube_renderer_controller_0/U0/renderer3D_inst/point_on_segment_i[0].point_on_segment_j/on_segment3__5/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC 23-20] Rule violation (DPIP-1) Input pipelining - DSP cube_renderering_system_i/cube_renderer_controller_0/U0/renderer3D_inst/point_on_segment_i[0].point_on_segment_j/on_segment3__6 input cube_renderering_system_i/cube_renderer_controller_0/U0/renderer3D_inst/point_on_segment_i[0].point_on_segment_j/on_segment3__6/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC 23-20] Rule violation (DPIP-1) Input pipelining - DSP cube_renderering_system_i/cube_renderer_controller_0/U0/renderer3D_inst/point_on_segment_i[0].point_on_segment_j/on_segment3__6 input cube_renderering_system_i/cube_renderer_controller_0/U0/renderer3D_inst/point_on_segment_i[0].point_on_segment_j/on_segment3__6/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC 23-20] Rule violation (DPIP-1) Input pipelining - DSP cube_renderering_system_i/cube_renderer_controller_0/U0/renderer3D_inst/point_on_segment_i[0].point_on_segment_j/on_segment3__7 input cube_renderering_system_i/cube_renderer_controller_0/U0/renderer3D_inst/point_on_segment_i[0].point_on_segment_j/on_segment3__7/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC 23-20] Rule violation (DPIP-1) Input pipelining - DSP cube_renderering_system_i/cube_renderer_controller_0/U0/renderer3D_inst/point_on_segment_i[0].point_on_segment_j/on_segment3__7 input cube_renderering_system_i/cube_renderer_controller_0/U0/renderer3D_inst/point_on_segment_i[0].point_on_segment_j/on_segment3__7/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC 23-20] Rule violation (DPIP-1) Input pipelining - DSP cube_renderering_system_i/cube_renderer_controller_0/U0/renderer3D_inst/point_on_segment_i[0].point_on_segment_j/on_segment3__8 input cube_renderering_system_i/cube_renderer_controller_0/U0/renderer3D_inst/point_on_segment_i[0].point_on_segment_j/on_segment3__8/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC 23-20] Rule violation (DPIP-1) Input pipelining - DSP cube_renderering_system_i/cube_renderer_controller_0/U0/renderer3D_inst/point_on_segment_i[0].point_on_segment_j/on_segment3__8 input cube_renderering_system_i/cube_renderer_controller_0/U0/renderer3D_inst/point_on_segment_i[0].point_on_segment_j/on_segment3__8/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC 23-20] Rule violation (DPIP-1) Input pipelining - DSP cube_renderering_system_i/cube_renderer_controller_0/U0/renderer3D_inst/point_on_segment_i[0].point_on_segment_j/on_segment3__9 input cube_renderering_system_i/cube_renderer_controller_0/U0/renderer3D_inst/point_on_segment_i[0].point_on_segment_j/on_segment3__9/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC 23-20] Rule violation (DPIP-1) Input pipelining - DSP cube_renderering_system_i/cube_renderer_controller_0/U0/renderer3D_inst/point_on_segment_i[0].point_on_segment_j/on_segment3__9 input cube_renderering_system_i/cube_renderer_controller_0/U0/renderer3D_inst/point_on_segment_i[0].point_on_segment_j/on_segment3__9/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC 23-20] Rule violation (DPIP-1) Input pipelining - DSP cube_renderering_system_i/cube_renderer_controller_0/U0/renderer3D_inst/point_on_segment_i[0].point_on_segment_k/on_segment3 input cube_renderering_system_i/cube_renderer_controller_0/U0/renderer3D_inst/point_on_segment_i[0].point_on_segment_k/on_segment3/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC 23-20] Rule violation (DPIP-1) Input pipelining - DSP cube_renderering_system_i/cube_renderer_controller_0/U0/renderer3D_inst/point_on_segment_i[0].point_on_segment_k/on_segment3 input cube_renderering_system_i/cube_renderer_controller_0/U0/renderer3D_inst/point_on_segment_i[0].point_on_segment_k/on_segment3/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC 23-20] Rule violation (DPIP-1) Input pipelining - DSP cube_renderering_system_i/cube_renderer_controller_0/U0/renderer3D_inst/point_on_segment_i[0].point_on_segment_k/on_segment3__0 input cube_renderering_system_i/cube_renderer_controller_0/U0/renderer3D_inst/point_on_segment_i[0].point_on_segment_k/on_segment3__0/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC 23-20] Rule violation (DPIP-1) Input pipelining - DSP cube_renderering_system_i/cube_renderer_controller_0/U0/renderer3D_inst/point_on_segment_i[0].point_on_segment_k/on_segment3__0 input cube_renderering_system_i/cube_renderer_controller_0/U0/renderer3D_inst/point_on_segment_i[0].point_on_segment_k/on_segment3__0/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC 23-20] Rule violation (DPIP-1) Input pipelining - DSP cube_renderering_system_i/cube_renderer_controller_0/U0/renderer3D_inst/point_on_segment_i[0].point_on_segment_k/on_segment3__1 input cube_renderering_system_i/cube_renderer_controller_0/U0/renderer3D_inst/point_on_segment_i[0].point_on_segment_k/on_segment3__1/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC 23-20] Rule violation (DPIP-1) Input pipelining - DSP cube_renderering_system_i/cube_renderer_controller_0/U0/renderer3D_inst/point_on_segment_i[0].point_on_segment_k/on_segment3__1 input cube_renderering_system_i/cube_renderer_controller_0/U0/renderer3D_inst/point_on_segment_i[0].point_on_segment_k/on_segment3__1/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC 23-20] Rule violation (DPIP-1) Input pipelining - DSP cube_renderering_system_i/cube_renderer_controller_0/U0/renderer3D_inst/point_on_segment_i[0].point_on_segment_k/on_segment3__10 input cube_renderering_system_i/cube_renderer_controller_0/U0/renderer3D_inst/point_on_segment_i[0].point_on_segment_k/on_segment3__10/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC 23-20] Rule violation (DPIP-1) Input pipelining - DSP cube_renderering_system_i/cube_renderer_controller_0/U0/renderer3D_inst/point_on_segment_i[0].point_on_segment_k/on_segment3__10 input cube_renderering_system_i/cube_renderer_controller_0/U0/renderer3D_inst/point_on_segment_i[0].point_on_segment_k/on_segment3__10/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC 23-20] Rule violation (DPIP-1) Input pipelining - DSP cube_renderering_system_i/cube_renderer_controller_0/U0/renderer3D_inst/point_on_segment_i[0].point_on_segment_k/on_segment3__11 input cube_renderering_system_i/cube_renderer_controller_0/U0/renderer3D_inst/point_on_segment_i[0].point_on_segment_k/on_segment3__11/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC 23-20] Rule violation (DPIP-1) Input pipelining - DSP cube_renderering_system_i/cube_renderer_controller_0/U0/renderer3D_inst/point_on_segment_i[0].point_on_segment_k/on_segment3__11 input cube_renderering_system_i/cube_renderer_controller_0/U0/renderer3D_inst/point_on_segment_i[0].point_on_segment_k/on_segment3__11/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC 23-20] Rule violation (DPIP-1) Input pipelining - DSP cube_renderering_system_i/cube_renderer_controller_0/U0/renderer3D_inst/point_on_segment_i[0].point_on_segment_k/on_segment3__12 input cube_renderering_system_i/cube_renderer_controller_0/U0/renderer3D_inst/point_on_segment_i[0].point_on_segment_k/on_segment3__12/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC 23-20] Rule violation (DPIP-1) Input pipelining - DSP cube_renderering_system_i/cube_renderer_controller_0/U0/renderer3D_inst/point_on_segment_i[0].point_on_segment_k/on_segment3__12 input cube_renderering_system_i/cube_renderer_controller_0/U0/renderer3D_inst/point_on_segment_i[0].point_on_segment_k/on_segment3__12/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC 23-20] Rule violation (DPIP-1) Input pipelining - DSP cube_renderering_system_i/cube_renderer_controller_0/U0/renderer3D_inst/point_on_segment_i[0].point_on_segment_k/on_segment3__13 input cube_renderering_system_i/cube_renderer_controller_0/U0/renderer3D_inst/point_on_segment_i[0].point_on_segment_k/on_segment3__13/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC 23-20] Rule violation (DPIP-1) Input pipelining - DSP cube_renderering_system_i/cube_renderer_controller_0/U0/renderer3D_inst/point_on_segment_i[0].point_on_segment_k/on_segment3__13 input cube_renderering_system_i/cube_renderer_controller_0/U0/renderer3D_inst/point_on_segment_i[0].point_on_segment_k/on_segment3__13/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC 23-20] Rule violation (DPIP-1) Input pipelining - DSP cube_renderering_system_i/cube_renderer_controller_0/U0/renderer3D_inst/point_on_segment_i[0].point_on_segment_k/on_segment3__14 input cube_renderering_system_i/cube_renderer_controller_0/U0/renderer3D_inst/point_on_segment_i[0].point_on_segment_k/on_segment3__14/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC 23-20] Rule violation (DPIP-1) Input pipelining - DSP cube_renderering_system_i/cube_renderer_controller_0/U0/renderer3D_inst/point_on_segment_i[0].point_on_segment_k/on_segment3__14 input cube_renderering_system_i/cube_renderer_controller_0/U0/renderer3D_inst/point_on_segment_i[0].point_on_segment_k/on_segment3__14/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC 23-20] Rule violation (DPIP-1) Input pipelining - DSP cube_renderering_system_i/cube_renderer_controller_0/U0/renderer3D_inst/point_on_segment_i[0].point_on_segment_k/on_segment3__2 input cube_renderering_system_i/cube_renderer_controller_0/U0/renderer3D_inst/point_on_segment_i[0].point_on_segment_k/on_segment3__2/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC 23-20] Rule violation (DPIP-1) Input pipelining - DSP cube_renderering_system_i/cube_renderer_controller_0/U0/renderer3D_inst/point_on_segment_i[0].point_on_segment_k/on_segment3__2 input cube_renderering_system_i/cube_renderer_controller_0/U0/renderer3D_inst/point_on_segment_i[0].point_on_segment_k/on_segment3__2/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC 23-20] Rule violation (DPIP-1) Input pipelining - DSP cube_renderering_system_i/cube_renderer_controller_0/U0/renderer3D_inst/point_on_segment_i[0].point_on_segment_k/on_segment3__3 input cube_renderering_system_i/cube_renderer_controller_0/U0/renderer3D_inst/point_on_segment_i[0].point_on_segment_k/on_segment3__3/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC 23-20] Rule violation (DPIP-1) Input pipelining - DSP cube_renderering_system_i/cube_renderer_controller_0/U0/renderer3D_inst/point_on_segment_i[0].point_on_segment_k/on_segment3__3 input cube_renderering_system_i/cube_renderer_controller_0/U0/renderer3D_inst/point_on_segment_i[0].point_on_segment_k/on_segment3__3/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC 23-20] Rule violation (DPIP-1) Input pipelining - DSP cube_renderering_system_i/cube_renderer_controller_0/U0/renderer3D_inst/point_on_segment_i[0].point_on_segment_k/on_segment3__4 input cube_renderering_system_i/cube_renderer_controller_0/U0/renderer3D_inst/point_on_segment_i[0].point_on_segment_k/on_segment3__4/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC 23-20] Rule violation (DPIP-1) Input pipelining - DSP cube_renderering_system_i/cube_renderer_controller_0/U0/renderer3D_inst/point_on_segment_i[0].point_on_segment_k/on_segment3__4 input cube_renderering_system_i/cube_renderer_controller_0/U0/renderer3D_inst/point_on_segment_i[0].point_on_segment_k/on_segment3__4/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC 23-20] Rule violation (DPIP-1) Input pipelining - DSP cube_renderering_system_i/cube_renderer_controller_0/U0/renderer3D_inst/point_on_segment_i[0].point_on_segment_k/on_segment3__5 input cube_renderering_system_i/cube_renderer_controller_0/U0/renderer3D_inst/point_on_segment_i[0].point_on_segment_k/on_segment3__5/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC 23-20] Rule violation (DPIP-1) Input pipelining - DSP cube_renderering_system_i/cube_renderer_controller_0/U0/renderer3D_inst/point_on_segment_i[0].point_on_segment_k/on_segment3__5 input cube_renderering_system_i/cube_renderer_controller_0/U0/renderer3D_inst/point_on_segment_i[0].point_on_segment_k/on_segment3__5/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC 23-20] Rule violation (DPIP-1) Input pipelining - DSP cube_renderering_system_i/cube_renderer_controller_0/U0/renderer3D_inst/point_on_segment_i[0].point_on_segment_k/on_segment3__6 input cube_renderering_system_i/cube_renderer_controller_0/U0/renderer3D_inst/point_on_segment_i[0].point_on_segment_k/on_segment3__6/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC 23-20] Rule violation (DPIP-1) Input pipelining - DSP cube_renderering_system_i/cube_renderer_controller_0/U0/renderer3D_inst/point_on_segment_i[0].point_on_segment_k/on_segment3__6 input cube_renderering_system_i/cube_renderer_controller_0/U0/renderer3D_inst/point_on_segment_i[0].point_on_segment_k/on_segment3__6/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC 23-20] Rule violation (DPIP-1) Input pipelining - DSP cube_renderering_system_i/cube_renderer_controller_0/U0/renderer3D_inst/point_on_segment_i[0].point_on_segment_k/on_segment3__7 input cube_renderering_system_i/cube_renderer_controller_0/U0/renderer3D_inst/point_on_segment_i[0].point_on_segment_k/on_segment3__7/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC 23-20] Rule violation (DPIP-1) Input pipelining - DSP cube_renderering_system_i/cube_renderer_controller_0/U0/renderer3D_inst/point_on_segment_i[0].point_on_segment_k/on_segment3__7 input cube_renderering_system_i/cube_renderer_controller_0/U0/renderer3D_inst/point_on_segment_i[0].point_on_segment_k/on_segment3__7/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC 23-20] Rule violation (DPIP-1) Input pipelining - DSP cube_renderering_system_i/cube_renderer_controller_0/U0/renderer3D_inst/point_on_segment_i[0].point_on_segment_k/on_segment3__8 input cube_renderering_system_i/cube_renderer_controller_0/U0/renderer3D_inst/point_on_segment_i[0].point_on_segment_k/on_segment3__8/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC 23-20] Rule violation (DPIP-1) Input pipelining - DSP cube_renderering_system_i/cube_renderer_controller_0/U0/renderer3D_inst/point_on_segment_i[0].point_on_segment_k/on_segment3__8 input cube_renderering_system_i/cube_renderer_controller_0/U0/renderer3D_inst/point_on_segment_i[0].point_on_segment_k/on_segment3__8/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC 23-20] Rule violation (DPIP-1) Input pipelining - DSP cube_renderering_system_i/cube_renderer_controller_0/U0/renderer3D_inst/point_on_segment_i[0].point_on_segment_k/on_segment3__9 input cube_renderering_system_i/cube_renderer_controller_0/U0/renderer3D_inst/point_on_segment_i[0].point_on_segment_k/on_segment3__9/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC 23-20] Rule violation (DPIP-1) Input pipelining - DSP cube_renderering_system_i/cube_renderer_controller_0/U0/renderer3D_inst/point_on_segment_i[0].point_on_segment_k/on_segment3__9 input cube_renderering_system_i/cube_renderer_controller_0/U0/renderer3D_inst/point_on_segment_i[0].point_on_segment_k/on_segment3__9/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC 23-20] Rule violation (DPIP-1) Input pipelining - DSP cube_renderering_system_i/cube_renderer_controller_0/U0/renderer3D_inst/point_on_segment_i[1].point_on_segment_i/on_segment3 input cube_renderering_system_i/cube_renderer_controller_0/U0/renderer3D_inst/point_on_segment_i[1].point_on_segment_i/on_segment3/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC 23-20] Rule violation (DPIP-1) Input pipelining - DSP cube_renderering_system_i/cube_renderer_controller_0/U0/renderer3D_inst/point_on_segment_i[1].point_on_segment_i/on_segment3 input cube_renderering_system_i/cube_renderer_controller_0/U0/renderer3D_inst/point_on_segment_i[1].point_on_segment_i/on_segment3/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC 23-20] Rule violation (DPIP-1) Input pipelining - DSP cube_renderering_system_i/cube_renderer_controller_0/U0/renderer3D_inst/point_on_segment_i[1].point_on_segment_i/on_segment3__0 input cube_renderering_system_i/cube_renderer_controller_0/U0/renderer3D_inst/point_on_segment_i[1].point_on_segment_i/on_segment3__0/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC 23-20] Rule violation (DPIP-1) Input pipelining - DSP cube_renderering_system_i/cube_renderer_controller_0/U0/renderer3D_inst/point_on_segment_i[1].point_on_segment_i/on_segment3__0 input cube_renderering_system_i/cube_renderer_controller_0/U0/renderer3D_inst/point_on_segment_i[1].point_on_segment_i/on_segment3__0/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
+INFO: [Common 17-14] Message 'DRC 23-20' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+INFO: [Vivado 12-3199] DRC finished with 0 Errors, 768 Warnings
 INFO: [Vivado 12-3200] Please refer to the DRC report (report_drc) for more information.
 Loading data files...
 Loading site data...
@@ -447,7 +636,7 @@ Writing bitstream ./cube_renderering_system_wrapper.bit...
 INFO: [Vivado 12-1842] Bitgen Completed Successfully.
 INFO: [Project 1-120] WebTalk data collection is mandatory when using a WebPACK part without a full Vivado license. To see the specific WebTalk data collected for your design, open the usage_statistics_webtalk.html or usage_statistics_webtalk.xml file in the implementation directory.
 INFO: [Common 17-83] Releasing license: Implementation
-78 Infos, 0 Warnings, 1 Critical Warnings and 0 Errors encountered.
+71 Infos, 101 Warnings, 1 Critical Warnings and 0 Errors encountered.
 write_bitstream completed successfully
-write_bitstream: Time (s): cpu = 00:00:18 ; elapsed = 00:00:22 . Memory (MB): peak = 1558.785 ; gain = 361.680
-INFO: [Common 17-206] Exiting Vivado at Thu May 18 12:46:45 2023...
+write_bitstream: Time (s): cpu = 00:00:35 ; elapsed = 00:00:40 . Memory (MB): peak = 1722.191 ; gain = 386.867
+INFO: [Common 17-206] Exiting Vivado at Thu May 18 20:17:52 2023...

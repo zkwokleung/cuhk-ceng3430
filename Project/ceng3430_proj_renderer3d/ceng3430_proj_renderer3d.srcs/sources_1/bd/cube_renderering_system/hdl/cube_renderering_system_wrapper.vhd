@@ -1,7 +1,7 @@
 --Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------
 --Tool Version: Vivado v.2016.3 (win64) Build 1682563 Mon Oct 10 19:07:27 MDT 2016
---Date        : Thu May 18 12:42:35 2023
+--Date        : Thu May 18 20:09:31 2023
 --Host        : LAPTOP-UCKDP9IT running 64-bit major release  (build 9200)
 --Command     : generate_target cube_renderering_system_wrapper.bd
 --Design      : cube_renderering_system_wrapper
@@ -53,19 +53,6 @@ end cube_renderering_system_wrapper;
 architecture STRUCTURE of cube_renderering_system_wrapper is
   component cube_renderering_system is
   port (
-    BTNU : in STD_LOGIC;
-    SW : in STD_LOGIC_VECTOR ( 7 downto 0 );
-    VGA_BLUE : out STD_LOGIC_VECTOR ( 3 downto 0 );
-    VGA_HSYNC : out STD_LOGIC;
-    VGA_GREEN : out STD_LOGIC_VECTOR ( 3 downto 0 );
-    VGA_RED : out STD_LOGIC_VECTOR ( 3 downto 0 );
-    BTND : in STD_LOGIC;
-    BTNL : in STD_LOGIC;
-    BTNR : in STD_LOGIC;
-    VGA_VSYNC : out STD_LOGIC;
-    CLK : in STD_LOGIC;
-    BTNC : in STD_LOGIC;
-    LED : out STD_LOGIC_VECTOR ( 7 downto 0 );
     DDR_cas_n : inout STD_LOGIC;
     DDR_cke : inout STD_LOGIC;
     DDR_ck_n : inout STD_LOGIC;
@@ -86,7 +73,20 @@ architecture STRUCTURE of cube_renderering_system_wrapper is
     FIXED_IO_ddr_vrp : inout STD_LOGIC;
     FIXED_IO_ps_srstb : inout STD_LOGIC;
     FIXED_IO_ps_clk : inout STD_LOGIC;
-    FIXED_IO_ps_porb : inout STD_LOGIC
+    FIXED_IO_ps_porb : inout STD_LOGIC;
+    BTNU : in STD_LOGIC;
+    SW : in STD_LOGIC_VECTOR ( 7 downto 0 );
+    VGA_BLUE : out STD_LOGIC_VECTOR ( 3 downto 0 );
+    VGA_HSYNC : out STD_LOGIC;
+    VGA_GREEN : out STD_LOGIC_VECTOR ( 3 downto 0 );
+    VGA_RED : out STD_LOGIC_VECTOR ( 3 downto 0 );
+    BTND : in STD_LOGIC;
+    BTNL : in STD_LOGIC;
+    BTNR : in STD_LOGIC;
+    VGA_VSYNC : out STD_LOGIC;
+    CLK : in STD_LOGIC;
+    BTNC : in STD_LOGIC;
+    LED : out STD_LOGIC_VECTOR ( 7 downto 0 )
   );
   end component cube_renderering_system;
 begin

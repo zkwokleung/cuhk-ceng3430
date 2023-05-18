@@ -1,7 +1,7 @@
 Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2016.3 (win64) Build 1682563 Mon Oct 10 19:07:27 MDT 2016
-| Date         : Thu May 18 12:46:20 2023
+| Date         : Thu May 18 20:17:00 2023
 | Host         : LAPTOP-UCKDP9IT running 64-bit major release  (build 9200)
 | Command      : report_methodology -file cube_renderering_system_wrapper_methodology_drc_routed.rpt -rpx cube_renderering_system_wrapper_methodology_drc_routed.rpx
 | Design       : cube_renderering_system_wrapper
@@ -23,16 +23,89 @@ Table of Contents
           Floorplan: design_1
       Design limits: <entire design considered>
              Max violations: <unlimited>
-             Violations found: 76
-+-----------+----------+-------------------------------+------------+
-| Rule      | Severity | Description                   | Violations |
-+-----------+----------+-------------------------------+------------+
-| TIMING-17 | Warning  | Non-clocked sequential cell   | 64         |
-| TIMING-18 | Warning  | Missing input or output delay | 12         |
-+-----------+----------+-------------------------------+------------+
+             Violations found: 90
++-----------+----------+------------------------------------------------+------------+
+| Rule      | Severity | Description                                    | Violations |
++-----------+----------+------------------------------------------------+------------+
+| TIMING-6  | Warning  | No common primary clock between related clocks | 1          |
+| TIMING-7  | Warning  | No common node between related clocks          | 1          |
+| TIMING-16 | Warning  | Large setup violation                          | 12         |
+| TIMING-17 | Warning  | Non-clocked sequential cell                    | 64         |
+| TIMING-18 | Warning  | Missing input or output delay                  | 12         |
++-----------+----------+------------------------------------------------+------------+
 
 2. REPORT DETAILS
 -----------------
+TIMING-6#1 Warning
+No common primary clock between related clocks  
+The clocks clk_fpga_0 and CLK are related (timed together) but they have no common primary clock. The design could fail in hardware. To find a timing path between these clocks, run the following command: report_timing -from [get_clocks clk_fpga_0] -to [get_clocks CLK]
+Related violations: <none>
+
+TIMING-7#1 Warning
+No common node between related clocks  
+The clocks clk_fpga_0 and CLK are related (timed together) but they have no common node. The design could fail in hardware. To find a timing path between these clocks, run the following command: report_timing -from [get_clocks clk_fpga_0] -to [get_clocks CLK]
+Related violations: <none>
+
+TIMING-16#1 Warning
+Large setup violation  
+There is a large setup violation of -5.506 ns between cube_renderering_system_i/cube_renderer_controller_0/U0/cube_renderer_controller_v2_0_S00_AXI_inst/slv_reg3_reg[1]/C (clocked by clk_fpga_0) and cube_renderering_system_i/cube_renderer_controller_0/U0/renderer3D_inst/point_on_segment_i[0].point_on_segment_i/on_segment_reg/D (clocked by CLK). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#2 Warning
+Large setup violation  
+There is a large setup violation of -5.547 ns between cube_renderering_system_i/cube_renderer_controller_0/U0/cube_renderer_controller_v2_0_S00_AXI_inst/slv_reg4_reg[1]/C (clocked by clk_fpga_0) and cube_renderering_system_i/cube_renderer_controller_0/U0/renderer3D_inst/point_on_segment_i[2].point_on_segment_k/on_segment_reg/D (clocked by CLK). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#3 Warning
+Large setup violation  
+There is a large setup violation of -5.554 ns between cube_renderering_system_i/cube_renderer_controller_0/U0/cube_renderer_controller_v2_0_S00_AXI_inst/slv_reg7_reg[5]/C (clocked by clk_fpga_0) and cube_renderering_system_i/cube_renderer_controller_0/U0/renderer3D_inst/point_on_segment_i[3].point_on_segment_i/on_segment_reg/D (clocked by CLK). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#4 Warning
+Large setup violation  
+There is a large setup violation of -5.585 ns between cube_renderering_system_i/cube_renderer_controller_0/U0/cube_renderer_controller_v2_0_S00_AXI_inst/slv_reg9_reg[2]/C (clocked by clk_fpga_0) and cube_renderering_system_i/cube_renderer_controller_0/U0/renderer3D_inst/point_on_segment_i[0].point_on_segment_k/on_segment_reg/D (clocked by CLK). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#5 Warning
+Large setup violation  
+There is a large setup violation of -5.664 ns between cube_renderering_system_i/cube_renderer_controller_0/U0/cube_renderer_controller_v2_0_S00_AXI_inst/slv_reg14_reg[0]/C (clocked by clk_fpga_0) and cube_renderering_system_i/cube_renderer_controller_0/U0/renderer3D_inst/point_on_segment_i[3].point_on_segment_k/on_segment_reg/D (clocked by CLK). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#6 Warning
+Large setup violation  
+There is a large setup violation of -5.748 ns between cube_renderering_system_i/cube_renderer_controller_0/U0/cube_renderer_controller_v2_0_S00_AXI_inst/slv_reg14_reg[1]/C (clocked by clk_fpga_0) and cube_renderering_system_i/cube_renderer_controller_0/U0/renderer3D_inst/point_on_segment_i[3].point_on_segment_j/on_segment_reg/D (clocked by CLK). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#7 Warning
+Large setup violation  
+There is a large setup violation of -5.759 ns between cube_renderering_system_i/cube_renderer_controller_0/U0/cube_renderer_controller_v2_0_S00_AXI_inst/slv_reg12_reg[1]/C (clocked by clk_fpga_0) and cube_renderering_system_i/cube_renderer_controller_0/U0/renderer3D_inst/point_on_segment_i[1].point_on_segment_j/on_segment_reg/D (clocked by CLK). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#8 Warning
+Large setup violation  
+There is a large setup violation of -5.759 ns between cube_renderering_system_i/cube_renderer_controller_0/U0/cube_renderer_controller_v2_0_S00_AXI_inst/slv_reg12_reg[1]/C (clocked by clk_fpga_0) and cube_renderering_system_i/cube_renderer_controller_0/U0/renderer3D_inst/point_on_segment_i[2].point_on_segment_j/on_segment_reg/D (clocked by CLK). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#9 Warning
+Large setup violation  
+There is a large setup violation of -5.880 ns between cube_renderering_system_i/cube_renderer_controller_0/U0/cube_renderer_controller_v2_0_S00_AXI_inst/slv_reg10_reg[1]/C (clocked by clk_fpga_0) and cube_renderering_system_i/cube_renderer_controller_0/U0/renderer3D_inst/point_on_segment_i[0].point_on_segment_j/on_segment_reg/D (clocked by CLK). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#10 Warning
+Large setup violation  
+There is a large setup violation of -5.885 ns between cube_renderering_system_i/cube_renderer_controller_0/U0/cube_renderer_controller_v2_0_S00_AXI_inst/slv_reg3_reg[3]/C (clocked by clk_fpga_0) and cube_renderering_system_i/cube_renderer_controller_0/U0/renderer3D_inst/point_on_segment_i[1].point_on_segment_k/on_segment_reg/D (clocked by CLK). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#11 Warning
+Large setup violation  
+There is a large setup violation of -6.064 ns between cube_renderering_system_i/cube_renderer_controller_0/U0/cube_renderer_controller_v2_0_S00_AXI_inst/slv_reg5_reg[5]/C (clocked by clk_fpga_0) and cube_renderering_system_i/cube_renderer_controller_0/U0/renderer3D_inst/point_on_segment_i[2].point_on_segment_i/on_segment_reg/D (clocked by CLK). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#12 Warning
+Large setup violation  
+There is a large setup violation of -6.169 ns between cube_renderering_system_i/cube_renderer_controller_0/U0/cube_renderer_controller_v2_0_S00_AXI_inst/slv_reg2_reg[1]/C (clocked by clk_fpga_0) and cube_renderering_system_i/cube_renderer_controller_0/U0/renderer3D_inst/point_on_segment_i[1].point_on_segment_i/on_segment_reg/D (clocked by CLK). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
 TIMING-17#1 Warning
 Non-clocked sequential cell  
 The clock pin cube_renderering_system_i/cube_renderer_controller_0/U0/vga_controller_inst/h_count_reg[0]/C is not reached by a timing clock
