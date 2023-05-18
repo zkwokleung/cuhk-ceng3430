@@ -24,6 +24,7 @@
 
 int main()
 {
+    // Initializations
     init_platform();
 
     u32 btnc_in = 0;
@@ -61,19 +62,30 @@ int main()
     perspective(proj_mat, 45.0f, WIDTH / HEIGHT, 1.0f, 10000.0f);
     look_at(view_mat, camera_pos, camera_target, camera_up);
 
-    // Apply the transformations in the correct order
-    for (unsigned int i = 0; i < 8; i++)
+    // Main loop
+    while (1)
     {
-        scale(scaled[i], cube_base_vertices[i], cube_scale);
-        rotate_z(rotated_z[i], scaled[i], cube_rot[2]);
-        rotate_y(rotated_y[i], rotated_z[i], cube_rot[1]);
-        rotate_x(rotated_x[i], rotated_y[i], cube_rot[0]);
-        translate(translated[i], rotated_x[i], cube_pos);
+        // Input
+        // TODO: Read buttons
+        // TODO: Read switches
 
-        // Convert the 3D cube positions to 2D screen positions
-        to_screen_space(screen_pos[i], translated[i], proj_mat, view_mat, WIDTH, HEIGHT);
-        printf("Cube vertex %d: %f, %f, %f\n", i, translated[i][0], translated[i][1], translated[i][2]);
-        printf("Screen position %d: %f, %f\n", i, screen_pos[i][0], screen_pos[i][1]);
+        // Apply the transformations in the correct order
+        for (unsigned int i = 0; i < 8; i++)
+        {
+            scale(scaled[i], cube_base_vertices[i], cube_scale);
+            rotate_z(rotated_z[i], scaled[i], cube_rot[2]);
+            rotate_y(rotated_y[i], rotated_z[i], cube_rot[1]);
+            rotate_x(rotated_x[i], rotated_y[i], cube_rot[0]);
+            translate(translated[i], rotated_x[i], cube_pos);
+
+            // Convert the 3D cube positions to 2D screen positions
+            to_screen_space(screen_pos[i], translated[i], proj_mat, view_mat, WIDTH, HEIGHT);
+            // printf("Cube vertex %d: %f, %f, %f\n", i, translated[i][0], translated[i][1], translated[i][2]);
+            // printf("Screen position %d: %f, %f\n", i, screen_pos[i][0], screen_pos[i][1]);
+        }
+
+        // TODO: Output screen positions
+        // TODO: Output line indices
     }
 
     free_mat4(proj_mat);

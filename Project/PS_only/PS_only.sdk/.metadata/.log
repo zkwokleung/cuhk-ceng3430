@@ -6294,3 +6294,147 @@ java.lang.NullPointerException
 
 !ENTRY com.xilinx.sdk.utils 0 0 2023-05-18 08:20:32.502
 !MESSAGE XSCT command with result: [con], Result: [null, ]. Thread: Worker-38
+
+!ENTRY com.xilinx.sdk.utils 0 0 2023-05-18 08:25:35.614
+!MESSAGE XSCT Command: [ ::hsi::utils::set_current_hw_sw D:/Git/cuhk-ceng3430/Project/PS_only/PS_only.sdk/design_1_wrapper_hw_platform_0/system.hdf D:/Git/cuhk-ceng3430/Project/PS_only/PS_only.sdk/renderer3d_bsp/system.mss ], Thread: main
+
+!ENTRY com.xilinx.sdk.utils 0 0 2023-05-18 08:25:35.614
+!MESSAGE XSCT command with result: [ ::hsi::utils::set_current_hw_sw D:/Git/cuhk-ceng3430/Project/PS_only/PS_only.sdk/design_1_wrapper_hw_platform_0/system.hdf D:/Git/cuhk-ceng3430/Project/PS_only/PS_only.sdk/renderer3d_bsp/system.mss ], Result: [null, ]. Thread: main
+
+!ENTRY com.xilinx.sdk.utils 0 0 2023-05-18 08:25:35.614
+!MESSAGE XSCT Command: [::hsi::utils::get_hw_sw_details -json D:/Git/cuhk-ceng3430/Project/PS_only/PS_only.sdk/design_1_wrapper_hw_platform_0/system.hdf D:/Git/cuhk-ceng3430/Project/PS_only/PS_only.sdk/renderer3d_bsp/system.mss], Thread: main
+
+!ENTRY com.xilinx.sdk.utils 0 0 2023-05-18 08:25:35.630
+!MESSAGE XSCT command with result: [::hsi::utils::get_hw_sw_details -json D:/Git/cuhk-ceng3430/Project/PS_only/PS_only.sdk/design_1_wrapper_hw_platform_0/system.hdf D:/Git/cuhk-ceng3430/Project/PS_only/PS_only.sdk/renderer3d_bsp/system.mss], Result: [null, {"procname": "ps7_cortexa9_0",
+"osname": "standalone",
+"osver": "6.0",
+}]. Thread: main
+
+!ENTRY com.xilinx.sdk.utils 0 0 2023-05-18 08:25:35.630
+!MESSAGE XSCT Command: [::hsi::utils::get_libs_from_sw D:/Git/cuhk-ceng3430/Project/PS_only/PS_only.sdk/design_1_wrapper_hw_platform_0/system.hdf D:/Git/cuhk-ceng3430/Project/PS_only/PS_only.sdk/renderer3d_bsp/system.mss], Thread: main
+
+!ENTRY com.xilinx.sdk.utils 0 0 2023-05-18 08:25:35.630
+!MESSAGE XSCT command with result: [::hsi::utils::get_libs_from_sw D:/Git/cuhk-ceng3430/Project/PS_only/PS_only.sdk/design_1_wrapper_hw_platform_0/system.hdf D:/Git/cuhk-ceng3430/Project/PS_only/PS_only.sdk/renderer3d_bsp/system.mss], Result: [null, ]. Thread: main
+
+!ENTRY com.xilinx.sdk.utils 0 0 2023-05-18 08:25:35.630
+!MESSAGE XSCT Command: [::hsi::utils::get_sw_libs -json D:/Git/cuhk-ceng3430/Project/PS_only/PS_only.sdk/design_1_wrapper_hw_platform_0/system.hdf D:/Git/cuhk-ceng3430/Project/PS_only/PS_only.sdk/renderer3d_bsp/system.mss], Thread: main
+
+!ENTRY com.xilinx.sdk.utils 0 0 2023-05-18 08:25:35.630
+!MESSAGE XSCT command with result: [::hsi::utils::get_sw_libs -json D:/Git/cuhk-ceng3430/Project/PS_only/PS_only.sdk/design_1_wrapper_hw_platform_0/system.hdf D:/Git/cuhk-ceng3430/Project/PS_only/PS_only.sdk/renderer3d_bsp/system.mss], Result: [null, {}]. Thread: main
+
+!ENTRY com.xilinx.sdk.utils 0 0 2023-05-18 08:25:35.630
+!MESSAGE XSCT Command: [::hsi::utils::get_drivers_for_sw -json D:/Git/cuhk-ceng3430/Project/PS_only/PS_only.sdk/design_1_wrapper_hw_platform_0/system.hdf D:/Git/cuhk-ceng3430/Project/PS_only/PS_only.sdk/renderer3d_bsp/system.mss], Thread: main
+
+!ENTRY com.xilinx.sdk.utils 0 0 2023-05-18 08:25:35.646
+!MESSAGE XSCT command with result: [::hsi::utils::get_drivers_for_sw -json D:/Git/cuhk-ceng3430/Project/PS_only/PS_only.sdk/design_1_wrapper_hw_platform_0/system.hdf D:/Git/cuhk-ceng3430/Project/PS_only/PS_only.sdk/renderer3d_bsp/system.mss], Result: [null, {"ps7_afi_0": {"name": "generic",
+"ver": "2.0",
+},
+"ps7_afi_1": {"name": "generic",
+"ver": "2.0",
+},
+"ps7_afi_2": {"name": "generic",
+"ver": "2.0",
+},
+"ps7_afi_3": {"name": "generic",
+"ver": "2.0",
+},
+"ps7_coresight_comp_0": {"name": "coresightps_dcc",
+"ver": "1.3",
+},
+"ps7_ddr_0": {"name": "ddrps",
+"ver": "1.0",
+},
+"ps7_ddrc_0": {"name": "generic",
+"ver": "2.0",
+},
+"ps7_dev_cfg_0": {"name": "devcfg",
+"ver": "3.4",
+},
+"ps7_dma_ns": {"name": "dmaps",
+"ver": "2.2",
+},
+"ps7_dma_s": {"name": "dmaps",
+"ver": "2.2",
+},
+"ps7_ethernet_0": {"name": "emacps",
+"ver": "3.3",
+},
+"ps7_globaltimer_0": {"name": "generic",
+"ver": "2.0",
+},
+"ps7_gpio_0": {"name": "gpiops",
+"ver": "3.1",
+},
+"ps7_gpv_0": {"name": "generic",
+"ver": "2.0",
+},
+"ps7_intc_dist_0": {"name": "generic",
+"ver": "2.0",
+},
+"ps7_iop_bus_config_0": {"name": "generic",
+"ver": "2.0",
+},
+"ps7_l2cachec_0": {"name": "generic",
+"ver": "2.0",
+},
+"ps7_ocmc_0": {"name": "generic",
+"ver": "2.0",
+},
+"ps7_pl310_0": {"name": "generic",
+"ver": "2.0",
+},
+"ps7_pmu_0": {"name": "generic",
+"ver": "2.0",
+},
+"ps7_qspi_0": {"name": "qspips",
+"ver": "3.3",
+},
+"ps7_qspi_linear_0": {"name": "generic",
+"ver": "2.0",
+},
+"ps7_ram_0": {"name": "generic",
+"ver": "2.0",
+},
+"ps7_ram_1": {"name": "generic",
+"ver": "2.0",
+},
+"ps7_scuc_0": {"name": "generic",
+"ver": "2.0",
+},
+"ps7_scugic_0": {"name": "scugic",
+"ver": "3.4",
+},
+"ps7_scutimer_0": {"name": "scutimer",
+"ver": "2.1",
+},
+"ps7_scuwdt_0": {"name": "scuwdt",
+"ver": "2.1",
+},
+"ps7_sd_0": {"name": "sdps",
+"ver": "3.0",
+},
+"ps7_slcr_0": {"name": "generic",
+"ver": "2.0",
+},
+"ps7_ttc_0": {"name": "ttcps",
+"ver": "3.1",
+},
+"ps7_uart_1": {"name": "uartps",
+"ver": "3.2",
+},
+"ps7_usb_0": {"name": "usbps",
+"ver": "2.4",
+},
+"ps7_xadc_0": {"name": "xadcps",
+"ver": "2.2",
+},
+"ps7_cortexa9_0": {"name": "cpu_cortexa9",
+"ver": "2.3",
+},
+}]. Thread: main
+
+!ENTRY com.xilinx.sdk.utils 0 0 2023-05-18 08:25:35.646
+!MESSAGE XSCT Command: [::hsi::utils::closesw D:/Git/cuhk-ceng3430/Project/PS_only/PS_only.sdk/renderer3d_bsp/system.mss], Thread: main
+
+!ENTRY com.xilinx.sdk.utils 0 0 2023-05-18 08:25:35.646
+!MESSAGE XSCT command with result: [::hsi::utils::closesw D:/Git/cuhk-ceng3430/Project/PS_only/PS_only.sdk/renderer3d_bsp/system.mss], Result: [null, ]. Thread: main

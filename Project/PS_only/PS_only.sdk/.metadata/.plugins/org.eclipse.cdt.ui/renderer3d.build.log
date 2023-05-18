@@ -1,4 +1,4 @@
-08:20:25 **** Incremental Build of configuration Debug for project renderer3d ****
+08:24:31 **** Auto Build of configuration Debug for project renderer3d ****
 make pre-build main-build 
 a9-linaro-pre-build-step
 ' '
@@ -6,6 +6,9 @@ a9-linaro-pre-build-step
 'Invoking: ARM v7 gcc compiler'
 arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/main.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../renderer3d_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.c"
 ../src/main.c: In function 'main':
+../src/main.c:38:9: warning: unused variable 'line_indices' [-Wunused-variable]
+     int line_indices[24] = {0, 1, 0, 2, 0, 4, 1, 3, 1, 5, 2, 3, 2, 6, 3, 7, 4, 5, 4, 6, 5, 7, 6, 7};
+         ^
 ../src/main.c:33:9: warning: unused variable 'btnd_in' [-Wunused-variable]
      u32 btnd_in = 0;
          ^
@@ -31,9 +34,9 @@ arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=non
 'Invoking: ARM v7 Print Size'
 arm-none-eabi-size renderer3d.elf  |tee "renderer3d.elf.size"
    text	   data	    bss	    dec	    hex	filename
- 106832	   2584	  23328	 132744	  20688	renderer3d.elf
+ 106928	   2584	  23328	 132840	  206e8	renderer3d.elf
 'Finished building: renderer3d.elf.size'
 ' '
 
-08:20:26 Build Finished (took 1s.578ms)
+08:24:33 Build Finished (took 1s.616ms)
 
