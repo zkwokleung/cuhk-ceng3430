@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="synth_1" LaunchPart="xc7z020clg484-1" LaunchTime="1684375593">
+<GenRun Id="synth_1" LaunchPart="xc7z020clg484-1" LaunchTime="1684377013">
   <File Type="RDS-PROPCONSTRS" Name="renderer3D_drc_synth.rpt"/>
   <File Type="PA-TCL" Name="renderer3D.tcl"/>
   <File Type="RDS-RDS" Name="renderer3D.vds"/>
@@ -11,6 +11,12 @@
   <FileSet Name="sources" Type="DesignSrcs" RelSrcDir="$PSRCDIR/sources_1">
     <Filter Type="Srcs"/>
     <File Path="$PPRDIR/../srcs/utils/clock_divider.vhd">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PPRDIR/../srcs/pkg/generic_type_pkg.vhd">
       <FileInfo>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="simulation"/>
@@ -30,13 +36,6 @@
     </File>
     <File Path="$PPRDIR/../srcs/renderer3D.vhd">
       <FileInfo>
-        <Attr Name="UsedIn" Val="synthesis"/>
-        <Attr Name="UsedIn" Val="simulation"/>
-      </FileInfo>
-    </File>
-    <File Path="$PPRDIR/../srcs/pkg/generic_type_pkg.vhd">
-      <FileInfo>
-        <Attr Name="AutoDisabled" Val="1"/>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="impl_1" LaunchPart="xc7z020clg484-1" LaunchTime="1684375593">
+<GenRun Id="impl_1" LaunchPart="xc7z020clg484-1" LaunchTime="1684377013">
   <File Type="PWROPT-DRC" Name="renderer3D_drc_pwropted.rpt"/>
   <File Type="OPT-METHODOLOGY-DRC" Name="renderer3D_methodology_drc_opted.rpt"/>
   <File Type="INIT-TIMING" Name="renderer3D_timing_summary_init.rpt"/>
@@ -68,6 +68,12 @@
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
+    <File Path="$PPRDIR/../srcs/pkg/generic_type_pkg.vhd">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
     <File Path="$PPRDIR/../srcs/vga/vga_controller.vhd">
       <FileInfo>
         <Attr Name="UsedIn" Val="synthesis"/>
@@ -82,13 +88,6 @@
     </File>
     <File Path="$PPRDIR/../srcs/renderer3D.vhd">
       <FileInfo>
-        <Attr Name="UsedIn" Val="synthesis"/>
-        <Attr Name="UsedIn" Val="simulation"/>
-      </FileInfo>
-    </File>
-    <File Path="$PPRDIR/../srcs/pkg/generic_type_pkg.vhd">
-      <FileInfo>
-        <Attr Name="AutoDisabled" Val="1"/>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>

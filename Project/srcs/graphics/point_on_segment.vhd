@@ -1,12 +1,13 @@
 LIBRARY IEEE;
 USE IEEE.STD_LOGIC_1164.ALL;
 USE IEEE.Numeric_Std.ALL;
+USE work.generic_type_pkg.ALL;
 
 ENTITY point_on_segment IS
     PORT (
         CLK : IN STD_LOGIC;
-        x, y : IN INTEGER;
-        v1_x, v1_y, v2_x, v2_y : IN INTEGER;
+        point : IN vec2;
+        v1, v2 : IN vec2;
 
         on_segment : OUT STD_LOGIC
     );
@@ -15,18 +16,19 @@ END point_on_segment;
 ARCHITECTURE point_on_segment_arch OF point_on_segment IS
 BEGIN
     PROCESS (CLK)
-        VARIABLE dx1, dy1, dx2, dy2, cross, dot : INTEGER;
+        VARIABLE d1, d2 : vec2;
+        VARIABLE cross, dot : INTEGER;
     BEGIN
         IF rising_edge(CLK) THEN
-            dx1 := x - v1_x;
-            dy1 := y - v1_y;
-            dx2 := v2_x - v1_x;
-            dy2 := v2_y - v1_y;
-            cross := dx1 * dy2 - dy1 * dx2;
-            dot := dx1 * dx2 + dy1 * dy2;
+            d1(0) := point(0) - v1(0);
+            d1(1) := point(1) - v1(1);
+            d2(0) := v2(0) - v1(0);
+            d2(1) := v2(1) - v1(1);
+            cross := d1(0) * d2(1) - d1(1) * d2(0);
+            dot := d1(0) * d2(0) + d1(1) * d2(1);
             IF cross /= 0 THEN
                 on_segment <= '0';
-            ELSIF dot < 0 OR dot > dx2 * dx2 + dy2 * dy2 THEN
+            ELSIF dot < 0 OR dot > d2(0) * d2(0) + d2(1) * d2(1) THEN
                 on_segment <= '0';
             ELSE
                 on_segment <= '1';

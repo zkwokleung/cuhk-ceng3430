@@ -1,0 +1,1443 @@
+Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
+---------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2016.3 (win64) Build 1682563 Mon Oct 10 19:07:27 MDT 2016
+| Date         : Thu May 18 10:34:59 2023
+| Host         : LAPTOP-UCKDP9IT running 64-bit major release  (build 9200)
+| Command      : report_methodology -file renderer3D_methodology_drc_routed.rpt -rpx renderer3D_methodology_drc_routed.rpx
+| Design       : renderer3D
+| Device       : xc7z020clg484-1
+| Speed File   : -1
+| Design State : Routed
+---------------------------------------------------------------------------------------------------------------------------
+
+Report Methodology
+
+Table of Contents
+-----------------
+1. REPORT SUMMARY
+2. REPORT DETAILS
+
+1. REPORT SUMMARY
+-----------------
+            Netlist: netlist
+          Floorplan: design_1
+      Design limits: <entire design considered>
+             Max violations: <unlimited>
+             Violations found: 281
++-----------+----------+-------------------------------+------------+
+| Rule      | Severity | Description                   | Violations |
++-----------+----------+-------------------------------+------------+
+| SYNTH-10  | Warning  | Wide multiplier               | 192        |
+| TIMING-16 | Warning  | Large setup violation         | 12         |
+| TIMING-17 | Warning  | Non-clocked sequential cell   | 64         |
+| TIMING-18 | Warning  | Missing input or output delay | 13         |
++-----------+----------+-------------------------------+------------+
+
+2. REPORT DETAILS
+-----------------
+SYNTH-10#1 Warning
+Wide multiplier  
+Detected multiplier at point_on_segment_i[0].point_on_segment_i/on_segment3 of size 15x18, it is decomposed from a wide multipler into 4 DSP blocks.
+Related violations: <none>
+
+SYNTH-10#2 Warning
+Wide multiplier  
+Detected multiplier at point_on_segment_i[0].point_on_segment_i/on_segment3__0 of size 18x18, it is decomposed from a wide multipler into 4 DSP blocks.
+Related violations: <none>
+
+SYNTH-10#3 Warning
+Wide multiplier  
+Detected multiplier at point_on_segment_i[0].point_on_segment_i/on_segment3__1 of size 18x15, it is decomposed from a wide multipler into 4 DSP blocks.
+Related violations: <none>
+
+SYNTH-10#4 Warning
+Wide multiplier  
+Detected multiplier at point_on_segment_i[0].point_on_segment_i/on_segment3__10 of size 18x18, it is decomposed from a wide multipler into 4 DSP blocks.
+Related violations: <none>
+
+SYNTH-10#5 Warning
+Wide multiplier  
+Detected multiplier at point_on_segment_i[0].point_on_segment_i/on_segment3__11 of size 18x15, it is decomposed from a wide multipler into 4 DSP blocks.
+Related violations: <none>
+
+SYNTH-10#6 Warning
+Wide multiplier  
+Detected multiplier at point_on_segment_i[0].point_on_segment_i/on_segment3__12 of size 15x18, it is decomposed from a wide multipler into 4 DSP blocks.
+Related violations: <none>
+
+SYNTH-10#7 Warning
+Wide multiplier  
+Detected multiplier at point_on_segment_i[0].point_on_segment_i/on_segment3__13 of size 18x18, it is decomposed from a wide multipler into 4 DSP blocks.
+Related violations: <none>
+
+SYNTH-10#8 Warning
+Wide multiplier  
+Detected multiplier at point_on_segment_i[0].point_on_segment_i/on_segment3__14 of size 18x15, it is decomposed from a wide multipler into 4 DSP blocks.
+Related violations: <none>
+
+SYNTH-10#9 Warning
+Wide multiplier  
+Detected multiplier at point_on_segment_i[0].point_on_segment_i/on_segment3__2 of size 15x18, it is decomposed from a wide multipler into 4 DSP blocks.
+Related violations: <none>
+
+SYNTH-10#10 Warning
+Wide multiplier  
+Detected multiplier at point_on_segment_i[0].point_on_segment_i/on_segment3__3 of size 18x18, it is decomposed from a wide multipler into 4 DSP blocks.
+Related violations: <none>
+
+SYNTH-10#11 Warning
+Wide multiplier  
+Detected multiplier at point_on_segment_i[0].point_on_segment_i/on_segment3__4 of size 18x15, it is decomposed from a wide multipler into 4 DSP blocks.
+Related violations: <none>
+
+SYNTH-10#12 Warning
+Wide multiplier  
+Detected multiplier at point_on_segment_i[0].point_on_segment_i/on_segment3__5 of size 18x18, it is decomposed from a wide multipler into 4 DSP blocks.
+Related violations: <none>
+
+SYNTH-10#13 Warning
+Wide multiplier  
+Detected multiplier at point_on_segment_i[0].point_on_segment_i/on_segment3__6 of size 18x15, it is decomposed from a wide multipler into 4 DSP blocks.
+Related violations: <none>
+
+SYNTH-10#14 Warning
+Wide multiplier  
+Detected multiplier at point_on_segment_i[0].point_on_segment_i/on_segment3__7 of size 18x18, it is decomposed from a wide multipler into 4 DSP blocks.
+Related violations: <none>
+
+SYNTH-10#15 Warning
+Wide multiplier  
+Detected multiplier at point_on_segment_i[0].point_on_segment_i/on_segment3__8 of size 18x15, it is decomposed from a wide multipler into 4 DSP blocks.
+Related violations: <none>
+
+SYNTH-10#16 Warning
+Wide multiplier  
+Detected multiplier at point_on_segment_i[0].point_on_segment_i/on_segment3__9 of size 15x18, it is decomposed from a wide multipler into 4 DSP blocks.
+Related violations: <none>
+
+SYNTH-10#17 Warning
+Wide multiplier  
+Detected multiplier at point_on_segment_i[0].point_on_segment_j/on_segment3 of size 15x18, it is decomposed from a wide multipler into 4 DSP blocks.
+Related violations: <none>
+
+SYNTH-10#18 Warning
+Wide multiplier  
+Detected multiplier at point_on_segment_i[0].point_on_segment_j/on_segment3__0 of size 18x18, it is decomposed from a wide multipler into 4 DSP blocks.
+Related violations: <none>
+
+SYNTH-10#19 Warning
+Wide multiplier  
+Detected multiplier at point_on_segment_i[0].point_on_segment_j/on_segment3__1 of size 18x15, it is decomposed from a wide multipler into 4 DSP blocks.
+Related violations: <none>
+
+SYNTH-10#20 Warning
+Wide multiplier  
+Detected multiplier at point_on_segment_i[0].point_on_segment_j/on_segment3__10 of size 18x18, it is decomposed from a wide multipler into 4 DSP blocks.
+Related violations: <none>
+
+SYNTH-10#21 Warning
+Wide multiplier  
+Detected multiplier at point_on_segment_i[0].point_on_segment_j/on_segment3__11 of size 18x15, it is decomposed from a wide multipler into 4 DSP blocks.
+Related violations: <none>
+
+SYNTH-10#22 Warning
+Wide multiplier  
+Detected multiplier at point_on_segment_i[0].point_on_segment_j/on_segment3__12 of size 15x18, it is decomposed from a wide multipler into 4 DSP blocks.
+Related violations: <none>
+
+SYNTH-10#23 Warning
+Wide multiplier  
+Detected multiplier at point_on_segment_i[0].point_on_segment_j/on_segment3__13 of size 18x18, it is decomposed from a wide multipler into 4 DSP blocks.
+Related violations: <none>
+
+SYNTH-10#24 Warning
+Wide multiplier  
+Detected multiplier at point_on_segment_i[0].point_on_segment_j/on_segment3__14 of size 18x15, it is decomposed from a wide multipler into 4 DSP blocks.
+Related violations: <none>
+
+SYNTH-10#25 Warning
+Wide multiplier  
+Detected multiplier at point_on_segment_i[0].point_on_segment_j/on_segment3__2 of size 15x18, it is decomposed from a wide multipler into 4 DSP blocks.
+Related violations: <none>
+
+SYNTH-10#26 Warning
+Wide multiplier  
+Detected multiplier at point_on_segment_i[0].point_on_segment_j/on_segment3__3 of size 18x18, it is decomposed from a wide multipler into 4 DSP blocks.
+Related violations: <none>
+
+SYNTH-10#27 Warning
+Wide multiplier  
+Detected multiplier at point_on_segment_i[0].point_on_segment_j/on_segment3__4 of size 18x15, it is decomposed from a wide multipler into 4 DSP blocks.
+Related violations: <none>
+
+SYNTH-10#28 Warning
+Wide multiplier  
+Detected multiplier at point_on_segment_i[0].point_on_segment_j/on_segment3__5 of size 18x18, it is decomposed from a wide multipler into 4 DSP blocks.
+Related violations: <none>
+
+SYNTH-10#29 Warning
+Wide multiplier  
+Detected multiplier at point_on_segment_i[0].point_on_segment_j/on_segment3__6 of size 18x15, it is decomposed from a wide multipler into 4 DSP blocks.
+Related violations: <none>
+
+SYNTH-10#30 Warning
+Wide multiplier  
+Detected multiplier at point_on_segment_i[0].point_on_segment_j/on_segment3__7 of size 18x18, it is decomposed from a wide multipler into 4 DSP blocks.
+Related violations: <none>
+
+SYNTH-10#31 Warning
+Wide multiplier  
+Detected multiplier at point_on_segment_i[0].point_on_segment_j/on_segment3__8 of size 18x15, it is decomposed from a wide multipler into 4 DSP blocks.
+Related violations: <none>
+
+SYNTH-10#32 Warning
+Wide multiplier  
+Detected multiplier at point_on_segment_i[0].point_on_segment_j/on_segment3__9 of size 15x18, it is decomposed from a wide multipler into 4 DSP blocks.
+Related violations: <none>
+
+SYNTH-10#33 Warning
+Wide multiplier  
+Detected multiplier at point_on_segment_i[0].point_on_segment_k/on_segment3 of size 15x18, it is decomposed from a wide multipler into 4 DSP blocks.
+Related violations: <none>
+
+SYNTH-10#34 Warning
+Wide multiplier  
+Detected multiplier at point_on_segment_i[0].point_on_segment_k/on_segment3__0 of size 18x18, it is decomposed from a wide multipler into 4 DSP blocks.
+Related violations: <none>
+
+SYNTH-10#35 Warning
+Wide multiplier  
+Detected multiplier at point_on_segment_i[0].point_on_segment_k/on_segment3__1 of size 18x15, it is decomposed from a wide multipler into 4 DSP blocks.
+Related violations: <none>
+
+SYNTH-10#36 Warning
+Wide multiplier  
+Detected multiplier at point_on_segment_i[0].point_on_segment_k/on_segment3__10 of size 18x18, it is decomposed from a wide multipler into 4 DSP blocks.
+Related violations: <none>
+
+SYNTH-10#37 Warning
+Wide multiplier  
+Detected multiplier at point_on_segment_i[0].point_on_segment_k/on_segment3__11 of size 18x15, it is decomposed from a wide multipler into 4 DSP blocks.
+Related violations: <none>
+
+SYNTH-10#38 Warning
+Wide multiplier  
+Detected multiplier at point_on_segment_i[0].point_on_segment_k/on_segment3__12 of size 15x18, it is decomposed from a wide multipler into 4 DSP blocks.
+Related violations: <none>
+
+SYNTH-10#39 Warning
+Wide multiplier  
+Detected multiplier at point_on_segment_i[0].point_on_segment_k/on_segment3__13 of size 18x18, it is decomposed from a wide multipler into 4 DSP blocks.
+Related violations: <none>
+
+SYNTH-10#40 Warning
+Wide multiplier  
+Detected multiplier at point_on_segment_i[0].point_on_segment_k/on_segment3__14 of size 18x15, it is decomposed from a wide multipler into 4 DSP blocks.
+Related violations: <none>
+
+SYNTH-10#41 Warning
+Wide multiplier  
+Detected multiplier at point_on_segment_i[0].point_on_segment_k/on_segment3__2 of size 15x18, it is decomposed from a wide multipler into 4 DSP blocks.
+Related violations: <none>
+
+SYNTH-10#42 Warning
+Wide multiplier  
+Detected multiplier at point_on_segment_i[0].point_on_segment_k/on_segment3__3 of size 18x18, it is decomposed from a wide multipler into 4 DSP blocks.
+Related violations: <none>
+
+SYNTH-10#43 Warning
+Wide multiplier  
+Detected multiplier at point_on_segment_i[0].point_on_segment_k/on_segment3__4 of size 18x15, it is decomposed from a wide multipler into 4 DSP blocks.
+Related violations: <none>
+
+SYNTH-10#44 Warning
+Wide multiplier  
+Detected multiplier at point_on_segment_i[0].point_on_segment_k/on_segment3__5 of size 18x18, it is decomposed from a wide multipler into 4 DSP blocks.
+Related violations: <none>
+
+SYNTH-10#45 Warning
+Wide multiplier  
+Detected multiplier at point_on_segment_i[0].point_on_segment_k/on_segment3__6 of size 18x15, it is decomposed from a wide multipler into 4 DSP blocks.
+Related violations: <none>
+
+SYNTH-10#46 Warning
+Wide multiplier  
+Detected multiplier at point_on_segment_i[0].point_on_segment_k/on_segment3__7 of size 18x18, it is decomposed from a wide multipler into 4 DSP blocks.
+Related violations: <none>
+
+SYNTH-10#47 Warning
+Wide multiplier  
+Detected multiplier at point_on_segment_i[0].point_on_segment_k/on_segment3__8 of size 18x15, it is decomposed from a wide multipler into 4 DSP blocks.
+Related violations: <none>
+
+SYNTH-10#48 Warning
+Wide multiplier  
+Detected multiplier at point_on_segment_i[0].point_on_segment_k/on_segment3__9 of size 15x18, it is decomposed from a wide multipler into 4 DSP blocks.
+Related violations: <none>
+
+SYNTH-10#49 Warning
+Wide multiplier  
+Detected multiplier at point_on_segment_i[1].point_on_segment_i/on_segment3 of size 15x18, it is decomposed from a wide multipler into 4 DSP blocks.
+Related violations: <none>
+
+SYNTH-10#50 Warning
+Wide multiplier  
+Detected multiplier at point_on_segment_i[1].point_on_segment_i/on_segment3__0 of size 18x18, it is decomposed from a wide multipler into 4 DSP blocks.
+Related violations: <none>
+
+SYNTH-10#51 Warning
+Wide multiplier  
+Detected multiplier at point_on_segment_i[1].point_on_segment_i/on_segment3__1 of size 18x15, it is decomposed from a wide multipler into 4 DSP blocks.
+Related violations: <none>
+
+SYNTH-10#52 Warning
+Wide multiplier  
+Detected multiplier at point_on_segment_i[1].point_on_segment_i/on_segment3__10 of size 18x18, it is decomposed from a wide multipler into 4 DSP blocks.
+Related violations: <none>
+
+SYNTH-10#53 Warning
+Wide multiplier  
+Detected multiplier at point_on_segment_i[1].point_on_segment_i/on_segment3__11 of size 18x15, it is decomposed from a wide multipler into 4 DSP blocks.
+Related violations: <none>
+
+SYNTH-10#54 Warning
+Wide multiplier  
+Detected multiplier at point_on_segment_i[1].point_on_segment_i/on_segment3__12 of size 15x18, it is decomposed from a wide multipler into 4 DSP blocks.
+Related violations: <none>
+
+SYNTH-10#55 Warning
+Wide multiplier  
+Detected multiplier at point_on_segment_i[1].point_on_segment_i/on_segment3__13 of size 18x18, it is decomposed from a wide multipler into 4 DSP blocks.
+Related violations: <none>
+
+SYNTH-10#56 Warning
+Wide multiplier  
+Detected multiplier at point_on_segment_i[1].point_on_segment_i/on_segment3__14 of size 18x15, it is decomposed from a wide multipler into 4 DSP blocks.
+Related violations: <none>
+
+SYNTH-10#57 Warning
+Wide multiplier  
+Detected multiplier at point_on_segment_i[1].point_on_segment_i/on_segment3__2 of size 15x18, it is decomposed from a wide multipler into 4 DSP blocks.
+Related violations: <none>
+
+SYNTH-10#58 Warning
+Wide multiplier  
+Detected multiplier at point_on_segment_i[1].point_on_segment_i/on_segment3__3 of size 18x18, it is decomposed from a wide multipler into 4 DSP blocks.
+Related violations: <none>
+
+SYNTH-10#59 Warning
+Wide multiplier  
+Detected multiplier at point_on_segment_i[1].point_on_segment_i/on_segment3__4 of size 18x15, it is decomposed from a wide multipler into 4 DSP blocks.
+Related violations: <none>
+
+SYNTH-10#60 Warning
+Wide multiplier  
+Detected multiplier at point_on_segment_i[1].point_on_segment_i/on_segment3__5 of size 18x18, it is decomposed from a wide multipler into 4 DSP blocks.
+Related violations: <none>
+
+SYNTH-10#61 Warning
+Wide multiplier  
+Detected multiplier at point_on_segment_i[1].point_on_segment_i/on_segment3__6 of size 18x15, it is decomposed from a wide multipler into 4 DSP blocks.
+Related violations: <none>
+
+SYNTH-10#62 Warning
+Wide multiplier  
+Detected multiplier at point_on_segment_i[1].point_on_segment_i/on_segment3__7 of size 18x18, it is decomposed from a wide multipler into 4 DSP blocks.
+Related violations: <none>
+
+SYNTH-10#63 Warning
+Wide multiplier  
+Detected multiplier at point_on_segment_i[1].point_on_segment_i/on_segment3__8 of size 18x15, it is decomposed from a wide multipler into 4 DSP blocks.
+Related violations: <none>
+
+SYNTH-10#64 Warning
+Wide multiplier  
+Detected multiplier at point_on_segment_i[1].point_on_segment_i/on_segment3__9 of size 15x18, it is decomposed from a wide multipler into 4 DSP blocks.
+Related violations: <none>
+
+SYNTH-10#65 Warning
+Wide multiplier  
+Detected multiplier at point_on_segment_i[1].point_on_segment_j/on_segment3 of size 15x18, it is decomposed from a wide multipler into 4 DSP blocks.
+Related violations: <none>
+
+SYNTH-10#66 Warning
+Wide multiplier  
+Detected multiplier at point_on_segment_i[1].point_on_segment_j/on_segment3__0 of size 18x18, it is decomposed from a wide multipler into 4 DSP blocks.
+Related violations: <none>
+
+SYNTH-10#67 Warning
+Wide multiplier  
+Detected multiplier at point_on_segment_i[1].point_on_segment_j/on_segment3__1 of size 18x15, it is decomposed from a wide multipler into 4 DSP blocks.
+Related violations: <none>
+
+SYNTH-10#68 Warning
+Wide multiplier  
+Detected multiplier at point_on_segment_i[1].point_on_segment_j/on_segment3__10 of size 18x18, it is decomposed from a wide multipler into 4 DSP blocks.
+Related violations: <none>
+
+SYNTH-10#69 Warning
+Wide multiplier  
+Detected multiplier at point_on_segment_i[1].point_on_segment_j/on_segment3__11 of size 18x15, it is decomposed from a wide multipler into 4 DSP blocks.
+Related violations: <none>
+
+SYNTH-10#70 Warning
+Wide multiplier  
+Detected multiplier at point_on_segment_i[1].point_on_segment_j/on_segment3__12 of size 15x18, it is decomposed from a wide multipler into 4 DSP blocks.
+Related violations: <none>
+
+SYNTH-10#71 Warning
+Wide multiplier  
+Detected multiplier at point_on_segment_i[1].point_on_segment_j/on_segment3__13 of size 18x18, it is decomposed from a wide multipler into 4 DSP blocks.
+Related violations: <none>
+
+SYNTH-10#72 Warning
+Wide multiplier  
+Detected multiplier at point_on_segment_i[1].point_on_segment_j/on_segment3__14 of size 18x15, it is decomposed from a wide multipler into 4 DSP blocks.
+Related violations: <none>
+
+SYNTH-10#73 Warning
+Wide multiplier  
+Detected multiplier at point_on_segment_i[1].point_on_segment_j/on_segment3__2 of size 15x18, it is decomposed from a wide multipler into 4 DSP blocks.
+Related violations: <none>
+
+SYNTH-10#74 Warning
+Wide multiplier  
+Detected multiplier at point_on_segment_i[1].point_on_segment_j/on_segment3__3 of size 18x18, it is decomposed from a wide multipler into 4 DSP blocks.
+Related violations: <none>
+
+SYNTH-10#75 Warning
+Wide multiplier  
+Detected multiplier at point_on_segment_i[1].point_on_segment_j/on_segment3__4 of size 18x15, it is decomposed from a wide multipler into 4 DSP blocks.
+Related violations: <none>
+
+SYNTH-10#76 Warning
+Wide multiplier  
+Detected multiplier at point_on_segment_i[1].point_on_segment_j/on_segment3__5 of size 18x18, it is decomposed from a wide multipler into 4 DSP blocks.
+Related violations: <none>
+
+SYNTH-10#77 Warning
+Wide multiplier  
+Detected multiplier at point_on_segment_i[1].point_on_segment_j/on_segment3__6 of size 18x15, it is decomposed from a wide multipler into 4 DSP blocks.
+Related violations: <none>
+
+SYNTH-10#78 Warning
+Wide multiplier  
+Detected multiplier at point_on_segment_i[1].point_on_segment_j/on_segment3__7 of size 18x18, it is decomposed from a wide multipler into 4 DSP blocks.
+Related violations: <none>
+
+SYNTH-10#79 Warning
+Wide multiplier  
+Detected multiplier at point_on_segment_i[1].point_on_segment_j/on_segment3__8 of size 18x15, it is decomposed from a wide multipler into 4 DSP blocks.
+Related violations: <none>
+
+SYNTH-10#80 Warning
+Wide multiplier  
+Detected multiplier at point_on_segment_i[1].point_on_segment_j/on_segment3__9 of size 15x18, it is decomposed from a wide multipler into 4 DSP blocks.
+Related violations: <none>
+
+SYNTH-10#81 Warning
+Wide multiplier  
+Detected multiplier at point_on_segment_i[1].point_on_segment_k/on_segment3 of size 15x18, it is decomposed from a wide multipler into 4 DSP blocks.
+Related violations: <none>
+
+SYNTH-10#82 Warning
+Wide multiplier  
+Detected multiplier at point_on_segment_i[1].point_on_segment_k/on_segment3__0 of size 18x18, it is decomposed from a wide multipler into 4 DSP blocks.
+Related violations: <none>
+
+SYNTH-10#83 Warning
+Wide multiplier  
+Detected multiplier at point_on_segment_i[1].point_on_segment_k/on_segment3__1 of size 18x15, it is decomposed from a wide multipler into 4 DSP blocks.
+Related violations: <none>
+
+SYNTH-10#84 Warning
+Wide multiplier  
+Detected multiplier at point_on_segment_i[1].point_on_segment_k/on_segment3__10 of size 18x18, it is decomposed from a wide multipler into 4 DSP blocks.
+Related violations: <none>
+
+SYNTH-10#85 Warning
+Wide multiplier  
+Detected multiplier at point_on_segment_i[1].point_on_segment_k/on_segment3__11 of size 18x15, it is decomposed from a wide multipler into 4 DSP blocks.
+Related violations: <none>
+
+SYNTH-10#86 Warning
+Wide multiplier  
+Detected multiplier at point_on_segment_i[1].point_on_segment_k/on_segment3__12 of size 15x18, it is decomposed from a wide multipler into 4 DSP blocks.
+Related violations: <none>
+
+SYNTH-10#87 Warning
+Wide multiplier  
+Detected multiplier at point_on_segment_i[1].point_on_segment_k/on_segment3__13 of size 18x18, it is decomposed from a wide multipler into 4 DSP blocks.
+Related violations: <none>
+
+SYNTH-10#88 Warning
+Wide multiplier  
+Detected multiplier at point_on_segment_i[1].point_on_segment_k/on_segment3__14 of size 18x15, it is decomposed from a wide multipler into 4 DSP blocks.
+Related violations: <none>
+
+SYNTH-10#89 Warning
+Wide multiplier  
+Detected multiplier at point_on_segment_i[1].point_on_segment_k/on_segment3__2 of size 15x18, it is decomposed from a wide multipler into 4 DSP blocks.
+Related violations: <none>
+
+SYNTH-10#90 Warning
+Wide multiplier  
+Detected multiplier at point_on_segment_i[1].point_on_segment_k/on_segment3__3 of size 18x18, it is decomposed from a wide multipler into 4 DSP blocks.
+Related violations: <none>
+
+SYNTH-10#91 Warning
+Wide multiplier  
+Detected multiplier at point_on_segment_i[1].point_on_segment_k/on_segment3__4 of size 18x15, it is decomposed from a wide multipler into 4 DSP blocks.
+Related violations: <none>
+
+SYNTH-10#92 Warning
+Wide multiplier  
+Detected multiplier at point_on_segment_i[1].point_on_segment_k/on_segment3__5 of size 18x18, it is decomposed from a wide multipler into 4 DSP blocks.
+Related violations: <none>
+
+SYNTH-10#93 Warning
+Wide multiplier  
+Detected multiplier at point_on_segment_i[1].point_on_segment_k/on_segment3__6 of size 18x15, it is decomposed from a wide multipler into 4 DSP blocks.
+Related violations: <none>
+
+SYNTH-10#94 Warning
+Wide multiplier  
+Detected multiplier at point_on_segment_i[1].point_on_segment_k/on_segment3__7 of size 18x18, it is decomposed from a wide multipler into 4 DSP blocks.
+Related violations: <none>
+
+SYNTH-10#95 Warning
+Wide multiplier  
+Detected multiplier at point_on_segment_i[1].point_on_segment_k/on_segment3__8 of size 18x15, it is decomposed from a wide multipler into 4 DSP blocks.
+Related violations: <none>
+
+SYNTH-10#96 Warning
+Wide multiplier  
+Detected multiplier at point_on_segment_i[1].point_on_segment_k/on_segment3__9 of size 15x18, it is decomposed from a wide multipler into 4 DSP blocks.
+Related violations: <none>
+
+SYNTH-10#97 Warning
+Wide multiplier  
+Detected multiplier at point_on_segment_i[2].point_on_segment_i/on_segment3 of size 15x18, it is decomposed from a wide multipler into 4 DSP blocks.
+Related violations: <none>
+
+SYNTH-10#98 Warning
+Wide multiplier  
+Detected multiplier at point_on_segment_i[2].point_on_segment_i/on_segment3__0 of size 18x18, it is decomposed from a wide multipler into 4 DSP blocks.
+Related violations: <none>
+
+SYNTH-10#99 Warning
+Wide multiplier  
+Detected multiplier at point_on_segment_i[2].point_on_segment_i/on_segment3__1 of size 18x15, it is decomposed from a wide multipler into 4 DSP blocks.
+Related violations: <none>
+
+SYNTH-10#100 Warning
+Wide multiplier  
+Detected multiplier at point_on_segment_i[2].point_on_segment_i/on_segment3__10 of size 18x18, it is decomposed from a wide multipler into 4 DSP blocks.
+Related violations: <none>
+
+SYNTH-10#101 Warning
+Wide multiplier  
+Detected multiplier at point_on_segment_i[2].point_on_segment_i/on_segment3__11 of size 18x15, it is decomposed from a wide multipler into 4 DSP blocks.
+Related violations: <none>
+
+SYNTH-10#102 Warning
+Wide multiplier  
+Detected multiplier at point_on_segment_i[2].point_on_segment_i/on_segment3__12 of size 15x18, it is decomposed from a wide multipler into 4 DSP blocks.
+Related violations: <none>
+
+SYNTH-10#103 Warning
+Wide multiplier  
+Detected multiplier at point_on_segment_i[2].point_on_segment_i/on_segment3__13 of size 18x18, it is decomposed from a wide multipler into 4 DSP blocks.
+Related violations: <none>
+
+SYNTH-10#104 Warning
+Wide multiplier  
+Detected multiplier at point_on_segment_i[2].point_on_segment_i/on_segment3__14 of size 18x15, it is decomposed from a wide multipler into 4 DSP blocks.
+Related violations: <none>
+
+SYNTH-10#105 Warning
+Wide multiplier  
+Detected multiplier at point_on_segment_i[2].point_on_segment_i/on_segment3__2 of size 15x18, it is decomposed from a wide multipler into 4 DSP blocks.
+Related violations: <none>
+
+SYNTH-10#106 Warning
+Wide multiplier  
+Detected multiplier at point_on_segment_i[2].point_on_segment_i/on_segment3__3 of size 18x18, it is decomposed from a wide multipler into 4 DSP blocks.
+Related violations: <none>
+
+SYNTH-10#107 Warning
+Wide multiplier  
+Detected multiplier at point_on_segment_i[2].point_on_segment_i/on_segment3__4 of size 18x15, it is decomposed from a wide multipler into 4 DSP blocks.
+Related violations: <none>
+
+SYNTH-10#108 Warning
+Wide multiplier  
+Detected multiplier at point_on_segment_i[2].point_on_segment_i/on_segment3__5 of size 18x18, it is decomposed from a wide multipler into 4 DSP blocks.
+Related violations: <none>
+
+SYNTH-10#109 Warning
+Wide multiplier  
+Detected multiplier at point_on_segment_i[2].point_on_segment_i/on_segment3__6 of size 18x15, it is decomposed from a wide multipler into 4 DSP blocks.
+Related violations: <none>
+
+SYNTH-10#110 Warning
+Wide multiplier  
+Detected multiplier at point_on_segment_i[2].point_on_segment_i/on_segment3__7 of size 18x18, it is decomposed from a wide multipler into 4 DSP blocks.
+Related violations: <none>
+
+SYNTH-10#111 Warning
+Wide multiplier  
+Detected multiplier at point_on_segment_i[2].point_on_segment_i/on_segment3__8 of size 18x15, it is decomposed from a wide multipler into 4 DSP blocks.
+Related violations: <none>
+
+SYNTH-10#112 Warning
+Wide multiplier  
+Detected multiplier at point_on_segment_i[2].point_on_segment_i/on_segment3__9 of size 15x18, it is decomposed from a wide multipler into 4 DSP blocks.
+Related violations: <none>
+
+SYNTH-10#113 Warning
+Wide multiplier  
+Detected multiplier at point_on_segment_i[2].point_on_segment_j/on_segment3 of size 15x18, it is decomposed from a wide multipler into 4 DSP blocks.
+Related violations: <none>
+
+SYNTH-10#114 Warning
+Wide multiplier  
+Detected multiplier at point_on_segment_i[2].point_on_segment_j/on_segment3__0 of size 18x18, it is decomposed from a wide multipler into 4 DSP blocks.
+Related violations: <none>
+
+SYNTH-10#115 Warning
+Wide multiplier  
+Detected multiplier at point_on_segment_i[2].point_on_segment_j/on_segment3__1 of size 18x15, it is decomposed from a wide multipler into 4 DSP blocks.
+Related violations: <none>
+
+SYNTH-10#116 Warning
+Wide multiplier  
+Detected multiplier at point_on_segment_i[2].point_on_segment_j/on_segment3__10 of size 18x18, it is decomposed from a wide multipler into 4 DSP blocks.
+Related violations: <none>
+
+SYNTH-10#117 Warning
+Wide multiplier  
+Detected multiplier at point_on_segment_i[2].point_on_segment_j/on_segment3__11 of size 18x15, it is decomposed from a wide multipler into 4 DSP blocks.
+Related violations: <none>
+
+SYNTH-10#118 Warning
+Wide multiplier  
+Detected multiplier at point_on_segment_i[2].point_on_segment_j/on_segment3__12 of size 15x18, it is decomposed from a wide multipler into 4 DSP blocks.
+Related violations: <none>
+
+SYNTH-10#119 Warning
+Wide multiplier  
+Detected multiplier at point_on_segment_i[2].point_on_segment_j/on_segment3__13 of size 18x18, it is decomposed from a wide multipler into 4 DSP blocks.
+Related violations: <none>
+
+SYNTH-10#120 Warning
+Wide multiplier  
+Detected multiplier at point_on_segment_i[2].point_on_segment_j/on_segment3__14 of size 18x15, it is decomposed from a wide multipler into 4 DSP blocks.
+Related violations: <none>
+
+SYNTH-10#121 Warning
+Wide multiplier  
+Detected multiplier at point_on_segment_i[2].point_on_segment_j/on_segment3__2 of size 15x18, it is decomposed from a wide multipler into 4 DSP blocks.
+Related violations: <none>
+
+SYNTH-10#122 Warning
+Wide multiplier  
+Detected multiplier at point_on_segment_i[2].point_on_segment_j/on_segment3__3 of size 18x18, it is decomposed from a wide multipler into 4 DSP blocks.
+Related violations: <none>
+
+SYNTH-10#123 Warning
+Wide multiplier  
+Detected multiplier at point_on_segment_i[2].point_on_segment_j/on_segment3__4 of size 18x15, it is decomposed from a wide multipler into 4 DSP blocks.
+Related violations: <none>
+
+SYNTH-10#124 Warning
+Wide multiplier  
+Detected multiplier at point_on_segment_i[2].point_on_segment_j/on_segment3__5 of size 18x18, it is decomposed from a wide multipler into 4 DSP blocks.
+Related violations: <none>
+
+SYNTH-10#125 Warning
+Wide multiplier  
+Detected multiplier at point_on_segment_i[2].point_on_segment_j/on_segment3__6 of size 18x15, it is decomposed from a wide multipler into 4 DSP blocks.
+Related violations: <none>
+
+SYNTH-10#126 Warning
+Wide multiplier  
+Detected multiplier at point_on_segment_i[2].point_on_segment_j/on_segment3__7 of size 18x18, it is decomposed from a wide multipler into 4 DSP blocks.
+Related violations: <none>
+
+SYNTH-10#127 Warning
+Wide multiplier  
+Detected multiplier at point_on_segment_i[2].point_on_segment_j/on_segment3__8 of size 18x15, it is decomposed from a wide multipler into 4 DSP blocks.
+Related violations: <none>
+
+SYNTH-10#128 Warning
+Wide multiplier  
+Detected multiplier at point_on_segment_i[2].point_on_segment_j/on_segment3__9 of size 15x18, it is decomposed from a wide multipler into 4 DSP blocks.
+Related violations: <none>
+
+SYNTH-10#129 Warning
+Wide multiplier  
+Detected multiplier at point_on_segment_i[2].point_on_segment_k/on_segment3 of size 15x18, it is decomposed from a wide multipler into 4 DSP blocks.
+Related violations: <none>
+
+SYNTH-10#130 Warning
+Wide multiplier  
+Detected multiplier at point_on_segment_i[2].point_on_segment_k/on_segment3__0 of size 18x18, it is decomposed from a wide multipler into 4 DSP blocks.
+Related violations: <none>
+
+SYNTH-10#131 Warning
+Wide multiplier  
+Detected multiplier at point_on_segment_i[2].point_on_segment_k/on_segment3__1 of size 18x15, it is decomposed from a wide multipler into 4 DSP blocks.
+Related violations: <none>
+
+SYNTH-10#132 Warning
+Wide multiplier  
+Detected multiplier at point_on_segment_i[2].point_on_segment_k/on_segment3__10 of size 18x18, it is decomposed from a wide multipler into 4 DSP blocks.
+Related violations: <none>
+
+SYNTH-10#133 Warning
+Wide multiplier  
+Detected multiplier at point_on_segment_i[2].point_on_segment_k/on_segment3__11 of size 18x15, it is decomposed from a wide multipler into 4 DSP blocks.
+Related violations: <none>
+
+SYNTH-10#134 Warning
+Wide multiplier  
+Detected multiplier at point_on_segment_i[2].point_on_segment_k/on_segment3__12 of size 15x18, it is decomposed from a wide multipler into 4 DSP blocks.
+Related violations: <none>
+
+SYNTH-10#135 Warning
+Wide multiplier  
+Detected multiplier at point_on_segment_i[2].point_on_segment_k/on_segment3__13 of size 18x18, it is decomposed from a wide multipler into 4 DSP blocks.
+Related violations: <none>
+
+SYNTH-10#136 Warning
+Wide multiplier  
+Detected multiplier at point_on_segment_i[2].point_on_segment_k/on_segment3__14 of size 18x15, it is decomposed from a wide multipler into 4 DSP blocks.
+Related violations: <none>
+
+SYNTH-10#137 Warning
+Wide multiplier  
+Detected multiplier at point_on_segment_i[2].point_on_segment_k/on_segment3__2 of size 15x18, it is decomposed from a wide multipler into 4 DSP blocks.
+Related violations: <none>
+
+SYNTH-10#138 Warning
+Wide multiplier  
+Detected multiplier at point_on_segment_i[2].point_on_segment_k/on_segment3__3 of size 18x18, it is decomposed from a wide multipler into 4 DSP blocks.
+Related violations: <none>
+
+SYNTH-10#139 Warning
+Wide multiplier  
+Detected multiplier at point_on_segment_i[2].point_on_segment_k/on_segment3__4 of size 18x15, it is decomposed from a wide multipler into 4 DSP blocks.
+Related violations: <none>
+
+SYNTH-10#140 Warning
+Wide multiplier  
+Detected multiplier at point_on_segment_i[2].point_on_segment_k/on_segment3__5 of size 18x18, it is decomposed from a wide multipler into 4 DSP blocks.
+Related violations: <none>
+
+SYNTH-10#141 Warning
+Wide multiplier  
+Detected multiplier at point_on_segment_i[2].point_on_segment_k/on_segment3__6 of size 18x15, it is decomposed from a wide multipler into 4 DSP blocks.
+Related violations: <none>
+
+SYNTH-10#142 Warning
+Wide multiplier  
+Detected multiplier at point_on_segment_i[2].point_on_segment_k/on_segment3__7 of size 18x18, it is decomposed from a wide multipler into 4 DSP blocks.
+Related violations: <none>
+
+SYNTH-10#143 Warning
+Wide multiplier  
+Detected multiplier at point_on_segment_i[2].point_on_segment_k/on_segment3__8 of size 18x15, it is decomposed from a wide multipler into 4 DSP blocks.
+Related violations: <none>
+
+SYNTH-10#144 Warning
+Wide multiplier  
+Detected multiplier at point_on_segment_i[2].point_on_segment_k/on_segment3__9 of size 15x18, it is decomposed from a wide multipler into 4 DSP blocks.
+Related violations: <none>
+
+SYNTH-10#145 Warning
+Wide multiplier  
+Detected multiplier at point_on_segment_i[3].point_on_segment_i/on_segment3 of size 15x18, it is decomposed from a wide multipler into 4 DSP blocks.
+Related violations: <none>
+
+SYNTH-10#146 Warning
+Wide multiplier  
+Detected multiplier at point_on_segment_i[3].point_on_segment_i/on_segment3__0 of size 18x18, it is decomposed from a wide multipler into 4 DSP blocks.
+Related violations: <none>
+
+SYNTH-10#147 Warning
+Wide multiplier  
+Detected multiplier at point_on_segment_i[3].point_on_segment_i/on_segment3__1 of size 18x15, it is decomposed from a wide multipler into 4 DSP blocks.
+Related violations: <none>
+
+SYNTH-10#148 Warning
+Wide multiplier  
+Detected multiplier at point_on_segment_i[3].point_on_segment_i/on_segment3__10 of size 18x18, it is decomposed from a wide multipler into 4 DSP blocks.
+Related violations: <none>
+
+SYNTH-10#149 Warning
+Wide multiplier  
+Detected multiplier at point_on_segment_i[3].point_on_segment_i/on_segment3__11 of size 18x15, it is decomposed from a wide multipler into 4 DSP blocks.
+Related violations: <none>
+
+SYNTH-10#150 Warning
+Wide multiplier  
+Detected multiplier at point_on_segment_i[3].point_on_segment_i/on_segment3__12 of size 15x18, it is decomposed from a wide multipler into 4 DSP blocks.
+Related violations: <none>
+
+SYNTH-10#151 Warning
+Wide multiplier  
+Detected multiplier at point_on_segment_i[3].point_on_segment_i/on_segment3__13 of size 18x18, it is decomposed from a wide multipler into 4 DSP blocks.
+Related violations: <none>
+
+SYNTH-10#152 Warning
+Wide multiplier  
+Detected multiplier at point_on_segment_i[3].point_on_segment_i/on_segment3__14 of size 18x15, it is decomposed from a wide multipler into 4 DSP blocks.
+Related violations: <none>
+
+SYNTH-10#153 Warning
+Wide multiplier  
+Detected multiplier at point_on_segment_i[3].point_on_segment_i/on_segment3__2 of size 15x18, it is decomposed from a wide multipler into 4 DSP blocks.
+Related violations: <none>
+
+SYNTH-10#154 Warning
+Wide multiplier  
+Detected multiplier at point_on_segment_i[3].point_on_segment_i/on_segment3__3 of size 18x18, it is decomposed from a wide multipler into 4 DSP blocks.
+Related violations: <none>
+
+SYNTH-10#155 Warning
+Wide multiplier  
+Detected multiplier at point_on_segment_i[3].point_on_segment_i/on_segment3__4 of size 18x15, it is decomposed from a wide multipler into 4 DSP blocks.
+Related violations: <none>
+
+SYNTH-10#156 Warning
+Wide multiplier  
+Detected multiplier at point_on_segment_i[3].point_on_segment_i/on_segment3__5 of size 18x18, it is decomposed from a wide multipler into 4 DSP blocks.
+Related violations: <none>
+
+SYNTH-10#157 Warning
+Wide multiplier  
+Detected multiplier at point_on_segment_i[3].point_on_segment_i/on_segment3__6 of size 18x15, it is decomposed from a wide multipler into 4 DSP blocks.
+Related violations: <none>
+
+SYNTH-10#158 Warning
+Wide multiplier  
+Detected multiplier at point_on_segment_i[3].point_on_segment_i/on_segment3__7 of size 18x18, it is decomposed from a wide multipler into 4 DSP blocks.
+Related violations: <none>
+
+SYNTH-10#159 Warning
+Wide multiplier  
+Detected multiplier at point_on_segment_i[3].point_on_segment_i/on_segment3__8 of size 18x15, it is decomposed from a wide multipler into 4 DSP blocks.
+Related violations: <none>
+
+SYNTH-10#160 Warning
+Wide multiplier  
+Detected multiplier at point_on_segment_i[3].point_on_segment_i/on_segment3__9 of size 15x18, it is decomposed from a wide multipler into 4 DSP blocks.
+Related violations: <none>
+
+SYNTH-10#161 Warning
+Wide multiplier  
+Detected multiplier at point_on_segment_i[3].point_on_segment_j/on_segment3 of size 15x18, it is decomposed from a wide multipler into 4 DSP blocks.
+Related violations: <none>
+
+SYNTH-10#162 Warning
+Wide multiplier  
+Detected multiplier at point_on_segment_i[3].point_on_segment_j/on_segment3__0 of size 18x18, it is decomposed from a wide multipler into 4 DSP blocks.
+Related violations: <none>
+
+SYNTH-10#163 Warning
+Wide multiplier  
+Detected multiplier at point_on_segment_i[3].point_on_segment_j/on_segment3__1 of size 18x15, it is decomposed from a wide multipler into 4 DSP blocks.
+Related violations: <none>
+
+SYNTH-10#164 Warning
+Wide multiplier  
+Detected multiplier at point_on_segment_i[3].point_on_segment_j/on_segment3__10 of size 18x18, it is decomposed from a wide multipler into 4 DSP blocks.
+Related violations: <none>
+
+SYNTH-10#165 Warning
+Wide multiplier  
+Detected multiplier at point_on_segment_i[3].point_on_segment_j/on_segment3__11 of size 18x15, it is decomposed from a wide multipler into 4 DSP blocks.
+Related violations: <none>
+
+SYNTH-10#166 Warning
+Wide multiplier  
+Detected multiplier at point_on_segment_i[3].point_on_segment_j/on_segment3__12 of size 15x18, it is decomposed from a wide multipler into 4 DSP blocks.
+Related violations: <none>
+
+SYNTH-10#167 Warning
+Wide multiplier  
+Detected multiplier at point_on_segment_i[3].point_on_segment_j/on_segment3__13 of size 18x18, it is decomposed from a wide multipler into 4 DSP blocks.
+Related violations: <none>
+
+SYNTH-10#168 Warning
+Wide multiplier  
+Detected multiplier at point_on_segment_i[3].point_on_segment_j/on_segment3__14 of size 18x15, it is decomposed from a wide multipler into 4 DSP blocks.
+Related violations: <none>
+
+SYNTH-10#169 Warning
+Wide multiplier  
+Detected multiplier at point_on_segment_i[3].point_on_segment_j/on_segment3__2 of size 15x18, it is decomposed from a wide multipler into 4 DSP blocks.
+Related violations: <none>
+
+SYNTH-10#170 Warning
+Wide multiplier  
+Detected multiplier at point_on_segment_i[3].point_on_segment_j/on_segment3__3 of size 18x18, it is decomposed from a wide multipler into 4 DSP blocks.
+Related violations: <none>
+
+SYNTH-10#171 Warning
+Wide multiplier  
+Detected multiplier at point_on_segment_i[3].point_on_segment_j/on_segment3__4 of size 18x15, it is decomposed from a wide multipler into 4 DSP blocks.
+Related violations: <none>
+
+SYNTH-10#172 Warning
+Wide multiplier  
+Detected multiplier at point_on_segment_i[3].point_on_segment_j/on_segment3__5 of size 18x18, it is decomposed from a wide multipler into 4 DSP blocks.
+Related violations: <none>
+
+SYNTH-10#173 Warning
+Wide multiplier  
+Detected multiplier at point_on_segment_i[3].point_on_segment_j/on_segment3__6 of size 18x15, it is decomposed from a wide multipler into 4 DSP blocks.
+Related violations: <none>
+
+SYNTH-10#174 Warning
+Wide multiplier  
+Detected multiplier at point_on_segment_i[3].point_on_segment_j/on_segment3__7 of size 18x18, it is decomposed from a wide multipler into 4 DSP blocks.
+Related violations: <none>
+
+SYNTH-10#175 Warning
+Wide multiplier  
+Detected multiplier at point_on_segment_i[3].point_on_segment_j/on_segment3__8 of size 18x15, it is decomposed from a wide multipler into 4 DSP blocks.
+Related violations: <none>
+
+SYNTH-10#176 Warning
+Wide multiplier  
+Detected multiplier at point_on_segment_i[3].point_on_segment_j/on_segment3__9 of size 15x18, it is decomposed from a wide multipler into 4 DSP blocks.
+Related violations: <none>
+
+SYNTH-10#177 Warning
+Wide multiplier  
+Detected multiplier at point_on_segment_i[3].point_on_segment_k/on_segment3 of size 15x18, it is decomposed from a wide multipler into 4 DSP blocks.
+Related violations: <none>
+
+SYNTH-10#178 Warning
+Wide multiplier  
+Detected multiplier at point_on_segment_i[3].point_on_segment_k/on_segment3__0 of size 18x18, it is decomposed from a wide multipler into 4 DSP blocks.
+Related violations: <none>
+
+SYNTH-10#179 Warning
+Wide multiplier  
+Detected multiplier at point_on_segment_i[3].point_on_segment_k/on_segment3__1 of size 18x15, it is decomposed from a wide multipler into 4 DSP blocks.
+Related violations: <none>
+
+SYNTH-10#180 Warning
+Wide multiplier  
+Detected multiplier at point_on_segment_i[3].point_on_segment_k/on_segment3__10 of size 18x18, it is decomposed from a wide multipler into 4 DSP blocks.
+Related violations: <none>
+
+SYNTH-10#181 Warning
+Wide multiplier  
+Detected multiplier at point_on_segment_i[3].point_on_segment_k/on_segment3__11 of size 18x15, it is decomposed from a wide multipler into 4 DSP blocks.
+Related violations: <none>
+
+SYNTH-10#182 Warning
+Wide multiplier  
+Detected multiplier at point_on_segment_i[3].point_on_segment_k/on_segment3__12 of size 15x18, it is decomposed from a wide multipler into 4 DSP blocks.
+Related violations: <none>
+
+SYNTH-10#183 Warning
+Wide multiplier  
+Detected multiplier at point_on_segment_i[3].point_on_segment_k/on_segment3__13 of size 18x18, it is decomposed from a wide multipler into 4 DSP blocks.
+Related violations: <none>
+
+SYNTH-10#184 Warning
+Wide multiplier  
+Detected multiplier at point_on_segment_i[3].point_on_segment_k/on_segment3__14 of size 18x15, it is decomposed from a wide multipler into 4 DSP blocks.
+Related violations: <none>
+
+SYNTH-10#185 Warning
+Wide multiplier  
+Detected multiplier at point_on_segment_i[3].point_on_segment_k/on_segment3__2 of size 15x18, it is decomposed from a wide multipler into 4 DSP blocks.
+Related violations: <none>
+
+SYNTH-10#186 Warning
+Wide multiplier  
+Detected multiplier at point_on_segment_i[3].point_on_segment_k/on_segment3__3 of size 18x18, it is decomposed from a wide multipler into 4 DSP blocks.
+Related violations: <none>
+
+SYNTH-10#187 Warning
+Wide multiplier  
+Detected multiplier at point_on_segment_i[3].point_on_segment_k/on_segment3__4 of size 18x15, it is decomposed from a wide multipler into 4 DSP blocks.
+Related violations: <none>
+
+SYNTH-10#188 Warning
+Wide multiplier  
+Detected multiplier at point_on_segment_i[3].point_on_segment_k/on_segment3__5 of size 18x18, it is decomposed from a wide multipler into 4 DSP blocks.
+Related violations: <none>
+
+SYNTH-10#189 Warning
+Wide multiplier  
+Detected multiplier at point_on_segment_i[3].point_on_segment_k/on_segment3__6 of size 18x15, it is decomposed from a wide multipler into 4 DSP blocks.
+Related violations: <none>
+
+SYNTH-10#190 Warning
+Wide multiplier  
+Detected multiplier at point_on_segment_i[3].point_on_segment_k/on_segment3__7 of size 18x18, it is decomposed from a wide multipler into 4 DSP blocks.
+Related violations: <none>
+
+SYNTH-10#191 Warning
+Wide multiplier  
+Detected multiplier at point_on_segment_i[3].point_on_segment_k/on_segment3__8 of size 18x15, it is decomposed from a wide multipler into 4 DSP blocks.
+Related violations: <none>
+
+SYNTH-10#192 Warning
+Wide multiplier  
+Detected multiplier at point_on_segment_i[3].point_on_segment_k/on_segment3__9 of size 15x18, it is decomposed from a wide multipler into 4 DSP blocks.
+Related violations: <none>
+
+TIMING-16#1 Warning
+Large setup violation  
+There is a large setup violation of -5.909 ns between cube_screen_vertices_reg[7][0][9]_rep/C (clocked by CLK) and point_on_segment_i[2].point_on_segment_k/on_segment_reg/D (clocked by CLK). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#2 Warning
+Large setup violation  
+There is a large setup violation of -6.137 ns between cube_screen_vertices_reg[7][0][9]/C (clocked by CLK) and point_on_segment_i[0].point_on_segment_k/on_segment_reg/D (clocked by CLK). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#3 Warning
+Large setup violation  
+There is a large setup violation of -6.273 ns between cube_screen_vertices_reg[7][0][9]_rep/C (clocked by CLK) and point_on_segment_i[0].point_on_segment_i/on_segment_reg/D (clocked by CLK). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#4 Warning
+Large setup violation  
+There is a large setup violation of -6.487 ns between cube_screen_vertices_reg[7][0][9]/C (clocked by CLK) and point_on_segment_i[1].point_on_segment_i/on_segment_reg/D (clocked by CLK). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#5 Warning
+Large setup violation  
+There is a large setup violation of -6.574 ns between cube_screen_vertices_reg[7][0][9]/C (clocked by CLK) and point_on_segment_i[2].point_on_segment_j/on_segment_reg/D (clocked by CLK). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#6 Warning
+Large setup violation  
+There is a large setup violation of -6.622 ns between cube_screen_vertices_reg[7][0][9]_rep/C (clocked by CLK) and point_on_segment_i[0].point_on_segment_j/on_segment_reg/D (clocked by CLK). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#7 Warning
+Large setup violation  
+There is a large setup violation of -6.649 ns between cube_screen_vertices_reg[7][0][9]/C (clocked by CLK) and point_on_segment_i[1].point_on_segment_j/on_segment_reg/D (clocked by CLK). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#8 Warning
+Large setup violation  
+There is a large setup violation of -6.785 ns between cube_screen_vertices_reg[7][0][9]/C (clocked by CLK) and point_on_segment_i[1].point_on_segment_k/on_segment_reg/D (clocked by CLK). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#9 Warning
+Large setup violation  
+There is a large setup violation of -6.875 ns between cube_screen_vertices_reg[7][0][9]/C (clocked by CLK) and point_on_segment_i[2].point_on_segment_i/on_segment_reg/D (clocked by CLK). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#10 Warning
+Large setup violation  
+There is a large setup violation of -6.938 ns between cube_screen_vertices_reg[7][0][9]_rep/C (clocked by CLK) and point_on_segment_i[3].point_on_segment_k/on_segment_reg/D (clocked by CLK). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#11 Warning
+Large setup violation  
+There is a large setup violation of -7.148 ns between cube_screen_vertices_reg[7][0][9]_rep/C (clocked by CLK) and point_on_segment_i[3].point_on_segment_j/on_segment_reg/D (clocked by CLK). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#12 Warning
+Large setup violation  
+There is a large setup violation of -7.302 ns between cube_screen_vertices_reg[7][0][9]/C (clocked by CLK) and point_on_segment_i[3].point_on_segment_i/on_segment_reg/D (clocked by CLK). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-17#1 Warning
+Non-clocked sequential cell  
+The clock pin vga_controller_inst/h_count_reg[0]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#2 Warning
+Non-clocked sequential cell  
+The clock pin vga_controller_inst/h_count_reg[10]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#3 Warning
+Non-clocked sequential cell  
+The clock pin vga_controller_inst/h_count_reg[11]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#4 Warning
+Non-clocked sequential cell  
+The clock pin vga_controller_inst/h_count_reg[12]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#5 Warning
+Non-clocked sequential cell  
+The clock pin vga_controller_inst/h_count_reg[13]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#6 Warning
+Non-clocked sequential cell  
+The clock pin vga_controller_inst/h_count_reg[14]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#7 Warning
+Non-clocked sequential cell  
+The clock pin vga_controller_inst/h_count_reg[15]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#8 Warning
+Non-clocked sequential cell  
+The clock pin vga_controller_inst/h_count_reg[16]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#9 Warning
+Non-clocked sequential cell  
+The clock pin vga_controller_inst/h_count_reg[17]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#10 Warning
+Non-clocked sequential cell  
+The clock pin vga_controller_inst/h_count_reg[18]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#11 Warning
+Non-clocked sequential cell  
+The clock pin vga_controller_inst/h_count_reg[19]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#12 Warning
+Non-clocked sequential cell  
+The clock pin vga_controller_inst/h_count_reg[1]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#13 Warning
+Non-clocked sequential cell  
+The clock pin vga_controller_inst/h_count_reg[20]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#14 Warning
+Non-clocked sequential cell  
+The clock pin vga_controller_inst/h_count_reg[21]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#15 Warning
+Non-clocked sequential cell  
+The clock pin vga_controller_inst/h_count_reg[22]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#16 Warning
+Non-clocked sequential cell  
+The clock pin vga_controller_inst/h_count_reg[23]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#17 Warning
+Non-clocked sequential cell  
+The clock pin vga_controller_inst/h_count_reg[24]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#18 Warning
+Non-clocked sequential cell  
+The clock pin vga_controller_inst/h_count_reg[25]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#19 Warning
+Non-clocked sequential cell  
+The clock pin vga_controller_inst/h_count_reg[26]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#20 Warning
+Non-clocked sequential cell  
+The clock pin vga_controller_inst/h_count_reg[27]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#21 Warning
+Non-clocked sequential cell  
+The clock pin vga_controller_inst/h_count_reg[28]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#22 Warning
+Non-clocked sequential cell  
+The clock pin vga_controller_inst/h_count_reg[29]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#23 Warning
+Non-clocked sequential cell  
+The clock pin vga_controller_inst/h_count_reg[2]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#24 Warning
+Non-clocked sequential cell  
+The clock pin vga_controller_inst/h_count_reg[30]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#25 Warning
+Non-clocked sequential cell  
+The clock pin vga_controller_inst/h_count_reg[31]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#26 Warning
+Non-clocked sequential cell  
+The clock pin vga_controller_inst/h_count_reg[3]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#27 Warning
+Non-clocked sequential cell  
+The clock pin vga_controller_inst/h_count_reg[4]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#28 Warning
+Non-clocked sequential cell  
+The clock pin vga_controller_inst/h_count_reg[5]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#29 Warning
+Non-clocked sequential cell  
+The clock pin vga_controller_inst/h_count_reg[6]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#30 Warning
+Non-clocked sequential cell  
+The clock pin vga_controller_inst/h_count_reg[7]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#31 Warning
+Non-clocked sequential cell  
+The clock pin vga_controller_inst/h_count_reg[8]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#32 Warning
+Non-clocked sequential cell  
+The clock pin vga_controller_inst/h_count_reg[9]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#33 Warning
+Non-clocked sequential cell  
+The clock pin vga_controller_inst/v_count_reg[0]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#34 Warning
+Non-clocked sequential cell  
+The clock pin vga_controller_inst/v_count_reg[10]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#35 Warning
+Non-clocked sequential cell  
+The clock pin vga_controller_inst/v_count_reg[11]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#36 Warning
+Non-clocked sequential cell  
+The clock pin vga_controller_inst/v_count_reg[12]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#37 Warning
+Non-clocked sequential cell  
+The clock pin vga_controller_inst/v_count_reg[13]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#38 Warning
+Non-clocked sequential cell  
+The clock pin vga_controller_inst/v_count_reg[14]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#39 Warning
+Non-clocked sequential cell  
+The clock pin vga_controller_inst/v_count_reg[15]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#40 Warning
+Non-clocked sequential cell  
+The clock pin vga_controller_inst/v_count_reg[16]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#41 Warning
+Non-clocked sequential cell  
+The clock pin vga_controller_inst/v_count_reg[17]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#42 Warning
+Non-clocked sequential cell  
+The clock pin vga_controller_inst/v_count_reg[18]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#43 Warning
+Non-clocked sequential cell  
+The clock pin vga_controller_inst/v_count_reg[19]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#44 Warning
+Non-clocked sequential cell  
+The clock pin vga_controller_inst/v_count_reg[1]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#45 Warning
+Non-clocked sequential cell  
+The clock pin vga_controller_inst/v_count_reg[20]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#46 Warning
+Non-clocked sequential cell  
+The clock pin vga_controller_inst/v_count_reg[21]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#47 Warning
+Non-clocked sequential cell  
+The clock pin vga_controller_inst/v_count_reg[22]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#48 Warning
+Non-clocked sequential cell  
+The clock pin vga_controller_inst/v_count_reg[23]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#49 Warning
+Non-clocked sequential cell  
+The clock pin vga_controller_inst/v_count_reg[24]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#50 Warning
+Non-clocked sequential cell  
+The clock pin vga_controller_inst/v_count_reg[25]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#51 Warning
+Non-clocked sequential cell  
+The clock pin vga_controller_inst/v_count_reg[26]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#52 Warning
+Non-clocked sequential cell  
+The clock pin vga_controller_inst/v_count_reg[27]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#53 Warning
+Non-clocked sequential cell  
+The clock pin vga_controller_inst/v_count_reg[28]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#54 Warning
+Non-clocked sequential cell  
+The clock pin vga_controller_inst/v_count_reg[29]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#55 Warning
+Non-clocked sequential cell  
+The clock pin vga_controller_inst/v_count_reg[2]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#56 Warning
+Non-clocked sequential cell  
+The clock pin vga_controller_inst/v_count_reg[30]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#57 Warning
+Non-clocked sequential cell  
+The clock pin vga_controller_inst/v_count_reg[31]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#58 Warning
+Non-clocked sequential cell  
+The clock pin vga_controller_inst/v_count_reg[3]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#59 Warning
+Non-clocked sequential cell  
+The clock pin vga_controller_inst/v_count_reg[4]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#60 Warning
+Non-clocked sequential cell  
+The clock pin vga_controller_inst/v_count_reg[5]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#61 Warning
+Non-clocked sequential cell  
+The clock pin vga_controller_inst/v_count_reg[6]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#62 Warning
+Non-clocked sequential cell  
+The clock pin vga_controller_inst/v_count_reg[7]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#63 Warning
+Non-clocked sequential cell  
+The clock pin vga_controller_inst/v_count_reg[8]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#64 Warning
+Non-clocked sequential cell  
+The clock pin vga_controller_inst/v_count_reg[9]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-18#1 Warning
+Missing input or output delay  
+An input delay is missing on BTNC relative to clock(s) CLK 
+Related violations: <none>
+
+TIMING-18#2 Warning
+Missing input or output delay  
+An output delay is missing on VGA_BLUE[0] relative to clock(s) CLK 
+Related violations: <none>
+
+TIMING-18#3 Warning
+Missing input or output delay  
+An output delay is missing on VGA_BLUE[1] relative to clock(s) CLK 
+Related violations: <none>
+
+TIMING-18#4 Warning
+Missing input or output delay  
+An output delay is missing on VGA_BLUE[2] relative to clock(s) CLK 
+Related violations: <none>
+
+TIMING-18#5 Warning
+Missing input or output delay  
+An output delay is missing on VGA_BLUE[3] relative to clock(s) CLK 
+Related violations: <none>
+
+TIMING-18#6 Warning
+Missing input or output delay  
+An output delay is missing on VGA_GREEN[0] relative to clock(s) CLK 
+Related violations: <none>
+
+TIMING-18#7 Warning
+Missing input or output delay  
+An output delay is missing on VGA_GREEN[1] relative to clock(s) CLK 
+Related violations: <none>
+
+TIMING-18#8 Warning
+Missing input or output delay  
+An output delay is missing on VGA_GREEN[2] relative to clock(s) CLK 
+Related violations: <none>
+
+TIMING-18#9 Warning
+Missing input or output delay  
+An output delay is missing on VGA_GREEN[3] relative to clock(s) CLK 
+Related violations: <none>
+
+TIMING-18#10 Warning
+Missing input or output delay  
+An output delay is missing on VGA_RED[0] relative to clock(s) CLK 
+Related violations: <none>
+
+TIMING-18#11 Warning
+Missing input or output delay  
+An output delay is missing on VGA_RED[1] relative to clock(s) CLK 
+Related violations: <none>
+
+TIMING-18#12 Warning
+Missing input or output delay  
+An output delay is missing on VGA_RED[2] relative to clock(s) CLK 
+Related violations: <none>
+
+TIMING-18#13 Warning
+Missing input or output delay  
+An output delay is missing on VGA_RED[3] relative to clock(s) CLK 
+Related violations: <none>
+
+

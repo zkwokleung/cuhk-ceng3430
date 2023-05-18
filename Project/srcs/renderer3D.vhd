@@ -6,7 +6,6 @@ USE work.generic_type_pkg.ALL;
 ENTITY renderer3D IS
     PORT (
         CLK : IN STD_LOGIC;
-        RESET : IN STD_LOGIC;
 
         -- Board inputs
         SW : IN STD_LOGIC_VECTOR(7 DOWNTO 0);
@@ -38,8 +37,8 @@ ARCHITECTURE renderer3D_arch OF renderer3D IS
     COMPONENT point_on_segment IS
         PORT (
             CLK : IN STD_LOGIC;
-            x, y : IN INTEGER;
-            v1_x, v1_y, v2_x, v2_y : IN INTEGER;
+            point : IN vec2;
+            v1, v2 : IN vec2;
 
             on_segment : OUT STD_LOGIC
         );
@@ -49,7 +48,6 @@ ARCHITECTURE renderer3D_arch OF renderer3D IS
     SIGNAL buffer_red_out, buffer_green_out, buffer_blue_out : STD_LOGIC_VECTOR(3 DOWNTO 0);
     SIGNAL coor_h, coor_v, next_coor_h, next_coor_v : INTEGER;
 
-    SIGNAL cube_vertices : cube_vertices_t := (OTHERS => (0, 0, 0));
     SIGNAL cube_screen_vertices : cube_screen_vertices_t := (OTHERS => (0, 0));
 
     -- The signals determining whether the current pixel should be drawn.
@@ -57,6 +55,8 @@ ARCHITECTURE renderer3D_arch OF renderer3D IS
     -- Bits 11..0 are the signals for vertices drawning
     SIGNAL draw_signal : STD_LOGIC_VECTOR(19 DOWNTO 0) := (OTHERS => '0');
 BEGIN
+    LED <= SW;
+
     -- VGA controller
     vga_controller_inst : vga_controller PORT MAP(
         CLK => CLK,
@@ -74,19 +74,48 @@ BEGIN
         NEXT_COOR_V => next_coor_v
     );
 
+    TEST : PROCESS (CLK, BTNC)
+    BEGIN
+        IF (BTNC = '1') THEN
+            cube_screen_vertices <= (OTHERS => (0, 0));
+        ELSIF rising_edge(CLK) THEN
+            testing_print : FOR i IN 0 TO 7 LOOP
+                cube_screen_vertices(i)(0) <= i * 120 + 100;
+                cube_screen_vertices(i)(1) <= i * 70 + 100;
+            END LOOP; -- testing_print
+        END IF;
+    END PROCESS;
+
     -- Logic units for drawing the lines
-    point_on_segment_i : FOR i IN 0 TO 7 GENERATE
+    point_on_segment_i : FOR i IN 0 TO 3 GENERATE
         point_on_segment_i : point_on_segment
         PORT MAP(
             CLK => CLK,
-            x => NEXT_COOR_H,
-            y => NEXT_COOR_V,
-            v1_x => cube_screen_vertices(i)(0),
-            v1_y => cube_screen_vertices(i)(1),
-            v2_x => cube_screen_vertices((i + 1) MOD 8)(0),
-            v2_y => cube_screen_vertices((i + 1) MOD 8)(1),
+            point => (coor_h, coor_v),
+            v1 => cube_screen_vertices(i),
+            v2 => cube_screen_vertices((i + 1) MOD 4),
 
-            on_segment => draw_signal(i + 12)
+            on_segment => draw_signal(i)
+        );
+
+        point_on_segment_j : point_on_segment
+        PORT MAP(
+            CLK => CLK,
+            point => (coor_h, coor_v),
+            v1 => cube_screen_vertices(i + 4),
+            v2 => cube_screen_vertices(((i + 1) MOD 4) + 4),
+
+            on_segment => draw_signal(i + 4)
+        );
+
+        point_on_segment_k : point_on_segment
+        PORT MAP(
+            CLK => CLK,
+            point => (coor_h, coor_v),
+            v1 => cube_screen_vertices(i),
+            v2 => cube_screen_vertices(i + 4),
+
+            on_segment => draw_signal(i + 8)
         );
     END GENERATE;
 

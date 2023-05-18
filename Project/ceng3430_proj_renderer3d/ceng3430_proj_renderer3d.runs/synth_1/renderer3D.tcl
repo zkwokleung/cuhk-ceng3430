@@ -19,6 +19,7 @@ set_property ip_output_repo d:/Git/cuhk-ceng3430/Project/ceng3430_proj_renderer3
 set_property ip_cache_permissions {read write} [current_project]
 read_vhdl -library xil_defaultlib {
   D:/Git/cuhk-ceng3430/Project/srcs/utils/clock_divider.vhd
+  D:/Git/cuhk-ceng3430/Project/srcs/pkg/generic_type_pkg.vhd
   D:/Git/cuhk-ceng3430/Project/srcs/vga/vga_controller.vhd
   D:/Git/cuhk-ceng3430/Project/srcs/graphics/point_on_segment.vhd
   D:/Git/cuhk-ceng3430/Project/srcs/renderer3D.vhd

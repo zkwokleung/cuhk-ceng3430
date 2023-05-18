@@ -2,8 +2,8 @@
 # Vivado v2016.3 (64-bit)
 # SW Build 1682563 on Mon Oct 10 19:07:27 MDT 2016
 # IP Build 1681267 on Mon Oct 10 21:28:31 MDT 2016
-# Start of session at: Thu May 18 10:06:36 2023
-# Process ID: 12096
+# Start of session at: Thu May 18 10:30:16 2023
+# Process ID: 16388
 # Current directory: D:/Git/cuhk-ceng3430/Project/ceng3430_proj_renderer3d/ceng3430_proj_renderer3d.runs/synth_1
 # Command line: vivado.exe -log renderer3D.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source renderer3D.tcl
 # Log file: D:/Git/cuhk-ceng3430/Project/ceng3430_proj_renderer3d/ceng3430_proj_renderer3d.runs/synth_1/renderer3D.vds
@@ -15,4 +15,1940 @@ Starting synth_design
 Attempting to get a license for feature 'Synthesis' and/or device 'xc7z020'
 INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7z020'
 INFO: Launching helper process for spawning children vivado processes
-INFO: Helper process launched with PID 1192 
+INFO: Helper process launched with PID 2044 
+---------------------------------------------------------------------------------
+Starting RTL Elaboration : Time (s): cpu = 00:00:05 ; elapsed = 00:00:09 . Memory (MB): peak = 283.906 ; gain = 73.898
+---------------------------------------------------------------------------------
+WARNING: [Synth 8-1565] actual for formal port point is neither a static name nor a globally static expression [D:/Git/cuhk-ceng3430/Project/srcs/renderer3D.vhd:94]
+WARNING: [Synth 8-1565] actual for formal port point is neither a static name nor a globally static expression [D:/Git/cuhk-ceng3430/Project/srcs/renderer3D.vhd:104]
+WARNING: [Synth 8-1565] actual for formal port point is neither a static name nor a globally static expression [D:/Git/cuhk-ceng3430/Project/srcs/renderer3D.vhd:114]
+INFO: [Synth 8-638] synthesizing module 'renderer3D' [D:/Git/cuhk-ceng3430/Project/srcs/renderer3D.vhd:23]
+INFO: [Synth 8-3491] module 'vga_controller' declared at 'D:/Git/cuhk-ceng3430/Project/srcs/vga/vga_controller.vhd:7' bound to instance 'vga_controller_inst' of component 'vga_controller' [D:/Git/cuhk-ceng3430/Project/srcs/renderer3D.vhd:61]
+INFO: [Synth 8-638] synthesizing module 'vga_controller' [D:/Git/cuhk-ceng3430/Project/srcs/vga/vga_controller.vhd:25]
+	Parameter N bound to: 1 - type: integer 
+INFO: [Synth 8-3491] module 'clock_divider' declared at 'D:/Git/cuhk-ceng3430/Project/srcs/utils/clock_divider.vhd:5' bound to instance 'clk_divider' of component 'clock_divider' [D:/Git/cuhk-ceng3430/Project/srcs/vga/vga_controller.vhd:58]
+INFO: [Synth 8-638] synthesizing module 'clock_divider' [D:/Git/cuhk-ceng3430/Project/srcs/utils/clock_divider.vhd:13]
+	Parameter N bound to: 1 - type: integer 
+INFO: [Synth 8-256] done synthesizing module 'clock_divider' (1#1) [D:/Git/cuhk-ceng3430/Project/srcs/utils/clock_divider.vhd:13]
+INFO: [Synth 8-256] done synthesizing module 'vga_controller' (2#1) [D:/Git/cuhk-ceng3430/Project/srcs/vga/vga_controller.vhd:25]
+INFO: [Synth 8-3491] module 'point_on_segment' declared at 'D:/Git/cuhk-ceng3430/Project/srcs/graphics/point_on_segment.vhd:6' bound to instance 'point_on_segment_i' of component 'point_on_segment' [D:/Git/cuhk-ceng3430/Project/srcs/renderer3D.vhd:91]
+INFO: [Synth 8-638] synthesizing module 'point_on_segment' [D:/Git/cuhk-ceng3430/Project/srcs/graphics/point_on_segment.vhd:16]
+INFO: [Synth 8-256] done synthesizing module 'point_on_segment' (3#1) [D:/Git/cuhk-ceng3430/Project/srcs/graphics/point_on_segment.vhd:16]
+INFO: [Synth 8-3491] module 'point_on_segment' declared at 'D:/Git/cuhk-ceng3430/Project/srcs/graphics/point_on_segment.vhd:6' bound to instance 'point_on_segment_j' of component 'point_on_segment' [D:/Git/cuhk-ceng3430/Project/srcs/renderer3D.vhd:101]
+INFO: [Synth 8-3491] module 'point_on_segment' declared at 'D:/Git/cuhk-ceng3430/Project/srcs/graphics/point_on_segment.vhd:6' bound to instance 'point_on_segment_k' of component 'point_on_segment' [D:/Git/cuhk-ceng3430/Project/srcs/renderer3D.vhd:111]
+INFO: [Synth 8-3491] module 'point_on_segment' declared at 'D:/Git/cuhk-ceng3430/Project/srcs/graphics/point_on_segment.vhd:6' bound to instance 'point_on_segment_i' of component 'point_on_segment' [D:/Git/cuhk-ceng3430/Project/srcs/renderer3D.vhd:91]
+INFO: [Synth 8-3491] module 'point_on_segment' declared at 'D:/Git/cuhk-ceng3430/Project/srcs/graphics/point_on_segment.vhd:6' bound to instance 'point_on_segment_j' of component 'point_on_segment' [D:/Git/cuhk-ceng3430/Project/srcs/renderer3D.vhd:101]
+INFO: [Synth 8-3491] module 'point_on_segment' declared at 'D:/Git/cuhk-ceng3430/Project/srcs/graphics/point_on_segment.vhd:6' bound to instance 'point_on_segment_k' of component 'point_on_segment' [D:/Git/cuhk-ceng3430/Project/srcs/renderer3D.vhd:111]
+INFO: [Synth 8-3491] module 'point_on_segment' declared at 'D:/Git/cuhk-ceng3430/Project/srcs/graphics/point_on_segment.vhd:6' bound to instance 'point_on_segment_i' of component 'point_on_segment' [D:/Git/cuhk-ceng3430/Project/srcs/renderer3D.vhd:91]
+INFO: [Synth 8-3491] module 'point_on_segment' declared at 'D:/Git/cuhk-ceng3430/Project/srcs/graphics/point_on_segment.vhd:6' bound to instance 'point_on_segment_j' of component 'point_on_segment' [D:/Git/cuhk-ceng3430/Project/srcs/renderer3D.vhd:101]
+INFO: [Synth 8-3491] module 'point_on_segment' declared at 'D:/Git/cuhk-ceng3430/Project/srcs/graphics/point_on_segment.vhd:6' bound to instance 'point_on_segment_k' of component 'point_on_segment' [D:/Git/cuhk-ceng3430/Project/srcs/renderer3D.vhd:111]
+INFO: [Synth 8-3491] module 'point_on_segment' declared at 'D:/Git/cuhk-ceng3430/Project/srcs/graphics/point_on_segment.vhd:6' bound to instance 'point_on_segment_i' of component 'point_on_segment' [D:/Git/cuhk-ceng3430/Project/srcs/renderer3D.vhd:91]
+INFO: [Synth 8-3491] module 'point_on_segment' declared at 'D:/Git/cuhk-ceng3430/Project/srcs/graphics/point_on_segment.vhd:6' bound to instance 'point_on_segment_j' of component 'point_on_segment' [D:/Git/cuhk-ceng3430/Project/srcs/renderer3D.vhd:101]
+INFO: [Synth 8-3491] module 'point_on_segment' declared at 'D:/Git/cuhk-ceng3430/Project/srcs/graphics/point_on_segment.vhd:6' bound to instance 'point_on_segment_k' of component 'point_on_segment' [D:/Git/cuhk-ceng3430/Project/srcs/renderer3D.vhd:111]
+INFO: [Synth 8-256] done synthesizing module 'renderer3D' (4#1) [D:/Git/cuhk-ceng3430/Project/srcs/renderer3D.vhd:23]
+WARNING: [Synth 8-3331] design renderer3D has unconnected port BTNU
+WARNING: [Synth 8-3331] design renderer3D has unconnected port BTND
+WARNING: [Synth 8-3331] design renderer3D has unconnected port BTNL
+WARNING: [Synth 8-3331] design renderer3D has unconnected port BTNR
+---------------------------------------------------------------------------------
+Finished RTL Elaboration : Time (s): cpu = 00:00:05 ; elapsed = 00:00:10 . Memory (MB): peak = 320.332 ; gain = 110.324
+---------------------------------------------------------------------------------
+
+Report Check Netlist: 
++------+------------------+-------+---------+-------+------------------+
+|      |Item              |Errors |Warnings |Status |Description       |
++------+------------------+-------+---------+-------+------------------+
+|1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
++------+------------------+-------+---------+-------+------------------+
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:05 ; elapsed = 00:00:10 . Memory (MB): peak = 320.332 ; gain = 110.324
+---------------------------------------------------------------------------------
+INFO: [Device 21-403] Loading part xc7z020clg484-1
+INFO: [Project 1-570] Preparing netlist for logic optimization
+
+Processing XDC Constraints
+Initializing timing engine
+Parsing XDC File [D:/Git/cuhk-ceng3430/Project/constrs/board.xdc]
+WARNING: [Vivado 12-584] No ports matched '[get_ports -of_objects [get_iobanks 33]]'. [D:/Git/cuhk-ceng3430/Project/constrs/board.xdc:73]
+Finished Parsing XDC File [D:/Git/cuhk-ceng3430/Project/constrs/board.xdc]
+INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [D:/Git/cuhk-ceng3430/Project/constrs/board.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/renderer3D_propImpl.xdc].
+Resolution: To avoid this warning, move constraints listed in [.Xil/renderer3D_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
+Completed Processing XDC Constraints
+
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.016 . Memory (MB): peak = 647.586 ; gain = 0.000
+---------------------------------------------------------------------------------
+Finished Constraint Validation : Time (s): cpu = 00:00:14 ; elapsed = 00:00:23 . Memory (MB): peak = 647.586 ; gain = 437.578
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Loading Part and Timing Information
+---------------------------------------------------------------------------------
+Loading part: xc7z020clg484-1
+---------------------------------------------------------------------------------
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:14 ; elapsed = 00:00:23 . Memory (MB): peak = 647.586 ; gain = 437.578
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying 'set_property' XDC Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:14 ; elapsed = 00:00:23 . Memory (MB): peak = 647.586 ; gain = 437.578
+---------------------------------------------------------------------------------
+INFO: [Synth 8-5545] ROM "sig" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "counter" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "h_count" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "v_count" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "v_count" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-4471] merging register 'cube_screen_vertices_reg[0][1][31:0]' into 'cube_screen_vertices_reg[0][0][31:0]' [D:/Git/cuhk-ceng3430/Project/srcs/renderer3D.vhd:80]
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:14 ; elapsed = 00:00:23 . Memory (MB): peak = 647.586 ; gain = 437.578
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start RTL Component Statistics 
+---------------------------------------------------------------------------------
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     32 Bit       Adders := 46    
+	   3 Input     32 Bit       Adders := 48    
++---Registers : 
+	               32 Bit    Registers := 18    
+	                1 Bit    Registers := 13    
++---Multipliers : 
+	                32x32  Multipliers := 72    
++---Muxes : 
+	   2 Input     32 Bit        Muxes := 3     
+	   2 Input      1 Bit        Muxes := 14    
+---------------------------------------------------------------------------------
+Finished RTL Component Statistics 
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start RTL Hierarchical Component Statistics 
+---------------------------------------------------------------------------------
+Hierarchical RTL Component report 
+Module renderer3D 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     32 Bit       Adders := 15    
++---Registers : 
+	               32 Bit    Registers := 15    
+Module clock_divider 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     32 Bit       Adders := 1     
++---Registers : 
+	               32 Bit    Registers := 1     
+	                1 Bit    Registers := 1     
++---Muxes : 
+	   2 Input     32 Bit        Muxes := 1     
+	   2 Input      1 Bit        Muxes := 1     
+Module vga_controller 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     32 Bit       Adders := 6     
++---Registers : 
+	               32 Bit    Registers := 2     
++---Muxes : 
+	   2 Input     32 Bit        Muxes := 2     
+	   2 Input      1 Bit        Muxes := 1     
+Module point_on_segment 
+Detailed RTL Component Info : 
++---Adders : 
+	   3 Input     32 Bit       Adders := 4     
+	   2 Input     32 Bit       Adders := 2     
++---Registers : 
+	                1 Bit    Registers := 1     
++---Multipliers : 
+	                32x32  Multipliers := 6     
++---Muxes : 
+	   2 Input      1 Bit        Muxes := 1     
+---------------------------------------------------------------------------------
+Finished RTL Hierarchical Component Statistics
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Part Resource Summary
+---------------------------------------------------------------------------------
+Part Resources:
+DSPs: 220 (col length:60)
+BRAMs: 280 (col length: RAMB18 60 RAMB36 30)
+---------------------------------------------------------------------------------
+Finished Part Resource Summary
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Cross Boundary and Area Optimization
+---------------------------------------------------------------------------------
+INFO: [Synth 8-5545] ROM "clk_divider/counter" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "clk_divider/sig" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "h_count" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "v_count" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "v_count" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5845] Not enough pipeline registers after wide multiplier. Recommended levels of pipeline registers is 4 [D:/Git/cuhk-ceng3430/Project/srcs/graphics/point_on_segment.vhd:27]
+INFO: [Synth 8-5845] Not enough pipeline registers after wide multiplier. Recommended levels of pipeline registers is 4 [D:/Git/cuhk-ceng3430/Project/srcs/graphics/point_on_segment.vhd:27]
+INFO: [Synth 8-5845] Not enough pipeline registers after wide multiplier. Recommended levels of pipeline registers is 4 [D:/Git/cuhk-ceng3430/Project/srcs/graphics/point_on_segment.vhd:31]
+INFO: [Synth 8-5845] Not enough pipeline registers after wide multiplier. Recommended levels of pipeline registers is 4 [D:/Git/cuhk-ceng3430/Project/srcs/graphics/point_on_segment.vhd:31]
+INFO: [Synth 8-5845] Not enough pipeline registers after wide multiplier. Recommended levels of pipeline registers is 4 [D:/Git/cuhk-ceng3430/Project/srcs/graphics/point_on_segment.vhd:28]
+INFO: [Synth 8-5845] Not enough pipeline registers after wide multiplier. Recommended levels of pipeline registers is 4 [D:/Git/cuhk-ceng3430/Project/srcs/graphics/point_on_segment.vhd:28]
+DSP Report: Generating DSP on_segment3, operation Mode is: A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is: (PCIN>>17)+A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is: A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is: (PCIN>>17)+A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is: A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is: (PCIN>>17)+A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is: A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is: (PCIN>>17)+A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is: A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is: (PCIN>>17)+A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is: A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is: (PCIN>>17)+A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is: A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is: (PCIN>>17)+A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is: A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is: (PCIN>>17)+A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is: A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is: (PCIN>>17)+A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is: A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is: (PCIN>>17)+A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is: A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is: (PCIN>>17)+A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is: A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is: (PCIN>>17)+A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is: A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is: A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is: (PCIN>>17)+A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is: A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is: A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is: (PCIN>>17)+A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is: A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is: A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is: (PCIN>>17)+A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is: A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is: A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is: (PCIN>>17)+A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is: A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is: A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is: (PCIN>>17)+A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is: A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is: A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is: (PCIN>>17)+A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is: A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is: A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is: (PCIN>>17)+A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is: A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is: A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is: (PCIN>>17)+A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is: A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is: A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is: (PCIN>>17)+A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is: A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is: A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is: (PCIN>>17)+A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is: A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is: A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is: (PCIN>>17)+A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is: A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is: A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is: (PCIN>>17)+A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is: A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is: A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is: (PCIN>>17)+A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is: A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is: A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is: (PCIN>>17)+A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is: A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is: A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is: (PCIN>>17)+A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is: A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is: A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is: (PCIN>>17)+A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is: A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is: A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is: (PCIN>>17)+A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is: A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is: A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is: (PCIN>>17)+A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is: A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is: A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is: (PCIN>>17)+A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is: A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is: A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is: (PCIN>>17)+A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is: A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is: A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is: (PCIN>>17)+A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is: A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is: A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is: (PCIN>>17)+A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is: A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is: A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is: (PCIN>>17)+A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is: A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is: A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is: (PCIN>>17)+A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is: A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is: A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is: (PCIN>>17)+A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is: A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is: A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is: (PCIN>>17)+A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is: A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is: A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is: (PCIN>>17)+A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is: A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is: A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is: (PCIN>>17)+A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is: A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is: A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is: (PCIN>>17)+A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is: A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is: A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is: (PCIN>>17)+A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is: A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is: A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is: (PCIN>>17)+A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is: A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is: A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is: (PCIN>>17)+A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is: A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is: A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is: (PCIN>>17)+A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is: A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is: A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is: (PCIN>>17)+A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is: A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is: A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is: (PCIN>>17)+A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is: A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is: A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is: (PCIN>>17)+A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is: A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is: A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is: (PCIN>>17)+A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is: A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is: A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is: (PCIN>>17)+A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is: A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is: A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is: (PCIN>>17)+A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is: A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is: A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is: (PCIN>>17)+A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is: A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is: A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is: (PCIN>>17)+A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is: A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is: A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is: (PCIN>>17)+A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is: A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is: A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is: (PCIN>>17)+A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is: A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is: A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is: (PCIN>>17)+A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is: A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is: A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is: (PCIN>>17)+A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is: A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is: A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is: (PCIN>>17)+A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is: A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is: A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is: (PCIN>>17)+A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is: A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is: A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is: (PCIN>>17)+A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is: A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is: A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is: (PCIN>>17)+A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is: A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is: A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is: (PCIN>>17)+A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is: A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is: A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is: (PCIN>>17)+A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is: A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is: A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is: (PCIN>>17)+A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is: A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is: A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is: (PCIN>>17)+A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is: A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is: A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is: (PCIN>>17)+A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is: A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is: A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is: (PCIN>>17)+A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is: A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is: A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is: (PCIN>>17)+A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is: A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is: A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is: (PCIN>>17)+A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is: A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is: A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is: (PCIN>>17)+A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is: A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is: A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is: (PCIN>>17)+A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is: A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is: A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is: (PCIN>>17)+A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is: A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is: A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is: (PCIN>>17)+A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is: A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is: A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is: (PCIN>>17)+A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is: A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is: A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is: (PCIN>>17)+A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is: A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is: A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is: (PCIN>>17)+A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is: A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is: A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is: (PCIN>>17)+A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is: A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is: A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is: (PCIN>>17)+A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+WARNING: [Synth 8-3331] design renderer3D has unconnected port BTNU
+WARNING: [Synth 8-3331] design renderer3D has unconnected port BTND
+WARNING: [Synth 8-3331] design renderer3D has unconnected port BTNL
+WARNING: [Synth 8-3331] design renderer3D has unconnected port BTNR
+INFO: [Synth 8-3886] merging instance 'cube_screen_vertices_reg[5][1][0]' (FDC) to 'cube_screen_vertices_reg[7][0][31]'
+INFO: [Synth 8-3886] merging instance 'cube_screen_vertices_reg[5][1][1]' (FDC) to 'cube_screen_vertices_reg[7][0][9]'
+INFO: [Synth 8-3886] merging instance 'cube_screen_vertices_reg[5][1][2]' (FDC) to 'cube_screen_vertices_reg[7][0][31]'
+INFO: [Synth 8-3886] merging instance 'cube_screen_vertices_reg[5][1][3]' (FDC) to 'cube_screen_vertices_reg[7][0][31]'
+INFO: [Synth 8-3886] merging instance 'cube_screen_vertices_reg[5][1][4]' (FDC) to 'cube_screen_vertices_reg[7][0][31]'
+INFO: [Synth 8-3886] merging instance 'cube_screen_vertices_reg[5][1][5]' (FDC) to 'cube_screen_vertices_reg[7][0][31]'
+INFO: [Synth 8-3886] merging instance 'cube_screen_vertices_reg[5][1][6]' (FDC) to 'cube_screen_vertices_reg[7][0][9]'
+INFO: [Synth 8-3886] merging instance 'cube_screen_vertices_reg[5][1][7]' (FDC) to 'cube_screen_vertices_reg[7][0][9]'
+INFO: [Synth 8-3886] merging instance 'cube_screen_vertices_reg[5][1][8]' (FDC) to 'cube_screen_vertices_reg[7][0][9]'
+INFO: [Synth 8-3886] merging instance 'cube_screen_vertices_reg[5][1][9]' (FDC) to 'cube_screen_vertices_reg[7][0][31]'
+INFO: [Synth 8-3886] merging instance 'cube_screen_vertices_reg[5][1][10]' (FDC) to 'cube_screen_vertices_reg[7][0][31]'
+INFO: [Synth 8-3886] merging instance 'cube_screen_vertices_reg[5][1][11]' (FDC) to 'cube_screen_vertices_reg[7][0][31]'
+INFO: [Synth 8-3886] merging instance 'cube_screen_vertices_reg[5][1][12]' (FDC) to 'cube_screen_vertices_reg[7][0][31]'
+INFO: [Synth 8-3886] merging instance 'cube_screen_vertices_reg[5][1][13]' (FDC) to 'cube_screen_vertices_reg[7][0][31]'
+INFO: [Synth 8-3886] merging instance 'cube_screen_vertices_reg[5][1][14]' (FDC) to 'cube_screen_vertices_reg[7][0][31]'
+INFO: [Synth 8-3886] merging instance 'cube_screen_vertices_reg[5][1][15]' (FDC) to 'cube_screen_vertices_reg[7][0][31]'
+INFO: [Synth 8-3886] merging instance 'cube_screen_vertices_reg[5][1][16]' (FDC) to 'cube_screen_vertices_reg[7][0][31]'
+INFO: [Synth 8-3886] merging instance 'cube_screen_vertices_reg[5][1][17]' (FDC) to 'cube_screen_vertices_reg[7][0][31]'
+INFO: [Synth 8-3886] merging instance 'cube_screen_vertices_reg[5][1][18]' (FDC) to 'cube_screen_vertices_reg[7][0][31]'
+INFO: [Synth 8-3886] merging instance 'cube_screen_vertices_reg[5][1][19]' (FDC) to 'cube_screen_vertices_reg[7][0][31]'
+INFO: [Synth 8-3886] merging instance 'cube_screen_vertices_reg[5][1][20]' (FDC) to 'cube_screen_vertices_reg[7][0][31]'
+INFO: [Synth 8-3886] merging instance 'cube_screen_vertices_reg[5][1][21]' (FDC) to 'cube_screen_vertices_reg[7][0][31]'
+INFO: [Synth 8-3886] merging instance 'cube_screen_vertices_reg[5][1][22]' (FDC) to 'cube_screen_vertices_reg[7][0][31]'
+INFO: [Synth 8-3886] merging instance 'cube_screen_vertices_reg[5][1][23]' (FDC) to 'cube_screen_vertices_reg[7][0][31]'
+INFO: [Synth 8-3886] merging instance 'cube_screen_vertices_reg[5][1][24]' (FDC) to 'cube_screen_vertices_reg[7][0][31]'
+INFO: [Synth 8-3886] merging instance 'cube_screen_vertices_reg[5][1][25]' (FDC) to 'cube_screen_vertices_reg[7][0][31]'
+INFO: [Synth 8-3886] merging instance 'cube_screen_vertices_reg[5][1][26]' (FDC) to 'cube_screen_vertices_reg[7][0][31]'
+INFO: [Synth 8-3886] merging instance 'cube_screen_vertices_reg[5][1][27]' (FDC) to 'cube_screen_vertices_reg[7][0][31]'
+INFO: [Synth 8-3886] merging instance 'cube_screen_vertices_reg[5][1][28]' (FDC) to 'cube_screen_vertices_reg[7][0][31]'
+INFO: [Synth 8-3886] merging instance 'cube_screen_vertices_reg[5][1][29]' (FDC) to 'cube_screen_vertices_reg[7][0][31]'
+INFO: [Synth 8-3886] merging instance 'cube_screen_vertices_reg[5][1][30]' (FDC) to 'cube_screen_vertices_reg[7][0][31]'
+INFO: [Synth 8-3886] merging instance 'cube_screen_vertices_reg[5][1][31]' (FDC) to 'cube_screen_vertices_reg[7][0][31]'
+INFO: [Synth 8-3886] merging instance 'cube_screen_vertices_reg[5][0][0]' (FDC) to 'cube_screen_vertices_reg[7][0][31]'
+INFO: [Synth 8-3886] merging instance 'cube_screen_vertices_reg[5][0][1]' (FDC) to 'cube_screen_vertices_reg[7][0][31]'
+INFO: [Synth 8-3886] merging instance 'cube_screen_vertices_reg[5][0][2]' (FDC) to 'cube_screen_vertices_reg[7][0][9]'
+INFO: [Synth 8-3886] merging instance 'cube_screen_vertices_reg[5][0][3]' (FDC) to 'cube_screen_vertices_reg[7][0][9]'
+INFO: [Synth 8-3886] merging instance 'cube_screen_vertices_reg[5][0][4]' (FDC) to 'cube_screen_vertices_reg[7][0][9]'
+INFO: [Synth 8-3886] merging instance 'cube_screen_vertices_reg[5][0][5]' (FDC) to 'cube_screen_vertices_reg[7][0][9]'
+INFO: [Synth 8-3886] merging instance 'cube_screen_vertices_reg[5][0][6]' (FDC) to 'cube_screen_vertices_reg[7][0][31]'
+INFO: [Synth 8-3886] merging instance 'cube_screen_vertices_reg[5][0][7]' (FDC) to 'cube_screen_vertices_reg[7][0][9]'
+INFO: [Synth 8-3886] merging instance 'cube_screen_vertices_reg[5][0][8]' (FDC) to 'cube_screen_vertices_reg[7][0][31]'
+INFO: [Synth 8-3886] merging instance 'cube_screen_vertices_reg[5][0][9]' (FDC) to 'cube_screen_vertices_reg[7][0][9]'
+INFO: [Synth 8-3886] merging instance 'cube_screen_vertices_reg[5][0][10]' (FDC) to 'cube_screen_vertices_reg[7][0][31]'
+INFO: [Synth 8-3886] merging instance 'cube_screen_vertices_reg[5][0][11]' (FDC) to 'cube_screen_vertices_reg[7][0][31]'
+INFO: [Synth 8-3886] merging instance 'cube_screen_vertices_reg[5][0][12]' (FDC) to 'cube_screen_vertices_reg[7][0][31]'
+INFO: [Synth 8-3886] merging instance 'cube_screen_vertices_reg[5][0][13]' (FDC) to 'cube_screen_vertices_reg[7][0][31]'
+INFO: [Synth 8-3886] merging instance 'cube_screen_vertices_reg[5][0][14]' (FDC) to 'cube_screen_vertices_reg[7][0][31]'
+INFO: [Synth 8-3886] merging instance 'cube_screen_vertices_reg[5][0][15]' (FDC) to 'cube_screen_vertices_reg[7][0][31]'
+INFO: [Synth 8-3886] merging instance 'cube_screen_vertices_reg[5][0][16]' (FDC) to 'cube_screen_vertices_reg[7][0][31]'
+INFO: [Synth 8-3886] merging instance 'cube_screen_vertices_reg[5][0][17]' (FDC) to 'cube_screen_vertices_reg[7][0][31]'
+INFO: [Synth 8-3886] merging instance 'cube_screen_vertices_reg[5][0][18]' (FDC) to 'cube_screen_vertices_reg[7][0][31]'
+INFO: [Synth 8-3886] merging instance 'cube_screen_vertices_reg[5][0][19]' (FDC) to 'cube_screen_vertices_reg[7][0][31]'
+INFO: [Synth 8-3886] merging instance 'cube_screen_vertices_reg[5][0][20]' (FDC) to 'cube_screen_vertices_reg[7][0][31]'
+INFO: [Synth 8-3886] merging instance 'cube_screen_vertices_reg[5][0][21]' (FDC) to 'cube_screen_vertices_reg[7][0][31]'
+INFO: [Synth 8-3886] merging instance 'cube_screen_vertices_reg[5][0][22]' (FDC) to 'cube_screen_vertices_reg[7][0][31]'
+INFO: [Synth 8-3886] merging instance 'cube_screen_vertices_reg[5][0][23]' (FDC) to 'cube_screen_vertices_reg[7][0][31]'
+INFO: [Synth 8-3886] merging instance 'cube_screen_vertices_reg[5][0][24]' (FDC) to 'cube_screen_vertices_reg[7][0][31]'
+INFO: [Synth 8-3886] merging instance 'cube_screen_vertices_reg[5][0][25]' (FDC) to 'cube_screen_vertices_reg[7][0][31]'
+INFO: [Synth 8-3886] merging instance 'cube_screen_vertices_reg[5][0][26]' (FDC) to 'cube_screen_vertices_reg[7][0][31]'
+INFO: [Synth 8-3886] merging instance 'cube_screen_vertices_reg[5][0][27]' (FDC) to 'cube_screen_vertices_reg[7][0][31]'
+INFO: [Synth 8-3886] merging instance 'cube_screen_vertices_reg[5][0][28]' (FDC) to 'cube_screen_vertices_reg[7][0][31]'
+INFO: [Synth 8-3886] merging instance 'cube_screen_vertices_reg[5][0][29]' (FDC) to 'cube_screen_vertices_reg[7][0][31]'
+INFO: [Synth 8-3886] merging instance 'cube_screen_vertices_reg[5][0][30]' (FDC) to 'cube_screen_vertices_reg[7][0][31]'
+INFO: [Synth 8-3886] merging instance 'cube_screen_vertices_reg[5][0][31]' (FDC) to 'cube_screen_vertices_reg[7][0][31]'
+INFO: [Synth 8-3886] merging instance 'cube_screen_vertices_reg[1][1][0]' (FDC) to 'cube_screen_vertices_reg[7][0][31]'
+INFO: [Synth 8-3886] merging instance 'cube_screen_vertices_reg[1][1][1]' (FDC) to 'cube_screen_vertices_reg[7][0][9]'
+INFO: [Synth 8-3886] merging instance 'cube_screen_vertices_reg[1][1][2]' (FDC) to 'cube_screen_vertices_reg[7][0][31]'
+INFO: [Synth 8-3886] merging instance 'cube_screen_vertices_reg[1][1][3]' (FDC) to 'cube_screen_vertices_reg[7][0][9]'
+INFO: [Synth 8-3886] merging instance 'cube_screen_vertices_reg[1][1][4]' (FDC) to 'cube_screen_vertices_reg[7][0][31]'
+INFO: [Synth 8-3886] merging instance 'cube_screen_vertices_reg[1][1][5]' (FDC) to 'cube_screen_vertices_reg[7][0][9]'
+INFO: [Synth 8-3886] merging instance 'cube_screen_vertices_reg[1][1][6]' (FDC) to 'cube_screen_vertices_reg[7][0][31]'
+INFO: [Synth 8-3886] merging instance 'cube_screen_vertices_reg[1][1][7]' (FDC) to 'cube_screen_vertices_reg[7][0][9]'
+INFO: [Synth 8-3886] merging instance 'cube_screen_vertices_reg[1][1][8]' (FDC) to 'cube_screen_vertices_reg[7][0][31]'
+INFO: [Synth 8-3886] merging instance 'cube_screen_vertices_reg[1][1][9]' (FDC) to 'cube_screen_vertices_reg[7][0][31]'
+INFO: [Synth 8-3886] merging instance 'cube_screen_vertices_reg[1][1][10]' (FDC) to 'cube_screen_vertices_reg[7][0][31]'
+INFO: [Synth 8-3886] merging instance 'cube_screen_vertices_reg[1][1][11]' (FDC) to 'cube_screen_vertices_reg[7][0][31]'
+INFO: [Synth 8-3886] merging instance 'cube_screen_vertices_reg[1][1][12]' (FDC) to 'cube_screen_vertices_reg[7][0][31]'
+INFO: [Synth 8-3886] merging instance 'cube_screen_vertices_reg[1][1][13]' (FDC) to 'cube_screen_vertices_reg[7][0][31]'
+INFO: [Synth 8-3886] merging instance 'cube_screen_vertices_reg[1][1][14]' (FDC) to 'cube_screen_vertices_reg[7][0][31]'
+INFO: [Synth 8-3886] merging instance 'cube_screen_vertices_reg[1][1][15]' (FDC) to 'cube_screen_vertices_reg[7][0][31]'
+INFO: [Synth 8-3886] merging instance 'cube_screen_vertices_reg[1][1][16]' (FDC) to 'cube_screen_vertices_reg[7][0][31]'
+INFO: [Synth 8-3886] merging instance 'cube_screen_vertices_reg[1][1][17]' (FDC) to 'cube_screen_vertices_reg[7][0][31]'
+INFO: [Synth 8-3886] merging instance 'cube_screen_vertices_reg[1][1][18]' (FDC) to 'cube_screen_vertices_reg[7][0][31]'
+INFO: [Synth 8-3886] merging instance 'cube_screen_vertices_reg[1][1][19]' (FDC) to 'cube_screen_vertices_reg[7][0][31]'
+INFO: [Synth 8-3886] merging instance 'cube_screen_vertices_reg[1][1][20]' (FDC) to 'cube_screen_vertices_reg[7][0][31]'
+INFO: [Synth 8-3886] merging instance 'cube_screen_vertices_reg[1][1][21]' (FDC) to 'cube_screen_vertices_reg[7][0][31]'
+INFO: [Synth 8-3886] merging instance 'cube_screen_vertices_reg[1][1][22]' (FDC) to 'cube_screen_vertices_reg[7][0][31]'
+INFO: [Synth 8-3886] merging instance 'cube_screen_vertices_reg[1][1][23]' (FDC) to 'cube_screen_vertices_reg[7][0][31]'
+INFO: [Synth 8-3886] merging instance 'cube_screen_vertices_reg[1][1][24]' (FDC) to 'cube_screen_vertices_reg[7][0][31]'
+INFO: [Synth 8-3886] merging instance 'cube_screen_vertices_reg[1][1][25]' (FDC) to 'cube_screen_vertices_reg[7][0][31]'
+INFO: [Synth 8-3886] merging instance 'cube_screen_vertices_reg[1][1][26]' (FDC) to 'cube_screen_vertices_reg[7][0][31]'
+INFO: [Synth 8-3886] merging instance 'cube_screen_vertices_reg[1][1][27]' (FDC) to 'cube_screen_vertices_reg[7][0][31]'
+INFO: [Synth 8-3886] merging instance 'cube_screen_vertices_reg[1][1][28]' (FDC) to 'cube_screen_vertices_reg[7][0][31]'
+INFO: [Synth 8-3886] merging instance 'cube_screen_vertices_reg[1][1][29]' (FDC) to 'cube_screen_vertices_reg[7][0][31]'
+INFO: [Synth 8-3886] merging instance 'cube_screen_vertices_reg[1][1][30]' (FDC) to 'cube_screen_vertices_reg[7][0][31]'
+INFO: [Synth 8-3886] merging instance 'cube_screen_vertices_reg[1][1][31]' (FDC) to 'cube_screen_vertices_reg[7][0][31]'
+INFO: [Synth 8-3886] merging instance 'cube_screen_vertices_reg[1][0][0]' (FDC) to 'cube_screen_vertices_reg[7][0][31]'
+INFO: [Synth 8-3886] merging instance 'cube_screen_vertices_reg[1][0][1]' (FDC) to 'cube_screen_vertices_reg[7][0][31]'
+INFO: [Synth 8-3886] merging instance 'cube_screen_vertices_reg[1][0][2]' (FDC) to 'cube_screen_vertices_reg[7][0][9]'
+INFO: [Synth 8-3886] merging instance 'cube_screen_vertices_reg[1][0][3]' (FDC) to 'cube_screen_vertices_reg[7][0][9]'
+INFO: [Common 17-14] Message 'Synth 8-3886' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\cube_screen_vertices_reg[7][0][31] )
+WARNING: [Synth 8-3332] Sequential element (cube_screen_vertices_reg[7][0][31]) is unused and will be removed from module renderer3D.
+---------------------------------------------------------------------------------
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:20 ; elapsed = 00:00:32 . Memory (MB): peak = 647.586 ; gain = 437.578
+---------------------------------------------------------------------------------
+WARNING: [Synth 8-3323] Resources of type DSP have been overutilized. Used = 222, Available = 220. Use report_utilization command for details.
+DSP Report: Generating DSP on_segment3, operation Mode is (post resource management): A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is (post resource management): A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is (post resource management): (PCIN>>17)+A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is (post resource management): A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is (post resource management): A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is (post resource management): (PCIN>>17)+A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is (post resource management): A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is (post resource management): (PCIN>>17)+A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is (post resource management): A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is (post resource management): (PCIN>>17)+A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is (post resource management): A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is (post resource management): A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is (post resource management): (PCIN>>17)+A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is (post resource management): A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is (post resource management): A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is (post resource management): (PCIN>>17)+A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is (post resource management): A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is (post resource management): A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is (post resource management): (PCIN>>17)+A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is (post resource management): A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is (post resource management): A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is (post resource management): (PCIN>>17)+A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is (post resource management): A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is (post resource management): (PCIN>>17)+A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is (post resource management): A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is (post resource management): (PCIN>>17)+A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is (post resource management): A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is (post resource management): A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is (post resource management): (PCIN>>17)+A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is (post resource management): A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is (post resource management): A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is (post resource management): (PCIN>>17)+A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is (post resource management): A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is (post resource management): A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is (post resource management): (PCIN>>17)+A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is (post resource management): A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is (post resource management): A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is (post resource management): (PCIN>>17)+A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is (post resource management): A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is (post resource management): (PCIN>>17)+A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is (post resource management): A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is (post resource management): (PCIN>>17)+A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is (post resource management): A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is (post resource management): A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is (post resource management): (PCIN>>17)+A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is (post resource management): A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is (post resource management): A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is (post resource management): (PCIN>>17)+A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is (post resource management): A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is (post resource management): A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is (post resource management): (PCIN>>17)+A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is (post resource management): A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is (post resource management): A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is (post resource management): (PCIN>>17)+A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is (post resource management): A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is (post resource management): (PCIN>>17)+A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is (post resource management): A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is (post resource management): (PCIN>>17)+A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is (post resource management): A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is (post resource management): A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is (post resource management): (PCIN>>17)+A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is (post resource management): A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is (post resource management): A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is (post resource management): (PCIN>>17)+A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is (post resource management): A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is (post resource management): A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is (post resource management): (PCIN>>17)+A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is (post resource management): A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is (post resource management): A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is (post resource management): (PCIN>>17)+A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is (post resource management): A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is (post resource management): (PCIN>>17)+A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is (post resource management): A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is (post resource management): (PCIN>>17)+A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is (post resource management): A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is (post resource management): A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is (post resource management): (PCIN>>17)+A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is (post resource management): A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is (post resource management): A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is (post resource management): (PCIN>>17)+A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is (post resource management): A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is (post resource management): A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is (post resource management): (PCIN>>17)+A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is (post resource management): A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is (post resource management): A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is (post resource management): (PCIN>>17)+A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is (post resource management): A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is (post resource management): (PCIN>>17)+A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is (post resource management): A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is (post resource management): (PCIN>>17)+A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is (post resource management): A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is (post resource management): A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is (post resource management): (PCIN>>17)+A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is (post resource management): A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is (post resource management): A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is (post resource management): (PCIN>>17)+A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is (post resource management): A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is (post resource management): A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is (post resource management): (PCIN>>17)+A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is (post resource management): A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is (post resource management): A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is (post resource management): (PCIN>>17)+A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is (post resource management): A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is (post resource management): (PCIN>>17)+A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is (post resource management): A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is (post resource management): (PCIN>>17)+A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is (post resource management): A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is (post resource management): A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is (post resource management): (PCIN>>17)+A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is (post resource management): A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is (post resource management): A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is (post resource management): (PCIN>>17)+A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is (post resource management): A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is (post resource management): A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is (post resource management): (PCIN>>17)+A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is (post resource management): A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is (post resource management): A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is (post resource management): (PCIN>>17)+A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is (post resource management): A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is (post resource management): (PCIN>>17)+A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is (post resource management): A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is (post resource management): (PCIN>>17)+A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is (post resource management): A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is (post resource management): A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is (post resource management): (PCIN>>17)+A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is (post resource management): A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is (post resource management): A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is (post resource management): (PCIN>>17)+A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is (post resource management): A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is (post resource management): A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is (post resource management): (PCIN>>17)+A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is (post resource management): A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is (post resource management): A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is (post resource management): (PCIN>>17)+A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is (post resource management): A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is (post resource management): (PCIN>>17)+A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is (post resource management): A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is (post resource management): (PCIN>>17)+A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is (post resource management): A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is (post resource management): A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is (post resource management): (PCIN>>17)+A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is (post resource management): A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is (post resource management): A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is (post resource management): (PCIN>>17)+A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is (post resource management): A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is (post resource management): A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is (post resource management): (PCIN>>17)+A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is (post resource management): A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is (post resource management): A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is (post resource management): (PCIN>>17)+A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is (post resource management): A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is (post resource management): (PCIN>>17)+A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is (post resource management): A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is (post resource management): (PCIN>>17)+A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is (post resource management): A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is (post resource management): A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is (post resource management): (PCIN>>17)+A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is (post resource management): A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is (post resource management): A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is (post resource management): (PCIN>>17)+A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is (post resource management): A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is (post resource management): A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is (post resource management): (PCIN>>17)+A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is (post resource management): A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is (post resource management): A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is (post resource management): (PCIN>>17)+A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is (post resource management): A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is (post resource management): (PCIN>>17)+A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is (post resource management): A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is (post resource management): (PCIN>>17)+A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is (post resource management): A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is (post resource management): A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is (post resource management): (PCIN>>17)+A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is (post resource management): A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is (post resource management): A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is (post resource management): (PCIN>>17)+A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is (post resource management): A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is (post resource management): A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is (post resource management): (PCIN>>17)+A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is (post resource management): A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is (post resource management): A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is (post resource management): (PCIN>>17)+A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is (post resource management): A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is (post resource management): (PCIN>>17)+A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is (post resource management): A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is (post resource management): (PCIN>>17)+A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is (post resource management): A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is (post resource management): A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is (post resource management): (PCIN>>17)+A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is (post resource management): A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is (post resource management): A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: Generating DSP on_segment3, operation Mode is (post resource management): (PCIN>>17)+A*B.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+DSP Report: operator on_segment3 is absorbed into DSP on_segment3.
+---------------------------------------------------------------------------------
+Start ROM, RAM, DSP and Shift Register Reporting
+---------------------------------------------------------------------------------
+
+DSP: Preliminary Mapping  Report (see note below)
++-----------------+----------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+|Module Name      | DSP Mapping    | A Size | B Size | C Size | D Size | P Size | AREG | BREG | CREG | DREG | ADREG | MREG | PREG | 
++-----------------+----------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+|point_on_segment | A*B            | 18     | 15     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|point_on_segment | (PCIN>>17)+A*B | 15     | 15     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|point_on_segment | A*B            | 18     | 18     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|point_on_segment | (PCIN>>17)+A*B | 18     | 15     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|point_on_segment | A*B            | 18     | 15     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|point_on_segment | (PCIN>>17)+A*B | 15     | 15     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|point_on_segment | A*B            | 18     | 18     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|point_on_segment | (PCIN>>17)+A*B | 18     | 15     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|point_on_segment | A*B            | 18     | 15     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|point_on_segment | (PCIN>>17)+A*B | 15     | 15     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|point_on_segment | A*B            | 18     | 18     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|point_on_segment | (PCIN>>17)+A*B | 18     | 15     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|point_on_segment | A*B            | 18     | 15     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|point_on_segment | (PCIN>>17)+A*B | 15     | 15     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|point_on_segment | A*B            | 18     | 18     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|point_on_segment | (PCIN>>17)+A*B | 18     | 15     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|point_on_segment | A*B            | 18     | 15     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|point_on_segment | (PCIN>>17)+A*B | 15     | 15     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|point_on_segment | A*B            | 18     | 18     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|point_on_segment | (PCIN>>17)+A*B | 18     | 15     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|point_on_segment | A*B            | 18     | 15     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|point_on_segment | (PCIN>>17)+A*B | 15     | 15     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|point_on_segment | A*B            | 18     | 18     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|point_on_segment | (PCIN>>17)+A*B | 18     | 15     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|point_on_segment | A*B            | 18     | 15     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|point_on_segment | A*B            | 18     | 18     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|point_on_segment | (PCIN>>17)+A*B | 15     | 15     | -      | -      | 15     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|point_on_segment | A*B            | 18     | 15     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|point_on_segment | A*B            | 18     | 18     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|point_on_segment | (PCIN>>17)+A*B | 15     | 15     | -      | -      | 15     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|point_on_segment | A*B            | 18     | 15     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|point_on_segment | A*B            | 18     | 18     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|point_on_segment | (PCIN>>17)+A*B | 15     | 15     | -      | -      | 15     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|point_on_segment | A*B            | 18     | 15     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|point_on_segment | A*B            | 18     | 18     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|point_on_segment | (PCIN>>17)+A*B | 15     | 15     | -      | -      | 15     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|point_on_segment | A*B            | 18     | 15     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|point_on_segment | A*B            | 18     | 18     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|point_on_segment | (PCIN>>17)+A*B | 15     | 15     | -      | -      | 15     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|point_on_segment | A*B            | 18     | 15     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|point_on_segment | A*B            | 18     | 18     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|point_on_segment | (PCIN>>17)+A*B | 15     | 15     | -      | -      | 15     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|point_on_segment | A*B            | 15     | 15     | -      | -      | 15     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|point_on_segment | A*B            | 18     | 18     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|point_on_segment | (PCIN>>17)+A*B | 15     | 15     | -      | -      | 15     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|point_on_segment | A*B            | 15     | 15     | -      | -      | 15     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|point_on_segment | A*B            | 18     | 18     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|point_on_segment | (PCIN>>17)+A*B | 15     | 15     | -      | -      | 15     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|point_on_segment | A*B            | 15     | 15     | -      | -      | 15     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|point_on_segment | A*B            | 18     | 18     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|point_on_segment | (PCIN>>17)+A*B | 15     | 15     | -      | -      | 15     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|point_on_segment | A*B            | 15     | 15     | -      | -      | 15     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|point_on_segment | A*B            | 18     | 18     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|point_on_segment | (PCIN>>17)+A*B | 15     | 15     | -      | -      | 15     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|point_on_segment | A*B            | 15     | 15     | -      | -      | 15     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|point_on_segment | A*B            | 18     | 18     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|point_on_segment | (PCIN>>17)+A*B | 15     | 15     | -      | -      | 15     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|point_on_segment | A*B            | 15     | 15     | -      | -      | 15     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|point_on_segment | A*B            | 18     | 18     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|point_on_segment | (PCIN>>17)+A*B | 15     | 15     | -      | -      | 15     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|point_on_segment | A*B            | 15     | 15     | -      | -      | 15     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|point_on_segment | A*B            | 18     | 18     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|point_on_segment | (PCIN>>17)+A*B | 15     | 15     | -      | -      | 15     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|point_on_segment | A*B            | 15     | 15     | -      | -      | 15     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|point_on_segment | A*B            | 18     | 18     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|point_on_segment | (PCIN>>17)+A*B | 15     | 15     | -      | -      | 15     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|point_on_segment | A*B            | 15     | 15     | -      | -      | 15     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|point_on_segment | A*B            | 18     | 18     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|point_on_segment | (PCIN>>17)+A*B | 15     | 15     | -      | -      | 15     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|point_on_segment | A*B            | 15     | 15     | -      | -      | 15     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|point_on_segment | A*B            | 18     | 18     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|point_on_segment | (PCIN>>17)+A*B | 15     | 15     | -      | -      | 15     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|point_on_segment | A*B            | 15     | 15     | -      | -      | 15     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|point_on_segment | A*B            | 18     | 18     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|point_on_segment | (PCIN>>17)+A*B | 15     | 15     | -      | -      | 15     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|point_on_segment | A*B            | 15     | 15     | -      | -      | 15     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|point_on_segment | A*B            | 18     | 18     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|point_on_segment | (PCIN>>17)+A*B | 15     | 15     | -      | -      | 15     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|point_on_segment | A*B            | 15     | 15     | -      | -      | 15     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|point_on_segment | A*B            | 18     | 18     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|point_on_segment | (PCIN>>17)+A*B | 15     | 15     | -      | -      | 15     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|point_on_segment | A*B            | 15     | 15     | -      | -      | 15     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|point_on_segment | A*B            | 18     | 18     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|point_on_segment | (PCIN>>17)+A*B | 15     | 15     | -      | -      | 15     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|point_on_segment | A*B            | 15     | 15     | -      | -      | 15     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|point_on_segment | A*B            | 18     | 18     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|point_on_segment | (PCIN>>17)+A*B | 15     | 15     | -      | -      | 15     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|point_on_segment | A*B            | 15     | 15     | -      | -      | 15     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|point_on_segment | A*B            | 18     | 18     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|point_on_segment | (PCIN>>17)+A*B | 15     | 15     | -      | -      | 15     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|point_on_segment | A*B            | 15     | 15     | -      | -      | 15     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|point_on_segment | A*B            | 18     | 18     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|point_on_segment | (PCIN>>17)+A*B | 15     | 15     | -      | -      | 15     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|point_on_segment | A*B            | 15     | 15     | -      | -      | 15     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|point_on_segment | A*B            | 18     | 18     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|point_on_segment | (PCIN>>17)+A*B | 15     | 15     | -      | -      | 15     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|point_on_segment | A*B            | 15     | 15     | -      | -      | 15     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|point_on_segment | A*B            | 18     | 18     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|point_on_segment | (PCIN>>17)+A*B | 15     | 15     | -      | -      | 15     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|point_on_segment | A*B            | 15     | 15     | -      | -      | 15     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|point_on_segment | A*B            | 18     | 18     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|point_on_segment | (PCIN>>17)+A*B | 15     | 15     | -      | -      | 15     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|point_on_segment | A*B            | 15     | 15     | -      | -      | 15     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|point_on_segment | A*B            | 18     | 18     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|point_on_segment | (PCIN>>17)+A*B | 15     | 15     | -      | -      | 15     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|point_on_segment | A*B            | 15     | 15     | -      | -      | 15     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|point_on_segment | A*B            | 18     | 18     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|point_on_segment | (PCIN>>17)+A*B | 15     | 15     | -      | -      | 15     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|point_on_segment | A*B            | 15     | 15     | -      | -      | 15     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|point_on_segment | A*B            | 18     | 18     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|point_on_segment | (PCIN>>17)+A*B | 15     | 15     | -      | -      | 15     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|point_on_segment | A*B            | 15     | 15     | -      | -      | 15     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|point_on_segment | A*B            | 18     | 18     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|point_on_segment | (PCIN>>17)+A*B | 15     | 15     | -      | -      | 15     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|point_on_segment | A*B            | 15     | 15     | -      | -      | 15     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|point_on_segment | A*B            | 18     | 18     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|point_on_segment | (PCIN>>17)+A*B | 15     | 15     | -      | -      | 15     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|point_on_segment | A*B            | 15     | 15     | -      | -      | 15     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|point_on_segment | A*B            | 18     | 18     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|point_on_segment | (PCIN>>17)+A*B | 15     | 15     | -      | -      | 15     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|point_on_segment | A*B            | 15     | 15     | -      | -      | 15     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|point_on_segment | A*B            | 18     | 18     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|point_on_segment | (PCIN>>17)+A*B | 15     | 15     | -      | -      | 15     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|point_on_segment | A*B            | 15     | 15     | -      | -      | 15     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|point_on_segment | A*B            | 18     | 18     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|point_on_segment | (PCIN>>17)+A*B | 15     | 15     | -      | -      | 15     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|point_on_segment | A*B            | 15     | 15     | -      | -      | 15     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|point_on_segment | A*B            | 18     | 18     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|point_on_segment | (PCIN>>17)+A*B | 15     | 15     | -      | -      | 15     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|point_on_segment | A*B            | 15     | 15     | -      | -      | 15     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|point_on_segment | A*B            | 18     | 18     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|point_on_segment | (PCIN>>17)+A*B | 15     | 15     | -      | -      | 15     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|point_on_segment | A*B            | 15     | 15     | -      | -      | 15     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|point_on_segment | A*B            | 18     | 18     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|point_on_segment | (PCIN>>17)+A*B | 15     | 15     | -      | -      | 15     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|point_on_segment | A*B            | 15     | 15     | -      | -      | 15     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|point_on_segment | A*B            | 18     | 18     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|point_on_segment | (PCIN>>17)+A*B | 15     | 15     | -      | -      | 15     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|point_on_segment | A*B            | 15     | 15     | -      | -      | 15     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|point_on_segment | A*B            | 18     | 18     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|point_on_segment | (PCIN>>17)+A*B | 15     | 15     | -      | -      | 15     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|point_on_segment | A*B            | 15     | 15     | -      | -      | 15     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|point_on_segment | A*B            | 18     | 18     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|point_on_segment | (PCIN>>17)+A*B | 15     | 15     | -      | -      | 15     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|point_on_segment | A*B            | 15     | 15     | -      | -      | 15     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|point_on_segment | A*B            | 18     | 18     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|point_on_segment | (PCIN>>17)+A*B | 15     | 15     | -      | -      | 15     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|point_on_segment | A*B            | 15     | 15     | -      | -      | 15     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|point_on_segment | A*B            | 18     | 18     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|point_on_segment | (PCIN>>17)+A*B | 15     | 15     | -      | -      | 15     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|point_on_segment | A*B            | 15     | 15     | -      | -      | 15     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|point_on_segment | A*B            | 18     | 18     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|point_on_segment | (PCIN>>17)+A*B | 15     | 15     | -      | -      | 15     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|point_on_segment | A*B            | 15     | 15     | -      | -      | 15     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|point_on_segment | A*B            | 18     | 18     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|point_on_segment | (PCIN>>17)+A*B | 15     | 15     | -      | -      | 15     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|point_on_segment | A*B            | 15     | 15     | -      | -      | 15     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|point_on_segment | A*B            | 18     | 18     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|point_on_segment | (PCIN>>17)+A*B | 15     | 15     | -      | -      | 15     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|point_on_segment | A*B            | 15     | 15     | -      | -      | 15     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|point_on_segment | A*B            | 18     | 18     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|point_on_segment | (PCIN>>17)+A*B | 15     | 15     | -      | -      | 15     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|point_on_segment | A*B            | 15     | 15     | -      | -      | 15     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|point_on_segment | A*B            | 18     | 18     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|point_on_segment | (PCIN>>17)+A*B | 15     | 15     | -      | -      | 15     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|point_on_segment | A*B            | 15     | 15     | -      | -      | 15     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|point_on_segment | A*B            | 18     | 18     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|point_on_segment | (PCIN>>17)+A*B | 15     | 15     | -      | -      | 15     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|point_on_segment | A*B            | 15     | 15     | -      | -      | 15     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|point_on_segment | A*B            | 18     | 18     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|point_on_segment | (PCIN>>17)+A*B | 15     | 15     | -      | -      | 15     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|point_on_segment | A*B            | 15     | 15     | -      | -      | 15     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|point_on_segment | A*B            | 18     | 18     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|point_on_segment | (PCIN>>17)+A*B | 15     | 15     | -      | -      | 15     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|point_on_segment | A*B            | 15     | 15     | -      | -      | 15     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|point_on_segment | A*B            | 18     | 18     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|point_on_segment | (PCIN>>17)+A*B | 15     | 15     | -      | -      | 15     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|point_on_segment | A*B            | 15     | 15     | -      | -      | 15     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|point_on_segment | A*B            | 18     | 18     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|point_on_segment | (PCIN>>17)+A*B | 15     | 15     | -      | -      | 15     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|point_on_segment | A*B            | 15     | 15     | -      | -      | 15     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|point_on_segment | A*B            | 18     | 18     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|point_on_segment | (PCIN>>17)+A*B | 15     | 15     | -      | -      | 15     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|point_on_segment | A*B            | 15     | 15     | -      | -      | 15     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|point_on_segment | A*B            | 18     | 18     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|point_on_segment | (PCIN>>17)+A*B | 15     | 15     | -      | -      | 15     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|point_on_segment | A*B            | 15     | 15     | -      | -      | 15     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|point_on_segment | A*B            | 18     | 18     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|point_on_segment | (PCIN>>17)+A*B | 15     | 15     | -      | -      | 15     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|point_on_segment | A*B            | 15     | 15     | -      | -      | 15     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|point_on_segment | A*B            | 18     | 18     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|point_on_segment | (PCIN>>17)+A*B | 15     | 15     | -      | -      | 15     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|point_on_segment | A*B            | 15     | 15     | -      | -      | 15     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|point_on_segment | A*B            | 18     | 18     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|point_on_segment | (PCIN>>17)+A*B | 15     | 15     | -      | -      | 15     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|point_on_segment | A*B            | 15     | 15     | -      | -      | 15     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|point_on_segment | A*B            | 18     | 18     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|point_on_segment | (PCIN>>17)+A*B | 15     | 15     | -      | -      | 15     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|point_on_segment | A*B            | 15     | 15     | -      | -      | 15     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|point_on_segment | A*B            | 18     | 18     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|point_on_segment | (PCIN>>17)+A*B | 15     | 15     | -      | -      | 15     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|point_on_segment | A*B            | 15     | 15     | -      | -      | 15     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|point_on_segment | A*B            | 18     | 18     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|point_on_segment | (PCIN>>17)+A*B | 15     | 15     | -      | -      | 15     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|point_on_segment | A*B            | 15     | 15     | -      | -      | 15     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|point_on_segment | A*B            | 18     | 18     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|point_on_segment | (PCIN>>17)+A*B | 15     | 15     | -      | -      | 15     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|point_on_segment | A*B            | 15     | 15     | -      | -      | 15     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|point_on_segment | A*B            | 18     | 18     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|point_on_segment | (PCIN>>17)+A*B | 15     | 15     | -      | -      | 15     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|point_on_segment | A*B            | 15     | 15     | -      | -      | 15     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|point_on_segment | A*B            | 18     | 18     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|point_on_segment | (PCIN>>17)+A*B | 15     | 15     | -      | -      | 15     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|point_on_segment | A*B            | 15     | 15     | -      | -      | 15     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|point_on_segment | A*B            | 18     | 18     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|point_on_segment | (PCIN>>17)+A*B | 15     | 15     | -      | -      | 15     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|point_on_segment | A*B            | 15     | 15     | -      | -      | 15     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|point_on_segment | A*B            | 18     | 18     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|point_on_segment | (PCIN>>17)+A*B | 15     | 15     | -      | -      | 15     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|point_on_segment | A*B            | 15     | 15     | -      | -      | 15     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|point_on_segment | A*B            | 18     | 18     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|point_on_segment | (PCIN>>17)+A*B | 15     | 15     | -      | -      | 15     | 0    | 0    | -    | -    | -     | 0    | 0    | 
++-----------------+----------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+
+Note: The table above is a preliminary report that shows the DSPs inferred at the current stage of the synthesis flow. Some DSP may be reimplemented as non DSP primitives later in the synthesis flow. Multiple instantiated DSPs are reported only once.
+---------------------------------------------------------------------------------
+Finished ROM, RAM, DSP and Shift Register Reporting
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start Timing Optimization
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying XDC Timing Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:34 ; elapsed = 00:00:53 . Memory (MB): peak = 653.359 ; gain = 443.352
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Timing Optimization : Time (s): cpu = 00:00:41 ; elapsed = 00:01:04 . Memory (MB): peak = 706.105 ; gain = 496.098
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start Technology Mapping
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Technology Mapping : Time (s): cpu = 00:00:52 ; elapsed = 00:01:19 . Memory (MB): peak = 775.242 ; gain = 565.234
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished IO Insertion : Time (s): cpu = 00:00:53 ; elapsed = 00:01:21 . Memory (MB): peak = 775.242 ; gain = 565.234
+---------------------------------------------------------------------------------
+
+Report Check Netlist: 
++------+------------------+-------+---------+-------+------------------+
+|      |Item              |Errors |Warnings |Status |Description       |
++------+------------------+-------+---------+-------+------------------+
+|1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
++------+------------------+-------+---------+-------+------------------+
+---------------------------------------------------------------------------------
+Start Renaming Generated Instances
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:53 ; elapsed = 00:01:21 . Memory (MB): peak = 775.242 ; gain = 565.234
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start Rebuilding User Hierarchy
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:58 ; elapsed = 00:01:28 . Memory (MB): peak = 775.242 ; gain = 565.234
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Ports
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:58 ; elapsed = 00:01:28 . Memory (MB): peak = 775.242 ; gain = 565.234
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:59 ; elapsed = 00:01:28 . Memory (MB): peak = 775.242 ; gain = 565.234
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Nets
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:59 ; elapsed = 00:01:28 . Memory (MB): peak = 775.242 ; gain = 565.234
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Writing Synthesis Report
+---------------------------------------------------------------------------------
+
+Report BlackBoxes: 
++-+--------------+----------+
+| |BlackBox name |Instances |
++-+--------------+----------+
++-+--------------+----------+
+
+Report Cell Usage: 
++------+--------+------+
+|      |Cell    |Count |
++------+--------+------+
+|1     |BUFG    |     2|
+|2     |CARRY4  |  1181|
+|3     |DSP48E1 |   192|
+|4     |LUT1    |  1612|
+|5     |LUT2    |  2221|
+|6     |LUT3    |   253|
+|7     |LUT4    |   623|
+|8     |LUT5    |   267|
+|9     |LUT6    |   264|
+|10    |XORCY   |     1|
+|11    |FDCE    |     2|
+|12    |FDRE    |   109|
+|13    |IBUF    |    10|
+|14    |OBUF    |    22|
++------+--------+------+
+
+Report Instance Areas: 
++------+---------------------------------------------+--------------------+------+
+|      |Instance                                     |Module              |Cells |
++------+---------------------------------------------+--------------------+------+
+|1     |top                                          |                    |  6759|
+|2     |  \point_on_segment_i[0].point_on_segment_i  |point_on_segment    |   489|
+|3     |  \point_on_segment_i[0].point_on_segment_j  |point_on_segment_0  |   484|
+|4     |  \point_on_segment_i[0].point_on_segment_k  |point_on_segment_1  |   472|
+|5     |  \point_on_segment_i[1].point_on_segment_i  |point_on_segment_2  |   482|
+|6     |  \point_on_segment_i[1].point_on_segment_j  |point_on_segment_3  |   485|
+|7     |  \point_on_segment_i[1].point_on_segment_k  |point_on_segment_4  |   477|
+|8     |  \point_on_segment_i[2].point_on_segment_i  |point_on_segment_5  |   489|
+|9     |  \point_on_segment_i[2].point_on_segment_j  |point_on_segment_6  |   484|
+|10    |  \point_on_segment_i[2].point_on_segment_k  |point_on_segment_7  |   467|
+|11    |  \point_on_segment_i[3].point_on_segment_i  |point_on_segment_8  |   496|
+|12    |  \point_on_segment_i[3].point_on_segment_j  |point_on_segment_9  |   484|
+|13    |  \point_on_segment_i[3].point_on_segment_k  |point_on_segment_10 |   466|
+|14    |  vga_controller_inst                        |vga_controller      |   504|
+|15    |    clk_divider                              |clock_divider       |    83|
++------+---------------------------------------------+--------------------+------+
+---------------------------------------------------------------------------------
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:59 ; elapsed = 00:01:28 . Memory (MB): peak = 775.242 ; gain = 565.234
+---------------------------------------------------------------------------------
+Synthesis finished with 0 errors, 0 critical warnings and 6 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:49 ; elapsed = 00:01:16 . Memory (MB): peak = 775.242 ; gain = 237.887
+Synthesis Optimization Complete : Time (s): cpu = 00:00:59 ; elapsed = 00:01:28 . Memory (MB): peak = 775.242 ; gain = 565.234
+INFO: [Project 1-571] Translating synthesized netlist
+INFO: [Netlist 29-17] Analyzing 1384 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+INFO: [Project 1-111] Unisim Transformation Summary:
+  A total of 1 instances were transformed.
+  (MUXCY,XORCY) => CARRY4: 1 instances
+
+INFO: [Common 17-83] Releasing license: Synthesis
+158 Infos, 14 Warnings, 0 Critical Warnings and 0 Errors encountered.
+synth_design completed successfully
+synth_design: Time (s): cpu = 00:01:00 ; elapsed = 00:01:28 . Memory (MB): peak = 775.242 ; gain = 565.234
+INFO: [Common 17-1381] The checkpoint 'D:/Git/cuhk-ceng3430/Project/ceng3430_proj_renderer3d/ceng3430_proj_renderer3d.runs/synth_1/renderer3D.dcp' has been generated.
+report_utilization: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.063 . Memory (MB): peak = 775.242 ; gain = 0.000
+INFO: [Common 17-206] Exiting Vivado at Thu May 18 10:31:51 2023...
