@@ -27,20 +27,22 @@ ARCHITECTURE renderer3D_arch OF renderer3D IS
             on_segment : OUT STD_LOGIC
         );
     END COMPONENT;
-
-    SIGNAL cube_screen_vertices : cube_screen_vertices_t := (OTHERS => (0, 0));
-
+    
     -- The signals determining whether the current pixel should be drawn.
     -- Bits 19..12 are the signals for lines drawning
     -- Bits 11..0 are the signals for vertices drawning
     SIGNAL draw_signal : STD_LOGIC_VECTOR(19 DOWNTO 0) := (OTHERS => '0');
+
+    SIGNAL point : vec2;
 BEGIN
+    point <= (coor_h, coor_v);
+
     -- Logic units for drawing the lines
     point_on_segment_i : FOR i IN 0 TO 3 GENERATE
         point_on_segment_i : point_on_segment
         PORT MAP(
             CLK => CLK,
-            point => (coor_h, coor_v),
+            point => point,
             v1 => cube_screen_vertices(i),
             v2 => cube_screen_vertices((i + 1) MOD 4),
 
@@ -50,7 +52,7 @@ BEGIN
         point_on_segment_j : point_on_segment
         PORT MAP(
             CLK => CLK,
-            point => (coor_h, coor_v),
+            point => point,
             v1 => cube_screen_vertices(i + 4),
             v2 => cube_screen_vertices(((i + 1) MOD 4) + 4),
 
@@ -60,7 +62,7 @@ BEGIN
         point_on_segment_k : point_on_segment
         PORT MAP(
             CLK => CLK,
-            point => (coor_h, coor_v),
+            point => point,
             v1 => cube_screen_vertices(i),
             v2 => cube_screen_vertices(i + 4),
 
@@ -69,11 +71,11 @@ BEGIN
     END GENERATE;
 
     -- Determine if the current pixel is the vertex of the cube
-    PROCESS (next_coor_h, next_coor_v, cube_screen_vertices)
+    PROCESS (COOR_H, COOR_V, cube_screen_vertices)
     BEGIN
         FOR i IN 0 TO 7 LOOP
-            IF (next_coor_h >= cube_screen_vertices(i)(0)) AND (next_coor_h <= (cube_screen_vertices(i)(0) + FRAME_THICKNESS)) AND
-                (next_coor_v >= cube_screen_vertices(i)(1)) AND (next_coor_v <= (cube_screen_vertices(i)(1) + FRAME_THICKNESS)) THEN
+            IF (COOR_H >= cube_screen_vertices(i)(0)) AND (COOR_H <= (cube_screen_vertices(i)(0) + FRAME_THICKNESS)) AND
+                (COOR_V >= cube_screen_vertices(i)(1)) AND (COOR_V <= (cube_screen_vertices(i)(1) + FRAME_THICKNESS)) THEN
                 draw_signal(i) <= '1';
             ELSE
                 draw_signal(i) <= '0';
