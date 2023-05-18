@@ -2,11 +2,11 @@
 # Vivado v2016.3 (64-bit)
 # SW Build 1682563 on Mon Oct 10 19:07:27 MDT 2016
 # IP Build 1681267 on Mon Oct 10 21:28:31 MDT 2016
-# Start of session at: Thu May 18 10:30:16 2023
-# Process ID: 16388
+# Start of session at: Thu May 18 12:43:52 2023
+# Process ID: 7528
 # Current directory: D:/Git/cuhk-ceng3430/Project/ceng3430_proj_renderer3d/ceng3430_proj_renderer3d.runs/synth_1
-# Command line: vivado.exe -log renderer3D.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source renderer3D.tcl
-# Log file: D:/Git/cuhk-ceng3430/Project/ceng3430_proj_renderer3d/ceng3430_proj_renderer3d.runs/synth_1/renderer3D.vds
+# Command line: vivado.exe -log cube_renderering_system_wrapper.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source cube_renderering_system_wrapper.tcl
+# Log file: D:/Git/cuhk-ceng3430/Project/ceng3430_proj_renderer3d/ceng3430_proj_renderer3d.runs/synth_1/cube_renderering_system_wrapper.vds
 # Journal file: D:/Git/cuhk-ceng3430/Project/ceng3430_proj_renderer3d/ceng3430_proj_renderer3d.runs/synth_1\vivado.jou
 #-----------------------------------------------------------
-source renderer3D.tcl -notrace
+source cube_renderering_system_wrapper.tcl -notrace

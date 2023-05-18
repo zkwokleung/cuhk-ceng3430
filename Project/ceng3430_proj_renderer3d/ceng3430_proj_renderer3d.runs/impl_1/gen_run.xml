@@ -1,68 +1,75 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="impl_1" LaunchPart="xc7z020clg484-1" LaunchTime="1684377013">
-  <File Type="PWROPT-DRC" Name="renderer3D_drc_pwropted.rpt"/>
-  <File Type="OPT-METHODOLOGY-DRC" Name="renderer3D_methodology_drc_opted.rpt"/>
-  <File Type="INIT-TIMING" Name="renderer3D_timing_summary_init.rpt"/>
-  <File Type="ROUTE-PWR-RPX" Name="renderer3D_power_routed.rpx"/>
-  <File Type="PA-TCL" Name="renderer3D.tcl"/>
-  <File Type="OPT-HWDEF" Name="renderer3D.hwdef"/>
-  <File Type="RDI-RDI" Name="renderer3D.vdi"/>
-  <File Type="OPT-DCP" Name="renderer3D_opt.dcp"/>
-  <File Type="OPT-DRC" Name="renderer3D_drc_opted.rpt"/>
-  <File Type="OPT-TIMING" Name="renderer3D_timing_summary_opted.rpt"/>
-  <File Type="PWROPT-DCP" Name="renderer3D_pwropt.dcp"/>
-  <File Type="PWROPT-TIMING" Name="renderer3D_timing_summary_pwropted.rpt"/>
-  <File Type="PLACE-DCP" Name="renderer3D_placed.dcp"/>
-  <File Type="PLACE-IO" Name="renderer3D_io_placed.rpt"/>
-  <File Type="PLACE-CLK" Name="renderer3D_clock_utilization_placed.rpt"/>
-  <File Type="PLACE-UTIL" Name="renderer3D_utilization_placed.rpt"/>
-  <File Type="PLACE-UTIL-PB" Name="renderer3D_utilization_placed.pb"/>
-  <File Type="PLACE-CTRL" Name="renderer3D_control_sets_placed.rpt"/>
-  <File Type="PLACE-SIMILARITY" Name="renderer3D_incremental_reuse_placed.rpt"/>
-  <File Type="PLACE-PRE-SIMILARITY" Name="renderer3D_incremental_reuse_pre_placed.rpt"/>
-  <File Type="PLACE-TIMING" Name="renderer3D_timing_summary_placed.rpt"/>
-  <File Type="POSTPLACE-PWROPT-DCP" Name="renderer3D_postplace_pwropt.dcp"/>
-  <File Type="POSTPLACE-PWROPT-TIMING" Name="renderer3D_timing_summary_postplace_pwropted.rpt"/>
-  <File Type="PHYSOPT-DCP" Name="renderer3D_physopt.dcp"/>
-  <File Type="PHYSOPT-DRC" Name="renderer3D_drc_physopted.rpt"/>
-  <File Type="PHYSOPT-TIMING" Name="renderer3D_timing_summary_physopted.rpt"/>
-  <File Type="ROUTE-ERROR-DCP" Name="renderer3D_routed_error.dcp"/>
-  <File Type="ROUTE-DCP" Name="renderer3D_routed.dcp"/>
-  <File Type="ROUTE-BLACKBOX-DCP" Name="renderer3D_routed_bb.dcp"/>
-  <File Type="ROUTE-DRC" Name="renderer3D_drc_routed.rpt"/>
-  <File Type="ROUTE-DRC-PB" Name="renderer3D_drc_routed.pb"/>
-  <File Type="BG-BIN" Name="renderer3D.bin"/>
-  <File Type="ROUTE-DRC-RPX" Name="renderer3D_drc_routed.rpx"/>
-  <File Type="BG-DRC" Name="renderer3D.drc"/>
-  <File Type="ROUTE-METHODOLOGY-DRC" Name="renderer3D_methodology_drc_routed.rpt"/>
-  <File Type="BITSTR-MSK" Name="renderer3D.msk"/>
-  <File Type="ROUTE-METHODOLOGY-DRC-RPX" Name="renderer3D_methodology_drc_routed.rpx"/>
-  <File Type="BG-BGN" Name="renderer3D.bgn"/>
-  <File Type="ROUTE-METHODOLOGY-DRC-PB" Name="renderer3D_methodology_drc_routed.pb"/>
-  <File Type="ROUTE-PWR" Name="renderer3D_power_routed.rpt"/>
-  <File Type="ROUTE-PWR-SUM" Name="renderer3D_power_summary_routed.pb"/>
-  <File Type="ROUTE-STATUS" Name="renderer3D_route_status.rpt"/>
-  <File Type="ROUTE-STATUS-PB" Name="renderer3D_route_status.pb"/>
-  <File Type="ROUTE-TIMINGSUMMARY" Name="renderer3D_timing_summary_routed.rpt"/>
-  <File Type="ROUTE-TIMING-PB" Name="renderer3D_timing_summary_routed.pb"/>
-  <File Type="ROUTE-TIMING-RPX" Name="renderer3D_timing_summary_routed.rpx"/>
-  <File Type="ROUTE-SIMILARITY" Name="renderer3D_incremental_reuse_routed.rpt"/>
-  <File Type="ROUTE-CLK" Name="renderer3D_clock_utilization_routed.rpt"/>
-  <File Type="POSTROUTE-PHYSOPT-DCP" Name="renderer3D_postroute_physopt.dcp"/>
-  <File Type="POSTROUTE-PHYSOPT-BLACKBOX-DCP" Name="renderer3D_postroute_physopt_bb.dcp"/>
-  <File Type="POSTROUTE-PHYSOPT-TIMING" Name="renderer3D_timing_summary_postroute_physopted.rpt"/>
-  <File Type="POSTROUTE-PHYSOPT-TIMING-PB" Name="renderer3D_timing_summary_postroute_physopted.pb"/>
-  <File Type="POSTROUTE-PHYSOPT-TIMING-RPX" Name="renderer3D_timing_summary_postroute_physopted.rpx"/>
-  <File Type="BG-BIT" Name="renderer3D.bit"/>
-  <File Type="BITSTR-RBT" Name="renderer3D.rbt"/>
-  <File Type="BITSTR-NKY" Name="renderer3D.nky"/>
-  <File Type="BITSTR-BMM" Name="renderer3D_bd.bmm"/>
-  <File Type="BITSTR-MMI" Name="renderer3D.mmi"/>
-  <File Type="BITSTR-SYSDEF" Name="renderer3D.sysdef"/>
+<GenRun Id="impl_1" LaunchPart="xc7z020clg484-1" LaunchTime="1684385030">
+  <File Type="PWROPT-DRC" Name="cube_renderering_system_wrapper_drc_pwropted.rpt"/>
+  <File Type="OPT-METHODOLOGY-DRC" Name="cube_renderering_system_wrapper_methodology_drc_opted.rpt"/>
+  <File Type="INIT-TIMING" Name="cube_renderering_system_wrapper_timing_summary_init.rpt"/>
+  <File Type="ROUTE-PWR-RPX" Name="cube_renderering_system_wrapper_power_routed.rpx"/>
+  <File Type="PA-TCL" Name="cube_renderering_system_wrapper.tcl"/>
+  <File Type="OPT-HWDEF" Name="cube_renderering_system_wrapper.hwdef"/>
+  <File Type="RDI-RDI" Name="cube_renderering_system_wrapper.vdi"/>
+  <File Type="OPT-DCP" Name="cube_renderering_system_wrapper_opt.dcp"/>
+  <File Type="OPT-DRC" Name="cube_renderering_system_wrapper_drc_opted.rpt"/>
+  <File Type="OPT-TIMING" Name="cube_renderering_system_wrapper_timing_summary_opted.rpt"/>
+  <File Type="PWROPT-DCP" Name="cube_renderering_system_wrapper_pwropt.dcp"/>
+  <File Type="PWROPT-TIMING" Name="cube_renderering_system_wrapper_timing_summary_pwropted.rpt"/>
+  <File Type="PLACE-DCP" Name="cube_renderering_system_wrapper_placed.dcp"/>
+  <File Type="PLACE-IO" Name="cube_renderering_system_wrapper_io_placed.rpt"/>
+  <File Type="PLACE-CLK" Name="cube_renderering_system_wrapper_clock_utilization_placed.rpt"/>
+  <File Type="PLACE-UTIL" Name="cube_renderering_system_wrapper_utilization_placed.rpt"/>
+  <File Type="PLACE-UTIL-PB" Name="cube_renderering_system_wrapper_utilization_placed.pb"/>
+  <File Type="PLACE-CTRL" Name="cube_renderering_system_wrapper_control_sets_placed.rpt"/>
+  <File Type="PLACE-SIMILARITY" Name="cube_renderering_system_wrapper_incremental_reuse_placed.rpt"/>
+  <File Type="PLACE-PRE-SIMILARITY" Name="cube_renderering_system_wrapper_incremental_reuse_pre_placed.rpt"/>
+  <File Type="PLACE-TIMING" Name="cube_renderering_system_wrapper_timing_summary_placed.rpt"/>
+  <File Type="POSTPLACE-PWROPT-DCP" Name="cube_renderering_system_wrapper_postplace_pwropt.dcp"/>
+  <File Type="POSTPLACE-PWROPT-TIMING" Name="cube_renderering_system_wrapper_timing_summary_postplace_pwropted.rpt"/>
+  <File Type="PHYSOPT-DCP" Name="cube_renderering_system_wrapper_physopt.dcp"/>
+  <File Type="PHYSOPT-DRC" Name="cube_renderering_system_wrapper_drc_physopted.rpt"/>
+  <File Type="PHYSOPT-TIMING" Name="cube_renderering_system_wrapper_timing_summary_physopted.rpt"/>
+  <File Type="ROUTE-ERROR-DCP" Name="cube_renderering_system_wrapper_routed_error.dcp"/>
+  <File Type="ROUTE-DCP" Name="cube_renderering_system_wrapper_routed.dcp"/>
+  <File Type="ROUTE-BLACKBOX-DCP" Name="cube_renderering_system_wrapper_routed_bb.dcp"/>
+  <File Type="ROUTE-DRC" Name="cube_renderering_system_wrapper_drc_routed.rpt"/>
+  <File Type="ROUTE-DRC-PB" Name="cube_renderering_system_wrapper_drc_routed.pb"/>
+  <File Type="BG-BIN" Name="cube_renderering_system_wrapper.bin"/>
+  <File Type="ROUTE-DRC-RPX" Name="cube_renderering_system_wrapper_drc_routed.rpx"/>
+  <File Type="BG-DRC" Name="cube_renderering_system_wrapper.drc"/>
+  <File Type="ROUTE-METHODOLOGY-DRC" Name="cube_renderering_system_wrapper_methodology_drc_routed.rpt"/>
+  <File Type="BITSTR-MSK" Name="cube_renderering_system_wrapper.msk"/>
+  <File Type="ROUTE-METHODOLOGY-DRC-RPX" Name="cube_renderering_system_wrapper_methodology_drc_routed.rpx"/>
+  <File Type="BG-BGN" Name="cube_renderering_system_wrapper.bgn"/>
+  <File Type="ROUTE-METHODOLOGY-DRC-PB" Name="cube_renderering_system_wrapper_methodology_drc_routed.pb"/>
+  <File Type="ROUTE-PWR" Name="cube_renderering_system_wrapper_power_routed.rpt"/>
+  <File Type="ROUTE-PWR-SUM" Name="cube_renderering_system_wrapper_power_summary_routed.pb"/>
+  <File Type="ROUTE-STATUS" Name="cube_renderering_system_wrapper_route_status.rpt"/>
+  <File Type="ROUTE-STATUS-PB" Name="cube_renderering_system_wrapper_route_status.pb"/>
+  <File Type="ROUTE-TIMINGSUMMARY" Name="cube_renderering_system_wrapper_timing_summary_routed.rpt"/>
+  <File Type="ROUTE-TIMING-PB" Name="cube_renderering_system_wrapper_timing_summary_routed.pb"/>
+  <File Type="ROUTE-TIMING-RPX" Name="cube_renderering_system_wrapper_timing_summary_routed.rpx"/>
+  <File Type="ROUTE-SIMILARITY" Name="cube_renderering_system_wrapper_incremental_reuse_routed.rpt"/>
+  <File Type="ROUTE-CLK" Name="cube_renderering_system_wrapper_clock_utilization_routed.rpt"/>
+  <File Type="POSTROUTE-PHYSOPT-DCP" Name="cube_renderering_system_wrapper_postroute_physopt.dcp"/>
+  <File Type="POSTROUTE-PHYSOPT-BLACKBOX-DCP" Name="cube_renderering_system_wrapper_postroute_physopt_bb.dcp"/>
+  <File Type="POSTROUTE-PHYSOPT-TIMING" Name="cube_renderering_system_wrapper_timing_summary_postroute_physopted.rpt"/>
+  <File Type="POSTROUTE-PHYSOPT-TIMING-PB" Name="cube_renderering_system_wrapper_timing_summary_postroute_physopted.pb"/>
+  <File Type="POSTROUTE-PHYSOPT-TIMING-RPX" Name="cube_renderering_system_wrapper_timing_summary_postroute_physopted.rpx"/>
+  <File Type="BG-BIT" Name="cube_renderering_system_wrapper.bit"/>
+  <File Type="BITSTR-RBT" Name="cube_renderering_system_wrapper.rbt"/>
+  <File Type="BITSTR-NKY" Name="cube_renderering_system_wrapper.nky"/>
+  <File Type="BITSTR-BMM" Name="cube_renderering_system_wrapper_bd.bmm"/>
+  <File Type="BITSTR-MMI" Name="cube_renderering_system_wrapper.mmi"/>
+  <File Type="BITSTR-SYSDEF" Name="cube_renderering_system_wrapper.sysdef"/>
   <File Type="WBT-USG" Name="usage_statistics_webtalk.html"/>
   <FileSet Name="sources" Type="DesignSrcs" RelSrcDir="$PSRCDIR/sources_1">
     <Filter Type="Srcs"/>
-    <File Path="$PPRDIR/../srcs/utils/clock_divider.vhd">
+    <File Path="$PSRCDIR/sources_1/bd/cube_renderering_system/cube_renderering_system.bd">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/bd/cube_renderering_system/hdl/cube_renderering_system_wrapper.vhd">
       <FileInfo>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="simulation"/>
@@ -70,31 +77,17 @@
     </File>
     <File Path="$PPRDIR/../srcs/pkg/generic_type_pkg.vhd">
       <FileInfo>
+        <Attr Name="AutoDisabled" Val="1"/>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
-    <File Path="$PPRDIR/../srcs/vga/vga_controller.vhd">
-      <FileInfo>
-        <Attr Name="UsedIn" Val="synthesis"/>
-        <Attr Name="UsedIn" Val="simulation"/>
-      </FileInfo>
-    </File>
-    <File Path="$PPRDIR/../srcs/graphics/point_on_segment.vhd">
-      <FileInfo>
-        <Attr Name="UsedIn" Val="synthesis"/>
-        <Attr Name="UsedIn" Val="simulation"/>
-      </FileInfo>
-    </File>
-    <File Path="$PPRDIR/../srcs/renderer3D.vhd">
-      <FileInfo>
-        <Attr Name="UsedIn" Val="synthesis"/>
-        <Attr Name="UsedIn" Val="simulation"/>
-      </FileInfo>
+    <File Path="$PPRDIR/../component.xml">
+      <FileInfo SFType="IPXACT"/>
     </File>
     <Config>
       <Option Name="DesignMode" Val="RTL"/>
-      <Option Name="TopModule" Val="renderer3D"/>
+      <Option Name="TopModule" Val="cube_renderering_system_wrapper"/>
       <Option Name="TopAutoSet" Val="TRUE"/>
     </Config>
   </FileSet>
@@ -122,4 +115,5 @@
     <Step Id="post_route_phys_opt_design"/>
     <Step Id="write_bitstream"/>
   </Strategy>
+  <BlockFileSet Type="BlockSrcs" Name="cube_renderering_system_cube_renderer_controller_0_0"/>
 </GenRun>

@@ -1,0 +1,1 @@
+--relax --debug typical --mt auto -L xil_defaultlib -L lib_cdc_v1_0_2 -L proc_sys_reset_v5_0_10 -L secureip -L xpm --snapshot cube_renderering_system xil_defaultlib.cube_renderering_system -log elaborate.log

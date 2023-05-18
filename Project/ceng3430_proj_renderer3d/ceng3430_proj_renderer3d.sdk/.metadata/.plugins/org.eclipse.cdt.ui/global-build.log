@@ -1,12 +1,112 @@
-19:36:07 **** Incremental Build of configuration Debug for project obj_renderer_3d ****
+16:18:01 **** Incremental Build of configuration Debug for project cube_renderer_v2 ****
 make pre-build main-build 
 a9-linaro-pre-build-step
 ' '
 make: Nothing to be done for `main-build'.
 
-19:36:08 Build Finished (took 330ms)
+16:18:01 Build Finished (took 612ms)
 
-19:36:08 **** Incremental Build of configuration Release for project obj_renderer_3d ****
+16:18:01 **** Incremental Build of configuration Release for project cube_renderer_v2 ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/include/cube_renderer_controller_interface.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O2 -c -fmessage-length=0 -MT"src/include/cube_renderer_controller_interface.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../cube_renderer_v2_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/include/cube_renderer_controller_interface.d" -MT"src/include/cube_renderer_controller_interface.o" -o "src/include/cube_renderer_controller_interface.o" "../src/include/cube_renderer_controller_interface.c"
+In file included from ../src/include/cube_renderer_controller_interface.h:10:0,
+                 from ../src/include/cube_renderer_controller_interface.c:1:
+../src/include/cube_renderer_controller_interface.c: In function 'write_vertices':
+../src/include/cube_renderer_controller_interface.c:20:105: warning: implicit declaration of function 'round' [-Wimplicit-function-declaration]
+     CUBE_RENDERER_CONTROLLER_mWriteReg(BASEADDR, CUBE_RENDERER_CONTROLLER_S00_AXI_SLV_REG0_OFFSET, (u32)round(v[0][0]));
+                                                                                                         ^
+../../cube_renderer_v2_bsp/ps7_cortexa9_0/include/cube_renderer_controller.h:95:49: note: in definition of macro 'CUBE_RENDERER_CONTROLLER_mWriteReg'
+    Xil_Out32((BaseAddress) + (RegOffset), (u32)(Data))
+                                                 ^
+../src/include/cube_renderer_controller_interface.c:20:105: warning: incompatible implicit declaration of built-in function 'round'
+     CUBE_RENDERER_CONTROLLER_mWriteReg(BASEADDR, CUBE_RENDERER_CONTROLLER_S00_AXI_SLV_REG0_OFFSET, (u32)round(v[0][0]));
+                                                                                                         ^
+../../cube_renderer_v2_bsp/ps7_cortexa9_0/include/cube_renderer_controller.h:95:49: note: in definition of macro 'CUBE_RENDERER_CONTROLLER_mWriteReg'
+    Xil_Out32((BaseAddress) + (RegOffset), (u32)(Data))
+                                                 ^
+../src/include/cube_renderer_controller_interface.c:20:105: note: include '<math.h>' or provide a declaration of 'round'
+     CUBE_RENDERER_CONTROLLER_mWriteReg(BASEADDR, CUBE_RENDERER_CONTROLLER_S00_AXI_SLV_REG0_OFFSET, (u32)round(v[0][0]));
+                                                                                                         ^
+../../cube_renderer_v2_bsp/ps7_cortexa9_0/include/cube_renderer_controller.h:95:49: note: in definition of macro 'CUBE_RENDERER_CONTROLLER_mWriteReg'
+    Xil_Out32((BaseAddress) + (RegOffset), (u32)(Data))
+                                                 ^
+'Finished building: ../src/include/cube_renderer_controller_interface.c'
+' '
+'Building file: ../src/include/math3d.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O2 -c -fmessage-length=0 -MT"src/include/math3d.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../cube_renderer_v2_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/include/math3d.d" -MT"src/include/math3d.o" -o "src/include/math3d.o" "../src/include/math3d.c"
+'Finished building: ../src/include/math3d.c'
+' '
+'Building file: ../src/main.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O2 -c -fmessage-length=0 -MT"src/main.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../cube_renderer_v2_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.c"
+../src/main.c: In function 'main':
+../src/main.c:26:9: warning: variable 'btnd_in_prev' set but not used [-Wunused-but-set-variable]
+     u32 btnd_in_prev = 0;
+         ^
+../src/main.c:25:9: warning: variable 'btnu_in_prev' set but not used [-Wunused-but-set-variable]
+     u32 btnu_in_prev = 0;
+         ^
+../src/main.c:24:9: warning: variable 'btnr_in_prev' set but not used [-Wunused-but-set-variable]
+     u32 btnr_in_prev = 0;
+         ^
+../src/main.c:23:9: warning: variable 'btnl_in_prev' set but not used [-Wunused-but-set-variable]
+     u32 btnl_in_prev = 0;
+         ^
+../src/main.c:22:9: warning: variable 'btnc_in_prev' set but not used [-Wunused-but-set-variable]
+     u32 btnc_in_prev = 0;
+         ^
+'Finished building: ../src/main.c'
+' '
+'Building file: ../src/platform.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O2 -c -fmessage-length=0 -MT"src/platform.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../cube_renderer_v2_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/platform.d" -MT"src/platform.o" -o "src/platform.o" "../src/platform.c"
+'Finished building: ../src/platform.c'
+' '
+'Building target: cube_renderer_v2.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../cube_renderer_v2_bsp/ps7_cortexa9_0/lib -o "cube_renderer_v2.elf"  ./src/include/cube_renderer_controller_interface.o ./src/include/math3d.o  ./src/main.o ./src/platform.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+./src/include/cube_renderer_controller_interface.o: In function `write_vertices':
+cube_renderer_controller_interface.c:(.text+0x50): undefined reference to `round'
+cube_renderer_controller_interface.c:(.text+0x64): undefined reference to `round'
+cube_renderer_controller_interface.c:(.text+0x78): undefined reference to `round'
+cube_renderer_controller_interface.c:(.text+0x8c): undefined reference to `round'
+cube_renderer_controller_interface.c:(.text+0xa0): undefined reference to `round'
+./src/include/cube_renderer_controller_interface.o:cube_renderer_controller_interface.c:(.text+0xb4): more undefined references to `round' follow
+./src/include/math3d.o: In function `vec2_norm':
+math3d.c:(.text+0x3b8): undefined reference to `sqrt'
+./src/include/math3d.o: In function `vec3_norm':
+math3d.c:(.text+0x43c): undefined reference to `sqrt'
+./src/include/math3d.o: In function `vec4_norm':
+math3d.c:(.text+0x4d4): undefined reference to `sqrt'
+./src/include/math3d.o: In function `vec2_mag':
+math3d.c:(.text+0x60c): undefined reference to `sqrt'
+./src/include/math3d.o: In function `vec3_mag':
+math3d.c:(.text+0x654): undefined reference to `sqrt'
+./src/include/math3d.o:math3d.c:(.text+0x6a4): more undefined references to `sqrt' follow
+./src/include/math3d.o: In function `perspective':
+math3d.c:(.text+0x1b44): undefined reference to `tan'
+./src/include/math3d.o: In function `get_rotation_x_mat4':
+math3d.c:(.text+0x1f40): undefined reference to `cos'
+math3d.c:(.text+0x1f50): undefined reference to `sin'
+./src/include/math3d.o: In function `get_rotation_y_mat4':
+math3d.c:(.text+0x1fb0): undefined reference to `cos'
+math3d.c:(.text+0x1fc4): undefined reference to `sin'
+./src/include/math3d.o: In function `get_rotation_z_mat4':
+math3d.c:(.text+0x2030): undefined reference to `cos'
+math3d.c:(.text+0x2040): undefined reference to `sin'
+collect2.exe: error: ld returned 1 exit status
+make: *** [cube_renderer_v2.elf] Error 1
+16:18:06 **** Auto Build of configuration Debug for project cube_renderer_v2 ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+make: Nothing to be done for `main-build'.
+16:18:36 **** Incremental Build of configuration Debug for project cube_renderer_v2 ****
 make pre-build main-build 
 a9-linaro-pre-build-step
 ' '

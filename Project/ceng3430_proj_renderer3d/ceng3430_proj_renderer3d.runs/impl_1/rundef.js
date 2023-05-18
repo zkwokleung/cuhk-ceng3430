@@ -25,7 +25,7 @@ eval( EAInclude(ISEJScriptLib) );
 // pre-commands:
 ISETouchFile( "init_design", "begin" );
 ISEStep( "vivado",
-         "-log renderer3D.vdi -applog -m64 -product Vivado -messageDb vivado.pb -mode batch -source renderer3D.tcl -notrace" );
+         "-log cube_renderering_system_wrapper.vdi -applog -m64 -product Vivado -messageDb vivado.pb -mode batch -source cube_renderering_system_wrapper.tcl -notrace" );
 
 
 

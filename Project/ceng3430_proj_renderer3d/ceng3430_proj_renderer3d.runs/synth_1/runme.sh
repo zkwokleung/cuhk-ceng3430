@@ -40,4 +40,4 @@ EAStep()
      fi
 }
 
-EAStep vivado -log renderer3D.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source renderer3D.tcl
+EAStep vivado -log cube_renderering_system_wrapper.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source cube_renderering_system_wrapper.tcl
