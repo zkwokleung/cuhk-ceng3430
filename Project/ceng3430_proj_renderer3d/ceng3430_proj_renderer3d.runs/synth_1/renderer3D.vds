@@ -10,3 +10,9 @@
 # Journal file: D:/Git/cuhk-ceng3430/Project/ceng3430_proj_renderer3d/ceng3430_proj_renderer3d.runs/synth_1\vivado.jou
 #-----------------------------------------------------------
 source renderer3D.tcl -notrace
+Command: synth_design -top renderer3D -part xc7z020clg484-1
+Starting synth_design
+Attempting to get a license for feature 'Synthesis' and/or device 'xc7z020'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7z020'
+INFO: Launching helper process for spawning children vivado processes
+INFO: Helper process launched with PID 1192 

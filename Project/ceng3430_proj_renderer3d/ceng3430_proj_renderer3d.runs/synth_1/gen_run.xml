@@ -1,23 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="synth_1" LaunchPart="xc7z020clg484-1" LaunchTime="1684322639">
-  <File Type="RDS-PROPCONSTRS" Name="design_1_wrapper_drc_synth.rpt"/>
-  <File Type="PA-TCL" Name="design_1_wrapper.tcl"/>
-  <File Type="RDS-RDS" Name="design_1_wrapper.vds"/>
-  <File Type="RDS-UTIL" Name="design_1_wrapper_utilization_synth.rpt"/>
-  <File Type="RDS-UTIL-PB" Name="design_1_wrapper_utilization_synth.pb"/>
-  <File Type="RDS-DCP" Name="design_1_wrapper.dcp"/>
-  <File Type="VDS-TIMINGSUMMARY" Name="design_1_wrapper_timing_summary_synth.rpt"/>
-  <File Type="VDS-TIMING-PB" Name="design_1_wrapper_timing_summary_synth.pb"/>
+<GenRun Id="synth_1" LaunchPart="xc7z020clg484-1" LaunchTime="1684375593">
+  <File Type="RDS-PROPCONSTRS" Name="renderer3D_drc_synth.rpt"/>
+  <File Type="PA-TCL" Name="renderer3D.tcl"/>
+  <File Type="RDS-RDS" Name="renderer3D.vds"/>
+  <File Type="RDS-UTIL" Name="renderer3D_utilization_synth.rpt"/>
+  <File Type="RDS-UTIL-PB" Name="renderer3D_utilization_synth.pb"/>
+  <File Type="RDS-DCP" Name="renderer3D.dcp"/>
+  <File Type="VDS-TIMINGSUMMARY" Name="renderer3D_timing_summary_synth.rpt"/>
+  <File Type="VDS-TIMING-PB" Name="renderer3D_timing_summary_synth.pb"/>
   <FileSet Name="sources" Type="DesignSrcs" RelSrcDir="$PSRCDIR/sources_1">
     <Filter Type="Srcs"/>
-    <File Path="$PSRCDIR/sources_1/bd/design_1/design_1.bd">
+    <File Path="$PPRDIR/../srcs/utils/clock_divider.vhd">
       <FileInfo>
         <Attr Name="UsedIn" Val="synthesis"/>
-        <Attr Name="UsedIn" Val="implementation"/>
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
-    <File Path="$PSRCDIR/sources_1/bd/design_1/hdl/design_1_wrapper.vhd">
+    <File Path="$PPRDIR/../srcs/vga/vga_controller.vhd">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PPRDIR/../srcs/graphics/point_on_segment.vhd">
       <FileInfo>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="simulation"/>
@@ -25,21 +30,20 @@
     </File>
     <File Path="$PPRDIR/../srcs/renderer3D.vhd">
       <FileInfo>
-        <Attr Name="UserDisabled" Val="1"/>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
-    <File Path="$PPRDIR/../srcs/vga/vga_controller.vhd">
+    <File Path="$PPRDIR/../srcs/pkg/generic_type_pkg.vhd">
       <FileInfo>
-        <Attr Name="UserDisabled" Val="1"/>
+        <Attr Name="AutoDisabled" Val="1"/>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
     <Config>
       <Option Name="DesignMode" Val="RTL"/>
-      <Option Name="TopModule" Val="design_1_wrapper"/>
+      <Option Name="TopModule" Val="renderer3D"/>
       <Option Name="TopAutoSet" Val="TRUE"/>
     </Config>
   </FileSet>
@@ -59,5 +63,4 @@
     <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2016"/>
     <Step Id="synth_design"/>
   </Strategy>
-  <BlockFileSet Type="BlockSrcs" Name="design_1_processing_system7_0_0"/>
 </GenRun>

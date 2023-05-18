@@ -4,7 +4,6 @@ USE IEEE.Numeric_Std.ALL;
 
 ENTITY point_on_segment IS
     PORT (
-        RESET : IN STD_LOGIC;
         CLK : IN STD_LOGIC;
         x, y : IN INTEGER;
         v1_x, v1_y, v2_x, v2_y : IN INTEGER;
@@ -14,7 +13,6 @@ ENTITY point_on_segment IS
 END point_on_segment;
 
 ARCHITECTURE point_on_segment_arch OF point_on_segment IS
-
 BEGIN
     PROCESS (RESET, CLK)
         VARIABLE dx1, dy1, dx2, dy2, cross, dot : INTEGER;

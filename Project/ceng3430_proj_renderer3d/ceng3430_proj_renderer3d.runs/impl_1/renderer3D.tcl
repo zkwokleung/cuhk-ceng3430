@@ -58,14 +58,10 @@ set rc [catch {
   set_property ip_repo_paths D:/Git/cuhk-ceng3430/Project/ip_repo/object_renderer_controller_1.0 [current_project]
   set_property ip_output_repo D:/Git/cuhk-ceng3430/Project/ceng3430_proj_renderer3d/ceng3430_proj_renderer3d.cache/ip [current_project]
   set_property ip_cache_permissions {read write} [current_project]
-  add_files -quiet D:/Git/cuhk-ceng3430/Project/ceng3430_proj_renderer3d/ceng3430_proj_renderer3d.runs/synth_1/design_1_wrapper.dcp
-  add_files -quiet d:/Git/cuhk-ceng3430/Project/ceng3430_proj_renderer3d/ceng3430_proj_renderer3d.srcs/sources_1/bd/design_1/ip/design_1_processing_system7_0_0/design_1_processing_system7_0_0.dcp
-  set_property netlist_only true [get_files d:/Git/cuhk-ceng3430/Project/ceng3430_proj_renderer3d/ceng3430_proj_renderer3d.srcs/sources_1/bd/design_1/ip/design_1_processing_system7_0_0/design_1_processing_system7_0_0.dcp]
-  read_xdc -ref design_1_processing_system7_0_0 -cells inst d:/Git/cuhk-ceng3430/Project/ceng3430_proj_renderer3d/ceng3430_proj_renderer3d.srcs/sources_1/bd/design_1/ip/design_1_processing_system7_0_0/design_1_processing_system7_0_0.xdc
-  set_property processing_order EARLY [get_files d:/Git/cuhk-ceng3430/Project/ceng3430_proj_renderer3d/ceng3430_proj_renderer3d.srcs/sources_1/bd/design_1/ip/design_1_processing_system7_0_0/design_1_processing_system7_0_0.xdc]
+  add_files -quiet D:/Git/cuhk-ceng3430/Project/ceng3430_proj_renderer3d/ceng3430_proj_renderer3d.runs/synth_1/renderer3D.dcp
   read_xdc D:/Git/cuhk-ceng3430/Project/constrs/board.xdc
-  link_design -top design_1_wrapper -part xc7z020clg484-1
-  write_hwdef -file design_1_wrapper.hwdef
+  link_design -top renderer3D -part xc7z020clg484-1
+  write_hwdef -file renderer3D.hwdef
   close_msg_db -file init_design.pb
 } RESULT]
 if {$rc} {
@@ -81,8 +77,8 @@ set ACTIVE_STEP opt_design
 set rc [catch {
   create_msg_db opt_design.pb
   opt_design 
-  write_checkpoint -force design_1_wrapper_opt.dcp
-  report_drc -file design_1_wrapper_drc_opted.rpt
+  write_checkpoint -force renderer3D_opt.dcp
+  report_drc -file renderer3D_drc_opted.rpt
   close_msg_db -file opt_design.pb
 } RESULT]
 if {$rc} {
@@ -99,10 +95,10 @@ set rc [catch {
   create_msg_db place_design.pb
   implement_debug_core 
   place_design 
-  write_checkpoint -force design_1_wrapper_placed.dcp
-  report_io -file design_1_wrapper_io_placed.rpt
-  report_utilization -file design_1_wrapper_utilization_placed.rpt -pb design_1_wrapper_utilization_placed.pb
-  report_control_sets -verbose -file design_1_wrapper_control_sets_placed.rpt
+  write_checkpoint -force renderer3D_placed.dcp
+  report_io -file renderer3D_io_placed.rpt
+  report_utilization -file renderer3D_utilization_placed.rpt -pb renderer3D_utilization_placed.pb
+  report_control_sets -verbose -file renderer3D_control_sets_placed.rpt
   close_msg_db -file place_design.pb
 } RESULT]
 if {$rc} {
@@ -118,17 +114,17 @@ set ACTIVE_STEP route_design
 set rc [catch {
   create_msg_db route_design.pb
   route_design 
-  write_checkpoint -force design_1_wrapper_routed.dcp
-  report_drc -file design_1_wrapper_drc_routed.rpt -pb design_1_wrapper_drc_routed.pb -rpx design_1_wrapper_drc_routed.rpx
-  report_methodology -file design_1_wrapper_methodology_drc_routed.rpt -rpx design_1_wrapper_methodology_drc_routed.rpx
-  report_timing_summary -warn_on_violation -max_paths 10 -file design_1_wrapper_timing_summary_routed.rpt -rpx design_1_wrapper_timing_summary_routed.rpx
-  report_power -file design_1_wrapper_power_routed.rpt -pb design_1_wrapper_power_summary_routed.pb -rpx design_1_wrapper_power_routed.rpx
-  report_route_status -file design_1_wrapper_route_status.rpt -pb design_1_wrapper_route_status.pb
-  report_clock_utilization -file design_1_wrapper_clock_utilization_routed.rpt
+  write_checkpoint -force renderer3D_routed.dcp
+  report_drc -file renderer3D_drc_routed.rpt -pb renderer3D_drc_routed.pb -rpx renderer3D_drc_routed.rpx
+  report_methodology -file renderer3D_methodology_drc_routed.rpt -rpx renderer3D_methodology_drc_routed.rpx
+  report_timing_summary -warn_on_violation -max_paths 10 -file renderer3D_timing_summary_routed.rpt -rpx renderer3D_timing_summary_routed.rpx
+  report_power -file renderer3D_power_routed.rpt -pb renderer3D_power_summary_routed.pb -rpx renderer3D_power_routed.rpx
+  report_route_status -file renderer3D_route_status.rpt -pb renderer3D_route_status.pb
+  report_clock_utilization -file renderer3D_clock_utilization_routed.rpt
   close_msg_db -file route_design.pb
 } RESULT]
 if {$rc} {
-  write_checkpoint -force design_1_wrapper_routed_error.dcp
+  write_checkpoint -force renderer3D_routed_error.dcp
   step_failed route_design
   return -code error $RESULT
 } else {
@@ -140,9 +136,9 @@ start_step write_bitstream
 set ACTIVE_STEP write_bitstream
 set rc [catch {
   create_msg_db write_bitstream.pb
-  catch { write_mem_info -force design_1_wrapper.mmi }
-  write_bitstream -force -no_partial_bitfile design_1_wrapper.bit 
-  catch { write_sysdef -hwdef design_1_wrapper.hwdef -bitfile design_1_wrapper.bit -meminfo design_1_wrapper.mmi -file design_1_wrapper.sysdef }
+  catch { write_mem_info -force renderer3D.mmi }
+  write_bitstream -force -no_partial_bitfile renderer3D.bit 
+  catch { write_sysdef -hwdef renderer3D.hwdef -bitfile renderer3D.bit -meminfo renderer3D.mmi -file renderer3D.sysdef }
   catch {write_debug_probes -quiet -force debug_nets}
   close_msg_db -file write_bitstream.pb
 } RESULT]
