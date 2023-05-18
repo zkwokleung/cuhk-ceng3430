@@ -818,3 +818,1763 @@ con
 ----------------End of Script----------------
 
 19:56:36 INFO  : Launch script is exported to file 'D:\Git\cuhk-ceng3430\Project\PS_only\PS_only.sdk\.sdk\launch_scripts\xilinx_c-c++_application_(system_debugger)\system_debugger_using_release_ps_only.elf_on_local.tcl'
+05:15:03 INFO  : Registering command handlers for SDK TCF services
+05:15:04 INFO  : Launching XSCT server: xsct.bat -interactive D:\Git\cuhk-ceng3430\Project\PS_only\PS_only.sdk\temp_xsdb_launch_script.tcl
+05:15:17 INFO  : XSCT server has started successfully.
+05:15:17 INFO  : Successfully done setting XSCT server connection channel  
+05:15:22 INFO  : Successfully done setting SDK workspace  
+05:15:22 INFO  : Processing command line option -hwspec D:/Git/cuhk-ceng3430/Project/PS_only/PS_only.sdk/design_1_wrapper.hdf.
+05:15:22 INFO  : Checking for hwspec changes in the project design_1_wrapper_hw_platform_0.
+05:15:25 INFO  : SDK has detected change in the last modified timestamps for source hardware specification file Source:1684350448496,  Project:1684323690433
+05:15:25 INFO  : The hardware specification for project 'design_1_wrapper_hw_platform_0' is different from D:/Git/cuhk-ceng3430/Project/PS_only/PS_only.sdk/design_1_wrapper.hdf.
+05:15:37 INFO  : Copied contents of D:/Git/cuhk-ceng3430/Project/PS_only/PS_only.sdk/design_1_wrapper.hdf into \design_1_wrapper_hw_platform_0\system.hdf.
+05:15:42 INFO  : Synchronizing projects in the workspace with the hardware platform specification changes.
+05:16:09 INFO  : 
+05:16:12 INFO  : 
+05:16:12 INFO  : Updating hardware inferred compiler options for obj_render.
+05:16:13 INFO  : Updating hardware inferred compiler options for ps_only.
+05:16:13 INFO  : Clearing existing target manager status.
+06:16:22 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Zed 210248565423" && level==0} -index 1' command is executed.
+06:16:22 INFO  : 'fpga -state' command is executed.
+06:16:22 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+06:16:22 INFO  : Jtag cable 'Digilent Zed 210248565423' is selected.
+06:16:22 INFO  : 'jtag frequency' command is executed.
+06:16:22 INFO  : Sourcing of 'D:/Git/cuhk-ceng3430/Project/PS_only/PS_only.sdk/design_1_wrapper_hw_platform_0/ps7_init.tcl' is done.
+06:16:22 INFO  : Context for 'APU' is selected.
+06:16:22 INFO  : Hardware design information is loaded from 'D:/Git/cuhk-ceng3430/Project/PS_only/PS_only.sdk/design_1_wrapper_hw_platform_0/system.hdf'.
+06:16:22 INFO  : Context for 'APU' is selected.
+06:16:22 INFO  : 'stop' command is executed.
+06:16:23 INFO  : 'ps7_init' command is executed.
+06:16:23 INFO  : 'ps7_post_config' command is executed.
+06:16:23 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+06:16:23 INFO  : Processor reset is completed for 'ps7_cortexa9_0'.
+06:16:23 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+06:16:23 INFO  : The application 'D:/Git/cuhk-ceng3430/Project/PS_only/PS_only.sdk/obj_render/Debug/obj_render.elf' is downloaded to processor 'ps7_cortexa9_0'.
+06:16:23 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+source D:/Git/cuhk-ceng3430/Project/PS_only/PS_only.sdk/design_1_wrapper_hw_platform_0/ps7_init.tcl
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Zed 210248565423"} -index 0
+loadhw D:/Git/cuhk-ceng3430/Project/PS_only/PS_only.sdk/design_1_wrapper_hw_platform_0/system.hdf
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Zed 210248565423"} -index 0
+stop
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zed 210248565423"} -index 0
+rst -processor
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zed 210248565423"} -index 0
+dow D:/Git/cuhk-ceng3430/Project/PS_only/PS_only.sdk/obj_render/Debug/obj_render.elf
+----------------End of Script----------------
+
+06:16:23 INFO  : Memory regions updated for context APU
+06:16:23 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+06:16:23 INFO  : 'con' command is executed.
+06:16:23 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zed 210248565423"} -index 0
+con
+----------------End of Script----------------
+
+06:16:23 INFO  : Launch script is exported to file 'D:\Git\cuhk-ceng3430\Project\PS_only\PS_only.sdk\.sdk\launch_scripts\xilinx_c-c++_application_(system_debugger)\system_debugger_using_debug_obj_render.elf_on_local.tcl'
+06:18:13 INFO  : Disconnected from the channel tcfchan#1.
+06:18:15 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Zed 210248565423" && level==0} -index 1' command is executed.
+06:18:15 INFO  : 'fpga -state' command is executed.
+06:18:15 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+06:18:15 INFO  : Jtag cable 'Digilent Zed 210248565423' is selected.
+06:18:15 INFO  : 'jtag frequency' command is executed.
+06:18:15 INFO  : Sourcing of 'D:/Git/cuhk-ceng3430/Project/PS_only/PS_only.sdk/design_1_wrapper_hw_platform_0/ps7_init.tcl' is done.
+06:18:15 INFO  : Context for 'APU' is selected.
+06:18:17 INFO  : Hardware design information is loaded from 'D:/Git/cuhk-ceng3430/Project/PS_only/PS_only.sdk/design_1_wrapper_hw_platform_0/system.hdf'.
+06:18:17 INFO  : Context for 'APU' is selected.
+06:18:17 INFO  : 'stop' command is executed.
+06:18:17 INFO  : 'ps7_init' command is executed.
+06:18:17 INFO  : 'ps7_post_config' command is executed.
+06:18:17 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+06:18:17 INFO  : Processor reset is completed for 'ps7_cortexa9_0'.
+06:18:17 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+06:18:17 INFO  : The application 'D:/Git/cuhk-ceng3430/Project/PS_only/PS_only.sdk/obj_render/Debug/obj_render.elf' is downloaded to processor 'ps7_cortexa9_0'.
+06:18:17 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+source D:/Git/cuhk-ceng3430/Project/PS_only/PS_only.sdk/design_1_wrapper_hw_platform_0/ps7_init.tcl
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Zed 210248565423"} -index 0
+loadhw D:/Git/cuhk-ceng3430/Project/PS_only/PS_only.sdk/design_1_wrapper_hw_platform_0/system.hdf
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Zed 210248565423"} -index 0
+stop
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zed 210248565423"} -index 0
+rst -processor
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zed 210248565423"} -index 0
+dow D:/Git/cuhk-ceng3430/Project/PS_only/PS_only.sdk/obj_render/Debug/obj_render.elf
+----------------End of Script----------------
+
+06:18:17 INFO  : Memory regions updated for context APU
+06:18:17 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+06:18:17 INFO  : 'con' command is executed.
+06:18:17 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zed 210248565423"} -index 0
+con
+----------------End of Script----------------
+
+06:18:17 INFO  : Launch script is exported to file 'D:\Git\cuhk-ceng3430\Project\PS_only\PS_only.sdk\.sdk\launch_scripts\xilinx_c-c++_application_(system_debugger)\system_debugger_using_debug_obj_render.elf_on_local.tcl'
+06:33:34 ERROR : Unexpected error while fetching XMD's response: 
+java.net.SocketException: Unrecognized Windows Sockets error: 0: recv failed
+	at java.net.SocketInputStream.socketRead0(Native Method)
+	at java.net.SocketInputStream.socketRead(SocketInputStream.java:116)
+	at java.net.SocketInputStream.read(SocketInputStream.java:170)
+	at java.net.SocketInputStream.read(SocketInputStream.java:141)
+	at sun.nio.cs.StreamDecoder.readBytes(StreamDecoder.java:284)
+	at sun.nio.cs.StreamDecoder.implRead(StreamDecoder.java:326)
+	at sun.nio.cs.StreamDecoder.read(StreamDecoder.java:178)
+	at java.io.InputStreamReader.read(InputStreamReader.java:184)
+	at java.io.BufferedReader.fill(BufferedReader.java:161)
+	at java.io.BufferedReader.read(BufferedReader.java:182)
+	at com.xilinx.sdk.targetmanager.internal.json.XMDJSONProcess$CommandResultsReader.run(XMDJSONProcess.java:332)
+	at java.lang.Thread.run(Thread.java:745)
+06:33:34 ERROR : Zero sized response read from XMD. This indicates a communication error or a programming error.
+06:48:15 INFO  : Registering command handlers for SDK TCF services
+06:48:16 INFO  : Launching XSCT server: xsct.bat -interactive D:\Git\cuhk-ceng3430\Project\PS_only\PS_only.sdk\temp_xsdb_launch_script.tcl
+06:48:26 INFO  : XSCT server has started successfully.
+06:48:30 INFO  : Successfully done setting XSCT server connection channel  
+06:48:30 INFO  : Successfully done setting SDK workspace  
+06:48:30 INFO  : Processing command line option -hwspec D:/Git/cuhk-ceng3430/Project/PS_only/PS_only.sdk/design_1_wrapper.hdf.
+06:48:30 INFO  : Checking for hwspec changes in the project design_1_wrapper_hw_platform_0.
+06:55:27 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Zed 210248565423" && level==0} -index 1' command is executed.
+06:55:27 INFO  : 'fpga -state' command is executed.
+06:55:29 INFO  : Memory regions updated for context APU
+06:56:04 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Zed 210248565423" && level==0} -index 1' command is executed.
+06:56:04 INFO  : 'fpga -state' command is executed.
+06:56:19 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+06:56:19 INFO  : Jtag cable 'Digilent Zed 210248565423' is selected.
+06:56:19 INFO  : 'jtag frequency' command is executed.
+06:56:19 INFO  : Sourcing of 'D:/Git/cuhk-ceng3430/Project/PS_only/PS_only.sdk/design_1_wrapper_hw_platform_0/ps7_init.tcl' is done.
+06:56:19 INFO  : Context for 'APU' is selected.
+06:56:19 INFO  : Hardware design information is loaded from 'D:/Git/cuhk-ceng3430/Project/PS_only/PS_only.sdk/design_1_wrapper_hw_platform_0/system.hdf'.
+06:56:19 INFO  : Context for 'APU' is selected.
+06:56:19 INFO  : 'stop' command is executed.
+06:56:20 INFO  : 'ps7_init' command is executed.
+06:56:20 INFO  : 'ps7_post_config' command is executed.
+06:56:20 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+06:56:20 INFO  : Processor reset is completed for 'ps7_cortexa9_0'.
+06:56:20 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+06:56:20 INFO  : The application 'D:/Git/cuhk-ceng3430/Project/PS_only/PS_only.sdk/renderer3d/Debug/renderer3d.elf' is downloaded to processor 'ps7_cortexa9_0'.
+06:56:20 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+source D:/Git/cuhk-ceng3430/Project/PS_only/PS_only.sdk/design_1_wrapper_hw_platform_0/ps7_init.tcl
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Zed 210248565423"} -index 0
+loadhw D:/Git/cuhk-ceng3430/Project/PS_only/PS_only.sdk/design_1_wrapper_hw_platform_0/system.hdf
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Zed 210248565423"} -index 0
+stop
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zed 210248565423"} -index 0
+rst -processor
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zed 210248565423"} -index 0
+dow D:/Git/cuhk-ceng3430/Project/PS_only/PS_only.sdk/renderer3d/Debug/renderer3d.elf
+----------------End of Script----------------
+
+06:56:20 INFO  : Memory regions updated for context APU
+06:56:20 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+06:56:20 INFO  : 'con' command is executed.
+06:56:20 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zed 210248565423"} -index 0
+con
+----------------End of Script----------------
+
+06:56:20 INFO  : Launch script is exported to file 'D:\Git\cuhk-ceng3430\Project\PS_only\PS_only.sdk\.sdk\launch_scripts\xilinx_c-c++_application_(system_debugger)\system_debugger_using_debug_renderer3d.elf_on_local.tcl'
+06:57:25 INFO  : Disconnected from the channel tcfchan#1.
+06:57:26 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Zed 210248565423" && level==0} -index 1' command is executed.
+06:57:26 INFO  : 'fpga -state' command is executed.
+06:57:29 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+06:57:30 INFO  : Jtag cable 'Digilent Zed 210248565423' is selected.
+06:57:30 INFO  : 'jtag frequency' command is executed.
+06:57:30 INFO  : Sourcing of 'D:/Git/cuhk-ceng3430/Project/PS_only/PS_only.sdk/design_1_wrapper_hw_platform_0/ps7_init.tcl' is done.
+06:57:30 INFO  : Context for 'APU' is selected.
+06:57:32 INFO  : Hardware design information is loaded from 'D:/Git/cuhk-ceng3430/Project/PS_only/PS_only.sdk/design_1_wrapper_hw_platform_0/system.hdf'.
+06:57:32 INFO  : Context for 'APU' is selected.
+06:57:32 INFO  : 'stop' command is executed.
+06:57:32 INFO  : 'ps7_init' command is executed.
+06:57:32 INFO  : 'ps7_post_config' command is executed.
+06:57:32 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+06:57:33 INFO  : Processor reset is completed for 'ps7_cortexa9_0'.
+06:57:33 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+06:57:33 INFO  : The application 'D:/Git/cuhk-ceng3430/Project/PS_only/PS_only.sdk/renderer3d/Debug/renderer3d.elf' is downloaded to processor 'ps7_cortexa9_0'.
+06:57:33 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+source D:/Git/cuhk-ceng3430/Project/PS_only/PS_only.sdk/design_1_wrapper_hw_platform_0/ps7_init.tcl
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Zed 210248565423"} -index 0
+loadhw D:/Git/cuhk-ceng3430/Project/PS_only/PS_only.sdk/design_1_wrapper_hw_platform_0/system.hdf
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Zed 210248565423"} -index 0
+stop
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zed 210248565423"} -index 0
+rst -processor
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zed 210248565423"} -index 0
+dow D:/Git/cuhk-ceng3430/Project/PS_only/PS_only.sdk/renderer3d/Debug/renderer3d.elf
+----------------End of Script----------------
+
+06:57:33 INFO  : Memory regions updated for context APU
+06:57:33 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+06:57:33 INFO  : 'con' command is executed.
+06:57:33 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zed 210248565423"} -index 0
+con
+----------------End of Script----------------
+
+06:57:33 INFO  : Launch script is exported to file 'D:\Git\cuhk-ceng3430\Project\PS_only\PS_only.sdk\.sdk\launch_scripts\xilinx_c-c++_application_(system_debugger)\system_debugger_using_debug_renderer3d.elf_on_local.tcl'
+06:58:46 INFO  : Disconnected from the channel tcfchan#2.
+06:58:47 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Zed 210248565423" && level==0} -index 1' command is executed.
+06:58:47 INFO  : 'fpga -state' command is executed.
+06:58:51 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+06:58:52 INFO  : Jtag cable 'Digilent Zed 210248565423' is selected.
+06:58:52 INFO  : 'jtag frequency' command is executed.
+06:58:52 INFO  : Sourcing of 'D:/Git/cuhk-ceng3430/Project/PS_only/PS_only.sdk/design_1_wrapper_hw_platform_0/ps7_init.tcl' is done.
+06:58:52 INFO  : Context for 'APU' is selected.
+06:58:53 INFO  : Hardware design information is loaded from 'D:/Git/cuhk-ceng3430/Project/PS_only/PS_only.sdk/design_1_wrapper_hw_platform_0/system.hdf'.
+06:58:53 INFO  : Context for 'APU' is selected.
+06:58:54 INFO  : 'stop' command is executed.
+06:58:54 INFO  : 'ps7_init' command is executed.
+06:58:54 INFO  : 'ps7_post_config' command is executed.
+06:58:54 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+06:58:54 INFO  : Processor reset is completed for 'ps7_cortexa9_0'.
+06:58:54 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+06:58:54 INFO  : The application 'D:/Git/cuhk-ceng3430/Project/PS_only/PS_only.sdk/renderer3d/Debug/renderer3d.elf' is downloaded to processor 'ps7_cortexa9_0'.
+06:58:54 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+source D:/Git/cuhk-ceng3430/Project/PS_only/PS_only.sdk/design_1_wrapper_hw_platform_0/ps7_init.tcl
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Zed 210248565423"} -index 0
+loadhw D:/Git/cuhk-ceng3430/Project/PS_only/PS_only.sdk/design_1_wrapper_hw_platform_0/system.hdf
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Zed 210248565423"} -index 0
+stop
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zed 210248565423"} -index 0
+rst -processor
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zed 210248565423"} -index 0
+dow D:/Git/cuhk-ceng3430/Project/PS_only/PS_only.sdk/renderer3d/Debug/renderer3d.elf
+----------------End of Script----------------
+
+06:58:54 INFO  : Memory regions updated for context APU
+06:58:54 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+06:58:54 INFO  : 'con' command is executed.
+06:58:54 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zed 210248565423"} -index 0
+con
+----------------End of Script----------------
+
+06:58:54 INFO  : Launch script is exported to file 'D:\Git\cuhk-ceng3430\Project\PS_only\PS_only.sdk\.sdk\launch_scripts\xilinx_c-c++_application_(system_debugger)\system_debugger_using_debug_renderer3d.elf_on_local.tcl'
+06:59:25 INFO  : Disconnected from the channel tcfchan#3.
+06:59:26 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Zed 210248565423" && level==0} -index 1' command is executed.
+06:59:26 INFO  : 'fpga -state' command is executed.
+06:59:28 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+06:59:29 INFO  : Jtag cable 'Digilent Zed 210248565423' is selected.
+06:59:29 INFO  : 'jtag frequency' command is executed.
+06:59:29 INFO  : Sourcing of 'D:/Git/cuhk-ceng3430/Project/PS_only/PS_only.sdk/design_1_wrapper_hw_platform_0/ps7_init.tcl' is done.
+06:59:29 INFO  : Context for 'APU' is selected.
+06:59:32 INFO  : Hardware design information is loaded from 'D:/Git/cuhk-ceng3430/Project/PS_only/PS_only.sdk/design_1_wrapper_hw_platform_0/system.hdf'.
+06:59:32 INFO  : Context for 'APU' is selected.
+06:59:32 INFO  : 'stop' command is executed.
+06:59:32 INFO  : 'ps7_init' command is executed.
+06:59:32 INFO  : 'ps7_post_config' command is executed.
+06:59:33 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+06:59:33 INFO  : Processor reset is completed for 'ps7_cortexa9_0'.
+06:59:33 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+06:59:33 INFO  : The application 'D:/Git/cuhk-ceng3430/Project/PS_only/PS_only.sdk/renderer3d/Debug/renderer3d.elf' is downloaded to processor 'ps7_cortexa9_0'.
+06:59:33 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+source D:/Git/cuhk-ceng3430/Project/PS_only/PS_only.sdk/design_1_wrapper_hw_platform_0/ps7_init.tcl
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Zed 210248565423"} -index 0
+loadhw D:/Git/cuhk-ceng3430/Project/PS_only/PS_only.sdk/design_1_wrapper_hw_platform_0/system.hdf
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Zed 210248565423"} -index 0
+stop
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zed 210248565423"} -index 0
+rst -processor
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zed 210248565423"} -index 0
+dow D:/Git/cuhk-ceng3430/Project/PS_only/PS_only.sdk/renderer3d/Debug/renderer3d.elf
+----------------End of Script----------------
+
+06:59:33 INFO  : Memory regions updated for context APU
+06:59:33 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+06:59:33 INFO  : 'con' command is executed.
+06:59:33 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zed 210248565423"} -index 0
+con
+----------------End of Script----------------
+
+06:59:33 INFO  : Launch script is exported to file 'D:\Git\cuhk-ceng3430\Project\PS_only\PS_only.sdk\.sdk\launch_scripts\xilinx_c-c++_application_(system_debugger)\system_debugger_using_debug_renderer3d.elf_on_local.tcl'
+06:59:59 INFO  : Disconnected from the channel tcfchan#4.
+07:00:00 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Zed 210248565423" && level==0} -index 1' command is executed.
+07:00:00 INFO  : 'fpga -state' command is executed.
+07:00:22 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+07:00:23 INFO  : Jtag cable 'Digilent Zed 210248565423' is selected.
+07:00:23 INFO  : 'jtag frequency' command is executed.
+07:00:23 INFO  : Sourcing of 'D:/Git/cuhk-ceng3430/Project/PS_only/PS_only.sdk/design_1_wrapper_hw_platform_0/ps7_init.tcl' is done.
+07:00:23 INFO  : Context for 'APU' is selected.
+07:00:25 INFO  : Hardware design information is loaded from 'D:/Git/cuhk-ceng3430/Project/PS_only/PS_only.sdk/design_1_wrapper_hw_platform_0/system.hdf'.
+07:00:25 INFO  : Context for 'APU' is selected.
+07:00:25 INFO  : 'stop' command is executed.
+07:00:26 INFO  : 'ps7_init' command is executed.
+07:00:26 INFO  : 'ps7_post_config' command is executed.
+07:00:26 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+07:00:26 INFO  : Processor reset is completed for 'ps7_cortexa9_0'.
+07:00:26 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+07:00:26 INFO  : The application 'D:/Git/cuhk-ceng3430/Project/PS_only/PS_only.sdk/renderer3d/Debug/renderer3d.elf' is downloaded to processor 'ps7_cortexa9_0'.
+07:00:26 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+source D:/Git/cuhk-ceng3430/Project/PS_only/PS_only.sdk/design_1_wrapper_hw_platform_0/ps7_init.tcl
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Zed 210248565423"} -index 0
+loadhw D:/Git/cuhk-ceng3430/Project/PS_only/PS_only.sdk/design_1_wrapper_hw_platform_0/system.hdf
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Zed 210248565423"} -index 0
+stop
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zed 210248565423"} -index 0
+rst -processor
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zed 210248565423"} -index 0
+dow D:/Git/cuhk-ceng3430/Project/PS_only/PS_only.sdk/renderer3d/Debug/renderer3d.elf
+----------------End of Script----------------
+
+07:00:26 INFO  : Memory regions updated for context APU
+07:00:26 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+07:00:26 INFO  : 'con' command is executed.
+07:00:26 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zed 210248565423"} -index 0
+con
+----------------End of Script----------------
+
+07:00:26 INFO  : Launch script is exported to file 'D:\Git\cuhk-ceng3430\Project\PS_only\PS_only.sdk\.sdk\launch_scripts\xilinx_c-c++_application_(system_debugger)\system_debugger_using_debug_renderer3d.elf_on_local.tcl'
+07:00:58 INFO  : Disconnected from the channel tcfchan#5.
+07:00:59 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Zed 210248565423" && level==0} -index 1' command is executed.
+07:00:59 INFO  : 'fpga -state' command is executed.
+07:01:01 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+07:01:01 INFO  : Jtag cable 'Digilent Zed 210248565423' is selected.
+07:01:01 INFO  : 'jtag frequency' command is executed.
+07:01:01 INFO  : Sourcing of 'D:/Git/cuhk-ceng3430/Project/PS_only/PS_only.sdk/design_1_wrapper_hw_platform_0/ps7_init.tcl' is done.
+07:01:01 INFO  : Context for 'APU' is selected.
+07:01:05 INFO  : Hardware design information is loaded from 'D:/Git/cuhk-ceng3430/Project/PS_only/PS_only.sdk/design_1_wrapper_hw_platform_0/system.hdf'.
+07:01:05 INFO  : Context for 'APU' is selected.
+07:01:05 INFO  : 'stop' command is executed.
+07:01:05 INFO  : 'ps7_init' command is executed.
+07:01:05 INFO  : 'ps7_post_config' command is executed.
+07:01:05 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+07:01:06 INFO  : Processor reset is completed for 'ps7_cortexa9_0'.
+07:01:06 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+07:01:06 INFO  : The application 'D:/Git/cuhk-ceng3430/Project/PS_only/PS_only.sdk/renderer3d/Debug/renderer3d.elf' is downloaded to processor 'ps7_cortexa9_0'.
+07:01:06 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+source D:/Git/cuhk-ceng3430/Project/PS_only/PS_only.sdk/design_1_wrapper_hw_platform_0/ps7_init.tcl
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Zed 210248565423"} -index 0
+loadhw D:/Git/cuhk-ceng3430/Project/PS_only/PS_only.sdk/design_1_wrapper_hw_platform_0/system.hdf
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Zed 210248565423"} -index 0
+stop
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zed 210248565423"} -index 0
+rst -processor
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zed 210248565423"} -index 0
+dow D:/Git/cuhk-ceng3430/Project/PS_only/PS_only.sdk/renderer3d/Debug/renderer3d.elf
+----------------End of Script----------------
+
+07:01:06 INFO  : Memory regions updated for context APU
+07:01:06 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+07:01:06 INFO  : 'con' command is executed.
+07:01:06 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zed 210248565423"} -index 0
+con
+----------------End of Script----------------
+
+07:01:06 INFO  : Launch script is exported to file 'D:\Git\cuhk-ceng3430\Project\PS_only\PS_only.sdk\.sdk\launch_scripts\xilinx_c-c++_application_(system_debugger)\system_debugger_using_debug_renderer3d.elf_on_local.tcl'
+07:04:26 INFO  : Disconnected from the channel tcfchan#6.
+07:04:28 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Zed 210248565423" && level==0} -index 1' command is executed.
+07:04:28 INFO  : 'fpga -state' command is executed.
+07:04:29 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+07:04:29 INFO  : Jtag cable 'Digilent Zed 210248565423' is selected.
+07:04:29 INFO  : 'jtag frequency' command is executed.
+07:04:29 INFO  : Sourcing of 'D:/Git/cuhk-ceng3430/Project/PS_only/PS_only.sdk/design_1_wrapper_hw_platform_0/ps7_init.tcl' is done.
+07:04:29 INFO  : Context for 'APU' is selected.
+07:04:32 INFO  : Hardware design information is loaded from 'D:/Git/cuhk-ceng3430/Project/PS_only/PS_only.sdk/design_1_wrapper_hw_platform_0/system.hdf'.
+07:04:32 INFO  : Context for 'APU' is selected.
+07:04:32 INFO  : 'stop' command is executed.
+07:04:32 INFO  : 'ps7_init' command is executed.
+07:04:32 INFO  : 'ps7_post_config' command is executed.
+07:04:33 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+07:04:33 INFO  : Processor reset is completed for 'ps7_cortexa9_0'.
+07:04:33 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+07:04:33 INFO  : The application 'D:/Git/cuhk-ceng3430/Project/PS_only/PS_only.sdk/renderer3d/Debug/renderer3d.elf' is downloaded to processor 'ps7_cortexa9_0'.
+07:04:33 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+source D:/Git/cuhk-ceng3430/Project/PS_only/PS_only.sdk/design_1_wrapper_hw_platform_0/ps7_init.tcl
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Zed 210248565423"} -index 0
+loadhw D:/Git/cuhk-ceng3430/Project/PS_only/PS_only.sdk/design_1_wrapper_hw_platform_0/system.hdf
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Zed 210248565423"} -index 0
+stop
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zed 210248565423"} -index 0
+rst -processor
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zed 210248565423"} -index 0
+dow D:/Git/cuhk-ceng3430/Project/PS_only/PS_only.sdk/renderer3d/Debug/renderer3d.elf
+----------------End of Script----------------
+
+07:04:33 INFO  : Memory regions updated for context APU
+07:04:33 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+07:04:33 INFO  : 'con' command is executed.
+07:04:33 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zed 210248565423"} -index 0
+con
+----------------End of Script----------------
+
+07:04:33 INFO  : Launch script is exported to file 'D:\Git\cuhk-ceng3430\Project\PS_only\PS_only.sdk\.sdk\launch_scripts\xilinx_c-c++_application_(system_debugger)\system_debugger_using_debug_renderer3d.elf_on_local.tcl'
+07:05:15 INFO  : Disconnected from the channel tcfchan#7.
+07:05:16 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Zed 210248565423" && level==0} -index 1' command is executed.
+07:05:16 INFO  : 'fpga -state' command is executed.
+07:05:17 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+07:05:17 INFO  : Jtag cable 'Digilent Zed 210248565423' is selected.
+07:05:17 INFO  : 'jtag frequency' command is executed.
+07:05:17 INFO  : Sourcing of 'D:/Git/cuhk-ceng3430/Project/PS_only/PS_only.sdk/design_1_wrapper_hw_platform_0/ps7_init.tcl' is done.
+07:05:17 INFO  : Context for 'APU' is selected.
+07:05:19 INFO  : Hardware design information is loaded from 'D:/Git/cuhk-ceng3430/Project/PS_only/PS_only.sdk/design_1_wrapper_hw_platform_0/system.hdf'.
+07:05:19 INFO  : Context for 'APU' is selected.
+07:05:20 INFO  : 'stop' command is executed.
+07:05:20 INFO  : 'ps7_init' command is executed.
+07:05:20 INFO  : 'ps7_post_config' command is executed.
+07:05:20 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+07:05:20 INFO  : Processor reset is completed for 'ps7_cortexa9_0'.
+07:05:20 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+07:05:20 INFO  : The application 'D:/Git/cuhk-ceng3430/Project/PS_only/PS_only.sdk/renderer3d/Debug/renderer3d.elf' is downloaded to processor 'ps7_cortexa9_0'.
+07:05:20 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+source D:/Git/cuhk-ceng3430/Project/PS_only/PS_only.sdk/design_1_wrapper_hw_platform_0/ps7_init.tcl
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Zed 210248565423"} -index 0
+loadhw D:/Git/cuhk-ceng3430/Project/PS_only/PS_only.sdk/design_1_wrapper_hw_platform_0/system.hdf
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Zed 210248565423"} -index 0
+stop
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zed 210248565423"} -index 0
+rst -processor
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zed 210248565423"} -index 0
+dow D:/Git/cuhk-ceng3430/Project/PS_only/PS_only.sdk/renderer3d/Debug/renderer3d.elf
+----------------End of Script----------------
+
+07:05:20 INFO  : Memory regions updated for context APU
+07:05:20 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+07:05:20 INFO  : 'con' command is executed.
+07:05:20 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zed 210248565423"} -index 0
+con
+----------------End of Script----------------
+
+07:05:20 INFO  : Launch script is exported to file 'D:\Git\cuhk-ceng3430\Project\PS_only\PS_only.sdk\.sdk\launch_scripts\xilinx_c-c++_application_(system_debugger)\system_debugger_using_debug_renderer3d.elf_on_local.tcl'
+07:06:42 INFO  : Disconnected from the channel tcfchan#8.
+07:06:43 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Zed 210248565423" && level==0} -index 1' command is executed.
+07:06:43 INFO  : 'fpga -state' command is executed.
+07:06:45 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+07:06:45 INFO  : Jtag cable 'Digilent Zed 210248565423' is selected.
+07:06:45 INFO  : 'jtag frequency' command is executed.
+07:06:45 INFO  : Sourcing of 'D:/Git/cuhk-ceng3430/Project/PS_only/PS_only.sdk/design_1_wrapper_hw_platform_0/ps7_init.tcl' is done.
+07:06:46 INFO  : Context for 'APU' is selected.
+07:06:48 INFO  : Hardware design information is loaded from 'D:/Git/cuhk-ceng3430/Project/PS_only/PS_only.sdk/design_1_wrapper_hw_platform_0/system.hdf'.
+07:06:48 INFO  : Context for 'APU' is selected.
+07:06:49 INFO  : 'stop' command is executed.
+07:06:49 INFO  : 'ps7_init' command is executed.
+07:06:49 INFO  : 'ps7_post_config' command is executed.
+07:06:49 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+07:06:49 INFO  : Processor reset is completed for 'ps7_cortexa9_0'.
+07:06:49 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+07:06:49 INFO  : The application 'D:/Git/cuhk-ceng3430/Project/PS_only/PS_only.sdk/renderer3d/Debug/renderer3d.elf' is downloaded to processor 'ps7_cortexa9_0'.
+07:06:49 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+source D:/Git/cuhk-ceng3430/Project/PS_only/PS_only.sdk/design_1_wrapper_hw_platform_0/ps7_init.tcl
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Zed 210248565423"} -index 0
+loadhw D:/Git/cuhk-ceng3430/Project/PS_only/PS_only.sdk/design_1_wrapper_hw_platform_0/system.hdf
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Zed 210248565423"} -index 0
+stop
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zed 210248565423"} -index 0
+rst -processor
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zed 210248565423"} -index 0
+dow D:/Git/cuhk-ceng3430/Project/PS_only/PS_only.sdk/renderer3d/Debug/renderer3d.elf
+----------------End of Script----------------
+
+07:06:49 INFO  : Memory regions updated for context APU
+07:06:49 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+07:06:50 INFO  : 'con' command is executed.
+07:06:50 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zed 210248565423"} -index 0
+con
+----------------End of Script----------------
+
+07:06:50 INFO  : Launch script is exported to file 'D:\Git\cuhk-ceng3430\Project\PS_only\PS_only.sdk\.sdk\launch_scripts\xilinx_c-c++_application_(system_debugger)\system_debugger_using_debug_renderer3d.elf_on_local.tcl'
+07:10:34 INFO  : Disconnected from the channel tcfchan#9.
+07:10:35 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Zed 210248565423" && level==0} -index 1' command is executed.
+07:10:35 INFO  : 'fpga -state' command is executed.
+07:10:38 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+07:10:38 INFO  : Jtag cable 'Digilent Zed 210248565423' is selected.
+07:10:38 INFO  : 'jtag frequency' command is executed.
+07:10:39 INFO  : Sourcing of 'D:/Git/cuhk-ceng3430/Project/PS_only/PS_only.sdk/design_1_wrapper_hw_platform_0/ps7_init.tcl' is done.
+07:10:39 INFO  : Context for 'APU' is selected.
+07:10:41 INFO  : Hardware design information is loaded from 'D:/Git/cuhk-ceng3430/Project/PS_only/PS_only.sdk/design_1_wrapper_hw_platform_0/system.hdf'.
+07:10:41 INFO  : Context for 'APU' is selected.
+07:10:41 INFO  : 'stop' command is executed.
+07:10:42 INFO  : 'ps7_init' command is executed.
+07:10:42 INFO  : 'ps7_post_config' command is executed.
+07:10:42 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+07:10:42 INFO  : Processor reset is completed for 'ps7_cortexa9_0'.
+07:10:42 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+07:10:43 INFO  : The application 'D:/Git/cuhk-ceng3430/Project/PS_only/PS_only.sdk/renderer3d/Debug/renderer3d.elf' is downloaded to processor 'ps7_cortexa9_0'.
+07:10:43 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+source D:/Git/cuhk-ceng3430/Project/PS_only/PS_only.sdk/design_1_wrapper_hw_platform_0/ps7_init.tcl
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Zed 210248565423"} -index 0
+loadhw D:/Git/cuhk-ceng3430/Project/PS_only/PS_only.sdk/design_1_wrapper_hw_platform_0/system.hdf
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Zed 210248565423"} -index 0
+stop
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zed 210248565423"} -index 0
+rst -processor
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zed 210248565423"} -index 0
+dow D:/Git/cuhk-ceng3430/Project/PS_only/PS_only.sdk/renderer3d/Debug/renderer3d.elf
+----------------End of Script----------------
+
+07:10:43 INFO  : Memory regions updated for context APU
+07:10:43 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+07:10:43 INFO  : 'con' command is executed.
+07:10:43 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zed 210248565423"} -index 0
+con
+----------------End of Script----------------
+
+07:10:43 INFO  : Launch script is exported to file 'D:\Git\cuhk-ceng3430\Project\PS_only\PS_only.sdk\.sdk\launch_scripts\xilinx_c-c++_application_(system_debugger)\system_debugger_using_debug_renderer3d.elf_on_local.tcl'
+07:11:00 INFO  : Disconnected from the channel tcfchan#10.
+07:11:01 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Zed 210248565423" && level==0} -index 1' command is executed.
+07:11:01 INFO  : 'fpga -state' command is executed.
+07:11:01 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+07:11:01 INFO  : Jtag cable 'Digilent Zed 210248565423' is selected.
+07:11:01 INFO  : 'jtag frequency' command is executed.
+07:11:01 INFO  : Sourcing of 'D:/Git/cuhk-ceng3430/Project/PS_only/PS_only.sdk/design_1_wrapper_hw_platform_0/ps7_init.tcl' is done.
+07:11:02 INFO  : Context for 'APU' is selected.
+07:11:05 INFO  : Hardware design information is loaded from 'D:/Git/cuhk-ceng3430/Project/PS_only/PS_only.sdk/design_1_wrapper_hw_platform_0/system.hdf'.
+07:11:05 INFO  : Context for 'APU' is selected.
+07:11:05 INFO  : 'stop' command is executed.
+07:11:05 INFO  : 'ps7_init' command is executed.
+07:11:05 INFO  : 'ps7_post_config' command is executed.
+07:11:05 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+07:11:05 INFO  : Processor reset is completed for 'ps7_cortexa9_0'.
+07:11:05 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+07:11:06 INFO  : The application 'D:/Git/cuhk-ceng3430/Project/PS_only/PS_only.sdk/renderer3d/Debug/renderer3d.elf' is downloaded to processor 'ps7_cortexa9_0'.
+07:11:06 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+source D:/Git/cuhk-ceng3430/Project/PS_only/PS_only.sdk/design_1_wrapper_hw_platform_0/ps7_init.tcl
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Zed 210248565423"} -index 0
+loadhw D:/Git/cuhk-ceng3430/Project/PS_only/PS_only.sdk/design_1_wrapper_hw_platform_0/system.hdf
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Zed 210248565423"} -index 0
+stop
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zed 210248565423"} -index 0
+rst -processor
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zed 210248565423"} -index 0
+dow D:/Git/cuhk-ceng3430/Project/PS_only/PS_only.sdk/renderer3d/Debug/renderer3d.elf
+----------------End of Script----------------
+
+07:11:06 INFO  : Memory regions updated for context APU
+07:11:06 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+07:11:06 INFO  : 'con' command is executed.
+07:11:06 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zed 210248565423"} -index 0
+con
+----------------End of Script----------------
+
+07:11:06 INFO  : Launch script is exported to file 'D:\Git\cuhk-ceng3430\Project\PS_only\PS_only.sdk\.sdk\launch_scripts\xilinx_c-c++_application_(system_debugger)\system_debugger_using_debug_renderer3d.elf_on_local.tcl'
+07:19:17 INFO  : Disconnected from the channel tcfchan#11.
+07:19:18 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Zed 210248565423" && level==0} -index 1' command is executed.
+07:19:18 INFO  : 'fpga -state' command is executed.
+07:19:18 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+07:19:18 INFO  : Jtag cable 'Digilent Zed 210248565423' is selected.
+07:19:18 INFO  : 'jtag frequency' command is executed.
+07:19:18 INFO  : Sourcing of 'D:/Git/cuhk-ceng3430/Project/PS_only/PS_only.sdk/design_1_wrapper_hw_platform_0/ps7_init.tcl' is done.
+07:19:18 INFO  : Context for 'APU' is selected.
+07:19:21 INFO  : Hardware design information is loaded from 'D:/Git/cuhk-ceng3430/Project/PS_only/PS_only.sdk/design_1_wrapper_hw_platform_0/system.hdf'.
+07:19:21 INFO  : Context for 'APU' is selected.
+07:19:21 INFO  : 'stop' command is executed.
+07:19:22 INFO  : 'ps7_init' command is executed.
+07:19:22 INFO  : 'ps7_post_config' command is executed.
+07:19:22 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+07:19:22 INFO  : Processor reset is completed for 'ps7_cortexa9_0'.
+07:19:22 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+07:19:22 INFO  : The application 'D:/Git/cuhk-ceng3430/Project/PS_only/PS_only.sdk/renderer3d/Debug/renderer3d.elf' is downloaded to processor 'ps7_cortexa9_0'.
+07:19:22 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+source D:/Git/cuhk-ceng3430/Project/PS_only/PS_only.sdk/design_1_wrapper_hw_platform_0/ps7_init.tcl
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Zed 210248565423"} -index 0
+loadhw D:/Git/cuhk-ceng3430/Project/PS_only/PS_only.sdk/design_1_wrapper_hw_platform_0/system.hdf
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Zed 210248565423"} -index 0
+stop
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zed 210248565423"} -index 0
+rst -processor
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zed 210248565423"} -index 0
+dow D:/Git/cuhk-ceng3430/Project/PS_only/PS_only.sdk/renderer3d/Debug/renderer3d.elf
+----------------End of Script----------------
+
+07:19:22 INFO  : Memory regions updated for context APU
+07:19:22 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+07:19:22 INFO  : 'con' command is executed.
+07:19:22 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zed 210248565423"} -index 0
+con
+----------------End of Script----------------
+
+07:19:22 INFO  : Launch script is exported to file 'D:\Git\cuhk-ceng3430\Project\PS_only\PS_only.sdk\.sdk\launch_scripts\xilinx_c-c++_application_(system_debugger)\system_debugger_using_debug_renderer3d.elf_on_local.tcl'
+07:19:31 INFO  : Disconnected from the channel tcfchan#12.
+07:19:32 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Zed 210248565423" && level==0} -index 1' command is executed.
+07:19:32 INFO  : 'fpga -state' command is executed.
+07:19:32 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+07:19:33 INFO  : Jtag cable 'Digilent Zed 210248565423' is selected.
+07:19:33 INFO  : 'jtag frequency' command is executed.
+07:19:33 INFO  : Sourcing of 'D:/Git/cuhk-ceng3430/Project/PS_only/PS_only.sdk/design_1_wrapper_hw_platform_0/ps7_init.tcl' is done.
+07:19:33 INFO  : Context for 'APU' is selected.
+07:19:36 INFO  : Hardware design information is loaded from 'D:/Git/cuhk-ceng3430/Project/PS_only/PS_only.sdk/design_1_wrapper_hw_platform_0/system.hdf'.
+07:19:36 INFO  : Context for 'APU' is selected.
+07:19:36 INFO  : 'stop' command is executed.
+07:19:36 INFO  : 'ps7_init' command is executed.
+07:19:36 INFO  : 'ps7_post_config' command is executed.
+07:19:37 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+07:19:37 INFO  : Processor reset is completed for 'ps7_cortexa9_0'.
+07:19:37 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+07:19:37 INFO  : The application 'D:/Git/cuhk-ceng3430/Project/PS_only/PS_only.sdk/renderer3d/Debug/renderer3d.elf' is downloaded to processor 'ps7_cortexa9_0'.
+07:19:37 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+source D:/Git/cuhk-ceng3430/Project/PS_only/PS_only.sdk/design_1_wrapper_hw_platform_0/ps7_init.tcl
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Zed 210248565423"} -index 0
+loadhw D:/Git/cuhk-ceng3430/Project/PS_only/PS_only.sdk/design_1_wrapper_hw_platform_0/system.hdf
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Zed 210248565423"} -index 0
+stop
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zed 210248565423"} -index 0
+rst -processor
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zed 210248565423"} -index 0
+dow D:/Git/cuhk-ceng3430/Project/PS_only/PS_only.sdk/renderer3d/Debug/renderer3d.elf
+----------------End of Script----------------
+
+07:19:37 INFO  : Memory regions updated for context APU
+07:19:37 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+07:19:37 INFO  : 'con' command is executed.
+07:19:37 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zed 210248565423"} -index 0
+con
+----------------End of Script----------------
+
+07:19:37 INFO  : Launch script is exported to file 'D:\Git\cuhk-ceng3430\Project\PS_only\PS_only.sdk\.sdk\launch_scripts\xilinx_c-c++_application_(system_debugger)\system_debugger_using_debug_renderer3d.elf_on_local.tcl'
+07:20:39 INFO  : Disconnected from the channel tcfchan#13.
+07:20:40 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Zed 210248565423" && level==0} -index 1' command is executed.
+07:20:40 INFO  : 'fpga -state' command is executed.
+07:20:40 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+07:20:40 INFO  : Jtag cable 'Digilent Zed 210248565423' is selected.
+07:20:40 INFO  : 'jtag frequency' command is executed.
+07:20:40 INFO  : Sourcing of 'D:/Git/cuhk-ceng3430/Project/PS_only/PS_only.sdk/design_1_wrapper_hw_platform_0/ps7_init.tcl' is done.
+07:20:40 INFO  : Context for 'APU' is selected.
+07:20:43 INFO  : Hardware design information is loaded from 'D:/Git/cuhk-ceng3430/Project/PS_only/PS_only.sdk/design_1_wrapper_hw_platform_0/system.hdf'.
+07:20:43 INFO  : Context for 'APU' is selected.
+07:20:43 INFO  : 'stop' command is executed.
+07:20:44 INFO  : 'ps7_init' command is executed.
+07:20:44 INFO  : 'ps7_post_config' command is executed.
+07:20:44 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+07:20:44 INFO  : Processor reset is completed for 'ps7_cortexa9_0'.
+07:20:44 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+07:20:44 INFO  : The application 'D:/Git/cuhk-ceng3430/Project/PS_only/PS_only.sdk/renderer3d/Debug/renderer3d.elf' is downloaded to processor 'ps7_cortexa9_0'.
+07:20:44 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+source D:/Git/cuhk-ceng3430/Project/PS_only/PS_only.sdk/design_1_wrapper_hw_platform_0/ps7_init.tcl
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Zed 210248565423"} -index 0
+loadhw D:/Git/cuhk-ceng3430/Project/PS_only/PS_only.sdk/design_1_wrapper_hw_platform_0/system.hdf
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Zed 210248565423"} -index 0
+stop
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zed 210248565423"} -index 0
+rst -processor
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zed 210248565423"} -index 0
+dow D:/Git/cuhk-ceng3430/Project/PS_only/PS_only.sdk/renderer3d/Debug/renderer3d.elf
+----------------End of Script----------------
+
+07:20:44 INFO  : Memory regions updated for context APU
+07:20:44 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+07:20:44 INFO  : 'con' command is executed.
+07:20:44 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zed 210248565423"} -index 0
+con
+----------------End of Script----------------
+
+07:20:44 INFO  : Launch script is exported to file 'D:\Git\cuhk-ceng3430\Project\PS_only\PS_only.sdk\.sdk\launch_scripts\xilinx_c-c++_application_(system_debugger)\system_debugger_using_debug_renderer3d.elf_on_local.tcl'
+07:23:38 INFO  : Disconnected from the channel tcfchan#14.
+07:23:39 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Zed 210248565423" && level==0} -index 1' command is executed.
+07:23:39 INFO  : 'fpga -state' command is executed.
+07:23:39 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+07:23:39 INFO  : Jtag cable 'Digilent Zed 210248565423' is selected.
+07:23:39 INFO  : 'jtag frequency' command is executed.
+07:23:39 INFO  : Sourcing of 'D:/Git/cuhk-ceng3430/Project/PS_only/PS_only.sdk/design_1_wrapper_hw_platform_0/ps7_init.tcl' is done.
+07:23:39 INFO  : Context for 'APU' is selected.
+07:23:42 INFO  : Hardware design information is loaded from 'D:/Git/cuhk-ceng3430/Project/PS_only/PS_only.sdk/design_1_wrapper_hw_platform_0/system.hdf'.
+07:23:42 INFO  : Context for 'APU' is selected.
+07:23:42 INFO  : 'stop' command is executed.
+07:23:43 INFO  : 'ps7_init' command is executed.
+07:23:43 INFO  : 'ps7_post_config' command is executed.
+07:23:43 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+07:23:43 INFO  : Processor reset is completed for 'ps7_cortexa9_0'.
+07:23:43 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+07:23:43 INFO  : The application 'D:/Git/cuhk-ceng3430/Project/PS_only/PS_only.sdk/renderer3d/Debug/renderer3d.elf' is downloaded to processor 'ps7_cortexa9_0'.
+07:23:43 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+source D:/Git/cuhk-ceng3430/Project/PS_only/PS_only.sdk/design_1_wrapper_hw_platform_0/ps7_init.tcl
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Zed 210248565423"} -index 0
+loadhw D:/Git/cuhk-ceng3430/Project/PS_only/PS_only.sdk/design_1_wrapper_hw_platform_0/system.hdf
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Zed 210248565423"} -index 0
+stop
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zed 210248565423"} -index 0
+rst -processor
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zed 210248565423"} -index 0
+dow D:/Git/cuhk-ceng3430/Project/PS_only/PS_only.sdk/renderer3d/Debug/renderer3d.elf
+----------------End of Script----------------
+
+07:23:43 INFO  : Memory regions updated for context APU
+07:23:43 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+07:23:43 INFO  : 'con' command is executed.
+07:23:43 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zed 210248565423"} -index 0
+con
+----------------End of Script----------------
+
+07:23:43 INFO  : Launch script is exported to file 'D:\Git\cuhk-ceng3430\Project\PS_only\PS_only.sdk\.sdk\launch_scripts\xilinx_c-c++_application_(system_debugger)\system_debugger_using_debug_renderer3d.elf_on_local.tcl'
+07:23:54 INFO  : Disconnected from the channel tcfchan#15.
+07:23:55 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Zed 210248565423" && level==0} -index 1' command is executed.
+07:23:55 INFO  : 'fpga -state' command is executed.
+07:23:55 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+07:23:55 INFO  : Jtag cable 'Digilent Zed 210248565423' is selected.
+07:23:55 INFO  : 'jtag frequency' command is executed.
+07:23:55 INFO  : Sourcing of 'D:/Git/cuhk-ceng3430/Project/PS_only/PS_only.sdk/design_1_wrapper_hw_platform_0/ps7_init.tcl' is done.
+07:23:55 INFO  : Context for 'APU' is selected.
+07:23:57 INFO  : Hardware design information is loaded from 'D:/Git/cuhk-ceng3430/Project/PS_only/PS_only.sdk/design_1_wrapper_hw_platform_0/system.hdf'.
+07:23:58 INFO  : Context for 'APU' is selected.
+07:23:58 INFO  : 'stop' command is executed.
+07:23:58 INFO  : 'ps7_init' command is executed.
+07:23:58 INFO  : 'ps7_post_config' command is executed.
+07:23:58 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+07:23:58 INFO  : Processor reset is completed for 'ps7_cortexa9_0'.
+07:23:58 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+07:23:58 INFO  : The application 'D:/Git/cuhk-ceng3430/Project/PS_only/PS_only.sdk/renderer3d/Debug/renderer3d.elf' is downloaded to processor 'ps7_cortexa9_0'.
+07:23:58 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+source D:/Git/cuhk-ceng3430/Project/PS_only/PS_only.sdk/design_1_wrapper_hw_platform_0/ps7_init.tcl
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Zed 210248565423"} -index 0
+loadhw D:/Git/cuhk-ceng3430/Project/PS_only/PS_only.sdk/design_1_wrapper_hw_platform_0/system.hdf
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Zed 210248565423"} -index 0
+stop
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zed 210248565423"} -index 0
+rst -processor
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zed 210248565423"} -index 0
+dow D:/Git/cuhk-ceng3430/Project/PS_only/PS_only.sdk/renderer3d/Debug/renderer3d.elf
+----------------End of Script----------------
+
+07:23:58 INFO  : Memory regions updated for context APU
+07:23:58 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+07:23:59 INFO  : 'con' command is executed.
+07:23:59 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zed 210248565423"} -index 0
+con
+----------------End of Script----------------
+
+07:23:59 INFO  : Launch script is exported to file 'D:\Git\cuhk-ceng3430\Project\PS_only\PS_only.sdk\.sdk\launch_scripts\xilinx_c-c++_application_(system_debugger)\system_debugger_using_debug_renderer3d.elf_on_local.tcl'
+07:24:38 INFO  : Disconnected from the channel tcfchan#16.
+07:24:39 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Zed 210248565423" && level==0} -index 1' command is executed.
+07:24:39 INFO  : 'fpga -state' command is executed.
+07:24:39 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+07:24:40 INFO  : Jtag cable 'Digilent Zed 210248565423' is selected.
+07:24:40 INFO  : 'jtag frequency' command is executed.
+07:24:40 INFO  : Sourcing of 'D:/Git/cuhk-ceng3430/Project/PS_only/PS_only.sdk/design_1_wrapper_hw_platform_0/ps7_init.tcl' is done.
+07:24:40 INFO  : Context for 'APU' is selected.
+07:24:43 INFO  : Hardware design information is loaded from 'D:/Git/cuhk-ceng3430/Project/PS_only/PS_only.sdk/design_1_wrapper_hw_platform_0/system.hdf'.
+07:24:43 INFO  : Context for 'APU' is selected.
+07:24:43 INFO  : 'stop' command is executed.
+07:24:44 INFO  : 'ps7_init' command is executed.
+07:24:44 INFO  : 'ps7_post_config' command is executed.
+07:24:44 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+07:24:44 INFO  : Processor reset is completed for 'ps7_cortexa9_0'.
+07:24:44 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+07:24:44 INFO  : The application 'D:/Git/cuhk-ceng3430/Project/PS_only/PS_only.sdk/renderer3d/Debug/renderer3d.elf' is downloaded to processor 'ps7_cortexa9_0'.
+07:24:44 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+source D:/Git/cuhk-ceng3430/Project/PS_only/PS_only.sdk/design_1_wrapper_hw_platform_0/ps7_init.tcl
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Zed 210248565423"} -index 0
+loadhw D:/Git/cuhk-ceng3430/Project/PS_only/PS_only.sdk/design_1_wrapper_hw_platform_0/system.hdf
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Zed 210248565423"} -index 0
+stop
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zed 210248565423"} -index 0
+rst -processor
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zed 210248565423"} -index 0
+dow D:/Git/cuhk-ceng3430/Project/PS_only/PS_only.sdk/renderer3d/Debug/renderer3d.elf
+----------------End of Script----------------
+
+07:24:44 INFO  : Memory regions updated for context APU
+07:24:44 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+07:24:44 INFO  : 'con' command is executed.
+07:24:44 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zed 210248565423"} -index 0
+con
+----------------End of Script----------------
+
+07:24:44 INFO  : Launch script is exported to file 'D:\Git\cuhk-ceng3430\Project\PS_only\PS_only.sdk\.sdk\launch_scripts\xilinx_c-c++_application_(system_debugger)\system_debugger_using_debug_renderer3d.elf_on_local.tcl'
+07:41:48 INFO  : Disconnected from the channel tcfchan#17.
+07:41:49 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Zed 210248565423" && level==0} -index 1' command is executed.
+07:41:49 INFO  : 'fpga -state' command is executed.
+07:41:49 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+07:41:50 INFO  : Jtag cable 'Digilent Zed 210248565423' is selected.
+07:41:50 INFO  : 'jtag frequency' command is executed.
+07:41:50 INFO  : Sourcing of 'D:/Git/cuhk-ceng3430/Project/PS_only/PS_only.sdk/design_1_wrapper_hw_platform_0/ps7_init.tcl' is done.
+07:41:50 INFO  : Context for 'APU' is selected.
+07:41:52 INFO  : Hardware design information is loaded from 'D:/Git/cuhk-ceng3430/Project/PS_only/PS_only.sdk/design_1_wrapper_hw_platform_0/system.hdf'.
+07:41:52 INFO  : Context for 'APU' is selected.
+07:41:52 INFO  : 'stop' command is executed.
+07:41:52 INFO  : 'ps7_init' command is executed.
+07:41:53 INFO  : 'ps7_post_config' command is executed.
+07:41:53 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+07:41:53 INFO  : Processor reset is completed for 'ps7_cortexa9_0'.
+07:41:53 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+07:41:53 INFO  : The application 'D:/Git/cuhk-ceng3430/Project/PS_only/PS_only.sdk/renderer3d/Debug/renderer3d.elf' is downloaded to processor 'ps7_cortexa9_0'.
+07:41:53 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+source D:/Git/cuhk-ceng3430/Project/PS_only/PS_only.sdk/design_1_wrapper_hw_platform_0/ps7_init.tcl
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Zed 210248565423"} -index 0
+loadhw D:/Git/cuhk-ceng3430/Project/PS_only/PS_only.sdk/design_1_wrapper_hw_platform_0/system.hdf
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Zed 210248565423"} -index 0
+stop
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zed 210248565423"} -index 0
+rst -processor
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zed 210248565423"} -index 0
+dow D:/Git/cuhk-ceng3430/Project/PS_only/PS_only.sdk/renderer3d/Debug/renderer3d.elf
+----------------End of Script----------------
+
+07:41:53 INFO  : Memory regions updated for context APU
+07:41:53 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+07:41:53 INFO  : 'con' command is executed.
+07:41:53 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zed 210248565423"} -index 0
+con
+----------------End of Script----------------
+
+07:41:53 INFO  : Launch script is exported to file 'D:\Git\cuhk-ceng3430\Project\PS_only\PS_only.sdk\.sdk\launch_scripts\xilinx_c-c++_application_(system_debugger)\system_debugger_using_debug_renderer3d.elf_on_local.tcl'
+07:43:44 INFO  : Disconnected from the channel tcfchan#18.
+07:43:45 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Zed 210248565423" && level==0} -index 1' command is executed.
+07:43:45 INFO  : 'fpga -state' command is executed.
+07:43:45 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+07:43:45 INFO  : Jtag cable 'Digilent Zed 210248565423' is selected.
+07:43:45 INFO  : 'jtag frequency' command is executed.
+07:43:45 INFO  : Sourcing of 'D:/Git/cuhk-ceng3430/Project/PS_only/PS_only.sdk/design_1_wrapper_hw_platform_0/ps7_init.tcl' is done.
+07:43:45 INFO  : Context for 'APU' is selected.
+07:43:48 INFO  : Hardware design information is loaded from 'D:/Git/cuhk-ceng3430/Project/PS_only/PS_only.sdk/design_1_wrapper_hw_platform_0/system.hdf'.
+07:43:48 INFO  : Context for 'APU' is selected.
+07:43:48 INFO  : 'stop' command is executed.
+07:43:49 INFO  : 'ps7_init' command is executed.
+07:43:49 INFO  : 'ps7_post_config' command is executed.
+07:43:49 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+07:43:49 INFO  : Processor reset is completed for 'ps7_cortexa9_0'.
+07:43:49 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+07:43:49 INFO  : The application 'D:/Git/cuhk-ceng3430/Project/PS_only/PS_only.sdk/renderer3d/Debug/renderer3d.elf' is downloaded to processor 'ps7_cortexa9_0'.
+07:43:49 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+source D:/Git/cuhk-ceng3430/Project/PS_only/PS_only.sdk/design_1_wrapper_hw_platform_0/ps7_init.tcl
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Zed 210248565423"} -index 0
+loadhw D:/Git/cuhk-ceng3430/Project/PS_only/PS_only.sdk/design_1_wrapper_hw_platform_0/system.hdf
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Zed 210248565423"} -index 0
+stop
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zed 210248565423"} -index 0
+rst -processor
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zed 210248565423"} -index 0
+dow D:/Git/cuhk-ceng3430/Project/PS_only/PS_only.sdk/renderer3d/Debug/renderer3d.elf
+----------------End of Script----------------
+
+07:43:49 INFO  : Memory regions updated for context APU
+07:43:49 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+07:43:49 INFO  : 'con' command is executed.
+07:43:49 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zed 210248565423"} -index 0
+con
+----------------End of Script----------------
+
+07:43:49 INFO  : Launch script is exported to file 'D:\Git\cuhk-ceng3430\Project\PS_only\PS_only.sdk\.sdk\launch_scripts\xilinx_c-c++_application_(system_debugger)\system_debugger_using_debug_renderer3d.elf_on_local.tcl'
+07:45:43 INFO  : Disconnected from the channel tcfchan#19.
+07:45:44 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Zed 210248565423" && level==0} -index 1' command is executed.
+07:45:44 INFO  : 'fpga -state' command is executed.
+07:45:44 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+07:45:44 INFO  : Jtag cable 'Digilent Zed 210248565423' is selected.
+07:45:44 INFO  : 'jtag frequency' command is executed.
+07:45:44 INFO  : Sourcing of 'D:/Git/cuhk-ceng3430/Project/PS_only/PS_only.sdk/design_1_wrapper_hw_platform_0/ps7_init.tcl' is done.
+07:45:44 INFO  : Context for 'APU' is selected.
+07:45:47 INFO  : Hardware design information is loaded from 'D:/Git/cuhk-ceng3430/Project/PS_only/PS_only.sdk/design_1_wrapper_hw_platform_0/system.hdf'.
+07:45:47 INFO  : Context for 'APU' is selected.
+07:45:47 INFO  : 'stop' command is executed.
+07:45:47 INFO  : 'ps7_init' command is executed.
+07:45:47 INFO  : 'ps7_post_config' command is executed.
+07:45:47 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+07:45:47 INFO  : Processor reset is completed for 'ps7_cortexa9_0'.
+07:45:47 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+07:45:48 INFO  : The application 'D:/Git/cuhk-ceng3430/Project/PS_only/PS_only.sdk/renderer3d/Debug/renderer3d.elf' is downloaded to processor 'ps7_cortexa9_0'.
+07:45:48 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+source D:/Git/cuhk-ceng3430/Project/PS_only/PS_only.sdk/design_1_wrapper_hw_platform_0/ps7_init.tcl
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Zed 210248565423"} -index 0
+loadhw D:/Git/cuhk-ceng3430/Project/PS_only/PS_only.sdk/design_1_wrapper_hw_platform_0/system.hdf
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Zed 210248565423"} -index 0
+stop
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zed 210248565423"} -index 0
+rst -processor
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zed 210248565423"} -index 0
+dow D:/Git/cuhk-ceng3430/Project/PS_only/PS_only.sdk/renderer3d/Debug/renderer3d.elf
+----------------End of Script----------------
+
+07:45:48 INFO  : Memory regions updated for context APU
+07:45:48 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+07:45:48 INFO  : 'con' command is executed.
+07:45:48 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zed 210248565423"} -index 0
+con
+----------------End of Script----------------
+
+07:45:48 INFO  : Launch script is exported to file 'D:\Git\cuhk-ceng3430\Project\PS_only\PS_only.sdk\.sdk\launch_scripts\xilinx_c-c++_application_(system_debugger)\system_debugger_using_debug_renderer3d.elf_on_local.tcl'
+07:47:28 INFO  : Disconnected from the channel tcfchan#20.
+07:47:30 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Zed 210248565423" && level==0} -index 1' command is executed.
+07:47:30 INFO  : 'fpga -state' command is executed.
+07:47:30 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+07:47:30 INFO  : Jtag cable 'Digilent Zed 210248565423' is selected.
+07:47:30 INFO  : 'jtag frequency' command is executed.
+07:47:30 INFO  : Sourcing of 'D:/Git/cuhk-ceng3430/Project/PS_only/PS_only.sdk/design_1_wrapper_hw_platform_0/ps7_init.tcl' is done.
+07:47:30 INFO  : Context for 'APU' is selected.
+07:47:33 INFO  : Hardware design information is loaded from 'D:/Git/cuhk-ceng3430/Project/PS_only/PS_only.sdk/design_1_wrapper_hw_platform_0/system.hdf'.
+07:47:33 INFO  : Context for 'APU' is selected.
+07:47:33 INFO  : 'stop' command is executed.
+07:47:33 INFO  : 'ps7_init' command is executed.
+07:47:33 INFO  : 'ps7_post_config' command is executed.
+07:47:33 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+07:47:33 INFO  : Processor reset is completed for 'ps7_cortexa9_0'.
+07:47:33 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+07:47:34 INFO  : The application 'D:/Git/cuhk-ceng3430/Project/PS_only/PS_only.sdk/renderer3d/Debug/renderer3d.elf' is downloaded to processor 'ps7_cortexa9_0'.
+07:47:34 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+source D:/Git/cuhk-ceng3430/Project/PS_only/PS_only.sdk/design_1_wrapper_hw_platform_0/ps7_init.tcl
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Zed 210248565423"} -index 0
+loadhw D:/Git/cuhk-ceng3430/Project/PS_only/PS_only.sdk/design_1_wrapper_hw_platform_0/system.hdf
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Zed 210248565423"} -index 0
+stop
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zed 210248565423"} -index 0
+rst -processor
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zed 210248565423"} -index 0
+dow D:/Git/cuhk-ceng3430/Project/PS_only/PS_only.sdk/renderer3d/Debug/renderer3d.elf
+----------------End of Script----------------
+
+07:47:34 INFO  : Memory regions updated for context APU
+07:47:34 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+07:47:34 INFO  : 'con' command is executed.
+07:47:34 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zed 210248565423"} -index 0
+con
+----------------End of Script----------------
+
+07:47:34 INFO  : Launch script is exported to file 'D:\Git\cuhk-ceng3430\Project\PS_only\PS_only.sdk\.sdk\launch_scripts\xilinx_c-c++_application_(system_debugger)\system_debugger_using_debug_renderer3d.elf_on_local.tcl'
+07:48:19 INFO  : Disconnected from the channel tcfchan#21.
+07:48:20 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Zed 210248565423" && level==0} -index 1' command is executed.
+07:48:20 INFO  : 'fpga -state' command is executed.
+07:48:20 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+07:48:20 INFO  : Jtag cable 'Digilent Zed 210248565423' is selected.
+07:48:20 INFO  : 'jtag frequency' command is executed.
+07:48:20 INFO  : Sourcing of 'D:/Git/cuhk-ceng3430/Project/PS_only/PS_only.sdk/design_1_wrapper_hw_platform_0/ps7_init.tcl' is done.
+07:48:20 INFO  : Context for 'APU' is selected.
+07:48:23 INFO  : Hardware design information is loaded from 'D:/Git/cuhk-ceng3430/Project/PS_only/PS_only.sdk/design_1_wrapper_hw_platform_0/system.hdf'.
+07:48:23 INFO  : Context for 'APU' is selected.
+07:48:23 INFO  : 'stop' command is executed.
+07:48:23 INFO  : 'ps7_init' command is executed.
+07:48:23 INFO  : 'ps7_post_config' command is executed.
+07:48:23 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+07:48:23 INFO  : Processor reset is completed for 'ps7_cortexa9_0'.
+07:48:23 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+07:48:24 INFO  : The application 'D:/Git/cuhk-ceng3430/Project/PS_only/PS_only.sdk/renderer3d/Debug/renderer3d.elf' is downloaded to processor 'ps7_cortexa9_0'.
+07:48:24 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+source D:/Git/cuhk-ceng3430/Project/PS_only/PS_only.sdk/design_1_wrapper_hw_platform_0/ps7_init.tcl
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Zed 210248565423"} -index 0
+loadhw D:/Git/cuhk-ceng3430/Project/PS_only/PS_only.sdk/design_1_wrapper_hw_platform_0/system.hdf
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Zed 210248565423"} -index 0
+stop
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zed 210248565423"} -index 0
+rst -processor
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zed 210248565423"} -index 0
+dow D:/Git/cuhk-ceng3430/Project/PS_only/PS_only.sdk/renderer3d/Debug/renderer3d.elf
+----------------End of Script----------------
+
+07:48:24 INFO  : Memory regions updated for context APU
+07:48:24 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+07:48:24 INFO  : 'con' command is executed.
+07:48:24 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zed 210248565423"} -index 0
+con
+----------------End of Script----------------
+
+07:48:24 INFO  : Launch script is exported to file 'D:\Git\cuhk-ceng3430\Project\PS_only\PS_only.sdk\.sdk\launch_scripts\xilinx_c-c++_application_(system_debugger)\system_debugger_using_debug_renderer3d.elf_on_local.tcl'
+07:49:01 INFO  : Disconnected from the channel tcfchan#22.
+07:49:02 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Zed 210248565423" && level==0} -index 1' command is executed.
+07:49:02 INFO  : 'fpga -state' command is executed.
+07:49:02 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+07:49:02 INFO  : Jtag cable 'Digilent Zed 210248565423' is selected.
+07:49:02 INFO  : 'jtag frequency' command is executed.
+07:49:02 INFO  : Sourcing of 'D:/Git/cuhk-ceng3430/Project/PS_only/PS_only.sdk/design_1_wrapper_hw_platform_0/ps7_init.tcl' is done.
+07:49:02 INFO  : Context for 'APU' is selected.
+07:49:05 INFO  : Hardware design information is loaded from 'D:/Git/cuhk-ceng3430/Project/PS_only/PS_only.sdk/design_1_wrapper_hw_platform_0/system.hdf'.
+07:49:05 INFO  : Context for 'APU' is selected.
+07:49:05 INFO  : 'stop' command is executed.
+07:49:06 INFO  : 'ps7_init' command is executed.
+07:49:06 INFO  : 'ps7_post_config' command is executed.
+07:49:06 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+07:49:06 INFO  : Processor reset is completed for 'ps7_cortexa9_0'.
+07:49:06 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+07:49:06 INFO  : The application 'D:/Git/cuhk-ceng3430/Project/PS_only/PS_only.sdk/renderer3d/Debug/renderer3d.elf' is downloaded to processor 'ps7_cortexa9_0'.
+07:49:06 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+source D:/Git/cuhk-ceng3430/Project/PS_only/PS_only.sdk/design_1_wrapper_hw_platform_0/ps7_init.tcl
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Zed 210248565423"} -index 0
+loadhw D:/Git/cuhk-ceng3430/Project/PS_only/PS_only.sdk/design_1_wrapper_hw_platform_0/system.hdf
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Zed 210248565423"} -index 0
+stop
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zed 210248565423"} -index 0
+rst -processor
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zed 210248565423"} -index 0
+dow D:/Git/cuhk-ceng3430/Project/PS_only/PS_only.sdk/renderer3d/Debug/renderer3d.elf
+----------------End of Script----------------
+
+07:49:06 INFO  : Memory regions updated for context APU
+07:49:06 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+07:49:06 INFO  : 'con' command is executed.
+07:49:06 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zed 210248565423"} -index 0
+con
+----------------End of Script----------------
+
+07:49:06 INFO  : Launch script is exported to file 'D:\Git\cuhk-ceng3430\Project\PS_only\PS_only.sdk\.sdk\launch_scripts\xilinx_c-c++_application_(system_debugger)\system_debugger_using_debug_renderer3d.elf_on_local.tcl'
+07:51:14 INFO  : Disconnected from the channel tcfchan#23.
+07:51:15 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Zed 210248565423" && level==0} -index 1' command is executed.
+07:51:15 INFO  : 'fpga -state' command is executed.
+07:51:15 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+07:51:15 INFO  : Jtag cable 'Digilent Zed 210248565423' is selected.
+07:51:15 INFO  : 'jtag frequency' command is executed.
+07:51:15 INFO  : Sourcing of 'D:/Git/cuhk-ceng3430/Project/PS_only/PS_only.sdk/design_1_wrapper_hw_platform_0/ps7_init.tcl' is done.
+07:51:15 INFO  : Context for 'APU' is selected.
+07:51:19 INFO  : Hardware design information is loaded from 'D:/Git/cuhk-ceng3430/Project/PS_only/PS_only.sdk/design_1_wrapper_hw_platform_0/system.hdf'.
+07:51:19 INFO  : Context for 'APU' is selected.
+07:51:19 INFO  : 'stop' command is executed.
+07:51:19 INFO  : 'ps7_init' command is executed.
+07:51:19 INFO  : 'ps7_post_config' command is executed.
+07:51:19 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+07:51:19 INFO  : Processor reset is completed for 'ps7_cortexa9_0'.
+07:51:19 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+07:51:20 INFO  : The application 'D:/Git/cuhk-ceng3430/Project/PS_only/PS_only.sdk/renderer3d/Debug/renderer3d.elf' is downloaded to processor 'ps7_cortexa9_0'.
+07:51:20 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+source D:/Git/cuhk-ceng3430/Project/PS_only/PS_only.sdk/design_1_wrapper_hw_platform_0/ps7_init.tcl
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Zed 210248565423"} -index 0
+loadhw D:/Git/cuhk-ceng3430/Project/PS_only/PS_only.sdk/design_1_wrapper_hw_platform_0/system.hdf
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Zed 210248565423"} -index 0
+stop
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zed 210248565423"} -index 0
+rst -processor
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zed 210248565423"} -index 0
+dow D:/Git/cuhk-ceng3430/Project/PS_only/PS_only.sdk/renderer3d/Debug/renderer3d.elf
+----------------End of Script----------------
+
+07:51:20 INFO  : Memory regions updated for context APU
+07:51:20 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+07:51:20 INFO  : 'con' command is executed.
+07:51:20 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zed 210248565423"} -index 0
+con
+----------------End of Script----------------
+
+07:51:20 INFO  : Launch script is exported to file 'D:\Git\cuhk-ceng3430\Project\PS_only\PS_only.sdk\.sdk\launch_scripts\xilinx_c-c++_application_(system_debugger)\system_debugger_using_debug_renderer3d.elf_on_local.tcl'
+07:55:28 INFO  : Disconnected from the channel tcfchan#24.
+07:55:30 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Zed 210248565423" && level==0} -index 1' command is executed.
+07:55:30 INFO  : 'fpga -state' command is executed.
+07:55:30 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+07:55:30 INFO  : Jtag cable 'Digilent Zed 210248565423' is selected.
+07:55:30 INFO  : 'jtag frequency' command is executed.
+07:55:30 INFO  : Sourcing of 'D:/Git/cuhk-ceng3430/Project/PS_only/PS_only.sdk/design_1_wrapper_hw_platform_0/ps7_init.tcl' is done.
+07:55:30 INFO  : Context for 'APU' is selected.
+07:55:33 INFO  : Hardware design information is loaded from 'D:/Git/cuhk-ceng3430/Project/PS_only/PS_only.sdk/design_1_wrapper_hw_platform_0/system.hdf'.
+07:55:33 INFO  : Context for 'APU' is selected.
+07:55:33 INFO  : 'stop' command is executed.
+07:55:33 INFO  : 'ps7_init' command is executed.
+07:55:33 INFO  : 'ps7_post_config' command is executed.
+07:55:33 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+07:55:33 INFO  : Processor reset is completed for 'ps7_cortexa9_0'.
+07:55:33 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+07:55:34 INFO  : The application 'D:/Git/cuhk-ceng3430/Project/PS_only/PS_only.sdk/renderer3d/Debug/renderer3d.elf' is downloaded to processor 'ps7_cortexa9_0'.
+07:55:34 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+source D:/Git/cuhk-ceng3430/Project/PS_only/PS_only.sdk/design_1_wrapper_hw_platform_0/ps7_init.tcl
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Zed 210248565423"} -index 0
+loadhw D:/Git/cuhk-ceng3430/Project/PS_only/PS_only.sdk/design_1_wrapper_hw_platform_0/system.hdf
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Zed 210248565423"} -index 0
+stop
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zed 210248565423"} -index 0
+rst -processor
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zed 210248565423"} -index 0
+dow D:/Git/cuhk-ceng3430/Project/PS_only/PS_only.sdk/renderer3d/Debug/renderer3d.elf
+----------------End of Script----------------
+
+07:55:34 INFO  : Memory regions updated for context APU
+07:55:34 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+07:55:34 INFO  : 'con' command is executed.
+07:55:34 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zed 210248565423"} -index 0
+con
+----------------End of Script----------------
+
+07:55:34 INFO  : Launch script is exported to file 'D:\Git\cuhk-ceng3430\Project\PS_only\PS_only.sdk\.sdk\launch_scripts\xilinx_c-c++_application_(system_debugger)\system_debugger_using_debug_renderer3d.elf_on_local.tcl'
+08:02:24 INFO  : Disconnected from the channel tcfchan#25.
+08:02:26 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Zed 210248565423" && level==0} -index 1' command is executed.
+08:02:26 INFO  : 'fpga -state' command is executed.
+08:02:26 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+08:02:26 INFO  : Jtag cable 'Digilent Zed 210248565423' is selected.
+08:02:26 INFO  : 'jtag frequency' command is executed.
+08:02:26 INFO  : Sourcing of 'D:/Git/cuhk-ceng3430/Project/PS_only/PS_only.sdk/design_1_wrapper_hw_platform_0/ps7_init.tcl' is done.
+08:02:26 INFO  : Context for 'APU' is selected.
+08:02:29 INFO  : Hardware design information is loaded from 'D:/Git/cuhk-ceng3430/Project/PS_only/PS_only.sdk/design_1_wrapper_hw_platform_0/system.hdf'.
+08:02:29 INFO  : Context for 'APU' is selected.
+08:02:29 INFO  : 'stop' command is executed.
+08:02:30 INFO  : 'ps7_init' command is executed.
+08:02:30 INFO  : 'ps7_post_config' command is executed.
+08:02:30 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+08:02:30 INFO  : Processor reset is completed for 'ps7_cortexa9_0'.
+08:02:30 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+08:02:30 INFO  : The application 'D:/Git/cuhk-ceng3430/Project/PS_only/PS_only.sdk/renderer3d/Debug/renderer3d.elf' is downloaded to processor 'ps7_cortexa9_0'.
+08:02:30 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+source D:/Git/cuhk-ceng3430/Project/PS_only/PS_only.sdk/design_1_wrapper_hw_platform_0/ps7_init.tcl
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Zed 210248565423"} -index 0
+loadhw D:/Git/cuhk-ceng3430/Project/PS_only/PS_only.sdk/design_1_wrapper_hw_platform_0/system.hdf
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Zed 210248565423"} -index 0
+stop
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zed 210248565423"} -index 0
+rst -processor
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zed 210248565423"} -index 0
+dow D:/Git/cuhk-ceng3430/Project/PS_only/PS_only.sdk/renderer3d/Debug/renderer3d.elf
+----------------End of Script----------------
+
+08:02:30 INFO  : Memory regions updated for context APU
+08:02:30 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+08:02:30 INFO  : 'con' command is executed.
+08:02:30 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zed 210248565423"} -index 0
+con
+----------------End of Script----------------
+
+08:02:30 INFO  : Launch script is exported to file 'D:\Git\cuhk-ceng3430\Project\PS_only\PS_only.sdk\.sdk\launch_scripts\xilinx_c-c++_application_(system_debugger)\system_debugger_using_debug_renderer3d.elf_on_local.tcl'
+08:03:05 INFO  : Disconnected from the channel tcfchan#26.
+08:03:06 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Zed 210248565423" && level==0} -index 1' command is executed.
+08:03:06 INFO  : 'fpga -state' command is executed.
+08:03:06 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+08:03:07 INFO  : Jtag cable 'Digilent Zed 210248565423' is selected.
+08:03:07 INFO  : 'jtag frequency' command is executed.
+08:03:07 INFO  : Sourcing of 'D:/Git/cuhk-ceng3430/Project/PS_only/PS_only.sdk/design_1_wrapper_hw_platform_0/ps7_init.tcl' is done.
+08:03:07 INFO  : Context for 'APU' is selected.
+08:03:09 INFO  : Hardware design information is loaded from 'D:/Git/cuhk-ceng3430/Project/PS_only/PS_only.sdk/design_1_wrapper_hw_platform_0/system.hdf'.
+08:03:09 INFO  : Context for 'APU' is selected.
+08:03:09 INFO  : 'stop' command is executed.
+08:03:10 INFO  : 'ps7_init' command is executed.
+08:03:10 INFO  : 'ps7_post_config' command is executed.
+08:03:10 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+08:03:10 INFO  : Processor reset is completed for 'ps7_cortexa9_0'.
+08:03:10 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+08:03:10 INFO  : The application 'D:/Git/cuhk-ceng3430/Project/PS_only/PS_only.sdk/renderer3d/Debug/renderer3d.elf' is downloaded to processor 'ps7_cortexa9_0'.
+08:03:10 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+source D:/Git/cuhk-ceng3430/Project/PS_only/PS_only.sdk/design_1_wrapper_hw_platform_0/ps7_init.tcl
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Zed 210248565423"} -index 0
+loadhw D:/Git/cuhk-ceng3430/Project/PS_only/PS_only.sdk/design_1_wrapper_hw_platform_0/system.hdf
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Zed 210248565423"} -index 0
+stop
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zed 210248565423"} -index 0
+rst -processor
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zed 210248565423"} -index 0
+dow D:/Git/cuhk-ceng3430/Project/PS_only/PS_only.sdk/renderer3d/Debug/renderer3d.elf
+----------------End of Script----------------
+
+08:03:10 INFO  : Memory regions updated for context APU
+08:03:10 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+08:03:10 INFO  : 'con' command is executed.
+08:03:10 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zed 210248565423"} -index 0
+con
+----------------End of Script----------------
+
+08:03:10 INFO  : Launch script is exported to file 'D:\Git\cuhk-ceng3430\Project\PS_only\PS_only.sdk\.sdk\launch_scripts\xilinx_c-c++_application_(system_debugger)\system_debugger_using_debug_renderer3d.elf_on_local.tcl'
+08:08:24 INFO  : Disconnected from the channel tcfchan#27.
+08:08:25 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Zed 210248565423" && level==0} -index 1' command is executed.
+08:08:25 INFO  : 'fpga -state' command is executed.
+08:08:25 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+08:08:26 INFO  : Jtag cable 'Digilent Zed 210248565423' is selected.
+08:08:26 INFO  : 'jtag frequency' command is executed.
+08:08:26 INFO  : Sourcing of 'D:/Git/cuhk-ceng3430/Project/PS_only/PS_only.sdk/design_1_wrapper_hw_platform_0/ps7_init.tcl' is done.
+08:08:26 INFO  : Context for 'APU' is selected.
+08:08:29 INFO  : Hardware design information is loaded from 'D:/Git/cuhk-ceng3430/Project/PS_only/PS_only.sdk/design_1_wrapper_hw_platform_0/system.hdf'.
+08:08:29 INFO  : Context for 'APU' is selected.
+08:08:29 INFO  : 'stop' command is executed.
+08:08:29 INFO  : 'ps7_init' command is executed.
+08:08:29 INFO  : 'ps7_post_config' command is executed.
+08:08:29 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+08:08:29 INFO  : Processor reset is completed for 'ps7_cortexa9_0'.
+08:08:29 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+08:08:30 INFO  : The application 'D:/Git/cuhk-ceng3430/Project/PS_only/PS_only.sdk/renderer3d/Debug/renderer3d.elf' is downloaded to processor 'ps7_cortexa9_0'.
+08:08:30 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+source D:/Git/cuhk-ceng3430/Project/PS_only/PS_only.sdk/design_1_wrapper_hw_platform_0/ps7_init.tcl
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Zed 210248565423"} -index 0
+loadhw D:/Git/cuhk-ceng3430/Project/PS_only/PS_only.sdk/design_1_wrapper_hw_platform_0/system.hdf
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Zed 210248565423"} -index 0
+stop
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zed 210248565423"} -index 0
+rst -processor
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zed 210248565423"} -index 0
+dow D:/Git/cuhk-ceng3430/Project/PS_only/PS_only.sdk/renderer3d/Debug/renderer3d.elf
+----------------End of Script----------------
+
+08:08:30 INFO  : Memory regions updated for context APU
+08:08:30 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+08:08:30 INFO  : 'con' command is executed.
+08:08:30 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zed 210248565423"} -index 0
+con
+----------------End of Script----------------
+
+08:08:30 INFO  : Launch script is exported to file 'D:\Git\cuhk-ceng3430\Project\PS_only\PS_only.sdk\.sdk\launch_scripts\xilinx_c-c++_application_(system_debugger)\system_debugger_using_debug_renderer3d.elf_on_local.tcl'
+08:12:40 INFO  : Disconnected from the channel tcfchan#28.
+08:12:41 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Zed 210248565423" && level==0} -index 1' command is executed.
+08:12:41 INFO  : 'fpga -state' command is executed.
+08:12:41 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+08:12:41 INFO  : Jtag cable 'Digilent Zed 210248565423' is selected.
+08:12:41 INFO  : 'jtag frequency' command is executed.
+08:12:41 INFO  : Sourcing of 'D:/Git/cuhk-ceng3430/Project/PS_only/PS_only.sdk/design_1_wrapper_hw_platform_0/ps7_init.tcl' is done.
+08:12:41 INFO  : Context for 'APU' is selected.
+08:12:44 INFO  : Hardware design information is loaded from 'D:/Git/cuhk-ceng3430/Project/PS_only/PS_only.sdk/design_1_wrapper_hw_platform_0/system.hdf'.
+08:12:44 INFO  : Context for 'APU' is selected.
+08:12:44 INFO  : 'stop' command is executed.
+08:12:44 INFO  : 'ps7_init' command is executed.
+08:12:44 INFO  : 'ps7_post_config' command is executed.
+08:12:44 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+08:12:45 INFO  : Processor reset is completed for 'ps7_cortexa9_0'.
+08:12:45 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Zed 210248565423" && level==0} -index 1' command is executed.
+08:12:45 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+08:12:45 INFO  : 'fpga -state' command is executed.
+08:12:45 INFO  : The application 'D:/Git/cuhk-ceng3430/Project/PS_only/PS_only.sdk/renderer3d/Debug/renderer3d.elf' is downloaded to processor 'ps7_cortexa9_0'.
+08:12:45 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+source D:/Git/cuhk-ceng3430/Project/PS_only/PS_only.sdk/design_1_wrapper_hw_platform_0/ps7_init.tcl
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Zed 210248565423"} -index 0
+loadhw D:/Git/cuhk-ceng3430/Project/PS_only/PS_only.sdk/design_1_wrapper_hw_platform_0/system.hdf
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Zed 210248565423"} -index 0
+stop
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zed 210248565423"} -index 0
+rst -processor
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zed 210248565423"} -index 0
+dow D:/Git/cuhk-ceng3430/Project/PS_only/PS_only.sdk/renderer3d/Debug/renderer3d.elf
+----------------End of Script----------------
+
+08:12:45 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+08:12:45 INFO  : Memory regions updated for context APU
+08:12:45 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+08:12:45 INFO  : 'con' command is executed.
+08:12:45 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zed 210248565423"} -index 0
+con
+----------------End of Script----------------
+
+08:12:45 INFO  : Launch script is exported to file 'D:\Git\cuhk-ceng3430\Project\PS_only\PS_only.sdk\.sdk\launch_scripts\xilinx_c-c++_application_(system_debugger)\system_debugger_using_debug_renderer3d.elf_on_local.tcl'
+08:12:45 INFO  : Jtag cable 'Digilent Zed 210248565423' is selected.
+08:12:45 INFO  : 'jtag frequency' command is executed.
+08:12:45 INFO  : Sourcing of 'D:/Git/cuhk-ceng3430/Project/PS_only/PS_only.sdk/design_1_wrapper_hw_platform_0/ps7_init.tcl' is done.
+08:12:45 INFO  : Context for 'APU' is selected.
+08:12:45 INFO  : Hardware design information is loaded from 'D:/Git/cuhk-ceng3430/Project/PS_only/PS_only.sdk/design_1_wrapper_hw_platform_0/system.hdf'.
+08:12:45 INFO  : Context for 'APU' is selected.
+08:12:45 INFO  : 'stop' command is executed.
+08:12:46 INFO  : 'ps7_init' command is executed.
+08:12:46 INFO  : 'ps7_post_config' command is executed.
+08:12:46 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+08:12:46 INFO  : Processor reset is completed for 'ps7_cortexa9_0'.
+08:12:46 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+08:12:47 INFO  : The application 'D:/Git/cuhk-ceng3430/Project/PS_only/PS_only.sdk/renderer3d/Debug/renderer3d.elf' is downloaded to processor 'ps7_cortexa9_0'.
+08:12:47 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+source D:/Git/cuhk-ceng3430/Project/PS_only/PS_only.sdk/design_1_wrapper_hw_platform_0/ps7_init.tcl
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Zed 210248565423"} -index 0
+loadhw D:/Git/cuhk-ceng3430/Project/PS_only/PS_only.sdk/design_1_wrapper_hw_platform_0/system.hdf
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Zed 210248565423"} -index 0
+stop
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zed 210248565423"} -index 0
+rst -processor
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zed 210248565423"} -index 0
+dow D:/Git/cuhk-ceng3430/Project/PS_only/PS_only.sdk/renderer3d/Debug/renderer3d.elf
+----------------End of Script----------------
+
+08:12:47 INFO  : Memory regions updated for context APU
+08:12:47 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+08:12:47 INFO  : 'con' command is executed.
+08:12:47 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zed 210248565423"} -index 0
+con
+----------------End of Script----------------
+
+08:12:47 INFO  : Launch script is exported to file 'D:\Git\cuhk-ceng3430\Project\PS_only\PS_only.sdk\.sdk\launch_scripts\xilinx_c-c++_application_(system_debugger)\system_debugger_using_debug_renderer3d.elf_on_local.tcl'
+08:12:55 INFO  : Disconnected from the channel tcfchan#29.
+08:12:56 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Zed 210248565423" && level==0} -index 1' command is executed.
+08:12:56 INFO  : 'fpga -state' command is executed.
+08:12:56 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+08:12:56 INFO  : Jtag cable 'Digilent Zed 210248565423' is selected.
+08:12:56 INFO  : 'jtag frequency' command is executed.
+08:12:56 INFO  : Sourcing of 'D:/Git/cuhk-ceng3430/Project/PS_only/PS_only.sdk/design_1_wrapper_hw_platform_0/ps7_init.tcl' is done.
+08:12:56 INFO  : Context for 'APU' is selected.
+08:12:59 INFO  : Hardware design information is loaded from 'D:/Git/cuhk-ceng3430/Project/PS_only/PS_only.sdk/design_1_wrapper_hw_platform_0/system.hdf'.
+08:12:59 INFO  : Context for 'APU' is selected.
+08:12:59 INFO  : 'stop' command is executed.
+08:12:59 INFO  : 'ps7_init' command is executed.
+08:12:59 INFO  : 'ps7_post_config' command is executed.
+08:12:59 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+08:12:59 INFO  : Processor reset is completed for 'ps7_cortexa9_0'.
+08:12:59 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+08:13:00 INFO  : The application 'D:/Git/cuhk-ceng3430/Project/PS_only/PS_only.sdk/renderer3d/Debug/renderer3d.elf' is downloaded to processor 'ps7_cortexa9_0'.
+08:13:00 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+source D:/Git/cuhk-ceng3430/Project/PS_only/PS_only.sdk/design_1_wrapper_hw_platform_0/ps7_init.tcl
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Zed 210248565423"} -index 0
+loadhw D:/Git/cuhk-ceng3430/Project/PS_only/PS_only.sdk/design_1_wrapper_hw_platform_0/system.hdf
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Zed 210248565423"} -index 0
+stop
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zed 210248565423"} -index 0
+rst -processor
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zed 210248565423"} -index 0
+dow D:/Git/cuhk-ceng3430/Project/PS_only/PS_only.sdk/renderer3d/Debug/renderer3d.elf
+----------------End of Script----------------
+
+08:13:00 INFO  : Memory regions updated for context APU
+08:13:00 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+08:13:00 INFO  : 'con' command is executed.
+08:13:00 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zed 210248565423"} -index 0
+con
+----------------End of Script----------------
+
+08:13:00 INFO  : Launch script is exported to file 'D:\Git\cuhk-ceng3430\Project\PS_only\PS_only.sdk\.sdk\launch_scripts\xilinx_c-c++_application_(system_debugger)\system_debugger_using_debug_renderer3d.elf_on_local.tcl'
+08:13:20 INFO  : Disconnected from the channel tcfchan#30.
+08:13:21 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Zed 210248565423" && level==0} -index 1' command is executed.
+08:13:21 INFO  : 'fpga -state' command is executed.
+08:13:21 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+08:13:22 INFO  : Jtag cable 'Digilent Zed 210248565423' is selected.
+08:13:22 INFO  : 'jtag frequency' command is executed.
+08:13:22 INFO  : Sourcing of 'D:/Git/cuhk-ceng3430/Project/PS_only/PS_only.sdk/design_1_wrapper_hw_platform_0/ps7_init.tcl' is done.
+08:13:22 INFO  : Context for 'APU' is selected.
+08:13:25 INFO  : Hardware design information is loaded from 'D:/Git/cuhk-ceng3430/Project/PS_only/PS_only.sdk/design_1_wrapper_hw_platform_0/system.hdf'.
+08:13:25 INFO  : Context for 'APU' is selected.
+08:13:25 INFO  : 'stop' command is executed.
+08:13:25 INFO  : 'ps7_init' command is executed.
+08:13:25 INFO  : 'ps7_post_config' command is executed.
+08:13:25 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+08:13:25 INFO  : Processor reset is completed for 'ps7_cortexa9_0'.
+08:13:25 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+08:13:26 INFO  : The application 'D:/Git/cuhk-ceng3430/Project/PS_only/PS_only.sdk/renderer3d/Debug/renderer3d.elf' is downloaded to processor 'ps7_cortexa9_0'.
+08:13:26 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+source D:/Git/cuhk-ceng3430/Project/PS_only/PS_only.sdk/design_1_wrapper_hw_platform_0/ps7_init.tcl
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Zed 210248565423"} -index 0
+loadhw D:/Git/cuhk-ceng3430/Project/PS_only/PS_only.sdk/design_1_wrapper_hw_platform_0/system.hdf
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Zed 210248565423"} -index 0
+stop
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zed 210248565423"} -index 0
+rst -processor
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zed 210248565423"} -index 0
+dow D:/Git/cuhk-ceng3430/Project/PS_only/PS_only.sdk/renderer3d/Debug/renderer3d.elf
+----------------End of Script----------------
+
+08:13:26 INFO  : Memory regions updated for context APU
+08:13:26 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+08:13:26 INFO  : 'con' command is executed.
+08:13:26 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zed 210248565423"} -index 0
+con
+----------------End of Script----------------
+
+08:13:26 INFO  : Launch script is exported to file 'D:\Git\cuhk-ceng3430\Project\PS_only\PS_only.sdk\.sdk\launch_scripts\xilinx_c-c++_application_(system_debugger)\system_debugger_using_debug_renderer3d.elf_on_local.tcl'
+08:14:00 INFO  : Disconnected from the channel tcfchan#31.
+08:14:01 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Zed 210248565423" && level==0} -index 1' command is executed.
+08:14:01 INFO  : 'fpga -state' command is executed.
+08:14:01 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+08:14:01 INFO  : Jtag cable 'Digilent Zed 210248565423' is selected.
+08:14:01 INFO  : 'jtag frequency' command is executed.
+08:14:01 INFO  : Sourcing of 'D:/Git/cuhk-ceng3430/Project/PS_only/PS_only.sdk/design_1_wrapper_hw_platform_0/ps7_init.tcl' is done.
+08:14:01 INFO  : Context for 'APU' is selected.
+08:14:04 INFO  : Hardware design information is loaded from 'D:/Git/cuhk-ceng3430/Project/PS_only/PS_only.sdk/design_1_wrapper_hw_platform_0/system.hdf'.
+08:14:04 INFO  : Context for 'APU' is selected.
+08:14:04 INFO  : 'stop' command is executed.
+08:14:04 INFO  : 'ps7_init' command is executed.
+08:14:04 INFO  : 'ps7_post_config' command is executed.
+08:14:04 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+08:14:04 INFO  : Processor reset is completed for 'ps7_cortexa9_0'.
+08:14:04 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+08:14:05 INFO  : The application 'D:/Git/cuhk-ceng3430/Project/PS_only/PS_only.sdk/renderer3d/Debug/renderer3d.elf' is downloaded to processor 'ps7_cortexa9_0'.
+08:14:05 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+source D:/Git/cuhk-ceng3430/Project/PS_only/PS_only.sdk/design_1_wrapper_hw_platform_0/ps7_init.tcl
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Zed 210248565423"} -index 0
+loadhw D:/Git/cuhk-ceng3430/Project/PS_only/PS_only.sdk/design_1_wrapper_hw_platform_0/system.hdf
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Zed 210248565423"} -index 0
+stop
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zed 210248565423"} -index 0
+rst -processor
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zed 210248565423"} -index 0
+dow D:/Git/cuhk-ceng3430/Project/PS_only/PS_only.sdk/renderer3d/Debug/renderer3d.elf
+----------------End of Script----------------
+
+08:14:05 INFO  : Memory regions updated for context APU
+08:14:05 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+08:14:05 INFO  : 'con' command is executed.
+08:14:05 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zed 210248565423"} -index 0
+con
+----------------End of Script----------------
+
+08:14:05 INFO  : Launch script is exported to file 'D:\Git\cuhk-ceng3430\Project\PS_only\PS_only.sdk\.sdk\launch_scripts\xilinx_c-c++_application_(system_debugger)\system_debugger_using_debug_renderer3d.elf_on_local.tcl'
+08:14:36 INFO  : Disconnected from the channel tcfchan#32.
+08:14:37 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Zed 210248565423" && level==0} -index 1' command is executed.
+08:14:37 INFO  : 'fpga -state' command is executed.
+08:14:37 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+08:14:37 INFO  : Jtag cable 'Digilent Zed 210248565423' is selected.
+08:14:37 INFO  : 'jtag frequency' command is executed.
+08:14:37 INFO  : Sourcing of 'D:/Git/cuhk-ceng3430/Project/PS_only/PS_only.sdk/design_1_wrapper_hw_platform_0/ps7_init.tcl' is done.
+08:14:37 INFO  : Context for 'APU' is selected.
+08:14:40 INFO  : Hardware design information is loaded from 'D:/Git/cuhk-ceng3430/Project/PS_only/PS_only.sdk/design_1_wrapper_hw_platform_0/system.hdf'.
+08:14:40 INFO  : Context for 'APU' is selected.
+08:14:40 INFO  : 'stop' command is executed.
+08:14:41 INFO  : 'ps7_init' command is executed.
+08:14:41 INFO  : 'ps7_post_config' command is executed.
+08:14:41 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+08:14:41 INFO  : Processor reset is completed for 'ps7_cortexa9_0'.
+08:14:41 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+08:14:41 INFO  : The application 'D:/Git/cuhk-ceng3430/Project/PS_only/PS_only.sdk/renderer3d/Debug/renderer3d.elf' is downloaded to processor 'ps7_cortexa9_0'.
+08:14:41 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+source D:/Git/cuhk-ceng3430/Project/PS_only/PS_only.sdk/design_1_wrapper_hw_platform_0/ps7_init.tcl
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Zed 210248565423"} -index 0
+loadhw D:/Git/cuhk-ceng3430/Project/PS_only/PS_only.sdk/design_1_wrapper_hw_platform_0/system.hdf
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Zed 210248565423"} -index 0
+stop
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zed 210248565423"} -index 0
+rst -processor
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zed 210248565423"} -index 0
+dow D:/Git/cuhk-ceng3430/Project/PS_only/PS_only.sdk/renderer3d/Debug/renderer3d.elf
+----------------End of Script----------------
+
+08:14:41 INFO  : Memory regions updated for context APU
+08:14:41 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+08:14:41 INFO  : 'con' command is executed.
+08:14:41 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zed 210248565423"} -index 0
+con
+----------------End of Script----------------
+
+08:14:41 INFO  : Launch script is exported to file 'D:\Git\cuhk-ceng3430\Project\PS_only\PS_only.sdk\.sdk\launch_scripts\xilinx_c-c++_application_(system_debugger)\system_debugger_using_debug_renderer3d.elf_on_local.tcl'
+08:15:07 INFO  : Disconnected from the channel tcfchan#33.
+08:15:08 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Zed 210248565423" && level==0} -index 1' command is executed.
+08:15:08 INFO  : 'fpga -state' command is executed.
+08:15:08 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+08:15:09 INFO  : Jtag cable 'Digilent Zed 210248565423' is selected.
+08:15:09 INFO  : 'jtag frequency' command is executed.
+08:15:09 INFO  : Sourcing of 'D:/Git/cuhk-ceng3430/Project/PS_only/PS_only.sdk/design_1_wrapper_hw_platform_0/ps7_init.tcl' is done.
+08:15:09 INFO  : Context for 'APU' is selected.
+08:15:11 INFO  : Hardware design information is loaded from 'D:/Git/cuhk-ceng3430/Project/PS_only/PS_only.sdk/design_1_wrapper_hw_platform_0/system.hdf'.
+08:15:11 INFO  : Context for 'APU' is selected.
+08:15:11 INFO  : 'stop' command is executed.
+08:15:12 INFO  : 'ps7_init' command is executed.
+08:15:12 INFO  : 'ps7_post_config' command is executed.
+08:15:12 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+08:15:12 INFO  : Processor reset is completed for 'ps7_cortexa9_0'.
+08:15:12 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+08:15:12 INFO  : The application 'D:/Git/cuhk-ceng3430/Project/PS_only/PS_only.sdk/renderer3d/Debug/renderer3d.elf' is downloaded to processor 'ps7_cortexa9_0'.
+08:15:12 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+source D:/Git/cuhk-ceng3430/Project/PS_only/PS_only.sdk/design_1_wrapper_hw_platform_0/ps7_init.tcl
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Zed 210248565423"} -index 0
+loadhw D:/Git/cuhk-ceng3430/Project/PS_only/PS_only.sdk/design_1_wrapper_hw_platform_0/system.hdf
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Zed 210248565423"} -index 0
+stop
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zed 210248565423"} -index 0
+rst -processor
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zed 210248565423"} -index 0
+dow D:/Git/cuhk-ceng3430/Project/PS_only/PS_only.sdk/renderer3d/Debug/renderer3d.elf
+----------------End of Script----------------
+
+08:15:12 INFO  : Memory regions updated for context APU
+08:15:12 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+08:15:12 INFO  : 'con' command is executed.
+08:15:12 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zed 210248565423"} -index 0
+con
+----------------End of Script----------------
+
+08:15:12 INFO  : Launch script is exported to file 'D:\Git\cuhk-ceng3430\Project\PS_only\PS_only.sdk\.sdk\launch_scripts\xilinx_c-c++_application_(system_debugger)\system_debugger_using_debug_renderer3d.elf_on_local.tcl'
+08:15:48 INFO  : Disconnected from the channel tcfchan#34.
+08:15:49 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Zed 210248565423" && level==0} -index 1' command is executed.
+08:15:49 INFO  : 'fpga -state' command is executed.
+08:15:49 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+08:15:49 INFO  : Jtag cable 'Digilent Zed 210248565423' is selected.
+08:15:49 INFO  : 'jtag frequency' command is executed.
+08:15:49 INFO  : Sourcing of 'D:/Git/cuhk-ceng3430/Project/PS_only/PS_only.sdk/design_1_wrapper_hw_platform_0/ps7_init.tcl' is done.
+08:15:49 INFO  : Context for 'APU' is selected.
+08:15:52 INFO  : Hardware design information is loaded from 'D:/Git/cuhk-ceng3430/Project/PS_only/PS_only.sdk/design_1_wrapper_hw_platform_0/system.hdf'.
+08:15:52 INFO  : Context for 'APU' is selected.
+08:15:52 INFO  : 'stop' command is executed.
+08:15:53 INFO  : 'ps7_init' command is executed.
+08:15:53 INFO  : 'ps7_post_config' command is executed.
+08:15:53 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+08:15:53 INFO  : Processor reset is completed for 'ps7_cortexa9_0'.
+08:15:53 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+08:15:53 INFO  : The application 'D:/Git/cuhk-ceng3430/Project/PS_only/PS_only.sdk/renderer3d/Debug/renderer3d.elf' is downloaded to processor 'ps7_cortexa9_0'.
+08:15:53 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+source D:/Git/cuhk-ceng3430/Project/PS_only/PS_only.sdk/design_1_wrapper_hw_platform_0/ps7_init.tcl
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Zed 210248565423"} -index 0
+loadhw D:/Git/cuhk-ceng3430/Project/PS_only/PS_only.sdk/design_1_wrapper_hw_platform_0/system.hdf
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Zed 210248565423"} -index 0
+stop
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zed 210248565423"} -index 0
+rst -processor
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zed 210248565423"} -index 0
+dow D:/Git/cuhk-ceng3430/Project/PS_only/PS_only.sdk/renderer3d/Debug/renderer3d.elf
+----------------End of Script----------------
+
+08:15:53 INFO  : Memory regions updated for context APU
+08:15:53 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+08:15:53 INFO  : 'con' command is executed.
+08:15:53 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zed 210248565423"} -index 0
+con
+----------------End of Script----------------
+
+08:15:53 INFO  : Launch script is exported to file 'D:\Git\cuhk-ceng3430\Project\PS_only\PS_only.sdk\.sdk\launch_scripts\xilinx_c-c++_application_(system_debugger)\system_debugger_using_debug_renderer3d.elf_on_local.tcl'
+08:16:39 INFO  : Disconnected from the channel tcfchan#35.
+08:16:40 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Zed 210248565423" && level==0} -index 1' command is executed.
+08:16:40 INFO  : 'fpga -state' command is executed.
+08:16:40 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+08:16:40 INFO  : Jtag cable 'Digilent Zed 210248565423' is selected.
+08:16:40 INFO  : 'jtag frequency' command is executed.
+08:16:40 INFO  : Sourcing of 'D:/Git/cuhk-ceng3430/Project/PS_only/PS_only.sdk/design_1_wrapper_hw_platform_0/ps7_init.tcl' is done.
+08:16:40 INFO  : Context for 'APU' is selected.
+08:16:43 INFO  : Hardware design information is loaded from 'D:/Git/cuhk-ceng3430/Project/PS_only/PS_only.sdk/design_1_wrapper_hw_platform_0/system.hdf'.
+08:16:43 INFO  : Context for 'APU' is selected.
+08:16:43 INFO  : 'stop' command is executed.
+08:16:44 INFO  : 'ps7_init' command is executed.
+08:16:44 INFO  : 'ps7_post_config' command is executed.
+08:16:44 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+08:16:44 INFO  : Processor reset is completed for 'ps7_cortexa9_0'.
+08:16:44 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+08:16:44 INFO  : The application 'D:/Git/cuhk-ceng3430/Project/PS_only/PS_only.sdk/renderer3d/Debug/renderer3d.elf' is downloaded to processor 'ps7_cortexa9_0'.
+08:16:44 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+source D:/Git/cuhk-ceng3430/Project/PS_only/PS_only.sdk/design_1_wrapper_hw_platform_0/ps7_init.tcl
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Zed 210248565423"} -index 0
+loadhw D:/Git/cuhk-ceng3430/Project/PS_only/PS_only.sdk/design_1_wrapper_hw_platform_0/system.hdf
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Zed 210248565423"} -index 0
+stop
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zed 210248565423"} -index 0
+rst -processor
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zed 210248565423"} -index 0
+dow D:/Git/cuhk-ceng3430/Project/PS_only/PS_only.sdk/renderer3d/Debug/renderer3d.elf
+----------------End of Script----------------
+
+08:16:44 INFO  : Memory regions updated for context APU
+08:16:44 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+08:16:44 INFO  : 'con' command is executed.
+08:16:44 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zed 210248565423"} -index 0
+con
+----------------End of Script----------------
+
+08:16:44 INFO  : Launch script is exported to file 'D:\Git\cuhk-ceng3430\Project\PS_only\PS_only.sdk\.sdk\launch_scripts\xilinx_c-c++_application_(system_debugger)\system_debugger_using_debug_renderer3d.elf_on_local.tcl'
+08:17:25 INFO  : Disconnected from the channel tcfchan#36.
+08:17:26 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Zed 210248565423" && level==0} -index 1' command is executed.
+08:17:26 INFO  : 'fpga -state' command is executed.
+08:17:26 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+08:17:26 INFO  : Jtag cable 'Digilent Zed 210248565423' is selected.
+08:17:26 INFO  : 'jtag frequency' command is executed.
+08:17:26 INFO  : Sourcing of 'D:/Git/cuhk-ceng3430/Project/PS_only/PS_only.sdk/design_1_wrapper_hw_platform_0/ps7_init.tcl' is done.
+08:17:26 INFO  : Context for 'APU' is selected.
+08:17:29 INFO  : Hardware design information is loaded from 'D:/Git/cuhk-ceng3430/Project/PS_only/PS_only.sdk/design_1_wrapper_hw_platform_0/system.hdf'.
+08:17:29 INFO  : Context for 'APU' is selected.
+08:17:29 INFO  : 'stop' command is executed.
+08:17:30 INFO  : 'ps7_init' command is executed.
+08:17:30 INFO  : 'ps7_post_config' command is executed.
+08:17:30 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+08:17:30 INFO  : Processor reset is completed for 'ps7_cortexa9_0'.
+08:17:30 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+08:17:30 INFO  : The application 'D:/Git/cuhk-ceng3430/Project/PS_only/PS_only.sdk/renderer3d/Debug/renderer3d.elf' is downloaded to processor 'ps7_cortexa9_0'.
+08:17:30 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+source D:/Git/cuhk-ceng3430/Project/PS_only/PS_only.sdk/design_1_wrapper_hw_platform_0/ps7_init.tcl
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Zed 210248565423"} -index 0
+loadhw D:/Git/cuhk-ceng3430/Project/PS_only/PS_only.sdk/design_1_wrapper_hw_platform_0/system.hdf
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Zed 210248565423"} -index 0
+stop
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zed 210248565423"} -index 0
+rst -processor
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zed 210248565423"} -index 0
+dow D:/Git/cuhk-ceng3430/Project/PS_only/PS_only.sdk/renderer3d/Debug/renderer3d.elf
+----------------End of Script----------------
+
+08:17:30 INFO  : Memory regions updated for context APU
+08:17:30 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+08:17:30 INFO  : 'con' command is executed.
+08:17:30 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zed 210248565423"} -index 0
+con
+----------------End of Script----------------
+
+08:17:30 INFO  : Launch script is exported to file 'D:\Git\cuhk-ceng3430\Project\PS_only\PS_only.sdk\.sdk\launch_scripts\xilinx_c-c++_application_(system_debugger)\system_debugger_using_debug_renderer3d.elf_on_local.tcl'
+08:19:23 INFO  : Disconnected from the channel tcfchan#37.
+08:19:24 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Zed 210248565423" && level==0} -index 1' command is executed.
+08:19:24 INFO  : 'fpga -state' command is executed.
+08:19:24 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+08:19:25 INFO  : Jtag cable 'Digilent Zed 210248565423' is selected.
+08:19:25 INFO  : 'jtag frequency' command is executed.
+08:19:25 INFO  : Sourcing of 'D:/Git/cuhk-ceng3430/Project/PS_only/PS_only.sdk/design_1_wrapper_hw_platform_0/ps7_init.tcl' is done.
+08:19:25 INFO  : Context for 'APU' is selected.
+08:19:28 INFO  : Hardware design information is loaded from 'D:/Git/cuhk-ceng3430/Project/PS_only/PS_only.sdk/design_1_wrapper_hw_platform_0/system.hdf'.
+08:19:28 INFO  : Context for 'APU' is selected.
+08:19:28 INFO  : 'stop' command is executed.
+08:19:28 INFO  : 'ps7_init' command is executed.
+08:19:28 INFO  : 'ps7_post_config' command is executed.
+08:19:28 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+08:19:28 INFO  : Processor reset is completed for 'ps7_cortexa9_0'.
+08:19:28 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+08:19:29 INFO  : The application 'D:/Git/cuhk-ceng3430/Project/PS_only/PS_only.sdk/renderer3d/Debug/renderer3d.elf' is downloaded to processor 'ps7_cortexa9_0'.
+08:19:29 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+source D:/Git/cuhk-ceng3430/Project/PS_only/PS_only.sdk/design_1_wrapper_hw_platform_0/ps7_init.tcl
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Zed 210248565423"} -index 0
+loadhw D:/Git/cuhk-ceng3430/Project/PS_only/PS_only.sdk/design_1_wrapper_hw_platform_0/system.hdf
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Zed 210248565423"} -index 0
+stop
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zed 210248565423"} -index 0
+rst -processor
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zed 210248565423"} -index 0
+dow D:/Git/cuhk-ceng3430/Project/PS_only/PS_only.sdk/renderer3d/Debug/renderer3d.elf
+----------------End of Script----------------
+
+08:19:29 INFO  : Memory regions updated for context APU
+08:19:29 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+08:19:29 INFO  : 'con' command is executed.
+08:19:29 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zed 210248565423"} -index 0
+con
+----------------End of Script----------------
+
+08:19:29 INFO  : Launch script is exported to file 'D:\Git\cuhk-ceng3430\Project\PS_only\PS_only.sdk\.sdk\launch_scripts\xilinx_c-c++_application_(system_debugger)\system_debugger_using_debug_renderer3d.elf_on_local.tcl'
+08:20:26 INFO  : Disconnected from the channel tcfchan#38.
+08:20:27 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Zed 210248565423" && level==0} -index 1' command is executed.
+08:20:28 INFO  : 'fpga -state' command is executed.
+08:20:28 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+08:20:28 INFO  : Jtag cable 'Digilent Zed 210248565423' is selected.
+08:20:28 INFO  : 'jtag frequency' command is executed.
+08:20:28 INFO  : Sourcing of 'D:/Git/cuhk-ceng3430/Project/PS_only/PS_only.sdk/design_1_wrapper_hw_platform_0/ps7_init.tcl' is done.
+08:20:28 INFO  : Context for 'APU' is selected.
+08:20:31 INFO  : Hardware design information is loaded from 'D:/Git/cuhk-ceng3430/Project/PS_only/PS_only.sdk/design_1_wrapper_hw_platform_0/system.hdf'.
+08:20:31 INFO  : Context for 'APU' is selected.
+08:20:31 INFO  : 'stop' command is executed.
+08:20:31 INFO  : 'ps7_init' command is executed.
+08:20:32 INFO  : 'ps7_post_config' command is executed.
+08:20:32 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+08:20:32 INFO  : Processor reset is completed for 'ps7_cortexa9_0'.
+08:20:32 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+08:20:32 INFO  : The application 'D:/Git/cuhk-ceng3430/Project/PS_only/PS_only.sdk/renderer3d/Debug/renderer3d.elf' is downloaded to processor 'ps7_cortexa9_0'.
+08:20:32 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+source D:/Git/cuhk-ceng3430/Project/PS_only/PS_only.sdk/design_1_wrapper_hw_platform_0/ps7_init.tcl
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Zed 210248565423"} -index 0
+loadhw D:/Git/cuhk-ceng3430/Project/PS_only/PS_only.sdk/design_1_wrapper_hw_platform_0/system.hdf
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Zed 210248565423"} -index 0
+stop
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zed 210248565423"} -index 0
+rst -processor
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zed 210248565423"} -index 0
+dow D:/Git/cuhk-ceng3430/Project/PS_only/PS_only.sdk/renderer3d/Debug/renderer3d.elf
+----------------End of Script----------------
+
+08:20:32 INFO  : Memory regions updated for context APU
+08:20:32 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+08:20:32 INFO  : 'con' command is executed.
+08:20:32 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zed 210248565423"} -index 0
+con
+----------------End of Script----------------
+
+08:20:32 INFO  : Launch script is exported to file 'D:\Git\cuhk-ceng3430\Project\PS_only\PS_only.sdk\.sdk\launch_scripts\xilinx_c-c++_application_(system_debugger)\system_debugger_using_debug_renderer3d.elf_on_local.tcl'

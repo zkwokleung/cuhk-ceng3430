@@ -1,0 +1,39 @@
+08:20:25 **** Incremental Build of configuration Debug for project renderer3d ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/main.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/main.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../renderer3d_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.c"
+../src/main.c: In function 'main':
+../src/main.c:33:9: warning: unused variable 'btnd_in' [-Wunused-variable]
+     u32 btnd_in = 0;
+         ^
+../src/main.c:32:9: warning: unused variable 'btnu_in' [-Wunused-variable]
+     u32 btnu_in = 0;
+         ^
+../src/main.c:31:9: warning: unused variable 'btnr_in' [-Wunused-variable]
+     u32 btnr_in = 0;
+         ^
+../src/main.c:30:9: warning: unused variable 'btnl_in' [-Wunused-variable]
+     u32 btnl_in = 0;
+         ^
+../src/main.c:29:9: warning: unused variable 'btnc_in' [-Wunused-variable]
+     u32 btnc_in = 0;
+         ^
+'Finished building: ../src/main.c'
+' '
+'Building target: renderer3d.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../renderer3d_bsp/ps7_cortexa9_0/lib -o "renderer3d.elf"  ./src/include/math3d.o  ./src/main.o ./src/platform.o   -lm -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: renderer3d.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size renderer3d.elf  |tee "renderer3d.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+ 106832	   2584	  23328	 132744	  20688	renderer3d.elf
+'Finished building: renderer3d.elf.size'
+' '
+
+08:20:26 Build Finished (took 1s.578ms)
+
