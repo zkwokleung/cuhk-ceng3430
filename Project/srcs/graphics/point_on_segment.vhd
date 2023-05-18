@@ -16,13 +16,33 @@ END point_on_segment;
 ARCHITECTURE point_on_segment_arch OF point_on_segment IS
 BEGIN
     PROCESS (CLK)
-        VARIABLE m, c : INTEGER;
+        VARIABLE c : INTEGER;
     BEGIN
         IF rising_edge(CLK) THEN
-            m := (v2(1) - v1(1)) / (v2(0) - v1(0));
             c := v1(1) - (((v2(1) - v1(1)) * v1(0)) / (v2(0) - v1(0)));
 
-            IF (point(1) <= (m * point(0)) + c + 3) AND (point(1) >= (m * point(0)) + c - 3) THEN
+            IF ((point(1) <= ((v2(1) - v1(1)) * point(0)/(v2(0) - v1(0))) + c + 10) AND (point(1) >= ((v2(1) - v1(1)) * point(0)/(v2(0) - v1(0))) + c - 10)) OR
+                ((point(1) + 1 <= ((v2(1) - v1(1)) * point(0)/(v2(0) - v1(0))) + c + 10) AND (point(1) + 1 >= ((v2(1) - v1(1)) * point(0)/(v2(0) - v1(0))) + c - 10)) OR
+                ((point(1) - 1 <= ((v2(1) - v1(1)) * point(0)/(v2(0) - v1(0))) + c + 10) AND (point(1) - 1 >= ((v2(1) - v1(1)) * point(0)/(v2(0) - v1(0))) + c - 10)) OR
+                ((point(1) <= ((v2(1) - v1(1)) * (point(0) + 1)/(v2(0) - v1(0))) + c + 10) AND (point(1) >= ((v2(1) - v1(1)) * (point(0) + 1)/(v2(0) - v1(0))) + c - 10)) OR
+                ((point(1) <= ((v2(1) - v1(1)) * (point(0) - 1)/(v2(0) - v1(0))) + c + 10) AND (point(1) >= ((v2(1) - v1(1)) * (point(0) - 1)/(v2(0) - v1(0))) + c - 10)) OR
+                ((point(1) + 1 <= ((v2(1) - v1(1)) * (point(0) + 1)/(v2(0) - v1(0))) + c + 10) AND (point(1) + 1 >= ((v2(1) - v1(1)) * (point(0) + 1)/(v2(0) - v1(0))) + c - 10)) OR
+                ((point(1) + 1 <= ((v2(1) - v1(1)) * (point(0) - 1)/(v2(0) - v1(0))) + c + 10) AND (point(1) + 1 >= ((v2(1) - v1(1)) * (point(0) - 1)/(v2(0) - v1(0))) + c - 10)) OR
+                ((point(1) - 1 <= ((v2(1) - v1(1)) * (point(0) + 1)/(v2(0) - v1(0))) + c + 10) AND (point(1) - 1 >= ((v2(1) - v1(1)) * (point(0) + 1)/(v2(0) - v1(0))) + c - 10)) OR
+                ((point(1) - 1 <= ((v2(1) - v1(1)) * (point(0) - 1)/(v2(0) - v1(0))) + c + 10) AND (point(1) - 1 >= ((v2(1) - v1(1)) * (point(0) - 1)/(v2(0) - v1(0))) + c - 10)) OR
+                ((point(1) + 2 <= ((v2(1) - v1(1)) * point(0)/(v2(0) - v1(0))) + c + 10) AND (point(1) + 2 >= ((v2(1) - v1(1)) * point(0)/(v2(0) - v1(0))) + c - 10)) OR
+                ((point(1) - 2 <= ((v2(1) - v1(1)) * point(0)/(v2(0) - v1(0))) + c + 10) AND (point(1) - 2 >= ((v2(1) - v1(1)) * point(0)/(v2(0) - v1(0))) + c - 10)) OR
+                ((point(1) + 2 <= ((v2(1) - v1(1)) * (point(0) + 1)/(v2(0) - v1(0))) + c + 10) AND (point(1) + 2 >= ((v2(1) - v1(1)) * (point(0) + 1)/(v2(0) - v1(0))) + c - 10)) OR
+                ((point(1) + 2 <= ((v2(1) - v1(1)) * (point(0) - 1)/(v2(0) - v1(0))) + c + 10) AND (point(1) + 2 >= ((v2(1) - v1(1)) * (point(0) - 1)/(v2(0) - v1(0))) + c - 10)) OR
+                ((point(1) - 2 <= ((v2(1) - v1(1)) * (point(0) + 1)/(v2(0) - v1(0))) + c + 10) AND (point(1) - 2 >= ((v2(1) - v1(1)) * (point(0) + 1)/(v2(0) - v1(0))) + c - 10)) OR
+                ((point(1) - 2 <= ((v2(1) - v1(1)) * (point(0) - 1)/(v2(0) - v1(0))) + c + 10) AND (point(1) - 2 >= ((v2(1) - v1(1)) * (point(0) - 1)/(v2(0) - v1(0))) + c - 10)) OR
+                ((point(1) + 10 <= ((v2(1) - v1(1)) * point(0)/(v2(0) - v1(0))) + c + 10) AND (point(1) + 10 >= ((v2(1) - v1(1)) * point(0)/(v2(0) - v1(0))) + c - 10)) OR
+                ((point(1) - 10 <= ((v2(1) - v1(1)) * point(0)/(v2(0) - v1(0))) + c + 10) AND (point(1) - 10 >= ((v2(1) - v1(1)) * point(0)/(v2(0) - v1(0))) + c - 10)) OR
+                ((point(1) + 10 <= ((v2(1) - v1(1)) * (point(0) + 1)/(v2(0) - v1(0))) + c + 10) AND (point(1) + 10 >= ((v2(1) - v1(1)) * (point(0) + 1)/(v2(0) - v1(0))) + c - 10)) OR
+                ((point(1) + 10 <= ((v2(1) - v1(1)) * (point(0) - 1)/(v2(0) - v1(0))) + c + 10) AND (point(1) + 10 >= ((v2(1) - v1(1)) * (point(0) - 1)/(v2(0) - v1(0))) + c - 10)) OR
+                ((point(1) - 10 <= ((v2(1) - v1(1)) * (point(0) + 1)/(v2(0) - v1(0))) + c + 10) AND (point(1) - 10 >= ((v2(1) - v1(1)) * (point(0) + 1)/(v2(0) - v1(0))) + c - 10)) OR
+                ((point(1) - 10 <= ((v2(1) - v1(1)) * (point(0) - 1)/(v2(0) - v1(0))) + c + 10) AND (point(1) - 10 >= ((v2(1) - v1(1)) * (point(0) - 1)/(v2(0) - v1(0))) + c - 10))
+                THEN
                 on_segment <= '1';
             ELSE
                 on_segment <= '0';

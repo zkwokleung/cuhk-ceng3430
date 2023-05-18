@@ -7,7 +7,7 @@ u32 get_btn(int BTN)
 
 u32 get_sw()
 {
-    return (CUBE_RENDERER_CONTROLLER_mReadReg(BASEADDR, INPUT_ADDR) & 0x3E0);
+    return (CUBE_RENDERER_CONTROLLER_mReadReg(BASEADDR, INPUT_ADDR) & 0xFE0);
 }
 
 u32 get_sw_n(int n)

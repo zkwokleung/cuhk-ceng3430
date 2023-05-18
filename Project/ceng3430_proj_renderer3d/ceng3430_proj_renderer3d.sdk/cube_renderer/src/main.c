@@ -11,6 +11,8 @@
 #define WIDTH 1024.0f
 #define HEIGHT 600.0f
 
+#define LOOP_DIVIDER 100
+
 #define DEBUG_DEVIDER_INITAL_VALUE 100000.0f
 
 int main()
@@ -19,6 +21,8 @@ int main()
     init_platform();
 
     xil_printf("Initializing\n\r");
+
+    int loop_divider = LOOP_DIVIDER;
 
     short running = 1;
 
@@ -69,6 +73,17 @@ int main()
     // Main loop
     while (running)
     {
+        // Slowdown the loop
+        if (loop_divider >= 0)
+        {
+            loop_divider--;
+            continue;
+        }
+        else
+        {
+            loop_divider = LOOP_DIVIDER;
+        }
+
         // Input
         // Read buttons
         btnc_in = get_btn(BTN_C);
@@ -86,23 +101,19 @@ int main()
             // BTN will change the cube's position
             if (btnl_in)
             {
-                cube_pos[0] += 1.0f;
-                xil_printf("Move left\n\r");
+                cube_pos[0] += 0.01f;
             }
             else if (btnr_in)
             {
-                cube_pos[0] -= 1.0f;
-                xil_printf("Move right\n\r");
+                cube_pos[0] -= 0.01f;
             }
             else if (btnu_in)
             {
-                cube_pos[1] -= 1.0f;
-                xil_printf("Move up\n\r");
+                cube_pos[1] -= 0.01f;
             }
             else if (btnd_in)
             {
-                cube_pos[1] += 1.0f;
-                xil_printf("Move down\n\r");
+                cube_pos[1] += 0.01f;
             }
         }
         if (sw & SW_1)
@@ -110,23 +121,35 @@ int main()
             // BTN will change the cube's rotation
             if (btnl_in)
             {
-                cube_rot[1] -= 0.1f;
-                xil_printf("Rotate left\n\r");
+                cube_rot[1] -= 0.0005f;
+                if (cube_rot[1] > 360.0f || cube_rot[1] < -360.0f)
+                {
+                    cube_rot[1] = 0.0f;
+                }
             }
             else if (btnr_in)
             {
-                cube_rot[1] += 0.1f;
-                xil_printf("Rotate right\n\r");
+                cube_rot[1] += 0.0005f;
+                if (cube_rot[1] > 360.0f || cube_rot[1] < -360.0f)
+                {
+                    cube_rot[1] = 0.0f;
+                }
             }
             else if (btnu_in)
             {
-                cube_rot[0] -= 0.1f;
-                xil_printf("Rotate up\n\r");
+                cube_rot[0] -= 0.0005f;
+                if (cube_rot[0] > 360.0f || cube_rot[0] < -360.0f)
+                {
+                    cube_rot[0] = 0.0f;
+                }
             }
             else if (btnd_in)
             {
-                cube_rot[0] += 0.1f;
-                xil_printf("Rotate down\n\r");
+                cube_rot[0] += 0.0005f;
+                if (cube_rot[0] > 360.0f || cube_rot[0] < -360.0f)
+                {
+                    cube_rot[0] = 0.0f;
+                }
             }
         }
         if (sw & SW_2)
@@ -135,35 +158,27 @@ int main()
             if (btnl_in)
             {
                 cube_scale[0] -= 0.01f;
-                cube_scale[1] -= 0.01f;
-                cube_scale[2] -= 0.01f;
             }
             else if (btnr_in)
             {
                 cube_scale[0] += 0.01f;
-                cube_scale[1] += 0.01f;
-                cube_scale[2] += 0.01f;
             }
             else if (btnu_in)
             {
-                cube_scale[0] += 0.01f;
                 cube_scale[1] += 0.01f;
-                cube_scale[2] += 0.01f;
             }
             else if (btnd_in)
             {
-                cube_scale[0] -= 0.01f;
                 cube_scale[1] -= 0.01f;
-                cube_scale[2] -= 0.01f;
             }
         }
         if (sw & SW_3)
         {
             // Y axis Self rotate
-            cube_rot[2] += 0.01f;
-            if (cube_rot[2] > 360.0f)
+            cube_rot[1] += 0.0005f;
+            if (cube_rot[1] > 360.0f || cube_rot[1] < -360.0f)
             {
-                cube_rot[2] = 0.0f;
+                cube_rot[1] = 0.0f;
             }
         }
 
@@ -177,6 +192,7 @@ int main()
 
         if (sw & SW_6)
         {
+
             // Change the shape of the cube
             if (btnl_in)
             {
@@ -265,7 +281,6 @@ int main()
                 cube_base_vertices[7][2] = 1.0f;
             }
         }
-
         if (sw & SW_7)
         {
             if (btnc_in)
@@ -274,7 +289,7 @@ int main()
                 running = 0;
             }
 
-            if (btnl_in && !btnl_in_prev)
+            if (btnl_in)
             {
                 // reset the cube attributes
                 cube_pos[0] = 500.0f;
