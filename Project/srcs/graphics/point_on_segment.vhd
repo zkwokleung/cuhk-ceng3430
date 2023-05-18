@@ -17,20 +17,21 @@ BEGIN
     PROCESS (CLK)
         VARIABLE dx1, dy1, dx2, dy2, cross, dot : INTEGER;
     BEGIN
-        dx1 := x - v1_x;
-        dy1 := y - v1_y;
-        dx2 := v2_x - v1_x;
-        dy2 := v2_y - v1_y;
-        cross := dx1 * dy2 - dy1 * dx2;
-        dot := dx1 * dx2 + dy1 * dy2;
-        IF cross /= 0 THEN
-            on_segment <= '0';
-        ELSIF dot < 0 OR dot > dx2 * dx2 + dy2 * dy2 THEN
-            on_segment <= '0';
-        ELSE
-            on_segment <= '1';
+        IF rising_edge(CLK) THEN
+            dx1 := x - v1_x;
+            dy1 := y - v1_y;
+            dx2 := v2_x - v1_x;
+            dy2 := v2_y - v1_y;
+            cross := dx1 * dy2 - dy1 * dx2;
+            dot := dx1 * dx2 + dy1 * dy2;
+            IF cross /= 0 THEN
+                on_segment <= '0';
+            ELSIF dot < 0 OR dot > dx2 * dx2 + dy2 * dy2 THEN
+                on_segment <= '0';
+            ELSE
+                on_segment <= '1';
+            END IF;
         END IF;
-
     END PROCESS;
 
 END point_on_segment_arch; -- point_on_segment_arch
