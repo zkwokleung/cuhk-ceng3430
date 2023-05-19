@@ -1,12 +1,14 @@
+vhdl xil_defaultlib "../../../bd/cube_renderering_system/ip/cube_renderering_system_processing_system7_0_0/cube_renderering_system_processing_system7_0_0_sim_netlist.vhdl" 
 vhdl xil_defaultlib "../../../bd/cube_renderering_system/srcs/pkg/generic_type_pkg.vhd" 
-vhdl xil_defaultlib "../../../bd/cube_renderering_system/srcs/graphics/point_on_segment.vhd" 
+vhdl xil_defaultlib "../../../bd/cube_renderering_system/srcs/graphics/bresenham.vhd" 
 vhdl xil_defaultlib "../../../bd/cube_renderering_system/srcs/utils/clock_divider.vhd" 
 vhdl xil_defaultlib "../../../bd/cube_renderering_system/srcs/renderer3D.vhd" 
-vhdl xil_defaultlib "../../../bd/cube_renderering_system/ipshared/6704/hdl/cube_renderer_controller_v2_0_S00_AXI.vhd" 
+vhdl xil_defaultlib "../../../bd/cube_renderering_system/ipshared/7a6e/hdl/cube_renderer_controller_v2_0_S00_AXI.vhd" 
 vhdl xil_defaultlib "../../../bd/cube_renderering_system/srcs/vga/vga_controller.vhd" 
-vhdl xil_defaultlib "../../../bd/cube_renderering_system/ipshared/6704/hdl/cube_renderer_controller_v2_0.vhd" 
+vhdl xil_defaultlib "../../../bd/cube_renderering_system/ipshared/7a6e/hdl/cube_renderer_controller_v2_0.vhd" 
 vhdl xil_defaultlib "../../../bd/cube_renderering_system/ip/cube_renderering_system_cube_renderer_controller_0_0/sim/cube_renderering_system_cube_renderer_controller_0_0.vhd" 
 vhdl xil_defaultlib "../../../bd/cube_renderering_system/ip/cube_renderering_system_rst_ps7_0_50M_0/sim/cube_renderering_system_rst_ps7_0_50M_0.vhd" 
 vhdl xil_defaultlib "../../../bd/cube_renderering_system/hdl/cube_renderering_system.vhd" 
+vhdl xil_defaultlib "../../../bd/cube_renderering_system/ip/cube_renderering_system_auto_pc_0/cube_renderering_system_auto_pc_0_sim_netlist.vhdl" 
 
 nosort

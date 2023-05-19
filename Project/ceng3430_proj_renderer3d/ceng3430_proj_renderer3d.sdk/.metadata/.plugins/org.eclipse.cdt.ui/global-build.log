@@ -54,3 +54,1651 @@ make pre-build main-build
 a9-linaro-pre-build-step
 ' '
 make: Nothing to be done for `main-build'.
+00:44:56 **** Clean-only build of project cube_renderer_bsp ****
+make -k clean 
+rm -f ps7_cortexa9_0/lib/libxil.a
+00:44:56 **** Clean-only build of configuration Debug for project cube_renderer ****
+make clean 
+rm -rf  ./src/include/cube_renderer_controller_interface.o ./src/include/math3d.o  ./src/main.o ./src/platform.o  ./src/include/cube_renderer_controller_interface.d ./src/include/math3d.d  ./src/main.d ./src/platform.d  cube_renderer.elf.size  cube_renderer.elf
+' '
+00:44:57 **** Build of project cube_renderer_bsp ****
+make -k all 
+"Running Make include in ps7_cortexa9_0/libsrc/coresightps_dcc_v1_3/src"
+make -C ps7_cortexa9_0/libsrc/coresightps_dcc_v1_3/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles"
+"Running Make include in ps7_cortexa9_0/libsrc/cpu_cortexa9_v2_3/src"
+make -C ps7_cortexa9_0/libsrc/cpu_cortexa9_v2_3/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles"
+"Running Make include in ps7_cortexa9_0/libsrc/cube_renderer_controller_v1_0/src"
+make -C ps7_cortexa9_0/libsrc/cube_renderer_controller_v1_0/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles"
+"Running Make include in ps7_cortexa9_0/libsrc/ddrps_v1_0/src"
+make -C ps7_cortexa9_0/libsrc/ddrps_v1_0/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles"
+"Running Make include in ps7_cortexa9_0/libsrc/devcfg_v3_4/src"
+make -C ps7_cortexa9_0/libsrc/devcfg_v3_4/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles"
+"Running Make include in ps7_cortexa9_0/libsrc/dmaps_v2_2/src"
+make -C ps7_cortexa9_0/libsrc/dmaps_v2_2/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles"
+"Running Make include in ps7_cortexa9_0/libsrc/emacps_v3_3/src"
+make -C ps7_cortexa9_0/libsrc/emacps_v3_3/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles"
+"Running Make include in ps7_cortexa9_0/libsrc/gpiops_v3_1/src"
+make -C ps7_cortexa9_0/libsrc/gpiops_v3_1/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles"
+"Running Make include in ps7_cortexa9_0/libsrc/qspips_v3_3/src"
+make -C ps7_cortexa9_0/libsrc/qspips_v3_3/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles"
+"Running Make include in ps7_cortexa9_0/libsrc/scugic_v3_4/src"
+make -C ps7_cortexa9_0/libsrc/scugic_v3_4/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles"
+"Running Make include in ps7_cortexa9_0/libsrc/scutimer_v2_1/src"
+make -C ps7_cortexa9_0/libsrc/scutimer_v2_1/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles"
+"Running Make include in ps7_cortexa9_0/libsrc/scuwdt_v2_1/src"
+make -C ps7_cortexa9_0/libsrc/scuwdt_v2_1/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles"
+"Running Make include in ps7_cortexa9_0/libsrc/sdps_v3_0/src"
+make -C ps7_cortexa9_0/libsrc/sdps_v3_0/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles"
+"Running Make include in ps7_cortexa9_0/libsrc/standalone_v6_0/src"
+make -C ps7_cortexa9_0/libsrc/standalone_v6_0/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles"
+"Running Make include in ps7_cortexa9_0/libsrc/ttcps_v3_1/src"
+make -C ps7_cortexa9_0/libsrc/ttcps_v3_1/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles"
+"Running Make include in ps7_cortexa9_0/libsrc/uartps_v3_2/src"
+make -C ps7_cortexa9_0/libsrc/uartps_v3_2/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles"
+"Running Make include in ps7_cortexa9_0/libsrc/usbps_v2_4/src"
+make -C ps7_cortexa9_0/libsrc/usbps_v2_4/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles"
+"Running Make include in ps7_cortexa9_0/libsrc/xadcps_v2_2/src"
+make -C ps7_cortexa9_0/libsrc/xadcps_v2_2/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles"
+"Running Make libs in ps7_cortexa9_0/libsrc/coresightps_dcc_v1_3/src"
+make -C ps7_cortexa9_0/libsrc/coresightps_dcc_v1_3/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles"
+"Compiling coresightps_dcc"
+arm-none-eabi-ar: creating ../../../lib/libxil.a
+"Running Make libs in ps7_cortexa9_0/libsrc/cpu_cortexa9_v2_3/src"
+make -C ps7_cortexa9_0/libsrc/cpu_cortexa9_v2_3/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles"
+"Compiling cpu_cortexa9"
+"Running Make libs in ps7_cortexa9_0/libsrc/cube_renderer_controller_v1_0/src"
+make -C ps7_cortexa9_0/libsrc/cube_renderer_controller_v1_0/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles"
+"Compiling cube_renderer_controller..."
+"Running Make libs in ps7_cortexa9_0/libsrc/ddrps_v1_0/src"
+make -C ps7_cortexa9_0/libsrc/ddrps_v1_0/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles"
+"Compiling ddrps"
+"Running Make libs in ps7_cortexa9_0/libsrc/devcfg_v3_4/src"
+make -C ps7_cortexa9_0/libsrc/devcfg_v3_4/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles"
+"Compiling devcfg"
+"Running Make libs in ps7_cortexa9_0/libsrc/dmaps_v2_2/src"
+make -C ps7_cortexa9_0/libsrc/dmaps_v2_2/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles"
+"Compiling dmaps"
+"Running Make libs in ps7_cortexa9_0/libsrc/emacps_v3_3/src"
+make -C ps7_cortexa9_0/libsrc/emacps_v3_3/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles"
+"Compiling emacps"
+"Running Make libs in ps7_cortexa9_0/libsrc/gpiops_v3_1/src"
+make -C ps7_cortexa9_0/libsrc/gpiops_v3_1/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles"
+"Compiling gpiops"
+"Running Make libs in ps7_cortexa9_0/libsrc/qspips_v3_3/src"
+make -C ps7_cortexa9_0/libsrc/qspips_v3_3/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles"
+"Compiling qspips"
+"Running Make libs in ps7_cortexa9_0/libsrc/scugic_v3_4/src"
+make -C ps7_cortexa9_0/libsrc/scugic_v3_4/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles"
+"Compiling scugic"
+"Running Make libs in ps7_cortexa9_0/libsrc/scutimer_v2_1/src"
+make -C ps7_cortexa9_0/libsrc/scutimer_v2_1/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles"
+"Compiling scutimer"
+"Running Make libs in ps7_cortexa9_0/libsrc/scuwdt_v2_1/src"
+make -C ps7_cortexa9_0/libsrc/scuwdt_v2_1/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles"
+"Compiling scuwdt"
+"Running Make libs in ps7_cortexa9_0/libsrc/sdps_v3_0/src"
+make -C ps7_cortexa9_0/libsrc/sdps_v3_0/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles"
+"Compiling sdps"
+"Running Make libs in ps7_cortexa9_0/libsrc/standalone_v6_0/src"
+make -C ps7_cortexa9_0/libsrc/standalone_v6_0/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles"
+"Compiling standalone"
+"Running Make libs in ps7_cortexa9_0/libsrc/ttcps_v3_1/src"
+make -C ps7_cortexa9_0/libsrc/ttcps_v3_1/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles"
+"Compiling ttcps"
+"Running Make libs in ps7_cortexa9_0/libsrc/uartps_v3_2/src"
+make -C ps7_cortexa9_0/libsrc/uartps_v3_2/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles"
+"Compiling uartps"
+"Running Make libs in ps7_cortexa9_0/libsrc/usbps_v2_4/src"
+make -C ps7_cortexa9_0/libsrc/usbps_v2_4/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles"
+"Compiling usbps"
+"Running Make libs in ps7_cortexa9_0/libsrc/xadcps_v2_2/src"
+make -C ps7_cortexa9_0/libsrc/xadcps_v2_2/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles"
+"Compiling xadcps"
+'Finished building libraries'
+00:45:31 **** Build of configuration Debug for project cube_renderer ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/include/cube_renderer_controller_interface.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/include/cube_renderer_controller_interface.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../cube_renderer_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/include/cube_renderer_controller_interface.d" -MT"src/include/cube_renderer_controller_interface.o" -o "src/include/cube_renderer_controller_interface.o" "../src/include/cube_renderer_controller_interface.c"
+In file included from ../src/include/cube_renderer_controller_interface.h:10:0,
+                 from ../src/include/cube_renderer_controller_interface.c:1:
+../src/include/cube_renderer_controller_interface.c: In function 'write_vertices':
+../src/include/cube_renderer_controller_interface.c:24:99: warning: implicit declaration of function 'round' [-Wimplicit-function-declaration]
+             CUBE_RENDERER_CONTROLLER_mWriteReg(BASEADDR, VERTICES_ADDR + (i * 8) + (j * 4), ((u32)round(v[i][j])));
+                                                                                                   ^
+../../cube_renderer_bsp/ps7_cortexa9_0/include/cube_renderer_controller.h:95:49: note: in definition of macro 'CUBE_RENDERER_CONTROLLER_mWriteReg'
+    Xil_Out32((BaseAddress) + (RegOffset), (u32)(Data))
+                                                 ^
+../src/include/cube_renderer_controller_interface.c:24:99: warning: incompatible implicit declaration of built-in function 'round'
+             CUBE_RENDERER_CONTROLLER_mWriteReg(BASEADDR, VERTICES_ADDR + (i * 8) + (j * 4), ((u32)round(v[i][j])));
+                                                                                                   ^
+../../cube_renderer_bsp/ps7_cortexa9_0/include/cube_renderer_controller.h:95:49: note: in definition of macro 'CUBE_RENDERER_CONTROLLER_mWriteReg'
+    Xil_Out32((BaseAddress) + (RegOffset), (u32)(Data))
+                                                 ^
+../src/include/cube_renderer_controller_interface.c:24:99: note: include '<math.h>' or provide a declaration of 'round'
+             CUBE_RENDERER_CONTROLLER_mWriteReg(BASEADDR, VERTICES_ADDR + (i * 8) + (j * 4), ((u32)round(v[i][j])));
+                                                                                                   ^
+../../cube_renderer_bsp/ps7_cortexa9_0/include/cube_renderer_controller.h:95:49: note: in definition of macro 'CUBE_RENDERER_CONTROLLER_mWriteReg'
+    Xil_Out32((BaseAddress) + (RegOffset), (u32)(Data))
+                                                 ^
+'Finished building: ../src/include/cube_renderer_controller_interface.c'
+' '
+'Building file: ../src/include/math3d.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/include/math3d.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../cube_renderer_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/include/math3d.d" -MT"src/include/math3d.o" -o "src/include/math3d.o" "../src/include/math3d.c"
+'Finished building: ../src/include/math3d.c'
+' '
+'Building file: ../src/main.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/main.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../cube_renderer_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.c"
+../src/main.c: In function 'main':
+../src/main.c:60:11: warning: unused variable 'debug_divider' [-Wunused-variable]
+     float debug_divider = DEBUG_DEVIDER_INITAL_VALUE;
+           ^
+../src/main.c:29:9: warning: variable 'btnd_in_prev' set but not used [-Wunused-but-set-variable]
+     u32 btnd_in_prev = 0;
+         ^
+../src/main.c:28:9: warning: variable 'btnu_in_prev' set but not used [-Wunused-but-set-variable]
+     u32 btnu_in_prev = 0;
+         ^
+../src/main.c:27:9: warning: variable 'btnr_in_prev' set but not used [-Wunused-but-set-variable]
+     u32 btnr_in_prev = 0;
+         ^
+../src/main.c:25:9: warning: variable 'btnc_in_prev' set but not used [-Wunused-but-set-variable]
+     u32 btnc_in_prev = 0;
+         ^
+'Finished building: ../src/main.c'
+' '
+'Building file: ../src/platform.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/platform.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../cube_renderer_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/platform.d" -MT"src/platform.o" -o "src/platform.o" "../src/platform.c"
+'Finished building: ../src/platform.c'
+' '
+'Building target: cube_renderer.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../cube_renderer_bsp/ps7_cortexa9_0/lib -o "cube_renderer.elf"  ./src/include/cube_renderer_controller_interface.o ./src/include/math3d.o  ./src/main.o ./src/platform.o   -lm -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: cube_renderer.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size cube_renderer.elf  |tee "cube_renderer.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  64324	   2196	  22632	  89152	  15c40	cube_renderer.elf
+'Finished building: cube_renderer.elf.size'
+' '
+00:45:36 **** Incremental Build of configuration Debug for project cube_renderer ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+make: Nothing to be done for `main-build'.
+00:47:46 **** Incremental Build of configuration Debug for project cube_renderer ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/main.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/main.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../cube_renderer_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.c"
+../src/main.c: In function 'main':
+../src/main.c:60:11: warning: unused variable 'debug_divider' [-Wunused-variable]
+     float debug_divider = DEBUG_DEVIDER_INITAL_VALUE;
+           ^
+../src/main.c:29:9: warning: variable 'btnd_in_prev' set but not used [-Wunused-but-set-variable]
+     u32 btnd_in_prev = 0;
+         ^
+../src/main.c:28:9: warning: variable 'btnu_in_prev' set but not used [-Wunused-but-set-variable]
+     u32 btnu_in_prev = 0;
+         ^
+../src/main.c:27:9: warning: variable 'btnr_in_prev' set but not used [-Wunused-but-set-variable]
+     u32 btnr_in_prev = 0;
+         ^
+../src/main.c:25:9: warning: variable 'btnc_in_prev' set but not used [-Wunused-but-set-variable]
+     u32 btnc_in_prev = 0;
+         ^
+'Finished building: ../src/main.c'
+' '
+'Building target: cube_renderer.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../cube_renderer_bsp/ps7_cortexa9_0/lib -o "cube_renderer.elf"  ./src/include/cube_renderer_controller_interface.o ./src/include/math3d.o  ./src/main.o ./src/platform.o   -lm -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: cube_renderer.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size cube_renderer.elf  |tee "cube_renderer.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  64084	   2196	  22632	  88912	  15b50	cube_renderer.elf
+'Finished building: cube_renderer.elf.size'
+' '
+00:49:58 **** Incremental Build of configuration Debug for project cube_renderer ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/main.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/main.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../cube_renderer_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.c"
+../src/main.c: In function 'main':
+../src/main.c:60:11: warning: unused variable 'debug_divider' [-Wunused-variable]
+     float debug_divider = DEBUG_DEVIDER_INITAL_VALUE;
+           ^
+../src/main.c:29:9: warning: variable 'btnd_in_prev' set but not used [-Wunused-but-set-variable]
+     u32 btnd_in_prev = 0;
+         ^
+../src/main.c:28:9: warning: variable 'btnu_in_prev' set but not used [-Wunused-but-set-variable]
+     u32 btnu_in_prev = 0;
+         ^
+../src/main.c:27:9: warning: variable 'btnr_in_prev' set but not used [-Wunused-but-set-variable]
+     u32 btnr_in_prev = 0;
+         ^
+../src/main.c:25:9: warning: variable 'btnc_in_prev' set but not used [-Wunused-but-set-variable]
+     u32 btnc_in_prev = 0;
+         ^
+'Finished building: ../src/main.c'
+' '
+'Building target: cube_renderer.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../cube_renderer_bsp/ps7_cortexa9_0/lib -o "cube_renderer.elf"  ./src/include/cube_renderer_controller_interface.o ./src/include/math3d.o  ./src/main.o ./src/platform.o   -lm -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: cube_renderer.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size cube_renderer.elf  |tee "cube_renderer.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  63956	   2196	  22632	  88784	  15ad0	cube_renderer.elf
+'Finished building: cube_renderer.elf.size'
+' '
+00:54:45 **** Incremental Build of configuration Debug for project cube_renderer ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/include/cube_renderer_controller_interface.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/include/cube_renderer_controller_interface.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../cube_renderer_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/include/cube_renderer_controller_interface.d" -MT"src/include/cube_renderer_controller_interface.o" -o "src/include/cube_renderer_controller_interface.o" "../src/include/cube_renderer_controller_interface.c"
+In file included from ../src/include/cube_renderer_controller_interface.h:10:0,
+                 from ../src/include/cube_renderer_controller_interface.c:1:
+../src/include/cube_renderer_controller_interface.c: In function 'write_vertices':
+../src/include/cube_renderer_controller_interface.c:24:99: warning: implicit declaration of function 'round' [-Wimplicit-function-declaration]
+             CUBE_RENDERER_CONTROLLER_mWriteReg(BASEADDR, VERTICES_ADDR + (i * 8) + (j * 4), ((u32)round(v[i][j])));
+                                                                                                   ^
+../../cube_renderer_bsp/ps7_cortexa9_0/include/cube_renderer_controller.h:95:49: note: in definition of macro 'CUBE_RENDERER_CONTROLLER_mWriteReg'
+    Xil_Out32((BaseAddress) + (RegOffset), (u32)(Data))
+                                                 ^
+../src/include/cube_renderer_controller_interface.c:24:99: warning: incompatible implicit declaration of built-in function 'round'
+             CUBE_RENDERER_CONTROLLER_mWriteReg(BASEADDR, VERTICES_ADDR + (i * 8) + (j * 4), ((u32)round(v[i][j])));
+                                                                                                   ^
+../../cube_renderer_bsp/ps7_cortexa9_0/include/cube_renderer_controller.h:95:49: note: in definition of macro 'CUBE_RENDERER_CONTROLLER_mWriteReg'
+    Xil_Out32((BaseAddress) + (RegOffset), (u32)(Data))
+                                                 ^
+../src/include/cube_renderer_controller_interface.c:24:99: note: include '<math.h>' or provide a declaration of 'round'
+             CUBE_RENDERER_CONTROLLER_mWriteReg(BASEADDR, VERTICES_ADDR + (i * 8) + (j * 4), ((u32)round(v[i][j])));
+                                                                                                   ^
+../../cube_renderer_bsp/ps7_cortexa9_0/include/cube_renderer_controller.h:95:49: note: in definition of macro 'CUBE_RENDERER_CONTROLLER_mWriteReg'
+    Xil_Out32((BaseAddress) + (RegOffset), (u32)(Data))
+                                                 ^
+'Finished building: ../src/include/cube_renderer_controller_interface.c'
+' '
+'Building file: ../src/main.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/main.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../cube_renderer_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.c"
+../src/main.c: In function 'main':
+../src/main.c:60:11: warning: unused variable 'debug_divider' [-Wunused-variable]
+     float debug_divider = DEBUG_DEVIDER_INITAL_VALUE;
+           ^
+../src/main.c:29:9: warning: variable 'btnd_in_prev' set but not used [-Wunused-but-set-variable]
+     u32 btnd_in_prev = 0;
+         ^
+../src/main.c:28:9: warning: variable 'btnu_in_prev' set but not used [-Wunused-but-set-variable]
+     u32 btnu_in_prev = 0;
+         ^
+../src/main.c:27:9: warning: variable 'btnr_in_prev' set but not used [-Wunused-but-set-variable]
+     u32 btnr_in_prev = 0;
+         ^
+../src/main.c:25:9: warning: variable 'btnc_in_prev' set but not used [-Wunused-but-set-variable]
+     u32 btnc_in_prev = 0;
+         ^
+'Finished building: ../src/main.c'
+' '
+'Building target: cube_renderer.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../cube_renderer_bsp/ps7_cortexa9_0/lib -o "cube_renderer.elf"  ./src/include/cube_renderer_controller_interface.o ./src/include/math3d.o  ./src/main.o ./src/platform.o   -lm -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: cube_renderer.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size cube_renderer.elf  |tee "cube_renderer.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  64084	   2196	  22632	  88912	  15b50	cube_renderer.elf
+'Finished building: cube_renderer.elf.size'
+' '
+00:55:40 **** Incremental Build of configuration Debug for project cube_renderer ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/main.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/main.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../cube_renderer_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.c"
+../src/main.c: In function 'main':
+../src/main.c:60:11: warning: unused variable 'debug_divider' [-Wunused-variable]
+     float debug_divider = DEBUG_DEVIDER_INITAL_VALUE;
+           ^
+../src/main.c:29:9: warning: variable 'btnd_in_prev' set but not used [-Wunused-but-set-variable]
+     u32 btnd_in_prev = 0;
+         ^
+../src/main.c:28:9: warning: variable 'btnu_in_prev' set but not used [-Wunused-but-set-variable]
+     u32 btnu_in_prev = 0;
+         ^
+../src/main.c:27:9: warning: variable 'btnr_in_prev' set but not used [-Wunused-but-set-variable]
+     u32 btnr_in_prev = 0;
+         ^
+../src/main.c:26:9: warning: variable 'btnl_in_prev' set but not used [-Wunused-but-set-variable]
+     u32 btnl_in_prev = 0;
+         ^
+../src/main.c:25:9: warning: variable 'btnc_in_prev' set but not used [-Wunused-but-set-variable]
+     u32 btnc_in_prev = 0;
+         ^
+'Finished building: ../src/main.c'
+' '
+'Building target: cube_renderer.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../cube_renderer_bsp/ps7_cortexa9_0/lib -o "cube_renderer.elf"  ./src/include/cube_renderer_controller_interface.o ./src/include/math3d.o  ./src/main.o ./src/platform.o   -lm -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: cube_renderer.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size cube_renderer.elf  |tee "cube_renderer.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  64084	   2196	  22632	  88912	  15b50	cube_renderer.elf
+'Finished building: cube_renderer.elf.size'
+' '
+01:03:23 **** Incremental Build of configuration Debug for project cube_renderer ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/include/cube_renderer_controller_interface.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/include/cube_renderer_controller_interface.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../cube_renderer_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/include/cube_renderer_controller_interface.d" -MT"src/include/cube_renderer_controller_interface.o" -o "src/include/cube_renderer_controller_interface.o" "../src/include/cube_renderer_controller_interface.c"
+In file included from ../src/include/cube_renderer_controller_interface.h:10:0,
+                 from ../src/include/cube_renderer_controller_interface.c:1:
+../src/include/cube_renderer_controller_interface.c: In function 'write_vertices':
+../src/include/cube_renderer_controller_interface.c:24:99: warning: implicit declaration of function 'round' [-Wimplicit-function-declaration]
+             CUBE_RENDERER_CONTROLLER_mWriteReg(BASEADDR, VERTICES_ADDR + (i * 8) + (j * 4), ((u32)round(v[i][j])));
+                                                                                                   ^
+../../cube_renderer_bsp/ps7_cortexa9_0/include/cube_renderer_controller.h:95:49: note: in definition of macro 'CUBE_RENDERER_CONTROLLER_mWriteReg'
+    Xil_Out32((BaseAddress) + (RegOffset), (u32)(Data))
+                                                 ^
+../src/include/cube_renderer_controller_interface.c:24:99: warning: incompatible implicit declaration of built-in function 'round'
+             CUBE_RENDERER_CONTROLLER_mWriteReg(BASEADDR, VERTICES_ADDR + (i * 8) + (j * 4), ((u32)round(v[i][j])));
+                                                                                                   ^
+../../cube_renderer_bsp/ps7_cortexa9_0/include/cube_renderer_controller.h:95:49: note: in definition of macro 'CUBE_RENDERER_CONTROLLER_mWriteReg'
+    Xil_Out32((BaseAddress) + (RegOffset), (u32)(Data))
+                                                 ^
+../src/include/cube_renderer_controller_interface.c:24:99: note: include '<math.h>' or provide a declaration of 'round'
+             CUBE_RENDERER_CONTROLLER_mWriteReg(BASEADDR, VERTICES_ADDR + (i * 8) + (j * 4), ((u32)round(v[i][j])));
+                                                                                                   ^
+../../cube_renderer_bsp/ps7_cortexa9_0/include/cube_renderer_controller.h:95:49: note: in definition of macro 'CUBE_RENDERER_CONTROLLER_mWriteReg'
+    Xil_Out32((BaseAddress) + (RegOffset), (u32)(Data))
+                                                 ^
+'Finished building: ../src/include/cube_renderer_controller_interface.c'
+' '
+'Building file: ../src/main.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/main.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../cube_renderer_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.c"
+../src/main.c: In function 'main':
+../src/main.c:60:11: warning: unused variable 'debug_divider' [-Wunused-variable]
+     float debug_divider = DEBUG_DEVIDER_INITAL_VALUE;
+           ^
+../src/main.c:29:9: warning: variable 'btnd_in_prev' set but not used [-Wunused-but-set-variable]
+     u32 btnd_in_prev = 0;
+         ^
+../src/main.c:28:9: warning: variable 'btnu_in_prev' set but not used [-Wunused-but-set-variable]
+     u32 btnu_in_prev = 0;
+         ^
+../src/main.c:27:9: warning: variable 'btnr_in_prev' set but not used [-Wunused-but-set-variable]
+     u32 btnr_in_prev = 0;
+         ^
+../src/main.c:26:9: warning: variable 'btnl_in_prev' set but not used [-Wunused-but-set-variable]
+     u32 btnl_in_prev = 0;
+         ^
+../src/main.c:25:9: warning: variable 'btnc_in_prev' set but not used [-Wunused-but-set-variable]
+     u32 btnc_in_prev = 0;
+         ^
+'Finished building: ../src/main.c'
+' '
+'Building target: cube_renderer.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../cube_renderer_bsp/ps7_cortexa9_0/lib -o "cube_renderer.elf"  ./src/include/cube_renderer_controller_interface.o ./src/include/math3d.o  ./src/main.o ./src/platform.o   -lm -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: cube_renderer.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size cube_renderer.elf  |tee "cube_renderer.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  64148	   2196	  22632	  88976	  15b90	cube_renderer.elf
+'Finished building: cube_renderer.elf.size'
+' '
+01:21:36 **** Clean-only build of project cube_renderer_bsp ****
+make -k clean 
+rm -f ps7_cortexa9_0/lib/libxil.a
+01:21:36 **** Clean-only build of configuration Debug for project cube_renderer ****
+make clean 
+rm -rf  ./src/include/cube_renderer_controller_interface.o ./src/include/math3d.o  ./src/main.o ./src/platform.o  ./src/include/cube_renderer_controller_interface.d ./src/include/math3d.d  ./src/main.d ./src/platform.d  cube_renderer.elf.size  cube_renderer.elf
+' '
+01:21:37 **** Build of project cube_renderer_bsp ****
+make -k all 
+"Running Make include in ps7_cortexa9_0/libsrc/coresightps_dcc_v1_3/src"
+make -C ps7_cortexa9_0/libsrc/coresightps_dcc_v1_3/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles"
+"Running Make include in ps7_cortexa9_0/libsrc/cpu_cortexa9_v2_3/src"
+make -C ps7_cortexa9_0/libsrc/cpu_cortexa9_v2_3/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles"
+"Running Make include in ps7_cortexa9_0/libsrc/cube_renderer_controller_v1_0/src"
+make -C ps7_cortexa9_0/libsrc/cube_renderer_controller_v1_0/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles"
+"Running Make include in ps7_cortexa9_0/libsrc/ddrps_v1_0/src"
+make -C ps7_cortexa9_0/libsrc/ddrps_v1_0/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles"
+"Running Make include in ps7_cortexa9_0/libsrc/devcfg_v3_4/src"
+make -C ps7_cortexa9_0/libsrc/devcfg_v3_4/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles"
+"Running Make include in ps7_cortexa9_0/libsrc/dmaps_v2_2/src"
+make -C ps7_cortexa9_0/libsrc/dmaps_v2_2/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles"
+"Running Make include in ps7_cortexa9_0/libsrc/emacps_v3_3/src"
+make -C ps7_cortexa9_0/libsrc/emacps_v3_3/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles"
+"Running Make include in ps7_cortexa9_0/libsrc/gpiops_v3_1/src"
+make -C ps7_cortexa9_0/libsrc/gpiops_v3_1/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles"
+"Running Make include in ps7_cortexa9_0/libsrc/qspips_v3_3/src"
+make -C ps7_cortexa9_0/libsrc/qspips_v3_3/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles"
+"Running Make include in ps7_cortexa9_0/libsrc/scugic_v3_4/src"
+make -C ps7_cortexa9_0/libsrc/scugic_v3_4/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles"
+"Running Make include in ps7_cortexa9_0/libsrc/scutimer_v2_1/src"
+make -C ps7_cortexa9_0/libsrc/scutimer_v2_1/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles"
+"Running Make include in ps7_cortexa9_0/libsrc/scuwdt_v2_1/src"
+make -C ps7_cortexa9_0/libsrc/scuwdt_v2_1/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles"
+"Running Make include in ps7_cortexa9_0/libsrc/sdps_v3_0/src"
+make -C ps7_cortexa9_0/libsrc/sdps_v3_0/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles"
+"Running Make include in ps7_cortexa9_0/libsrc/standalone_v6_0/src"
+make -C ps7_cortexa9_0/libsrc/standalone_v6_0/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles"
+"Running Make include in ps7_cortexa9_0/libsrc/ttcps_v3_1/src"
+make -C ps7_cortexa9_0/libsrc/ttcps_v3_1/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles"
+"Running Make include in ps7_cortexa9_0/libsrc/uartps_v3_2/src"
+make -C ps7_cortexa9_0/libsrc/uartps_v3_2/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles"
+"Running Make include in ps7_cortexa9_0/libsrc/usbps_v2_4/src"
+make -C ps7_cortexa9_0/libsrc/usbps_v2_4/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles"
+"Running Make include in ps7_cortexa9_0/libsrc/xadcps_v2_2/src"
+make -C ps7_cortexa9_0/libsrc/xadcps_v2_2/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles"
+"Running Make libs in ps7_cortexa9_0/libsrc/coresightps_dcc_v1_3/src"
+make -C ps7_cortexa9_0/libsrc/coresightps_dcc_v1_3/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles"
+"Compiling coresightps_dcc"
+arm-none-eabi-ar: creating ../../../lib/libxil.a
+"Running Make libs in ps7_cortexa9_0/libsrc/cpu_cortexa9_v2_3/src"
+make -C ps7_cortexa9_0/libsrc/cpu_cortexa9_v2_3/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles"
+"Compiling cpu_cortexa9"
+"Running Make libs in ps7_cortexa9_0/libsrc/cube_renderer_controller_v1_0/src"
+make -C ps7_cortexa9_0/libsrc/cube_renderer_controller_v1_0/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles"
+"Compiling cube_renderer_controller..."
+"Running Make libs in ps7_cortexa9_0/libsrc/ddrps_v1_0/src"
+make -C ps7_cortexa9_0/libsrc/ddrps_v1_0/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles"
+"Compiling ddrps"
+"Running Make libs in ps7_cortexa9_0/libsrc/devcfg_v3_4/src"
+make -C ps7_cortexa9_0/libsrc/devcfg_v3_4/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles"
+"Compiling devcfg"
+"Running Make libs in ps7_cortexa9_0/libsrc/dmaps_v2_2/src"
+make -C ps7_cortexa9_0/libsrc/dmaps_v2_2/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles"
+"Compiling dmaps"
+"Running Make libs in ps7_cortexa9_0/libsrc/emacps_v3_3/src"
+make -C ps7_cortexa9_0/libsrc/emacps_v3_3/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles"
+"Compiling emacps"
+"Running Make libs in ps7_cortexa9_0/libsrc/gpiops_v3_1/src"
+make -C ps7_cortexa9_0/libsrc/gpiops_v3_1/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles"
+"Compiling gpiops"
+"Running Make libs in ps7_cortexa9_0/libsrc/qspips_v3_3/src"
+make -C ps7_cortexa9_0/libsrc/qspips_v3_3/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles"
+"Compiling qspips"
+"Running Make libs in ps7_cortexa9_0/libsrc/scugic_v3_4/src"
+make -C ps7_cortexa9_0/libsrc/scugic_v3_4/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles"
+"Compiling scugic"
+"Running Make libs in ps7_cortexa9_0/libsrc/scutimer_v2_1/src"
+make -C ps7_cortexa9_0/libsrc/scutimer_v2_1/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles"
+"Compiling scutimer"
+"Running Make libs in ps7_cortexa9_0/libsrc/scuwdt_v2_1/src"
+make -C ps7_cortexa9_0/libsrc/scuwdt_v2_1/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles"
+"Compiling scuwdt"
+"Running Make libs in ps7_cortexa9_0/libsrc/sdps_v3_0/src"
+make -C ps7_cortexa9_0/libsrc/sdps_v3_0/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles"
+"Compiling sdps"
+"Running Make libs in ps7_cortexa9_0/libsrc/standalone_v6_0/src"
+make -C ps7_cortexa9_0/libsrc/standalone_v6_0/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles"
+"Compiling standalone"
+"Running Make libs in ps7_cortexa9_0/libsrc/ttcps_v3_1/src"
+make -C ps7_cortexa9_0/libsrc/ttcps_v3_1/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles"
+"Compiling ttcps"
+"Running Make libs in ps7_cortexa9_0/libsrc/uartps_v3_2/src"
+make -C ps7_cortexa9_0/libsrc/uartps_v3_2/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles"
+"Compiling uartps"
+"Running Make libs in ps7_cortexa9_0/libsrc/usbps_v2_4/src"
+make -C ps7_cortexa9_0/libsrc/usbps_v2_4/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles"
+"Compiling usbps"
+"Running Make libs in ps7_cortexa9_0/libsrc/xadcps_v2_2/src"
+make -C ps7_cortexa9_0/libsrc/xadcps_v2_2/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles"
+"Compiling xadcps"
+'Finished building libraries'
+01:22:12 **** Build of configuration Debug for project cube_renderer ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/include/cube_renderer_controller_interface.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/include/cube_renderer_controller_interface.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../cube_renderer_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/include/cube_renderer_controller_interface.d" -MT"src/include/cube_renderer_controller_interface.o" -o "src/include/cube_renderer_controller_interface.o" "../src/include/cube_renderer_controller_interface.c"
+In file included from ../src/include/cube_renderer_controller_interface.h:10:0,
+                 from ../src/include/cube_renderer_controller_interface.c:1:
+../src/include/cube_renderer_controller_interface.c: In function 'write_vertices':
+../src/include/cube_renderer_controller_interface.c:24:99: warning: implicit declaration of function 'round' [-Wimplicit-function-declaration]
+             CUBE_RENDERER_CONTROLLER_mWriteReg(BASEADDR, VERTICES_ADDR + (i * 8) + (j * 4), ((u32)round(v[i][j])));
+                                                                                                   ^
+../../cube_renderer_bsp/ps7_cortexa9_0/include/cube_renderer_controller.h:95:49: note: in definition of macro 'CUBE_RENDERER_CONTROLLER_mWriteReg'
+    Xil_Out32((BaseAddress) + (RegOffset), (u32)(Data))
+                                                 ^
+../src/include/cube_renderer_controller_interface.c:24:99: warning: incompatible implicit declaration of built-in function 'round'
+             CUBE_RENDERER_CONTROLLER_mWriteReg(BASEADDR, VERTICES_ADDR + (i * 8) + (j * 4), ((u32)round(v[i][j])));
+                                                                                                   ^
+../../cube_renderer_bsp/ps7_cortexa9_0/include/cube_renderer_controller.h:95:49: note: in definition of macro 'CUBE_RENDERER_CONTROLLER_mWriteReg'
+    Xil_Out32((BaseAddress) + (RegOffset), (u32)(Data))
+                                                 ^
+../src/include/cube_renderer_controller_interface.c:24:99: note: include '<math.h>' or provide a declaration of 'round'
+             CUBE_RENDERER_CONTROLLER_mWriteReg(BASEADDR, VERTICES_ADDR + (i * 8) + (j * 4), ((u32)round(v[i][j])));
+                                                                                                   ^
+../../cube_renderer_bsp/ps7_cortexa9_0/include/cube_renderer_controller.h:95:49: note: in definition of macro 'CUBE_RENDERER_CONTROLLER_mWriteReg'
+    Xil_Out32((BaseAddress) + (RegOffset), (u32)(Data))
+                                                 ^
+'Finished building: ../src/include/cube_renderer_controller_interface.c'
+' '
+'Building file: ../src/include/math3d.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/include/math3d.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../cube_renderer_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/include/math3d.d" -MT"src/include/math3d.o" -o "src/include/math3d.o" "../src/include/math3d.c"
+'Finished building: ../src/include/math3d.c'
+' '
+'Building file: ../src/main.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/main.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../cube_renderer_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.c"
+../src/main.c: In function 'main':
+../src/main.c:60:11: warning: unused variable 'debug_divider' [-Wunused-variable]
+     float debug_divider = DEBUG_DEVIDER_INITAL_VALUE;
+           ^
+../src/main.c:29:9: warning: variable 'btnd_in_prev' set but not used [-Wunused-but-set-variable]
+     u32 btnd_in_prev = 0;
+         ^
+../src/main.c:28:9: warning: variable 'btnu_in_prev' set but not used [-Wunused-but-set-variable]
+     u32 btnu_in_prev = 0;
+         ^
+../src/main.c:27:9: warning: variable 'btnr_in_prev' set but not used [-Wunused-but-set-variable]
+     u32 btnr_in_prev = 0;
+         ^
+../src/main.c:26:9: warning: variable 'btnl_in_prev' set but not used [-Wunused-but-set-variable]
+     u32 btnl_in_prev = 0;
+         ^
+../src/main.c:25:9: warning: variable 'btnc_in_prev' set but not used [-Wunused-but-set-variable]
+     u32 btnc_in_prev = 0;
+         ^
+'Finished building: ../src/main.c'
+' '
+'Building file: ../src/platform.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/platform.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../cube_renderer_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/platform.d" -MT"src/platform.o" -o "src/platform.o" "../src/platform.c"
+'Finished building: ../src/platform.c'
+' '
+'Building target: cube_renderer.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../cube_renderer_bsp/ps7_cortexa9_0/lib -o "cube_renderer.elf"  ./src/include/cube_renderer_controller_interface.o ./src/include/math3d.o  ./src/main.o ./src/platform.o   -lm -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: cube_renderer.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size cube_renderer.elf  |tee "cube_renderer.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  64148	   2196	  22632	  88976	  15b90	cube_renderer.elf
+'Finished building: cube_renderer.elf.size'
+' '
+01:22:26 **** Incremental Build of configuration Debug for project cube_renderer ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+make: Nothing to be done for `main-build'.
+01:24:21 **** Incremental Build of configuration Debug for project cube_renderer ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+make: Nothing to be done for `main-build'.
+01:24:47 **** Incremental Build of configuration Debug for project cube_renderer ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+make: Nothing to be done for `main-build'.
+01:26:59 **** Auto Build of configuration Debug for project cube_renderer ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/main.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/main.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../cube_renderer_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.c"
+../src/main.c: In function 'main':
+../src/main.c:60:11: warning: unused variable 'debug_divider' [-Wunused-variable]
+     float debug_divider = DEBUG_DEVIDER_INITAL_VALUE;
+           ^
+../src/main.c:29:9: warning: variable 'btnd_in_prev' set but not used [-Wunused-but-set-variable]
+     u32 btnd_in_prev = 0;
+         ^
+../src/main.c:28:9: warning: variable 'btnu_in_prev' set but not used [-Wunused-but-set-variable]
+     u32 btnu_in_prev = 0;
+         ^
+../src/main.c:27:9: warning: variable 'btnr_in_prev' set but not used [-Wunused-but-set-variable]
+     u32 btnr_in_prev = 0;
+         ^
+../src/main.c:26:9: warning: variable 'btnl_in_prev' set but not used [-Wunused-but-set-variable]
+     u32 btnl_in_prev = 0;
+         ^
+../src/main.c:25:9: warning: variable 'btnc_in_prev' set but not used [-Wunused-but-set-variable]
+     u32 btnc_in_prev = 0;
+         ^
+'Finished building: ../src/main.c'
+' '
+'Building target: cube_renderer.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../cube_renderer_bsp/ps7_cortexa9_0/lib -o "cube_renderer.elf"  ./src/include/cube_renderer_controller_interface.o ./src/include/math3d.o  ./src/main.o ./src/platform.o   -lm -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: cube_renderer.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size cube_renderer.elf  |tee "cube_renderer.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  64212	   2196	  22632	  89040	  15bd0	cube_renderer.elf
+'Finished building: cube_renderer.elf.size'
+' '
+01:27:02 **** Incremental Build of configuration Debug for project cube_renderer ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+make: Nothing to be done for `main-build'.
+01:27:53 **** Auto Build of configuration Debug for project cube_renderer ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/main.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/main.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../cube_renderer_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.c"
+../src/main.c: In function 'main':
+../src/main.c:60:11: warning: unused variable 'debug_divider' [-Wunused-variable]
+     float debug_divider = DEBUG_DEVIDER_INITAL_VALUE;
+           ^
+../src/main.c:29:9: warning: variable 'btnd_in_prev' set but not used [-Wunused-but-set-variable]
+     u32 btnd_in_prev = 0;
+         ^
+../src/main.c:28:9: warning: variable 'btnu_in_prev' set but not used [-Wunused-but-set-variable]
+     u32 btnu_in_prev = 0;
+         ^
+../src/main.c:27:9: warning: variable 'btnr_in_prev' set but not used [-Wunused-but-set-variable]
+     u32 btnr_in_prev = 0;
+         ^
+../src/main.c:26:9: warning: variable 'btnl_in_prev' set but not used [-Wunused-but-set-variable]
+     u32 btnl_in_prev = 0;
+         ^
+../src/main.c:25:9: warning: variable 'btnc_in_prev' set but not used [-Wunused-but-set-variable]
+     u32 btnc_in_prev = 0;
+         ^
+'Finished building: ../src/main.c'
+' '
+'Building target: cube_renderer.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../cube_renderer_bsp/ps7_cortexa9_0/lib -o "cube_renderer.elf"  ./src/include/cube_renderer_controller_interface.o ./src/include/math3d.o  ./src/main.o ./src/platform.o   -lm -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: cube_renderer.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size cube_renderer.elf  |tee "cube_renderer.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  64212	   2196	  22632	  89040	  15bd0	cube_renderer.elf
+'Finished building: cube_renderer.elf.size'
+' '
+01:29:41 **** Auto Build of configuration Debug for project cube_renderer ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/main.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/main.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../cube_renderer_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.c"
+../src/main.c: In function 'main':
+../src/main.c:64:11: warning: unused variable 'debug_divider' [-Wunused-variable]
+     float debug_divider = DEBUG_DEVIDER_INITAL_VALUE;
+           ^
+../src/main.c:33:9: warning: variable 'btnd_in_prev' set but not used [-Wunused-but-set-variable]
+     u32 btnd_in_prev = 0;
+         ^
+../src/main.c:32:9: warning: variable 'btnu_in_prev' set but not used [-Wunused-but-set-variable]
+     u32 btnu_in_prev = 0;
+         ^
+../src/main.c:31:9: warning: variable 'btnr_in_prev' set but not used [-Wunused-but-set-variable]
+     u32 btnr_in_prev = 0;
+         ^
+../src/main.c:30:9: warning: variable 'btnl_in_prev' set but not used [-Wunused-but-set-variable]
+     u32 btnl_in_prev = 0;
+         ^
+../src/main.c:29:9: warning: variable 'btnc_in_prev' set but not used [-Wunused-but-set-variable]
+     u32 btnc_in_prev = 0;
+         ^
+'Finished building: ../src/main.c'
+' '
+'Building target: cube_renderer.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../cube_renderer_bsp/ps7_cortexa9_0/lib -o "cube_renderer.elf"  ./src/include/cube_renderer_controller_interface.o ./src/include/math3d.o  ./src/main.o ./src/platform.o   -lm -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: cube_renderer.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size cube_renderer.elf  |tee "cube_renderer.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  64212	   2196	  22632	  89040	  15bd0	cube_renderer.elf
+'Finished building: cube_renderer.elf.size'
+' '
+01:29:54 **** Auto Build of configuration Debug for project cube_renderer ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/main.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/main.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../cube_renderer_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.c"
+../src/main.c: In function 'main':
+../src/main.c:64:11: warning: unused variable 'debug_divider' [-Wunused-variable]
+     float debug_divider = DEBUG_DEVIDER_INITAL_VALUE;
+           ^
+../src/main.c:33:9: warning: variable 'btnd_in_prev' set but not used [-Wunused-but-set-variable]
+     u32 btnd_in_prev = 0;
+         ^
+../src/main.c:32:9: warning: variable 'btnu_in_prev' set but not used [-Wunused-but-set-variable]
+     u32 btnu_in_prev = 0;
+         ^
+../src/main.c:31:9: warning: variable 'btnr_in_prev' set but not used [-Wunused-but-set-variable]
+     u32 btnr_in_prev = 0;
+         ^
+../src/main.c:30:9: warning: variable 'btnl_in_prev' set but not used [-Wunused-but-set-variable]
+     u32 btnl_in_prev = 0;
+         ^
+../src/main.c:29:9: warning: variable 'btnc_in_prev' set but not used [-Wunused-but-set-variable]
+     u32 btnc_in_prev = 0;
+         ^
+'Finished building: ../src/main.c'
+' '
+'Building target: cube_renderer.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../cube_renderer_bsp/ps7_cortexa9_0/lib -o "cube_renderer.elf"  ./src/include/cube_renderer_controller_interface.o ./src/include/math3d.o  ./src/main.o ./src/platform.o   -lm -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: cube_renderer.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size cube_renderer.elf  |tee "cube_renderer.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  64212	   2196	  22632	  89040	  15bd0	cube_renderer.elf
+'Finished building: cube_renderer.elf.size'
+' '
+01:29:57 **** Incremental Build of configuration Debug for project cube_renderer ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+make: Nothing to be done for `main-build'.
+01:31:11 **** Auto Build of configuration Debug for project cube_renderer ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/main.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/main.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../cube_renderer_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.c"
+../src/main.c: In function 'main':
+../src/main.c:64:11: warning: unused variable 'debug_divider' [-Wunused-variable]
+     float debug_divider = DEBUG_DEVIDER_INITAL_VALUE;
+           ^
+../src/main.c:33:9: warning: variable 'btnd_in_prev' set but not used [-Wunused-but-set-variable]
+     u32 btnd_in_prev = 0;
+         ^
+../src/main.c:32:9: warning: variable 'btnu_in_prev' set but not used [-Wunused-but-set-variable]
+     u32 btnu_in_prev = 0;
+         ^
+../src/main.c:31:9: warning: variable 'btnr_in_prev' set but not used [-Wunused-but-set-variable]
+     u32 btnr_in_prev = 0;
+         ^
+../src/main.c:30:9: warning: variable 'btnl_in_prev' set but not used [-Wunused-but-set-variable]
+     u32 btnl_in_prev = 0;
+         ^
+../src/main.c:29:9: warning: variable 'btnc_in_prev' set but not used [-Wunused-but-set-variable]
+     u32 btnc_in_prev = 0;
+         ^
+'Finished building: ../src/main.c'
+' '
+'Building target: cube_renderer.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../cube_renderer_bsp/ps7_cortexa9_0/lib -o "cube_renderer.elf"  ./src/include/cube_renderer_controller_interface.o ./src/include/math3d.o  ./src/main.o ./src/platform.o   -lm -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: cube_renderer.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size cube_renderer.elf  |tee "cube_renderer.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  64212	   2196	  22632	  89040	  15bd0	cube_renderer.elf
+'Finished building: cube_renderer.elf.size'
+' '
+01:31:13 **** Incremental Build of configuration Debug for project cube_renderer ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+make: Nothing to be done for `main-build'.
+01:31:35 **** Auto Build of configuration Debug for project cube_renderer ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/main.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/main.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../cube_renderer_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.c"
+../src/main.c: In function 'main':
+../src/main.c:64:11: warning: unused variable 'debug_divider' [-Wunused-variable]
+     float debug_divider = DEBUG_DEVIDER_INITAL_VALUE;
+           ^
+../src/main.c:33:9: warning: variable 'btnd_in_prev' set but not used [-Wunused-but-set-variable]
+     u32 btnd_in_prev = 0;
+         ^
+../src/main.c:32:9: warning: variable 'btnu_in_prev' set but not used [-Wunused-but-set-variable]
+     u32 btnu_in_prev = 0;
+         ^
+../src/main.c:31:9: warning: variable 'btnr_in_prev' set but not used [-Wunused-but-set-variable]
+     u32 btnr_in_prev = 0;
+         ^
+../src/main.c:30:9: warning: variable 'btnl_in_prev' set but not used [-Wunused-but-set-variable]
+     u32 btnl_in_prev = 0;
+         ^
+../src/main.c:29:9: warning: variable 'btnc_in_prev' set but not used [-Wunused-but-set-variable]
+     u32 btnc_in_prev = 0;
+         ^
+'Finished building: ../src/main.c'
+' '
+'Building target: cube_renderer.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../cube_renderer_bsp/ps7_cortexa9_0/lib -o "cube_renderer.elf"  ./src/include/cube_renderer_controller_interface.o ./src/include/math3d.o  ./src/main.o ./src/platform.o   -lm -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: cube_renderer.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size cube_renderer.elf  |tee "cube_renderer.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  64212	   2196	  22632	  89040	  15bd0	cube_renderer.elf
+'Finished building: cube_renderer.elf.size'
+' '
+01:31:37 **** Incremental Build of configuration Debug for project cube_renderer ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+make: Nothing to be done for `main-build'.
+01:31:57 **** Auto Build of configuration Debug for project cube_renderer ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/main.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/main.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../cube_renderer_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.c"
+../src/main.c: In function 'main':
+../src/main.c:64:11: warning: unused variable 'debug_divider' [-Wunused-variable]
+     float debug_divider = DEBUG_DEVIDER_INITAL_VALUE;
+           ^
+../src/main.c:33:9: warning: variable 'btnd_in_prev' set but not used [-Wunused-but-set-variable]
+     u32 btnd_in_prev = 0;
+         ^
+../src/main.c:32:9: warning: variable 'btnu_in_prev' set but not used [-Wunused-but-set-variable]
+     u32 btnu_in_prev = 0;
+         ^
+../src/main.c:31:9: warning: variable 'btnr_in_prev' set but not used [-Wunused-but-set-variable]
+     u32 btnr_in_prev = 0;
+         ^
+../src/main.c:30:9: warning: variable 'btnl_in_prev' set but not used [-Wunused-but-set-variable]
+     u32 btnl_in_prev = 0;
+         ^
+../src/main.c:29:9: warning: variable 'btnc_in_prev' set but not used [-Wunused-but-set-variable]
+     u32 btnc_in_prev = 0;
+         ^
+'Finished building: ../src/main.c'
+' '
+'Building target: cube_renderer.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../cube_renderer_bsp/ps7_cortexa9_0/lib -o "cube_renderer.elf"  ./src/include/cube_renderer_controller_interface.o ./src/include/math3d.o  ./src/main.o ./src/platform.o   -lm -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: cube_renderer.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size cube_renderer.elf  |tee "cube_renderer.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  64212	   2196	  22632	  89040	  15bd0	cube_renderer.elf
+'Finished building: cube_renderer.elf.size'
+' '
+01:32:12 **** Auto Build of configuration Debug for project cube_renderer ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/main.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/main.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../cube_renderer_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.c"
+../src/main.c: In function 'main':
+../src/main.c:64:11: warning: unused variable 'debug_divider' [-Wunused-variable]
+     float debug_divider = DEBUG_DEVIDER_INITAL_VALUE;
+           ^
+../src/main.c:33:9: warning: variable 'btnd_in_prev' set but not used [-Wunused-but-set-variable]
+     u32 btnd_in_prev = 0;
+         ^
+../src/main.c:32:9: warning: variable 'btnu_in_prev' set but not used [-Wunused-but-set-variable]
+     u32 btnu_in_prev = 0;
+         ^
+../src/main.c:31:9: warning: variable 'btnr_in_prev' set but not used [-Wunused-but-set-variable]
+     u32 btnr_in_prev = 0;
+         ^
+../src/main.c:30:9: warning: variable 'btnl_in_prev' set but not used [-Wunused-but-set-variable]
+     u32 btnl_in_prev = 0;
+         ^
+../src/main.c:29:9: warning: variable 'btnc_in_prev' set but not used [-Wunused-but-set-variable]
+     u32 btnc_in_prev = 0;
+         ^
+'Finished building: ../src/main.c'
+' '
+'Building target: cube_renderer.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../cube_renderer_bsp/ps7_cortexa9_0/lib -o "cube_renderer.elf"  ./src/include/cube_renderer_controller_interface.o ./src/include/math3d.o  ./src/main.o ./src/platform.o   -lm -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: cube_renderer.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size cube_renderer.elf  |tee "cube_renderer.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  64212	   2196	  22632	  89040	  15bd0	cube_renderer.elf
+'Finished building: cube_renderer.elf.size'
+' '
+01:32:15 **** Incremental Build of configuration Debug for project cube_renderer ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+make: Nothing to be done for `main-build'.
+01:33:36 **** Auto Build of configuration Debug for project cube_renderer ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/main.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/main.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../cube_renderer_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.c"
+../src/main.c: In function 'main':
+../src/main.c:64:11: warning: unused variable 'debug_divider' [-Wunused-variable]
+     float debug_divider = DEBUG_DEVIDER_INITAL_VALUE;
+           ^
+../src/main.c:33:9: warning: variable 'btnd_in_prev' set but not used [-Wunused-but-set-variable]
+     u32 btnd_in_prev = 0;
+         ^
+../src/main.c:32:9: warning: variable 'btnu_in_prev' set but not used [-Wunused-but-set-variable]
+     u32 btnu_in_prev = 0;
+         ^
+../src/main.c:31:9: warning: variable 'btnr_in_prev' set but not used [-Wunused-but-set-variable]
+     u32 btnr_in_prev = 0;
+         ^
+../src/main.c:30:9: warning: variable 'btnl_in_prev' set but not used [-Wunused-but-set-variable]
+     u32 btnl_in_prev = 0;
+         ^
+../src/main.c:29:9: warning: variable 'btnc_in_prev' set but not used [-Wunused-but-set-variable]
+     u32 btnc_in_prev = 0;
+         ^
+'Finished building: ../src/main.c'
+' '
+'Building target: cube_renderer.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../cube_renderer_bsp/ps7_cortexa9_0/lib -o "cube_renderer.elf"  ./src/include/cube_renderer_controller_interface.o ./src/include/math3d.o  ./src/main.o ./src/platform.o   -lm -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: cube_renderer.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size cube_renderer.elf  |tee "cube_renderer.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  64212	   2196	  22632	  89040	  15bd0	cube_renderer.elf
+'Finished building: cube_renderer.elf.size'
+' '
+01:33:41 **** Incremental Build of configuration Debug for project cube_renderer ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+make: Nothing to be done for `main-build'.
+01:46:56 **** Clean-only build of project cube_renderer_bsp ****
+make -k clean 
+rm -f ps7_cortexa9_0/lib/libxil.a
+01:46:57 **** Clean-only build of configuration Debug for project cube_renderer ****
+make clean 
+rm -rf  ./src/include/cube_renderer_controller_interface.o ./src/include/math3d.o  ./src/main.o ./src/platform.o  ./src/include/cube_renderer_controller_interface.d ./src/include/math3d.d  ./src/main.d ./src/platform.d  cube_renderer.elf.size  cube_renderer.elf
+' '
+01:46:58 **** Build of project cube_renderer_bsp ****
+make -k all 
+"Running Make include in ps7_cortexa9_0/libsrc/coresightps_dcc_v1_3/src"
+make -C ps7_cortexa9_0/libsrc/coresightps_dcc_v1_3/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles"
+"Running Make include in ps7_cortexa9_0/libsrc/cpu_cortexa9_v2_3/src"
+make -C ps7_cortexa9_0/libsrc/cpu_cortexa9_v2_3/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles"
+"Running Make include in ps7_cortexa9_0/libsrc/cube_renderer_controller_v1_0/src"
+make -C ps7_cortexa9_0/libsrc/cube_renderer_controller_v1_0/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles"
+"Running Make include in ps7_cortexa9_0/libsrc/ddrps_v1_0/src"
+make -C ps7_cortexa9_0/libsrc/ddrps_v1_0/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles"
+"Running Make include in ps7_cortexa9_0/libsrc/devcfg_v3_4/src"
+make -C ps7_cortexa9_0/libsrc/devcfg_v3_4/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles"
+"Running Make include in ps7_cortexa9_0/libsrc/dmaps_v2_2/src"
+make -C ps7_cortexa9_0/libsrc/dmaps_v2_2/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles"
+"Running Make include in ps7_cortexa9_0/libsrc/emacps_v3_3/src"
+make -C ps7_cortexa9_0/libsrc/emacps_v3_3/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles"
+"Running Make include in ps7_cortexa9_0/libsrc/gpiops_v3_1/src"
+make -C ps7_cortexa9_0/libsrc/gpiops_v3_1/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles"
+"Running Make include in ps7_cortexa9_0/libsrc/qspips_v3_3/src"
+make -C ps7_cortexa9_0/libsrc/qspips_v3_3/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles"
+"Running Make include in ps7_cortexa9_0/libsrc/scugic_v3_4/src"
+make -C ps7_cortexa9_0/libsrc/scugic_v3_4/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles"
+"Running Make include in ps7_cortexa9_0/libsrc/scutimer_v2_1/src"
+make -C ps7_cortexa9_0/libsrc/scutimer_v2_1/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles"
+"Running Make include in ps7_cortexa9_0/libsrc/scuwdt_v2_1/src"
+make -C ps7_cortexa9_0/libsrc/scuwdt_v2_1/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles"
+"Running Make include in ps7_cortexa9_0/libsrc/sdps_v3_0/src"
+make -C ps7_cortexa9_0/libsrc/sdps_v3_0/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles"
+"Running Make include in ps7_cortexa9_0/libsrc/standalone_v6_0/src"
+make -C ps7_cortexa9_0/libsrc/standalone_v6_0/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles"
+"Running Make include in ps7_cortexa9_0/libsrc/ttcps_v3_1/src"
+make -C ps7_cortexa9_0/libsrc/ttcps_v3_1/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles"
+"Running Make include in ps7_cortexa9_0/libsrc/uartps_v3_2/src"
+make -C ps7_cortexa9_0/libsrc/uartps_v3_2/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles"
+"Running Make include in ps7_cortexa9_0/libsrc/usbps_v2_4/src"
+make -C ps7_cortexa9_0/libsrc/usbps_v2_4/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles"
+"Running Make include in ps7_cortexa9_0/libsrc/xadcps_v2_2/src"
+make -C ps7_cortexa9_0/libsrc/xadcps_v2_2/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles"
+"Running Make libs in ps7_cortexa9_0/libsrc/coresightps_dcc_v1_3/src"
+make -C ps7_cortexa9_0/libsrc/coresightps_dcc_v1_3/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles"
+"Compiling coresightps_dcc"
+arm-none-eabi-ar: creating ../../../lib/libxil.a
+"Running Make libs in ps7_cortexa9_0/libsrc/cpu_cortexa9_v2_3/src"
+make -C ps7_cortexa9_0/libsrc/cpu_cortexa9_v2_3/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles"
+"Compiling cpu_cortexa9"
+"Running Make libs in ps7_cortexa9_0/libsrc/cube_renderer_controller_v1_0/src"
+make -C ps7_cortexa9_0/libsrc/cube_renderer_controller_v1_0/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles"
+"Compiling cube_renderer_controller..."
+"Running Make libs in ps7_cortexa9_0/libsrc/ddrps_v1_0/src"
+make -C ps7_cortexa9_0/libsrc/ddrps_v1_0/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles"
+"Compiling ddrps"
+"Running Make libs in ps7_cortexa9_0/libsrc/devcfg_v3_4/src"
+make -C ps7_cortexa9_0/libsrc/devcfg_v3_4/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles"
+"Compiling devcfg"
+"Running Make libs in ps7_cortexa9_0/libsrc/dmaps_v2_2/src"
+make -C ps7_cortexa9_0/libsrc/dmaps_v2_2/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles"
+"Compiling dmaps"
+"Running Make libs in ps7_cortexa9_0/libsrc/emacps_v3_3/src"
+make -C ps7_cortexa9_0/libsrc/emacps_v3_3/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles"
+"Compiling emacps"
+"Running Make libs in ps7_cortexa9_0/libsrc/gpiops_v3_1/src"
+make -C ps7_cortexa9_0/libsrc/gpiops_v3_1/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles"
+"Compiling gpiops"
+"Running Make libs in ps7_cortexa9_0/libsrc/qspips_v3_3/src"
+make -C ps7_cortexa9_0/libsrc/qspips_v3_3/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles"
+"Compiling qspips"
+"Running Make libs in ps7_cortexa9_0/libsrc/scugic_v3_4/src"
+make -C ps7_cortexa9_0/libsrc/scugic_v3_4/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles"
+"Compiling scugic"
+"Running Make libs in ps7_cortexa9_0/libsrc/scutimer_v2_1/src"
+make -C ps7_cortexa9_0/libsrc/scutimer_v2_1/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles"
+"Compiling scutimer"
+"Running Make libs in ps7_cortexa9_0/libsrc/scuwdt_v2_1/src"
+make -C ps7_cortexa9_0/libsrc/scuwdt_v2_1/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles"
+"Compiling scuwdt"
+"Running Make libs in ps7_cortexa9_0/libsrc/sdps_v3_0/src"
+make -C ps7_cortexa9_0/libsrc/sdps_v3_0/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles"
+"Compiling sdps"
+"Running Make libs in ps7_cortexa9_0/libsrc/standalone_v6_0/src"
+make -C ps7_cortexa9_0/libsrc/standalone_v6_0/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles"
+"Compiling standalone"
+"Running Make libs in ps7_cortexa9_0/libsrc/ttcps_v3_1/src"
+make -C ps7_cortexa9_0/libsrc/ttcps_v3_1/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles"
+"Compiling ttcps"
+"Running Make libs in ps7_cortexa9_0/libsrc/uartps_v3_2/src"
+make -C ps7_cortexa9_0/libsrc/uartps_v3_2/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles"
+"Compiling uartps"
+"Running Make libs in ps7_cortexa9_0/libsrc/usbps_v2_4/src"
+make -C ps7_cortexa9_0/libsrc/usbps_v2_4/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles"
+"Compiling usbps"
+"Running Make libs in ps7_cortexa9_0/libsrc/xadcps_v2_2/src"
+make -C ps7_cortexa9_0/libsrc/xadcps_v2_2/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles"
+"Compiling xadcps"
+'Finished building libraries'
+01:47:29 **** Build of configuration Debug for project cube_renderer ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/include/cube_renderer_controller_interface.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/include/cube_renderer_controller_interface.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../cube_renderer_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/include/cube_renderer_controller_interface.d" -MT"src/include/cube_renderer_controller_interface.o" -o "src/include/cube_renderer_controller_interface.o" "../src/include/cube_renderer_controller_interface.c"
+In file included from ../src/include/cube_renderer_controller_interface.h:10:0,
+                 from ../src/include/cube_renderer_controller_interface.c:1:
+../src/include/cube_renderer_controller_interface.c: In function 'write_vertices':
+../src/include/cube_renderer_controller_interface.c:24:99: warning: implicit declaration of function 'round' [-Wimplicit-function-declaration]
+             CUBE_RENDERER_CONTROLLER_mWriteReg(BASEADDR, VERTICES_ADDR + (i * 8) + (j * 4), ((u32)round(v[i][j])));
+                                                                                                   ^
+../../cube_renderer_bsp/ps7_cortexa9_0/include/cube_renderer_controller.h:95:49: note: in definition of macro 'CUBE_RENDERER_CONTROLLER_mWriteReg'
+    Xil_Out32((BaseAddress) + (RegOffset), (u32)(Data))
+                                                 ^
+../src/include/cube_renderer_controller_interface.c:24:99: warning: incompatible implicit declaration of built-in function 'round'
+             CUBE_RENDERER_CONTROLLER_mWriteReg(BASEADDR, VERTICES_ADDR + (i * 8) + (j * 4), ((u32)round(v[i][j])));
+                                                                                                   ^
+../../cube_renderer_bsp/ps7_cortexa9_0/include/cube_renderer_controller.h:95:49: note: in definition of macro 'CUBE_RENDERER_CONTROLLER_mWriteReg'
+    Xil_Out32((BaseAddress) + (RegOffset), (u32)(Data))
+                                                 ^
+../src/include/cube_renderer_controller_interface.c:24:99: note: include '<math.h>' or provide a declaration of 'round'
+             CUBE_RENDERER_CONTROLLER_mWriteReg(BASEADDR, VERTICES_ADDR + (i * 8) + (j * 4), ((u32)round(v[i][j])));
+                                                                                                   ^
+../../cube_renderer_bsp/ps7_cortexa9_0/include/cube_renderer_controller.h:95:49: note: in definition of macro 'CUBE_RENDERER_CONTROLLER_mWriteReg'
+    Xil_Out32((BaseAddress) + (RegOffset), (u32)(Data))
+                                                 ^
+'Finished building: ../src/include/cube_renderer_controller_interface.c'
+' '
+'Building file: ../src/include/math3d.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/include/math3d.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../cube_renderer_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/include/math3d.d" -MT"src/include/math3d.o" -o "src/include/math3d.o" "../src/include/math3d.c"
+'Finished building: ../src/include/math3d.c'
+' '
+'Building file: ../src/main.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/main.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../cube_renderer_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.c"
+../src/main.c: In function 'main':
+../src/main.c:64:11: warning: unused variable 'debug_divider' [-Wunused-variable]
+     float debug_divider = DEBUG_DEVIDER_INITAL_VALUE;
+           ^
+../src/main.c:33:9: warning: variable 'btnd_in_prev' set but not used [-Wunused-but-set-variable]
+     u32 btnd_in_prev = 0;
+         ^
+../src/main.c:32:9: warning: variable 'btnu_in_prev' set but not used [-Wunused-but-set-variable]
+     u32 btnu_in_prev = 0;
+         ^
+../src/main.c:31:9: warning: variable 'btnr_in_prev' set but not used [-Wunused-but-set-variable]
+     u32 btnr_in_prev = 0;
+         ^
+../src/main.c:30:9: warning: variable 'btnl_in_prev' set but not used [-Wunused-but-set-variable]
+     u32 btnl_in_prev = 0;
+         ^
+../src/main.c:29:9: warning: variable 'btnc_in_prev' set but not used [-Wunused-but-set-variable]
+     u32 btnc_in_prev = 0;
+         ^
+'Finished building: ../src/main.c'
+' '
+'Building file: ../src/platform.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/platform.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../cube_renderer_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/platform.d" -MT"src/platform.o" -o "src/platform.o" "../src/platform.c"
+'Finished building: ../src/platform.c'
+' '
+'Building target: cube_renderer.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../cube_renderer_bsp/ps7_cortexa9_0/lib -o "cube_renderer.elf"  ./src/include/cube_renderer_controller_interface.o ./src/include/math3d.o  ./src/main.o ./src/platform.o   -lm -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: cube_renderer.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size cube_renderer.elf  |tee "cube_renderer.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  64212	   2196	  22632	  89040	  15bd0	cube_renderer.elf
+'Finished building: cube_renderer.elf.size'
+' '
+01:50:18 **** Incremental Build of configuration Debug for project cube_renderer ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+make: Nothing to be done for `main-build'.
+01:51:19 **** Incremental Build of configuration Debug for project cube_renderer ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+make: Nothing to be done for `main-build'.
+01:51:24 **** Incremental Build of configuration Debug for project cube_renderer ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+make: Nothing to be done for `main-build'.
+01:52:16 **** Incremental Build of configuration Debug for project cube_renderer ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+make: Nothing to be done for `main-build'.
+09:58:02 **** Incremental Build of configuration Debug for project cube_renderer ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+make: Nothing to be done for `main-build'.
+10:27:39 **** Auto Build of configuration Debug for project cube_renderer ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/main.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/main.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../cube_renderer_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.c"
+../src/main.c: In function 'main':
+../src/main.c:64:11: warning: unused variable 'debug_divider' [-Wunused-variable]
+     float debug_divider = DEBUG_DEVIDER_INITAL_VALUE;
+           ^
+../src/main.c:33:9: warning: variable 'btnd_in_prev' set but not used [-Wunused-but-set-variable]
+     u32 btnd_in_prev = 0;
+         ^
+../src/main.c:32:9: warning: variable 'btnu_in_prev' set but not used [-Wunused-but-set-variable]
+     u32 btnu_in_prev = 0;
+         ^
+../src/main.c:31:9: warning: variable 'btnr_in_prev' set but not used [-Wunused-but-set-variable]
+     u32 btnr_in_prev = 0;
+         ^
+../src/main.c:30:9: warning: variable 'btnl_in_prev' set but not used [-Wunused-but-set-variable]
+     u32 btnl_in_prev = 0;
+         ^
+../src/main.c:29:9: warning: variable 'btnc_in_prev' set but not used [-Wunused-but-set-variable]
+     u32 btnc_in_prev = 0;
+         ^
+'Finished building: ../src/main.c'
+' '
+'Building target: cube_renderer.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../cube_renderer_bsp/ps7_cortexa9_0/lib -o "cube_renderer.elf"  ./src/include/cube_renderer_controller_interface.o ./src/include/math3d.o  ./src/main.o ./src/platform.o   -lm -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: cube_renderer.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size cube_renderer.elf  |tee "cube_renderer.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  64068	   2196	  22632	  88896	  15b40	cube_renderer.elf
+'Finished building: cube_renderer.elf.size'
+' '
+10:28:08 **** Auto Build of configuration Debug for project cube_renderer ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/main.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/main.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../cube_renderer_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.c"
+../src/main.c: In function 'main':
+../src/main.c:64:11: warning: unused variable 'debug_divider' [-Wunused-variable]
+     float debug_divider = DEBUG_DEVIDER_INITAL_VALUE;
+           ^
+../src/main.c:33:9: warning: variable 'btnd_in_prev' set but not used [-Wunused-but-set-variable]
+     u32 btnd_in_prev = 0;
+         ^
+../src/main.c:32:9: warning: variable 'btnu_in_prev' set but not used [-Wunused-but-set-variable]
+     u32 btnu_in_prev = 0;
+         ^
+../src/main.c:31:9: warning: variable 'btnr_in_prev' set but not used [-Wunused-but-set-variable]
+     u32 btnr_in_prev = 0;
+         ^
+../src/main.c:30:9: warning: variable 'btnl_in_prev' set but not used [-Wunused-but-set-variable]
+     u32 btnl_in_prev = 0;
+         ^
+../src/main.c:29:9: warning: variable 'btnc_in_prev' set but not used [-Wunused-but-set-variable]
+     u32 btnc_in_prev = 0;
+         ^
+'Finished building: ../src/main.c'
+' '
+'Building target: cube_renderer.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../cube_renderer_bsp/ps7_cortexa9_0/lib -o "cube_renderer.elf"  ./src/include/cube_renderer_controller_interface.o ./src/include/math3d.o  ./src/main.o ./src/platform.o   -lm -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: cube_renderer.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size cube_renderer.elf  |tee "cube_renderer.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  64276	   2196	  22632	  89104	  15c10	cube_renderer.elf
+'Finished building: cube_renderer.elf.size'
+' '
+10:28:11 **** Incremental Build of configuration Debug for project cube_renderer ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+make: Nothing to be done for `main-build'.
+10:28:33 **** Auto Build of configuration Debug for project cube_renderer ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/main.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/main.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../cube_renderer_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.c"
+../src/main.c: In function 'main':
+../src/main.c:64:11: warning: unused variable 'debug_divider' [-Wunused-variable]
+     float debug_divider = DEBUG_DEVIDER_INITAL_VALUE;
+           ^
+../src/main.c:33:9: warning: variable 'btnd_in_prev' set but not used [-Wunused-but-set-variable]
+     u32 btnd_in_prev = 0;
+         ^
+../src/main.c:32:9: warning: variable 'btnu_in_prev' set but not used [-Wunused-but-set-variable]
+     u32 btnu_in_prev = 0;
+         ^
+../src/main.c:31:9: warning: variable 'btnr_in_prev' set but not used [-Wunused-but-set-variable]
+     u32 btnr_in_prev = 0;
+         ^
+../src/main.c:30:9: warning: variable 'btnl_in_prev' set but not used [-Wunused-but-set-variable]
+     u32 btnl_in_prev = 0;
+         ^
+../src/main.c:29:9: warning: variable 'btnc_in_prev' set but not used [-Wunused-but-set-variable]
+     u32 btnc_in_prev = 0;
+         ^
+'Finished building: ../src/main.c'
+' '
+'Building target: cube_renderer.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../cube_renderer_bsp/ps7_cortexa9_0/lib -o "cube_renderer.elf"  ./src/include/cube_renderer_controller_interface.o ./src/include/math3d.o  ./src/main.o ./src/platform.o   -lm -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: cube_renderer.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size cube_renderer.elf  |tee "cube_renderer.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  64276	   2196	  22632	  89104	  15c10	cube_renderer.elf
+'Finished building: cube_renderer.elf.size'
+' '
+10:28:37 **** Incremental Build of configuration Debug for project cube_renderer ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+make: Nothing to be done for `main-build'.
+10:29:02 **** Auto Build of configuration Debug for project cube_renderer ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/main.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/main.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../cube_renderer_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.c"
+../src/main.c: In function 'main':
+../src/main.c:64:11: warning: unused variable 'debug_divider' [-Wunused-variable]
+     float debug_divider = DEBUG_DEVIDER_INITAL_VALUE;
+           ^
+../src/main.c:33:9: warning: variable 'btnd_in_prev' set but not used [-Wunused-but-set-variable]
+     u32 btnd_in_prev = 0;
+         ^
+../src/main.c:32:9: warning: variable 'btnu_in_prev' set but not used [-Wunused-but-set-variable]
+     u32 btnu_in_prev = 0;
+         ^
+../src/main.c:31:9: warning: variable 'btnr_in_prev' set but not used [-Wunused-but-set-variable]
+     u32 btnr_in_prev = 0;
+         ^
+../src/main.c:30:9: warning: variable 'btnl_in_prev' set but not used [-Wunused-but-set-variable]
+     u32 btnl_in_prev = 0;
+         ^
+../src/main.c:29:9: warning: variable 'btnc_in_prev' set but not used [-Wunused-but-set-variable]
+     u32 btnc_in_prev = 0;
+         ^
+'Finished building: ../src/main.c'
+' '
+'Building target: cube_renderer.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../cube_renderer_bsp/ps7_cortexa9_0/lib -o "cube_renderer.elf"  ./src/include/cube_renderer_controller_interface.o ./src/include/math3d.o  ./src/main.o ./src/platform.o   -lm -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: cube_renderer.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size cube_renderer.elf  |tee "cube_renderer.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  64212	   2196	  22632	  89040	  15bd0	cube_renderer.elf
+'Finished building: cube_renderer.elf.size'
+' '
+10:29:04 **** Incremental Build of configuration Debug for project cube_renderer ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+make: Nothing to be done for `main-build'.
+10:29:27 **** Auto Build of configuration Debug for project cube_renderer ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/main.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/main.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../cube_renderer_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.c"
+../src/main.c: In function 'main':
+../src/main.c:64:11: warning: unused variable 'debug_divider' [-Wunused-variable]
+     float debug_divider = DEBUG_DEVIDER_INITAL_VALUE;
+           ^
+../src/main.c:33:9: warning: variable 'btnd_in_prev' set but not used [-Wunused-but-set-variable]
+     u32 btnd_in_prev = 0;
+         ^
+../src/main.c:32:9: warning: variable 'btnu_in_prev' set but not used [-Wunused-but-set-variable]
+     u32 btnu_in_prev = 0;
+         ^
+../src/main.c:31:9: warning: variable 'btnr_in_prev' set but not used [-Wunused-but-set-variable]
+     u32 btnr_in_prev = 0;
+         ^
+../src/main.c:30:9: warning: variable 'btnl_in_prev' set but not used [-Wunused-but-set-variable]
+     u32 btnl_in_prev = 0;
+         ^
+../src/main.c:29:9: warning: variable 'btnc_in_prev' set but not used [-Wunused-but-set-variable]
+     u32 btnc_in_prev = 0;
+         ^
+'Finished building: ../src/main.c'
+' '
+'Building target: cube_renderer.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../cube_renderer_bsp/ps7_cortexa9_0/lib -o "cube_renderer.elf"  ./src/include/cube_renderer_controller_interface.o ./src/include/math3d.o  ./src/main.o ./src/platform.o   -lm -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: cube_renderer.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size cube_renderer.elf  |tee "cube_renderer.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  64212	   2196	  22632	  89040	  15bd0	cube_renderer.elf
+'Finished building: cube_renderer.elf.size'
+' '
+10:29:31 **** Incremental Build of configuration Debug for project cube_renderer ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+make: Nothing to be done for `main-build'.
+10:41:28 **** Auto Build of configuration Debug for project cube_renderer ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/main.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/main.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../cube_renderer_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.c"
+../src/main.c: In function 'main':
+../src/main.c:64:11: warning: unused variable 'debug_divider' [-Wunused-variable]
+     float debug_divider = DEBUG_DEVIDER_INITAL_VALUE;
+           ^
+../src/main.c:33:9: warning: variable 'btnd_in_prev' set but not used [-Wunused-but-set-variable]
+     u32 btnd_in_prev = 0;
+         ^
+../src/main.c:32:9: warning: variable 'btnu_in_prev' set but not used [-Wunused-but-set-variable]
+     u32 btnu_in_prev = 0;
+         ^
+../src/main.c:31:9: warning: variable 'btnr_in_prev' set but not used [-Wunused-but-set-variable]
+     u32 btnr_in_prev = 0;
+         ^
+../src/main.c:30:9: warning: variable 'btnl_in_prev' set but not used [-Wunused-but-set-variable]
+     u32 btnl_in_prev = 0;
+         ^
+../src/main.c:29:9: warning: variable 'btnc_in_prev' set but not used [-Wunused-but-set-variable]
+     u32 btnc_in_prev = 0;
+         ^
+'Finished building: ../src/main.c'
+' '
+'Building target: cube_renderer.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../cube_renderer_bsp/ps7_cortexa9_0/lib -o "cube_renderer.elf"  ./src/include/cube_renderer_controller_interface.o ./src/include/math3d.o  ./src/main.o ./src/platform.o   -lm -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: cube_renderer.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size cube_renderer.elf  |tee "cube_renderer.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  64276	   2196	  22632	  89104	  15c10	cube_renderer.elf
+'Finished building: cube_renderer.elf.size'
+' '
+10:41:45 **** Auto Build of configuration Debug for project cube_renderer ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/main.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/main.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../cube_renderer_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.c"
+../src/main.c: In function 'main':
+../src/main.c:64:11: warning: unused variable 'debug_divider' [-Wunused-variable]
+     float debug_divider = DEBUG_DEVIDER_INITAL_VALUE;
+           ^
+../src/main.c:33:9: warning: variable 'btnd_in_prev' set but not used [-Wunused-but-set-variable]
+     u32 btnd_in_prev = 0;
+         ^
+../src/main.c:32:9: warning: variable 'btnu_in_prev' set but not used [-Wunused-but-set-variable]
+     u32 btnu_in_prev = 0;
+         ^
+../src/main.c:31:9: warning: variable 'btnr_in_prev' set but not used [-Wunused-but-set-variable]
+     u32 btnr_in_prev = 0;
+         ^
+../src/main.c:30:9: warning: variable 'btnl_in_prev' set but not used [-Wunused-but-set-variable]
+     u32 btnl_in_prev = 0;
+         ^
+../src/main.c:29:9: warning: variable 'btnc_in_prev' set but not used [-Wunused-but-set-variable]
+     u32 btnc_in_prev = 0;
+         ^
+'Finished building: ../src/main.c'
+' '
+'Building target: cube_renderer.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../cube_renderer_bsp/ps7_cortexa9_0/lib -o "cube_renderer.elf"  ./src/include/cube_renderer_controller_interface.o ./src/include/math3d.o  ./src/main.o ./src/platform.o   -lm -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: cube_renderer.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size cube_renderer.elf  |tee "cube_renderer.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  64276	   2196	  22632	  89104	  15c10	cube_renderer.elf
+'Finished building: cube_renderer.elf.size'
+' '
+10:41:48 **** Auto Build of configuration Debug for project cube_renderer ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/main.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/main.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../cube_renderer_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.c"
+../src/main.c: In function 'main':
+../src/main.c:64:11: warning: unused variable 'debug_divider' [-Wunused-variable]
+     float debug_divider = DEBUG_DEVIDER_INITAL_VALUE;
+           ^
+../src/main.c:33:9: warning: variable 'btnd_in_prev' set but not used [-Wunused-but-set-variable]
+     u32 btnd_in_prev = 0;
+         ^
+../src/main.c:32:9: warning: variable 'btnu_in_prev' set but not used [-Wunused-but-set-variable]
+     u32 btnu_in_prev = 0;
+         ^
+../src/main.c:31:9: warning: variable 'btnr_in_prev' set but not used [-Wunused-but-set-variable]
+     u32 btnr_in_prev = 0;
+         ^
+../src/main.c:30:9: warning: variable 'btnl_in_prev' set but not used [-Wunused-but-set-variable]
+     u32 btnl_in_prev = 0;
+         ^
+../src/main.c:29:9: warning: variable 'btnc_in_prev' set but not used [-Wunused-but-set-variable]
+     u32 btnc_in_prev = 0;
+         ^
+'Finished building: ../src/main.c'
+' '
+'Building target: cube_renderer.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../cube_renderer_bsp/ps7_cortexa9_0/lib -o "cube_renderer.elf"  ./src/include/cube_renderer_controller_interface.o ./src/include/math3d.o  ./src/main.o ./src/platform.o   -lm -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: cube_renderer.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size cube_renderer.elf  |tee "cube_renderer.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  64276	   2196	  22632	  89104	  15c10	cube_renderer.elf
+'Finished building: cube_renderer.elf.size'
+' '
+10:42:04 **** Auto Build of configuration Debug for project cube_renderer ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/main.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/main.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../cube_renderer_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.c"
+../src/main.c: In function 'main':
+../src/main.c:64:11: warning: unused variable 'debug_divider' [-Wunused-variable]
+     float debug_divider = DEBUG_DEVIDER_INITAL_VALUE;
+           ^
+../src/main.c:33:9: warning: variable 'btnd_in_prev' set but not used [-Wunused-but-set-variable]
+     u32 btnd_in_prev = 0;
+         ^
+../src/main.c:32:9: warning: variable 'btnu_in_prev' set but not used [-Wunused-but-set-variable]
+     u32 btnu_in_prev = 0;
+         ^
+../src/main.c:31:9: warning: variable 'btnr_in_prev' set but not used [-Wunused-but-set-variable]
+     u32 btnr_in_prev = 0;
+         ^
+../src/main.c:30:9: warning: variable 'btnl_in_prev' set but not used [-Wunused-but-set-variable]
+     u32 btnl_in_prev = 0;
+         ^
+../src/main.c:29:9: warning: variable 'btnc_in_prev' set but not used [-Wunused-but-set-variable]
+     u32 btnc_in_prev = 0;
+         ^
+'Finished building: ../src/main.c'
+' '
+'Building target: cube_renderer.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../cube_renderer_bsp/ps7_cortexa9_0/lib -o "cube_renderer.elf"  ./src/include/cube_renderer_controller_interface.o ./src/include/math3d.o  ./src/main.o ./src/platform.o   -lm -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: cube_renderer.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size cube_renderer.elf  |tee "cube_renderer.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  64276	   2196	  22632	  89104	  15c10	cube_renderer.elf
+'Finished building: cube_renderer.elf.size'
+' '
+10:42:17 **** Auto Build of configuration Debug for project cube_renderer ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/main.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/main.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../cube_renderer_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.c"
+../src/main.c: In function 'main':
+../src/main.c:64:11: warning: unused variable 'debug_divider' [-Wunused-variable]
+     float debug_divider = DEBUG_DEVIDER_INITAL_VALUE;
+           ^
+../src/main.c:33:9: warning: variable 'btnd_in_prev' set but not used [-Wunused-but-set-variable]
+     u32 btnd_in_prev = 0;
+         ^
+../src/main.c:32:9: warning: variable 'btnu_in_prev' set but not used [-Wunused-but-set-variable]
+     u32 btnu_in_prev = 0;
+         ^
+../src/main.c:31:9: warning: variable 'btnr_in_prev' set but not used [-Wunused-but-set-variable]
+     u32 btnr_in_prev = 0;
+         ^
+../src/main.c:30:9: warning: variable 'btnl_in_prev' set but not used [-Wunused-but-set-variable]
+     u32 btnl_in_prev = 0;
+         ^
+../src/main.c:29:9: warning: variable 'btnc_in_prev' set but not used [-Wunused-but-set-variable]
+     u32 btnc_in_prev = 0;
+         ^
+'Finished building: ../src/main.c'
+' '
+'Building target: cube_renderer.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../cube_renderer_bsp/ps7_cortexa9_0/lib -o "cube_renderer.elf"  ./src/include/cube_renderer_controller_interface.o ./src/include/math3d.o  ./src/main.o ./src/platform.o   -lm -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: cube_renderer.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size cube_renderer.elf  |tee "cube_renderer.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  64340	   2196	  22632	  89168	  15c50	cube_renderer.elf
+'Finished building: cube_renderer.elf.size'
+' '
+10:43:22 **** Auto Build of configuration Debug for project cube_renderer ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/main.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/main.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../cube_renderer_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.c"
+../src/main.c: In function 'main':
+../src/main.c:64:11: warning: unused variable 'debug_divider' [-Wunused-variable]
+     float debug_divider = DEBUG_DEVIDER_INITAL_VALUE;
+           ^
+../src/main.c:33:9: warning: variable 'btnd_in_prev' set but not used [-Wunused-but-set-variable]
+     u32 btnd_in_prev = 0;
+         ^
+../src/main.c:32:9: warning: variable 'btnu_in_prev' set but not used [-Wunused-but-set-variable]
+     u32 btnu_in_prev = 0;
+         ^
+../src/main.c:31:9: warning: variable 'btnr_in_prev' set but not used [-Wunused-but-set-variable]
+     u32 btnr_in_prev = 0;
+         ^
+../src/main.c:30:9: warning: variable 'btnl_in_prev' set but not used [-Wunused-but-set-variable]
+     u32 btnl_in_prev = 0;
+         ^
+../src/main.c:29:9: warning: variable 'btnc_in_prev' set but not used [-Wunused-but-set-variable]
+     u32 btnc_in_prev = 0;
+         ^
+'Finished building: ../src/main.c'
+' '
+'Building target: cube_renderer.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../cube_renderer_bsp/ps7_cortexa9_0/lib -o "cube_renderer.elf"  ./src/include/cube_renderer_controller_interface.o ./src/include/math3d.o  ./src/main.o ./src/platform.o   -lm -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: cube_renderer.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size cube_renderer.elf  |tee "cube_renderer.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  64404	   2196	  22632	  89232	  15c90	cube_renderer.elf
+'Finished building: cube_renderer.elf.size'
+' '
+10:43:24 **** Incremental Build of configuration Debug for project cube_renderer ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+make: Nothing to be done for `main-build'.
+13:11:49 **** Incremental Build of configuration Debug for project cube_renderer ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+make: Nothing to be done for `main-build'.

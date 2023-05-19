@@ -21,17 +21,4 @@ set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==cube_rendererin
 # IP: bd/cube_renderering_system/ip/cube_renderering_system_auto_pc_0/cube_renderering_system_auto_pc_0.xci
 set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==cube_renderering_system_auto_pc_0 || ORIG_REF_NAME==cube_renderering_system_auto_pc_0}]
 
-# XDC: bd/cube_renderering_system/ip/cube_renderering_system_processing_system7_0_0/cube_renderering_system_processing_system7_0_0.xdc
-set_property DONT_TOUCH TRUE [get_cells [split [join [get_cells -hier -filter {REF_NAME==cube_renderering_system_processing_system7_0_0 || ORIG_REF_NAME==cube_renderering_system_processing_system7_0_0}] {/inst }]/inst ]]
-
-# XDC: bd/cube_renderering_system/ip/cube_renderering_system_rst_ps7_0_50M_0/cube_renderering_system_rst_ps7_0_50M_0_board.xdc
-set_property DONT_TOUCH TRUE [get_cells [split [join [get_cells -hier -filter {REF_NAME==cube_renderering_system_rst_ps7_0_50M_0 || ORIG_REF_NAME==cube_renderering_system_rst_ps7_0_50M_0}] {/U0 }]/U0 ]]
-
-# XDC: bd/cube_renderering_system/ip/cube_renderering_system_rst_ps7_0_50M_0/cube_renderering_system_rst_ps7_0_50M_0.xdc
-#dup# set_property DONT_TOUCH TRUE [get_cells [split [join [get_cells -hier -filter {REF_NAME==cube_renderering_system_rst_ps7_0_50M_0 || ORIG_REF_NAME==cube_renderering_system_rst_ps7_0_50M_0}] {/U0 }]/U0 ]]
-
-# XDC: bd/cube_renderering_system/ip/cube_renderering_system_rst_ps7_0_50M_0/cube_renderering_system_rst_ps7_0_50M_0_ooc.xdc
-
-# XDC: bd/cube_renderering_system/ip/cube_renderering_system_auto_pc_0/cube_renderering_system_auto_pc_0_ooc.xdc
-
 # XDC: bd/cube_renderering_system/cube_renderering_system_ooc.xdc

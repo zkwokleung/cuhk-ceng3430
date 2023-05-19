@@ -96,10 +96,36 @@ int main()
         sw = get_sw();
 
         // Check the state of the switches
-        if (sw & SW_0)
+        if (!sw)
+        {
+            if (btnc_in)
+            {
+                // reset the cube attributes
+                cube_pos[0] = 0.0f;
+                cube_pos[1] = 0.0f;
+                cube_pos[2] = 500.0f;
+
+                cube_rot[0] = 0.0f;
+                cube_rot[1] = 0.0f;
+                cube_rot[2] = 0.0f;
+
+                cube_scale[0] = 100.0f;
+                cube_scale[1] = 100.0f;
+                cube_scale[2] = 100.0f;
+
+                xil_printf("Reseting the cube\n\r");
+            }
+        }
+        else if (sw & SW_0)
         {
             // BTN will change the cube's position
-            if (btnl_in)
+            if (btnc_in)
+            {
+                cube_pos[0] = 0.0f;
+                cube_pos[1] = 0.0f;
+                cube_pos[2] = 500.0f;
+            }
+            else if (btnl_in)
             {
                 cube_pos[0] += 0.01f;
             }
@@ -119,7 +145,13 @@ int main()
         if (sw & SW_1)
         {
             // BTN will change the cube's rotation
-            if (btnl_in)
+            if (btnc_in)
+            {
+                cube_rot[0] = 0.0f;
+                cube_rot[1] = 0.0f;
+                cube_rot[2] = 0.0f;
+            }
+            else if (btnl_in)
             {
                 cube_rot[1] -= 0.0005f;
                 if (cube_rot[1] > 360.0f || cube_rot[1] < -360.0f)
@@ -155,7 +187,13 @@ int main()
         if (sw & SW_2)
         {
             // BTN will change the cube's scale
-            if (btnl_in)
+            if (btnc_in)
+            {
+                cube_scale[0] = 100.0f;
+                cube_scale[1] = 100.0f;
+                cube_scale[2] = 100.0f;
+            }
+            else if (btnl_in)
             {
                 cube_scale[0] -= 0.01f;
             }
@@ -287,24 +325,6 @@ int main()
             {
                 xil_printf("End\n\r");
                 running = 0;
-            }
-
-            if (btnl_in)
-            {
-                // reset the cube attributes
-                cube_pos[0] = 500.0f;
-                cube_pos[1] = 300.0f;
-                cube_pos[2] = 1000.0f;
-
-                cube_rot[0] = 0.0f;
-                cube_rot[1] = 0.0f;
-                cube_rot[2] = 0.0f;
-
-                cube_scale[0] = 100.0f;
-                cube_scale[1] = 100.0f;
-                cube_scale[2] = 100.0f;
-
-                xil_printf("Reseting the cube\n\r");
             }
         }
 

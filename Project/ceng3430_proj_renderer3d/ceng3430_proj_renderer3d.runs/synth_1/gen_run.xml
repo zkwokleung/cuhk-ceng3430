@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="synth_1" LaunchPart="xc7z020clg484-1" LaunchTime="1684425458">
+<GenRun Id="synth_1" LaunchPart="xc7z020clg484-1" LaunchTime="1684472995">
   <File Type="RDS-PROPCONSTRS" Name="cube_renderering_system_wrapper_drc_synth.rpt"/>
   <File Type="PA-TCL" Name="cube_renderering_system_wrapper.tcl"/>
   <File Type="RDS-RDS" Name="cube_renderering_system_wrapper.vds"/>
@@ -55,4 +55,5 @@
     <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2016"/>
     <Step Id="synth_design"/>
   </Strategy>
+  <BlockFileSet Type="BlockSrcs" Name="cube_renderering_system_cube_renderer_controller_0_0"/>
 </GenRun>

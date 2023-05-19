@@ -905,3 +905,167 @@ java.lang.RuntimeException: Unknown Error Occured
 00:09:36 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Zed 210248657233" && level==0} -index 1' command is executed.
 00:09:39 INFO  : FPGA configured successfully with bitstream "D:/Git/cuhk-ceng3430/Project/ceng3430_proj_renderer3d/ceng3430_proj_renderer3d.sdk/cube_renderering_system_wrapper_hw_platform_0/cube_renderering_system_wrapper.bit"
 00:09:50 ERROR : Unexpected error while parsing XMD response ?: com.google.gson.JsonSyntaxException: com.google.gson.stream.MalformedJsonException: invalid number or unquoted string near 
+00:10:12 INFO  : Registering command handlers for SDK TCF services
+00:10:12 INFO  : Launching XSCT server: xsct.bat -interactive D:\Git\cuhk-ceng3430\Project\ceng3430_proj_renderer3d\ceng3430_proj_renderer3d.sdk\temp_xsdb_launch_script.tcl
+00:10:18 INFO  : XSCT server has started successfully.
+00:10:19 INFO  : Successfully done setting XSCT server connection channel  
+00:10:19 INFO  : Successfully done setting SDK workspace  
+00:10:19 INFO  : Processing command line option -hwspec D:/Git/cuhk-ceng3430/Project/ceng3430_proj_renderer3d/ceng3430_proj_renderer3d.sdk/cube_renderering_system_wrapper.hdf.
+00:10:20 INFO  : Checking for hwspec changes in the project cube_renderering_system_wrapper_hw_platform_0.
+00:10:39 INFO  : ps7_init is completed.
+00:10:39 INFO  : ps7_post_config is completed.
+00:10:39 INFO  : Processor reset is completed for ps7_cortexa9_0
+00:11:43 INFO  : ps7_cortexa9_0 Processor is in use. Please stop existing Run or Debug sessions before launching.
+00:11:47 INFO  : Processor reset is completed for ps7_cortexa9_0
+00:44:38 INFO  : SDK has detected change in the last modified timestamps for source hardware specification file Source:1684428193703,  Project:1684426003585
+00:44:38 INFO  : Project cube_renderering_system_wrapper_hw_platform_0's source hardware specification located at D:/Git/cuhk-ceng3430/Project/ceng3430_proj_renderer3d/ceng3430_proj_renderer3d.sdk/cube_renderering_system_wrapper.hdf is now different from the local copy.
+		 The local copy will be replaced with the source specification and your workspace will be updated.
+00:44:38 INFO  : Copied contents of D:/Git/cuhk-ceng3430/Project/ceng3430_proj_renderer3d/ceng3430_proj_renderer3d.sdk/cube_renderering_system_wrapper.hdf into \cube_renderering_system_wrapper_hw_platform_0\system.hdf.
+00:44:45 INFO  : Synchronizing projects in the workspace with the hardware platform specification changes.
+00:44:55 INFO  : 
+00:44:56 INFO  : Updating hardware inferred compiler options for cube_renderer.
+00:44:56 INFO  : Clearing existing target manager status.
+00:44:56 INFO  : Workspace synchronized with the new hardware specification file. Cleaning dependent projects...
+00:44:57 WARN  : Linker script will not be updated automatically. Users need to update it manually.
+00:45:46 INFO  : Processor reset is completed for ps7_cortexa9_0
+00:47:47 INFO  : ps7_cortexa9_0 Processor is in use. Please stop existing Run or Debug sessions before launching.
+00:47:52 INFO  : Processor reset is completed for ps7_cortexa9_0
+00:50:00 INFO  : ps7_cortexa9_0 Processor is in use. Please stop existing Run or Debug sessions before launching.
+00:50:06 INFO  : Processor reset is completed for ps7_cortexa9_0
+00:54:48 INFO  : ps7_cortexa9_0 Processor is in use. Please stop existing Run or Debug sessions before launching.
+00:54:49 INFO  : Processor reset is completed for ps7_cortexa9_0
+00:55:42 INFO  : ps7_cortexa9_0 Processor is in use. Please stop existing Run or Debug sessions before launching.
+00:55:44 INFO  : Processor reset is completed for ps7_cortexa9_0
+01:03:25 INFO  : ps7_cortexa9_0 Processor is in use. Please stop existing Run or Debug sessions before launching.
+01:03:28 INFO  : Processor reset is completed for ps7_cortexa9_0
+01:21:25 INFO  : SDK has detected change in the last modified timestamps for source hardware specification file Source:1684430316266,  Project:1684428193703
+01:21:25 INFO  : Project cube_renderering_system_wrapper_hw_platform_0's source hardware specification located at D:/Git/cuhk-ceng3430/Project/ceng3430_proj_renderer3d/ceng3430_proj_renderer3d.sdk/cube_renderering_system_wrapper.hdf is now different from the local copy.
+		 The local copy will be replaced with the source specification and your workspace will be updated.
+01:21:25 INFO  : Copied contents of D:/Git/cuhk-ceng3430/Project/ceng3430_proj_renderer3d/ceng3430_proj_renderer3d.sdk/cube_renderering_system_wrapper.hdf into \cube_renderering_system_wrapper_hw_platform_0\system.hdf.
+01:21:31 INFO  : Synchronizing projects in the workspace with the hardware platform specification changes.
+01:21:35 INFO  : 
+01:21:36 INFO  : Updating hardware inferred compiler options for cube_renderer.
+01:21:36 INFO  : Clearing existing target manager status.
+01:21:36 INFO  : Workspace synchronized with the new hardware specification file. Cleaning dependent projects...
+01:21:37 WARN  : Linker script will not be updated automatically. Users need to update it manually.
+01:22:31 INFO  : Processor reset is completed for ps7_cortexa9_0
+01:22:32 ERROR : Unexpected error while launching program.
+java.lang.RuntimeException: Unknown Error Occured
+    Target '64' Does NOT exist in the Current System
+
+
+	at com.xilinx.sdk.targetmanager.internal.TM.downloadELF(TM.java:686)
+	at com.xilinx.sdk.debug.core.internal.AppRunner.run(AppRunner.java:129)
+	at com.xilinx.sdk.debug.core.XilinxAppLaunchConfigurationDelegate.runApplication(XilinxAppLaunchConfigurationDelegate.java:637)
+	at com.xilinx.sdk.debug.core.XilinxAppLaunchConfigurationDelegate.launch(XilinxAppLaunchConfigurationDelegate.java:309)
+	at com.xilinx.sdk.debug.ui.XilinxAppLaunchDelegateWrapper.launch(XilinxAppLaunchDelegateWrapper.java:31)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:885)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:739)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin.buildAndLaunch(DebugUIPlugin.java:1039)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin$8.run(DebugUIPlugin.java:1256)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+01:22:44 ERROR : Unexpected error while parsing XMD response ?: com.google.gson.JsonSyntaxException: com.google.gson.stream.MalformedJsonException: invalid number or unquoted string near 
+01:23:25 INFO  : Registering command handlers for SDK TCF services
+01:23:25 INFO  : Launching XSCT server: xsct.bat -interactive D:\Git\cuhk-ceng3430\Project\ceng3430_proj_renderer3d\ceng3430_proj_renderer3d.sdk\temp_xsdb_launch_script.tcl
+01:23:31 INFO  : XSCT server has started successfully.
+01:23:31 INFO  : Successfully done setting XSCT server connection channel  
+01:23:40 INFO  : Successfully done setting SDK workspace  
+01:23:40 INFO  : Processing command line option -hwspec D:/Git/cuhk-ceng3430/Project/ceng3430_proj_renderer3d/ceng3430_proj_renderer3d.sdk/cube_renderering_system_wrapper.hdf.
+01:23:40 INFO  : Checking for hwspec changes in the project cube_renderering_system_wrapper_hw_platform_0.
+01:24:41 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+01:24:42 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Zed 210248657233" && level==0} -index 1' command is executed.
+01:24:44 INFO  : FPGA configured successfully with bitstream "D:/Git/cuhk-ceng3430/Project/ceng3430_proj_renderer3d/ceng3430_proj_renderer3d.sdk/cube_renderering_system_wrapper_hw_platform_0/cube_renderering_system_wrapper.bit"
+01:24:49 INFO  : ps7_init is completed.
+01:24:49 INFO  : ps7_post_config is completed.
+01:24:49 INFO  : Processor reset is completed for ps7_cortexa9_0
+01:27:02 INFO  : ps7_cortexa9_0 Processor is in use. Please stop existing Run or Debug sessions before launching.
+01:27:06 INFO  : Processor reset is completed for ps7_cortexa9_0
+01:29:58 INFO  : ps7_cortexa9_0 Processor is in use. Please stop existing Run or Debug sessions before launching.
+01:29:59 INFO  : Processor reset is completed for ps7_cortexa9_0
+01:31:14 INFO  : ps7_cortexa9_0 Processor is in use. Please stop existing Run or Debug sessions before launching.
+01:31:20 INFO  : Processor reset is completed for ps7_cortexa9_0
+01:31:38 INFO  : ps7_cortexa9_0 Processor is in use. Please stop existing Run or Debug sessions before launching.
+01:31:40 INFO  : Processor reset is completed for ps7_cortexa9_0
+01:32:16 INFO  : ps7_cortexa9_0 Processor is in use. Please stop existing Run or Debug sessions before launching.
+01:32:18 INFO  : Processor reset is completed for ps7_cortexa9_0
+01:33:41 INFO  : ps7_cortexa9_0 Processor is in use. Please stop existing Run or Debug sessions before launching.
+01:33:43 INFO  : Processor reset is completed for ps7_cortexa9_0
+01:46:43 INFO  : SDK has detected change in the last modified timestamps for source hardware specification file Source:1684431979499,  Project:1684430316266
+01:46:43 INFO  : Project cube_renderering_system_wrapper_hw_platform_0's source hardware specification located at D:/Git/cuhk-ceng3430/Project/ceng3430_proj_renderer3d/ceng3430_proj_renderer3d.sdk/cube_renderering_system_wrapper.hdf is now different from the local copy.
+		 The local copy will be replaced with the source specification and your workspace will be updated.
+01:46:43 INFO  : Copied contents of D:/Git/cuhk-ceng3430/Project/ceng3430_proj_renderer3d/ceng3430_proj_renderer3d.sdk/cube_renderering_system_wrapper.hdf into \cube_renderering_system_wrapper_hw_platform_0\system.hdf.
+01:46:50 INFO  : Synchronizing projects in the workspace with the hardware platform specification changes.
+01:46:55 INFO  : 
+01:46:56 INFO  : Updating hardware inferred compiler options for cube_renderer.
+01:46:56 INFO  : Clearing existing target manager status.
+01:46:56 INFO  : Workspace synchronized with the new hardware specification file. Cleaning dependent projects...
+01:46:58 WARN  : Linker script will not be updated automatically. Users need to update it manually.
+01:48:28 ERROR : Unexpected error while parsing XMD response ?: com.google.gson.JsonSyntaxException: com.google.gson.stream.MalformedJsonException: invalid number or unquoted string near 
+01:48:50 INFO  : Registering command handlers for SDK TCF services
+01:48:50 INFO  : Launching XSCT server: xsct.bat -interactive D:\Git\cuhk-ceng3430\Project\ceng3430_proj_renderer3d\ceng3430_proj_renderer3d.sdk\temp_xsdb_launch_script.tcl
+01:48:54 INFO  : XSCT server has started successfully.
+01:48:54 INFO  : Successfully done setting XSCT server connection channel  
+01:48:55 INFO  : Successfully done setting SDK workspace  
+01:48:55 INFO  : Processing command line option -hwspec D:/Git/cuhk-ceng3430/Project/ceng3430_proj_renderer3d/ceng3430_proj_renderer3d.sdk/cube_renderering_system_wrapper.hdf.
+01:48:55 INFO  : Checking for hwspec changes in the project cube_renderering_system_wrapper_hw_platform_0.
+01:50:07 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+01:50:08 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Zed 210248657233" && level==0} -index 1' command is executed.
+01:50:10 INFO  : FPGA configured successfully with bitstream "D:/Git/cuhk-ceng3430/Project/ceng3430_proj_renderer3d/ceng3430_proj_renderer3d.sdk/cube_renderering_system_wrapper_hw_platform_0/cube_renderering_system_wrapper.bit"
+01:50:29 INFO  : Processor reset is completed for ps7_cortexa9_0
+01:50:32 ERROR : Unexpected error while launching program.
+java.lang.RuntimeException: Failed to download ELF file
+
+
+    AP transaction error (DP CTRL_STAT=0xf0000021)
+    Error Address = 0x00100000, Size = 0x00000004
+
+
+	at com.xilinx.sdk.targetmanager.internal.TM.downloadELF(TM.java:686)
+	at com.xilinx.sdk.debug.core.internal.AppRunner.run(AppRunner.java:129)
+	at com.xilinx.sdk.debug.core.XilinxAppLaunchConfigurationDelegate.runApplication(XilinxAppLaunchConfigurationDelegate.java:637)
+	at com.xilinx.sdk.debug.core.XilinxAppLaunchConfigurationDelegate.launch(XilinxAppLaunchConfigurationDelegate.java:309)
+	at com.xilinx.sdk.debug.ui.XilinxAppLaunchDelegateWrapper.launch(XilinxAppLaunchDelegateWrapper.java:31)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:885)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:739)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin.buildAndLaunch(DebugUIPlugin.java:1039)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin$8.run(DebugUIPlugin.java:1256)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+01:51:14 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+01:51:14 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Zed 210248657233" && level==0} -index 1' command is executed.
+01:51:17 INFO  : FPGA configured successfully with bitstream "D:/Git/cuhk-ceng3430/Project/ceng3430_proj_renderer3d/ceng3430_proj_renderer3d.sdk/cube_renderering_system_wrapper_hw_platform_0/cube_renderering_system_wrapper.bit"
+01:51:31 ERROR : Unexpected error while parsing XMD response ?: com.google.gson.JsonSyntaxException: com.google.gson.stream.MalformedJsonException: invalid number or unquoted string near 
+01:51:57 INFO  : Registering command handlers for SDK TCF services
+01:51:58 INFO  : Launching XSCT server: xsct.bat -interactive D:\Git\cuhk-ceng3430\Project\ceng3430_proj_renderer3d\ceng3430_proj_renderer3d.sdk\temp_xsdb_launch_script.tcl
+01:52:03 INFO  : XSCT server has started successfully.
+01:52:04 INFO  : Successfully done setting XSCT server connection channel  
+01:52:04 INFO  : Processing command line option -hwspec D:/Git/cuhk-ceng3430/Project/ceng3430_proj_renderer3d/ceng3430_proj_renderer3d.sdk/cube_renderering_system_wrapper.hdf.
+01:52:04 INFO  : Successfully done setting SDK workspace  
+01:52:04 INFO  : Checking for hwspec changes in the project cube_renderering_system_wrapper_hw_platform_0.
+01:52:28 INFO  : ps7_init is completed.
+01:52:28 INFO  : ps7_post_config is completed.
+01:52:28 INFO  : Processor reset is completed for ps7_cortexa9_0
+09:58:09 INFO  : Processor reset is completed for ps7_cortexa9_0
+10:28:12 INFO  : ps7_cortexa9_0 Processor is in use. Please stop existing Run or Debug sessions before launching.
+10:28:15 INFO  : Processor reset is completed for ps7_cortexa9_0
+10:28:38 INFO  : ps7_cortexa9_0 Processor is in use. Please stop existing Run or Debug sessions before launching.
+10:28:39 INFO  : Processor reset is completed for ps7_cortexa9_0
+10:29:05 INFO  : ps7_cortexa9_0 Processor is in use. Please stop existing Run or Debug sessions before launching.
+10:29:09 INFO  : Processor reset is completed for ps7_cortexa9_0
+10:29:32 INFO  : ps7_cortexa9_0 Processor is in use. Please stop existing Run or Debug sessions before launching.
+10:29:33 INFO  : Processor reset is completed for ps7_cortexa9_0
+10:43:25 INFO  : ps7_cortexa9_0 Processor is in use. Please stop existing Run or Debug sessions before launching.
+10:43:26 INFO  : Processor reset is completed for ps7_cortexa9_0
+11:44:17 ERROR : Unexpected error while parsing XMD response ?: com.google.gson.JsonSyntaxException: com.google.gson.stream.MalformedJsonException: invalid number or unquoted string near 
+13:11:12 INFO  : Registering command handlers for SDK TCF services
+13:11:13 INFO  : Launching XSCT server: xsct.bat -interactive D:\Git\cuhk-ceng3430\Project\ceng3430_proj_renderer3d\ceng3430_proj_renderer3d.sdk\temp_xsdb_launch_script.tcl
+13:11:17 INFO  : XSCT server has started successfully.
+13:11:20 INFO  : Successfully done setting XSCT server connection channel  
+13:11:20 INFO  : Successfully done setting SDK workspace  
+13:11:20 INFO  : Processing command line option -hwspec D:/Git/cuhk-ceng3430/Project/ceng3430_proj_renderer3d/ceng3430_proj_renderer3d.sdk/cube_renderering_system_wrapper.hdf.
+13:11:20 INFO  : Checking for hwspec changes in the project cube_renderering_system_wrapper_hw_platform_0.
+13:11:44 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+13:11:44 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Zed 210248657233" && level==0} -index 1' command is executed.
+13:11:47 INFO  : FPGA configured successfully with bitstream "D:/Git/cuhk-ceng3430/Project/ceng3430_proj_renderer3d/ceng3430_proj_renderer3d.sdk/cube_renderering_system_wrapper_hw_platform_0/cube_renderering_system_wrapper.bit"
+13:11:56 INFO  : ps7_init is completed.
+13:11:57 INFO  : ps7_post_config is completed.
+13:11:57 INFO  : Processor reset is completed for ps7_cortexa9_0

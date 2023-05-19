@@ -27,14 +27,6 @@
 #define SW_5 1024
 #define SW_6 2048
 #define SW_7 4096
-#define MASK_SW_0(x) (x & SW_0)
-#define MASK_SW_1(x) (x & SW_1)
-#define MASK_SW_2(x) (x & SW_2)
-#define MASK_SW_3(x) (x & SW_3)
-#define MASK_SW_4(x) (x & SW_4)
-#define MASK_SW_5(x) (x & SW_5)
-#define MASK_SW_6(x) (x & SW_6)
-#define MASK_SW_7(x) (x & SW_7)
 
 u32 get_btn(int BTN);
 u32 get_sw();

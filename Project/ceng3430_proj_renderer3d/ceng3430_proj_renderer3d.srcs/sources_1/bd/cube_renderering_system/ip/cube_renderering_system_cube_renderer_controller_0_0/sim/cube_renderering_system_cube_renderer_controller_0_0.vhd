@@ -47,7 +47,7 @@
 -- DO NOT MODIFY THIS FILE.
 
 -- IP VLNV: xilinx.com:user:cube_renderer_controller:2.1
--- IP Revision: 11
+-- IP Revision: 21
 
 LIBRARY ieee;
 USE ieee.std_logic_1164.ALL;

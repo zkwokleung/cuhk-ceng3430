@@ -1,8 +1,8 @@
-00:11:42 **** Incremental Build of configuration Debug for project cube_renderer ****
+13:11:49 **** Incremental Build of configuration Debug for project cube_renderer ****
 make pre-build main-build 
 a9-linaro-pre-build-step
 ' '
 make: Nothing to be done for `main-build'.
 
-00:11:42 Build Finished (took 423ms)
+13:11:50 Build Finished (took 550ms)
 
