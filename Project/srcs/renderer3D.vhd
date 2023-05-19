@@ -27,7 +27,15 @@ ARCHITECTURE renderer3D_arch OF renderer3D IS
             on_segment : OUT STD_LOGIC
         );
     END COMPONENT;
-    
+
+    -- COMPONENT bresenham IS
+    --     PORT (
+    --         CLK : IN STD_LOGIC;
+    --         POINT, V_START, V_END : IN vec2;
+    --         DRAW_SIGNAL : OUT STD_LOGIC
+    --     );
+    -- END COMPONENT;
+
     -- The signals determining whether the current pixel should be drawn.
     -- Bits 19..12 are the signals for lines drawning
     -- Bits 11..0 are the signals for vertices drawning
@@ -69,6 +77,35 @@ BEGIN
             on_segment => draw_signal(i + 8)
         );
     END GENERATE;
+
+    -- bersenhams_i : FOR i IN 0 TO 3 GENERATE
+    --     bersenham_i : bresenham
+    --     PORT MAP(
+    --         CLK => CLK,
+    --         POINT => point,
+    --         V_START => cube_screen_vertices(i),
+    --         V_END => cube_screen_vertices((i + 1) MOD 4),
+    --         DRAW_SIGNAL => draw_signal(i)
+    --     );
+
+    --     bersenham_j : bresenham
+    --     PORT MAP(
+    --         CLK => CLK,
+    --         POINT => point,
+    --         V_START => cube_screen_vertices(i + 4),
+    --         V_END => cube_screen_vertices(((i + 1) MOD 4) + 4),
+    --         DRAW_SIGNAL => draw_signal(i + 4)
+    --     );
+
+    --     bersenham_k : bresenham
+    --     PORT MAP(
+    --         CLK => CLK,
+    --         POINT => point,
+    --         V_START => cube_screen_vertices(i),
+    --         V_END => cube_screen_vertices(i + 4),
+    --         DRAW_SIGNAL => draw_signal(i + 8)
+    --     );
+    -- END GENERATE;
 
     -- Determine if the current pixel is the vertex of the cube
     PROCESS (COOR_H, COOR_V, cube_screen_vertices)
