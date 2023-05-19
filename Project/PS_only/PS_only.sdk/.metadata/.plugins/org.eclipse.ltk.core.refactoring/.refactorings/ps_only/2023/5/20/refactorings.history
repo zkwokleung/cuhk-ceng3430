@@ -1,3 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<session version="1.0">&#x0A;<refactoring comment="Rename resource &apos;ps_only/src/helloworld.c&apos; to &apos;sopfns.c&apos;" description="Rename resource &apos;helloworld.c&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="src/helloworld.c" name="sopfns.c" stamp="1684324034521" updateReferences="true"/>&#x0A;<refactoring comment="Rename resource &apos;ps_only/src/sopfns.c&apos; to &apos;helloworld.c&apos;" description="Rename resource &apos;sopfns.c&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="src/sopfns.c" name="helloworld.c" stamp="1684324220612" updateReferences="true"/>
-</session>

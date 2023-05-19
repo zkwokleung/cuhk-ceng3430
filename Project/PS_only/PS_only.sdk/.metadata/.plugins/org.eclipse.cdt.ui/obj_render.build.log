@@ -1,8 +1,0 @@
-06:18:13 **** Incremental Build of configuration Debug for project obj_render ****
-make pre-build main-build 
-a9-linaro-pre-build-step
-' '
-make: Nothing to be done for `main-build'.
-
-06:18:13 Build Finished (took 314ms)
-
